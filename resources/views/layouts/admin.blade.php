@@ -217,6 +217,22 @@
 
 
 
+<li class="nav-item">
+    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+        data-target="#submenu-team" aria-controls="submenu-team">
+        <i class="fas fa-users"></i> Team
+    </a>
+    <div id="submenu-team" class="collapse submenu">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('team.index') }}">View Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('team.create') }}">Add Team Member</a>
+            </li>
+        </ul>
+    </div>
+</li>
 
 
                             <li class="nav-item">

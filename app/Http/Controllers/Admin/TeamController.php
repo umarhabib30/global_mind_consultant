@@ -102,7 +102,7 @@ class TeamController extends Controller
     public function update(Request $request)
     {
         $team = Team::findOrFail($request->id);
-        $data=[
+        $data = [
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -127,7 +127,7 @@ class TeamController extends Controller
         }
 
         $team->update($data);
-        return redirect()->back();
+        return redirect()->route('team.index')->with('success', 'Team member updated successfully');
     }
 
     /**
