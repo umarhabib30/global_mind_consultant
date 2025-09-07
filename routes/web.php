@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,16 @@ Route::get('admin/team/edit/{id}', [TeamController::class, 'edit'])->name('team.
 Route::post('admin/team/update', [TeamController::class, 'update'])->name('team.update');
 Route::get('admin/team/destroy/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
 Route::get('admin/team/details/{id}', [TeamController::class, 'show'])->name('team.show');
+
+
+// EVENT ROUTES
+Route::get('admin/event/index', [EventController::class, 'index'])->name('event.index');
+Route::get('admin/event/create', [EventController::class, 'create'])->name('event.create');
+Route::post('admin/event/store', [EventController::class, 'store'])->name('event.store');
+Route::get('admin/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
+Route::post('admin/event/update', [EventController::class, 'update'])->name('event.update');
+Route::get('admin/event/destroy/{id}', [EventController::class, 'destroy'])->name('event.destroy');
+Route::get('admin/event/details/{id}', [EventController::class, 'show'])->name('event.show');
 
 
 

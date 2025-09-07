@@ -216,7 +216,7 @@
 
 
 
-
+<!-- Team Menu -->
 <li class="nav-item">
     <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
         data-target="#submenu-team" aria-controls="submenu-team">
@@ -229,6 +229,24 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('team.create') }}">Add Team Member</a>
+            </li>
+        </ul>
+    </div>
+</li>
+
+<!-- Event Menu -->
+<li class="nav-item">
+    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+        data-target="#submenu-event" aria-controls="submenu-event">
+        <i class="fas fa-calendar-alt"></i> Event
+    </a>
+    <div id="submenu-event" class="collapse submenu">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('event.index') }}">View Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('event.create') }}">Add Event</a>
             </li>
         </ul>
     </div>
