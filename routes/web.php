@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +43,6 @@ Route::get('admin/event/details/{id}', [EventController::class, 'show'])->name('
 
 
 //USER ROUTES
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', action: [HomeController::class, 'index']);
+Route::get('/services', action: [ServicesController::class, 'index']);
+
