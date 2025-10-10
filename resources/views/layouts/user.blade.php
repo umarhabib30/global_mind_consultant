@@ -15,151 +15,110 @@
   </head>
   <body>
     <!-----------------------------------NAVBAR----------------------------------------------- -->
-    <nav class="bg-white fixed w-full p-2 left-0 z-50">
-      <div class="px-6 mx-auto">
-        <div class="flex justify-between items-center h-16">
-          <!-- Logo -->
-          <div class="flex-shrink-0">
-            <img src="images/logo.png" alt="Logo" class="h-[130px] w-auto" />
-          </div>
+<nav class="bg-white fixed w-full p-2 left-0 z-50 shadow-md">
+  <div class="px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img src="images/logo.png" alt="Logo" class="h-[70px] w-auto sm:h-[90px] md:h-[110px] lg:h-[130px]" />
+      </div>
 
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex space-x-8 items-center">
-            <a href="#" class="text-[#48464C] hover:text-[#74BF1A]">About Us</a>
-            <a href="#" class="text-[#48464C] hover:text-[#74BF1A]">Events</a>
-            <a href="#" class="text-[#48464C] hover:text-[#74BF1A]">Blog</a>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8 items-center font-semibold">
+        <a href="#" class="text-[#48464C] hover:text-[#74BF1A] transition">About Us</a>
+        <a href="#" class="text-[#48464C] hover:text-[#74BF1A] transition">Events</a>
+        <a href="#" class="text-[#48464C] hover:text-[#74BF1A] transition">Blog</a>
 
-            <!-- Services Dropdown -->
-            <div class="relative group">
-              <button
-                class="text-[#48464C] hover:text-[#74BF1A] flex items-center"
-              >
-                Services <i class="fa-solid fa-chevron-down ml-1 text-sm"></i>
-              </button>
-              <div
-                class="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden group-hover:block"
-              >
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-                  >Service 1</a
-                >
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-                  >Service 2</a
-                >
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-                  >Service 3</a
-                >
-              </div>
-            </div>
+        <!-- Services Dropdown -->
+        <div class="relative group">
+          <button class="text-[#48464C] hover:text-[#74BF1A] flex items-center transition">
+            Services
+          </button>
+        </div>
 
-            <!-- Study Destinations Dropdown -->
-            <div class="relative group">
-              <button
-                class="text-[#48464C] hover:text-[#74BF1A] flex items-center"
-              >
-                Study Destinations
-                <i class="fa-solid fa-chevron-down ml-1 text-sm"></i>
-              </button>
-              <div
-                class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg hidden group-hover:block"
-              >
-                <a href="#" class="block px-4 py-2 hover:text-[#74BF1A]">USA</a>
-                <a href="#" class="block px-4 py-2 hover:text-[#74BF1A]">UK</a>
-                <a href="#" class="block px-4 py-2 hover:text-[#74BF1A]"
-                  >Canada</a
-                >
-                <a href="#" class="block px-4 py-2 hover:text-[#74BF1A]"
-                  >Australia</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Button -->
-          <div class="hidden md:flex">
-            <a
-              href="#"
-              class="bg-[#74BF1A] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
-            >
-              Book free counselling →
-            </a>
-          </div>
-
-          <!-- Mobile Menu Button -->
-          <div class="md:hidden flex items-center">
-            <button
-              id="mobile-menu-btn"
-              class="text-[#48464C] focus:outline-none"
-            >
-              <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-          </div>
+        <!-- Study Destinations Dropdown -->
+        <div class="relative group">
+          <button class="text-[#48464C] hover:text-[#74BF1A] flex items-center transition">
+            Study Destinations
+          </button>
         </div>
       </div>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-white px-4 pb-4 space-y-2"
-      >
-        <a href="#" class="block py-2 text-[#48464C] hover:text-[#74BF1A]"
-          >About Us</a
-        >
-        <a href="#" class="block py-2 text-[#48464C] hover:text-[#74BF1A]"
-          >Events</a
-        >
-        <a href="#" class="block py-2 text-[#48464C] hover:text-[#74BF1A]"
-          >Blog</a
-        >
-
-        <!-- Mobile Services Dropdown -->
-        <details>
-          <summary
-            class="cursor-pointer py-2 text-[#48464C] hover:text-[#74BF1A] flex justify-between"
-          >
-            Services <i class="fa-solid fa-chevron-down"></i>
-          </summary>
-          <div class="pl-4">
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">Service 1</a>
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">Service 2</a>
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">Service 3</a>
-          </div>
-        </details>
-
-        <!-- Mobile Study Destinations Dropdown -->
-        <details>
-          <summary
-            class="cursor-pointer py-2 text-[#48464C] hover:text-[#74BF1A] flex justify-between"
-          >
-            Study Destinations <i class="fa-solid fa-chevron-down"></i>
-          </summary>
-          <div class="pl-4">
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">USA</a>
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">UK</a>
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">Canada</a>
-            <a href="#" class="block py-2 hover:text-[#74BF1A]">Australia</a>
-          </div>
-        </details>
-
-        <!-- Mobile Button -->
+      <!-- Right Button -->
+      <div class="hidden md:flex">
         <a
           href="#"
-          class="block bg-[#74BF1A] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
+          class="bg-[#74BF1A] text-white px-4 py-2 rounded-lg font-medium hover:bg-green-600 transition"
         >
-          Book free counselling →
+          Book free counselling <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
-    </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-[#48464C] focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<!-- Mobile Menu Fullscreen -->
+<div
+  id="mobile-menu"
+  class="hidden fixed inset-0 bg-white z-40 flex flex-col items-start justify-start px-6 pt-20 space-y-6 font-semibold text-lg"
+>
+  <!-- Close button -->
+  <button id="close-menu-btn" class="absolute top-4 right-6 text-3xl text-[#48464C]">
+    <i class="fa-solid fa-times"></i>
+  </button>
+
+  <a href="#" class="block text-[#48464C] hover:text-[#74BF1A] transition">About Us</a>
+  <a href="#" class="block text-[#48464C] hover:text-[#74BF1A] transition">Events</a>
+  <a href="#" class="block text-[#48464C] hover:text-[#74BF1A] transition">Blog</a>
+
+  <!-- Services -->
+  <a href="#"
+    class="flex items-center justify-between w-full text-[#48464C] hover:text-[#74BF1A] transition"
+  >
+    Services
+
+  </a>
+
+  <!-- Study Destinations -->
+  <a href="#"
+    class="flex items-center justify-between w-full text-[#48464C] hover:text-[#74BF1A] transition"
+  >
+    Study Destinations
+
+  </a>
+
+  <a
+    href="#"
+    class="bg-[#74BF1A] text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition mt-6 w-full text-center"
+  >
+    Book free counselling <i class="fa-solid fa-arrow-right"></i>
+  </a>
+</div>
+
+
+</nav>
+
+
+
+
     @yield('content')
+    <script src="{{asset('assets/js/menu.js')}}"></script>
 
       <!------------------------ footer----------------------------------  -->
-    <section>
+    <section >
       <footer
-        class="flex flex-wrap lg:flex-nowrap justify-between gap-10 mr-5 ml-5 lg:mr-20 lg:ml-10"
+        class="flex flex-wrap lg:flex-nowrap justify-between px-6 md:px-12 "
       >
         <!-- 1st part  -->
-        <div class="w-full sm:w-1/2 lg:w-auto">
+        <div class="w-full sm:w-1/2 lg:w-auto ">
           <img src="images/logo.png" class="w-56" alt="logo" />
-          <p class="w-full sm:w-72 lg:w-96 mt-3">
+          <p class="w-full sm:w-72 lg:w-96 ">
             Global Minds Consultant - Pakistan’s #1 Abroad Consultant. Trusted
             by 1500+ people.
           </p>
