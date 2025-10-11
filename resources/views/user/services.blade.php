@@ -1202,14 +1202,14 @@
           </div>
 
           <!-- Submit Button -->
-          <div class="mt-6 flex items-center justify-center">
-            <button
-              type="submit"
-              class="bg-[#74BF1A] text-white px-6 md:px-16 py-3 rounded-lg w-full sm:w-auto font-medium text-sm sm:text-base hover:bg-green-600 transition"
-            >
-              Submit
-            </button>
-          </div>
+            <div class="hidden md:flex items-center justify-center">
+                <a
+                  href="#"
+                  class="bg-[#74BF1A] text-white px-6 md:px-32 font-bold py-3 rounded-lg hover:bg-green-600 transition"
+                >
+                  Submit
+                </a>
+              </div>
         </div>
       </div>
     </div>

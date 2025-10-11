@@ -937,7 +937,7 @@
               <div class="hidden md:flex items-center justify-center">
                 <a
                   href="#"
-                  class="bg-[#74BF1A] text-white px-20 py-3 rounded-lg hover:bg-green-600 transition"
+                  class="bg-[#74BF1A] text-white px-6 md:px-32 font-bold py-3 rounded-lg hover:bg-green-600 transition"
                 >
                   Submit
                 </a>

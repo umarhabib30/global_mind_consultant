@@ -3,8 +3,14 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\User\BlogController;
+use App\Http\Controllers\User\ConsultationFormController;
+use App\Http\Controllers\User\DestinationController;
+use App\Http\Controllers\User\EventsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ServicesController;
+use App\Http\Controllers\User\SingleBlogController;
+use App\Http\Controllers\User\SingleEventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,4 +51,11 @@ Route::get('admin/event/details/{id}', [EventController::class, 'show'])->name('
 //USER ROUTES
 Route::get('/', action: [HomeController::class, 'index']);
 Route::get('/services', action: [ServicesController::class, 'index']);
+Route::get('/destination', action: [DestinationController::class, 'index']);
+Route::get('/consultation-form', action: [ConsultationFormController::class, 'index']);
+Route::get('/events', action: [EventsController::class, 'index']);
+Route::get('/single-event', action: [SingleEventController::class, 'index']);
+Route::get('/blog', action: [BlogController::class, 'index']);
+Route::get('/single-blog', action: [SingleBlogController::class, 'index']);
+
 
