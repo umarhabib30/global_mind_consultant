@@ -12,7 +12,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-                return view('user.destination');
+                return view(view: 'user.destination');
 
     }
 

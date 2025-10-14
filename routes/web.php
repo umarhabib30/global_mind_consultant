@@ -3,8 +3,10 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\User\AboutController;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\ConsultationFormController;
+use App\Http\Controllers\User\CourseFilterController;
 use App\Http\Controllers\User\DestinationController;
 use App\Http\Controllers\User\EventsController;
 use App\Http\Controllers\User\HomeController;
@@ -49,13 +51,13 @@ Route::get('admin/event/details/{id}', [EventController::class, 'show'])->name('
 
 
 //USER ROUTES
-Route::get('/', action: [HomeController::class, 'index']);
-Route::get('/services', action: [ServicesController::class, 'index']);
-Route::get('/destination', action: [DestinationController::class, 'index']);
-Route::get('/consultation-form', action: [ConsultationFormController::class, 'index']);
-Route::get('/events', action: [EventsController::class, 'index']);
-Route::get('/single-event', action: [SingleEventController::class, 'index']);
-Route::get('/blog', action: [BlogController::class, 'index']);
-Route::get('/single-blog', action: [SingleBlogController::class, 'index']);
-
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+Route::get('/destination', [DestinationController::class, 'index'])->name('destination');
+Route::get('/consultation-form', [ConsultationFormController::class, 'index'])->name('consultation');
+Route::get('/events', [EventsController::class, 'index'])->name('events');
+Route::get('/single-event', [SingleEventController::class, 'index'])->name('single-event');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/single-blog', [SingleBlogController::class, 'index'])->name('single-blog');
+Route::get('/course-filter', [CourseFilterController::class, 'index'])->name('course-filter');

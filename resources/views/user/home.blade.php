@@ -1,35 +1,171 @@
 @extends('layouts.user')
 @section('content')
     <!-----------------------------------HERO SECTION----------------------------------------------->
-    <section
-      class="relative bg-[url('/images/hero-bg.jpg')] bg-cover bg-top w-full h-screen flex items-center justify-center pb-18"
-    >
-      <!-- Content -->
-      <div
-        class="relative z-10 flex items-center justify-end h-full max-w-7xl mx-auto px-6 mt "
-      >
-        <div class="w-full md:w-1/2 text-white">
-      <h1
-  class="text-3xl md:text-5xl font-semibold leading-snug md:leading-tight mb-6 mt-20"
+   <section
+  class="relative bg-[url('/images/home-01.png')] bg-cover bg-top w-full h-screen flex items-center justify-center pb-18"
 >
-  Your Journey to Global<br />Education Starts Here<br />with Global Minds
-</h1>
-<p class="text-base md:text-lg leading-relaxed mb-8">
-  Global Minds Consultants helps you unlock international opportunities with
-  expert study abroad guidance. From selecting top universities to securing
-  admissions and visas, we make your dream of studying overseas simple,
-  smooth, and successful. Let’s build your future together.
-</p>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/30"></div>
 
-          <a
-            href="#"
-            class="bg-[#74BF1A] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition inline-block shadow-lg hover:scale-105 transform font-bold"
+  <!-- Content -->
+  <div
+    class="relative z-10 flex items-center justify-end h-full max-w-7xl mx-auto px-6"
+  >
+    <div class="w-full md:w-1/2 text-white">
+      <h1
+        class="text-3xl md:text-5xl font-semibold leading-snug md:leading-tight mb-6 mt-20"
+      >
+        Your Journey to Global<br />Education Starts Here<br />with Global Minds
+      </h1>
+      <p class="text-base md:text-lg leading-relaxed mb-8">
+        Global Minds Consultants helps you unlock international opportunities
+        with expert study abroad guidance. From selecting top universities to
+        securing admissions and visas, we make your dream of studying overseas
+        simple, smooth, and successful. Let’s build your future together.
+      </p>
+
+         <div class="hidden md:flex">
+        <button
+          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
+          </span>
+          <!-- Animated overlay -->
+          <span
+            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+          ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-----------------------------------SEARCH SECTION----------------------------------------------->
+
+<section class="bg-[#F6F6F6] py-[90px]">
+  <div x-data="{ activeTab: 'Courses' }" class="max-w-6xl mx-auto px-4 md:px-12 relative">
+    <!-- Tabs -->
+    <div class="bg-white rounded-xl shadow-md">
+      <div class="flex overflow-x-auto md:overflow-visible border-b">
+        @php
+          $tabs = ['Courses', 'Universities', 'Scholarships', 'English Courses'];
+        @endphp
+
+        @foreach($tabs as $tab)
+          <button
+            class="flex-shrink-0 w-1/2 sm:w-1/4 text-center py-3 font-medium text-gray-700 hover:text-[#74BF1A] border-b-2 transition-all duration-200"
+            x-on:click="activeTab = '{{ $tab }}'"
+            :class="activeTab === '{{ $tab }}' ? 'border-[#74BF1A] text-[#74BF1A]' : 'border-transparent'"
           >
-            Book free counselling <i class="fa-solid fa-arrow-right font-bold"></i>
-          </a>
+            {{ $tab }}
+          </button>
+        @endforeach
+      </div>
+
+      <!-- Tab Content -->
+      <div class="p-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+          <!-- Custom Dropdown 1 -->
+          <div x-data="{ open: false, selected: 'Select by Course', options: ['Computer Science', 'Business', 'Economics'] }" class="relative">
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center border rounded-md px-4 py-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#74BF1A]"
+            >
+              <span x-text="selected"></span>
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <ul
+              x-show="open"
+              @click.away="open = false"
+              class="absolute left-0 w-full mt-1 bg-white border rounded-md shadow-lg max-h-56 overflow-auto z-50"
+            >
+              <template x-for="option in options" :key="option">
+                <li
+                  @click="selected = option; open = false"
+                  class="px-4 py-2 text-gray-700 hover:bg-[#F6F6F6] cursor-pointer"
+                  x-text="option"
+                ></li>
+              </template>
+            </ul>
+          </div>
+
+          <!-- Custom Dropdown 2 -->
+          <div x-data="{ open: false, selected: 'Select Degree', options: ['Bachelor', 'Master', 'PhD'] }" class="relative">
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center border rounded-md px-4 py-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#74BF1A]"
+            >
+              <span x-text="selected"></span>
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <ul
+              x-show="open"
+              @click.away="open = false"
+              class="absolute left-0 w-full mt-1 bg-white border rounded-md shadow-lg max-h-56 overflow-auto z-50"
+            >
+              <template x-for="option in options" :key="option">
+                <li
+                  @click="selected = option; open = false"
+                  class="px-4 py-2 text-gray-700 hover:bg-[#F6F6F6] cursor-pointer"
+                  x-text="option"
+                ></li>
+              </template>
+            </ul>
+          </div>
+
+          <!-- Custom Dropdown 3 -->
+          <div x-data="{ open: false, selected: 'Funding Type', options: ['Scholarship', 'Self-funded', 'Partial Funding'] }" class="relative">
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center border rounded-md px-4 py-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#74BF1A]"
+            >
+              <span x-text="selected"></span>
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <ul
+              x-show="open"
+              @click.away="open = false"
+              class="absolute left-0 w-full mt-1 bg-white border rounded-md shadow-lg max-h-56 overflow-auto z-50"
+            >
+              <template x-for="option in options" :key="option">
+                <li
+                  @click="selected = option; open = false"
+                  class="px-4 py-2 text-gray-700 hover:bg-[#F6F6F6] cursor-pointer"
+                  x-text="option"
+                ></li>
+              </template>
+            </ul>
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Search Button  -->
+    <div class="absolute left-1/2 -bottom-6 transform -translate-x-1/2 translate-y-2">
+      <button
+        class="bg-[#0A245D] text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-900 flex items-center gap-2"
+      >
+        Search
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
 
   <!----------------------------------- WHY CHOOSE US SECTION ----------------------------------------------->
 <section class="py-16 bg-white">
@@ -109,14 +245,20 @@
             dedicated support, we ensure your journey is smooth and successful.
           </p>
         </div>
-        <div class="mt-6">
-          <a
-            href="#"
-            class="bg-[#74BF1A] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
-          >
-            Apply Now
-          </a>
-        </div>
+
+         <div class="hidden md:flex">
+        <button
+          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+           Apply Now
+          </span>
+          <!-- Animated overlay -->
+          <span
+            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+          ></span>
+        </button>
+      </div>
       </div>
     </div>
   </div>
@@ -353,22 +495,22 @@
       </button>
 
       <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2" data-target="uk">
-        <img src="{{ asset('images/flags/uk.png') }}" alt="UK Flag" class="w-6 h-4 object-cover rounded-sm">
-        United Kingdom
+        <img src="{{ asset('images/ukFlag.png') }}" alt="UK Flag" class="w-12 h-12 object-cover rounded-sm">
+        UK
       </button>
 
       <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2" data-target="germany">
-        <img src="{{ asset('images/flags/germany.png') }}" alt="Germany Flag" class="w-6 h-4 object-cover rounded-sm">
+        <img src="{{ asset('images/germanyFlag.png') }}" alt="Germany Flag" class="w-12 h-12 object-cover rounded-sm">
         Germany
       </button>
 
       <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2" data-target="australia">
-        <img src="{{ asset('images/flags/australia.png') }}" alt="Australia Flag" class="w-6 h-4 object-cover rounded-sm">
+        <img src="{{ asset('images/australiaFlag.png') }}" alt="Australia Flag" class="w-12 h-12 object-cover rounded-sm">
         Australia
       </button>
 
       <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2" data-target="canada">
-        <img src="{{ asset('images/flags/canada.png') }}" alt="Canada Flag" class="w-6 h-4 object-cover rounded-sm">
+        <img src="{{ asset('images/canadaFlag.png') }}" alt="Canada Flag" class="w-12 h-12 object-cover rounded-sm">
         Canada
       </button>
 
@@ -547,29 +689,33 @@
 
     <!-----------------------------------JOURNEY SECTION ----------------------------------------------->
 
-<section class="py-16 bg-[#F6F6F6]">
-  <div class="px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-    <!-- Left Side  -->
-    <div class="flex gap-6">
+<section class=" py-16 bg-[#F6F6F6]">
+  <div class="px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-20">
+    <!-- Left Side -->
+    <div class="flex w-full md:h-[32rem] lg:h-[28rem]">
+      <!-- Show only this image on mobile -->
       <img
-        src="images/journey1.png"
-        alt="Journey 1"
-        class="w-1/2 "
+        src="images/home-02.png"
+        alt="home-02"
+          class="w-full h-[12rem] object-cover rounded-lg md:rounded-none md:rounded-l-lg md:w-3/5 md:h-[75%] self-center"
+
       />
+
+      <!-- Hide this image on mobile -->
       <img
-        src="images/journey2.png"
-        alt="Journey 2"
-        class="w-1/2  mt-10"
+        src="images/home-03.png"
+        alt="home-03"
+        class="hidden md:block w-3/5 h-full object-cover rounded-lg"
       />
     </div>
 
-    <!-- Right Side  -->
+    <!-- Right Side -->
     <div>
       <h2 class="text-2xl md:text-3xl font-bold mb-4">
         Your Journey to Study <br /> Abroad Starts with Us.
       </h2>
       <p class="text-gray-600 mb-6 leading-relaxed">
-       Studying abroad opens the door to world-class education, new cultures,
+        Studying abroad opens the door to world-class education, new cultures,
         and endless opportunities. Whether you dream of pursuing higher studies
         in leading universities or exploring global career paths, we provide the
         right guidance every step of the way. From choosing the perfect program
@@ -581,14 +727,23 @@
         and start building a brighter future today. Let’s turn your study abroad
         dream into reality.
       </p>
-      <button
-        class="px-6 py-3 bg-[#74BF1A] text-white rounded-lg font-semibold hover:bg-green-600 transition"
-      >
-        Book a Consultation Call
-      </button>
+      <div class="hidden md:flex">
+        <button
+          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+         Book Free consultation
+          </span>
+          <!-- Animated overlay -->
+          <span
+            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+          ></span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
+
 
 
     <!-----------------------------------DISCOVER TOP FIELDS  SECTION ----------------------------------------------->
@@ -614,9 +769,9 @@
             class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-xl transition"
           >
             <img
-              src="images/fields.jpg"
+              src="images/home-05.png"
               alt="Law"
-              class="w-full h-48 object-cover rounded-t-2xl"
+              class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">Law</h2>
@@ -636,9 +791,9 @@
             class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-xl transition"
           >
             <img
-              src="images/fields.jpg"
+              src="images/home-06.png"
               alt="Engineering"
-              class="w-full h-48 object-cover rounded-t-2xl"
+              class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">Engineering</h2>
@@ -657,9 +812,9 @@
             class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-xl transition"
           >
             <img
-              src="images/fields.jpg"
+              src="images/home-07.png"
               alt="Medicine"
-              class="w-full h-48 object-cover rounded-t-2xl"
+              class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">Medicine</h2>
@@ -678,9 +833,9 @@
             class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-xl transition"
           >
             <img
-              src="images/fields.jpg"
+              src="images/home-08.png"
               alt="Business"
-              class="w-full h-48 object-cover rounded-t-2xl"
+              class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">Business</h2>
@@ -698,9 +853,9 @@
             class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-xl transition"
           >
             <img
-              src="images/fields.jpg"
+              src="images/home-09.png"
               alt="IT"
-              class="w-full h-48 object-cover rounded-t-2xl"
+              class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">IT & Computer Science</h2>
@@ -718,9 +873,9 @@
             class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-xl transition"
           >
             <img
-              src="images/fields.jpg"
+              src="images/home-10.png"
               alt="Arts"
-              class="w-full h-48 object-cover rounded-t-2xl"
+              class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">Arts & Humanities</h2>
@@ -797,7 +952,7 @@
       <!-- Right Side -->
       <div class="text-center lg:text-left">
         <img
-          src="images/study.jpg"
+          src="images/home-04.png"
           alt="Study Abroad"
           class="mx-auto lg:mx-0 rounded-2xl shadow-lg mb-6 w-full max-w-md lg:max-w-none"
         />
@@ -810,11 +965,19 @@
         <p class="mt-4 text-gray-700">
           Our mission is to make studying abroad stress-free and achievable. We stand by you every step of the way — from your first consultation to your first day on campus.
         </p>
+        <div class="hidden md:flex mt-6">
         <button
-          class="px-6 py-3 mt-10 bg-[#74BF1A] text-white rounded-lg font-semibold hover:bg-green-600 transition"
+          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
         >
+          <span class="relative z-10 flex items-center gap-2">
           Start Your Journey
+          </span>
+          <!-- Animated overlay -->
+          <span
+            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+          ></span>
         </button>
+      </div>
       </div>
     </div>
   </div>
@@ -830,7 +993,7 @@
               class="overflow-hidden rounded-2xl shadow-lg w-full h-[800px] my-auto"
             >
               <img
-                src="images/services-form.png"
+                src="images/home-11.png"
                 alt="Students"
                 class="w-full h-full object-cover rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl"
               />
@@ -941,6 +1104,7 @@
                 >
                   Submit
                 </a>
+
               </div>
             </div>
           </div>
