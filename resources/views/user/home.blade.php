@@ -2,9 +2,8 @@
 @section('content')
     <!-----------------------------------HERO SECTION----------------------------------------------->
    <section
-  class="relative bg-[url('/images/home-01.png')] bg-cover bg-top w-full h-screen flex items-center justify-center pb-18"
+  class="relative bg-[url('/images/home-01.png')] bg-cover bg-top w-full min-h-screen flex items-center justify-center pb-22"
 >
-  <!-- Overlay -->
   <div class="absolute inset-0 bg-black/30"></div>
 
   <!-- Content -->
@@ -15,7 +14,7 @@
       <h1
         class="text-3xl md:text-5xl font-semibold leading-snug md:leading-tight mb-6 mt-20"
       >
-        Your Journey to Global<br />Education Starts Here<br />with Global Minds
+        Your Journey to Global Education Starts Here<br />with Global Minds
       </h1>
       <p class="text-base md:text-lg leading-relaxed mb-8">
         Global Minds Consultants helps you unlock international opportunities
@@ -24,18 +23,17 @@
         simple, smooth, and successful. Let’s build your future together.
       </p>
 
-         <div class="hidden md:flex">
-        <button
-          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
-        >
-          <span class="relative z-10 flex items-center gap-2">
-            Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
-          </span>
-          <!-- Animated overlay -->
-          <span
-            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-          ></span>
-        </button>
+         <div class=":flex">
+    <a href="/consultation-form"
+   class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
+
+    <span class="relative z-10 flex items-center gap-2">
+        Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
+    </span>
+
+    <span class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+</a>
+
       </div>
     </div>
   </div>
@@ -44,7 +42,7 @@
     <!-----------------------------------SEARCH SECTION----------------------------------------------->
 
 <section class="bg-[#F6F6F6] py-[90px]">
-  <div x-data="{ activeTab: 'Courses' }" class="max-w-6xl mx-auto px-4 md:px-12 relative">
+  <div x-data="{ activeTab: 'Courses' }" class="max-w-7xl mx-auto px-4 md:px-12 relative">
     <!-- Tabs -->
     <div class="bg-white rounded-xl shadow-md">
       <div class="flex overflow-x-auto md:overflow-visible border-b">
@@ -170,7 +168,6 @@
   <!----------------------------------- WHY CHOOSE US SECTION ----------------------------------------------->
 <section class="py-16 bg-white">
   <div class="px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-5xl font-bold mb-12">
       Why <span class="text-[#74BF1A]">Global Minds</span> is The Right
       Choice for You?
@@ -187,7 +184,7 @@
           <div class="text-3xl mb-4 text-[#74BF1A]">
             <i class="fa-solid fa-graduation-cap"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">
+          <h3 class="text-3xl font-bold text-gray-900 mb-2">
             <span class="text-[#092962]">2,500+</span> Global University Partners
           </h3>
           <p class="text-gray-600 text-base leading-relaxed">
@@ -202,7 +199,7 @@
           <div class="text-3xl mb-4 text-[#74BF1A]">
             <i class="fa-solid fa-university"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">
+          <h3 class="text-3xl font-bold text-gray-900 mb-2">
             <span class="text-[#092962]">Expert</span> Admission Guidance
           </h3>
           <p class="text-gray-600 text-base leading-relaxed">
@@ -217,7 +214,7 @@
           <div class="text-3xl mb-4 text-[#74BF1A]">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">
+          <h3 class="text-3xl font-bold text-gray-900 mb-2">
             <span class="text-[#092962]">Trusted</span> & Transparent Process
           </h3>
           <p class="text-gray-600 text-base leading-relaxed">
@@ -236,7 +233,7 @@
           <div class="text-3xl mb-4 text-[#74BF1A]">
             <i class="fa-solid fa-trophy"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">
+          <h3 class="text-3xl font-bold mb-2">
             <span class="text-[#74BF1A]">Proven</span> Success Stories
           </h3>
           <p class="text-base leading-relaxed">
@@ -247,17 +244,15 @@
         </div>
 
          <div class="hidden md:flex">
-        <button
-          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
-        >
-          <span class="relative z-10 flex items-center gap-2">
-           Apply Now
-          </span>
-          <!-- Animated overlay -->
-          <span
-            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-          ></span>
-        </button>
+         <a href="/services"
+   class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
+
+    <span class="relative z-10 flex items-center gap-2">
+        Apply Now
+    </span>
+
+    <span class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+</a>
       </div>
       </div>
     </div>
@@ -268,16 +263,14 @@
     <!-----------------------------------SUPPORT STUDENT SECTION ----------------------------------------------->
 <section class="py-16 bg-[#F6F6F6]">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-5xl font-bold mb-12 text-center">
       How do We <span class="text-[#74BF1A]">Support</span> Our Students?
     </h2>
 
-    <!-- Slider Wrapper -->
     <div class="relative overflow-hidden">
       <div id="slider" class="flex transition-transform duration-500 ease-in-out space-x-6">
 
-        <!-- Card Template -->
+        <!-- Card  -->
         <div class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)]
                     bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition
                     flex flex-col justify-between h-full md:h-[450px]">
@@ -285,7 +278,7 @@
             <div class="text-3xl mb-4 text-[#0A2D5A]">
               <i class="fa-solid fa-graduation-cap"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">
               Country and University Selection
             </h3>
             <p class="text-gray-600 mb-4">
@@ -298,7 +291,7 @@
               <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling sessions</li>
             </ul>
           </div>
-          <a href="#" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+         <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -311,7 +304,7 @@
             <div class="text-3xl mb-4 text-[#0A2D5A]">
               <i class="fa-solid fa-hand-holding-dollar"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">
               Scholarship Assistance
             </h3>
             <p class="text-gray-600 mb-4">
@@ -325,7 +318,7 @@
               <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling sessions</li>
             </ul>
           </div>
-          <a href="#" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+         <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -338,7 +331,7 @@
             <div class="text-3xl mb-4 text-[#0A2D5A]">
               <i class="fa-solid fa-briefcase"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">
               Career Guidance
             </h3>
             <p class="text-gray-600 mb-4">
@@ -352,7 +345,7 @@
               <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling sessions</li>
             </ul>
           </div>
-          <a href="#" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+      <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -365,7 +358,7 @@
             <div class="text-3xl mb-4 text-[#0A2D5A]">
               <i class="fa-solid fa-passport"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">
               Visa Assistance
             </h3>
             <p class="text-gray-600 mb-4">
@@ -379,7 +372,7 @@
               <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling sessions</li>
             </ul>
           </div>
-          <a href="#" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+          <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -409,9 +402,9 @@
     const totalSlides = slider.children.length;
 
     function getVisibleSlides() {
-      if (window.innerWidth >= 1024) return 3; // lg screens show 3 cards
-      if (window.innerWidth >= 640) return 2;  // sm screens show 2 cards
-      return 1; // xs screens show 1 card
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
     }
 
     // Update slider position
@@ -419,17 +412,13 @@
       const visibleSlides = getVisibleSlides();
       const maxSlide = Math.max(0, totalSlides - visibleSlides);
 
-      // Ensure currentSlide doesn't exceed bounds
       currentSlide = Math.min(currentSlide, maxSlide);
 
-      // Get the container width
       const containerWidth = slider.parentElement.offsetWidth;
 
-      // Calculate the width of each card including gap
       const cardWidth = slider.children[0].offsetWidth;
       const gap = 24;
 
-      // Calculate scroll amount
       const scrollAmount = currentSlide * (cardWidth + gap);
 
       slider.style.transform = `translateX(-${scrollAmount}px)`;
@@ -480,7 +469,6 @@
 <!-------------------------------------------------TABS SECTION--------------------------------------------------->
 <section class="py-16" id="partner-universities">
   <div class="px-6 md:px-12 text-center">
-    <!-- Heading -->
     <h2 class="text-3xl md:text-5xl font-bold mb-4 text-[#0A2D5A]">
       Our <span class="text-[#74BF1A]">Partner Universities</span>
     </h2>
@@ -529,7 +517,7 @@
       <div class="flex justify-center mb-4">
         <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}" class="w-24 h-24 object-contain">
       </div>
-      <h3 class="text-lg font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+      <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
       <p class="text-gray-600 text-sm text-left leading-relaxed">
         Globally reputed institution offering excellence in education and research.
       </p>
@@ -549,7 +537,7 @@
 
         <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}" class="w-24 h-24 object-contain mx-auto">
       </div>
-      <h3 class="text-lg font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+      <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
       <p class="text-gray-600 text-sm text-left leading-relaxed">
         Leading UK institution recognized for global excellence in research and academics.
       </p>
@@ -569,7 +557,7 @@
 
         <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}" class="w-24 h-24 object-contain">
       </div>
-      <h3 class="text-lg font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+      <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
       <p class="text-gray-600 text-sm text-left leading-relaxed">
         Prestigious German university known for innovation and quality education.
       </p>
@@ -589,7 +577,7 @@
 
         <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}" class="w-24 h-24 object-contain">
       </div>
-      <h3 class="text-lg font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+      <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
       <p class="text-gray-600 text-sm text-left leading-relaxed">
         Top-ranked Australian university fostering innovation and global collaboration.
       </p>
@@ -609,7 +597,7 @@
 
         <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}" class="w-24 h-24 object-contain">
       </div>
-      <h3 class="text-lg font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+      <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
       <p class="text-gray-600 text-sm text-left leading-relaxed">
         Canadian institution with world-class programs and diverse academic excellence.
       </p>
@@ -629,7 +617,7 @@
 
     <!-- More Universities -->
     <div class="mt-6">
-      <a href="/universities" class="text-[#74BF1A] font-semibold hover:underline hover:text-[#0A2D5A] transition">
+      <a href="#" class="text-[#74BF1A] font-semibold hover:underline hover:text-[#0A2D5A] transition">
         More Universities  <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
@@ -711,9 +699,12 @@
 
     <!-- Right Side -->
     <div>
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">
-        Your Journey to Study <br /> Abroad Starts with Us.
-      </h2>
+     <h2 class="text-2xl md:text-5xl leading-relaxed font-bold mb-4">
+    Your Journey to Study
+    <span class="block mt-4"></span>
+    Abroad Starts with Us.
+</h2>
+
       <p class="text-gray-600 mb-6 leading-relaxed">
         Studying abroad opens the door to world-class education, new cultures,
         and endless opportunities. Whether you dream of pursuing higher studies
@@ -727,18 +718,17 @@
         and start building a brighter future today. Let’s turn your study abroad
         dream into reality.
       </p>
-      <div class="hidden md:flex">
-        <button
-          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
-        >
-          <span class="relative z-10 flex items-center gap-2">
-         Book Free consultation
-          </span>
-          <!-- Animated overlay -->
-          <span
-            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-          ></span>
-        </button>
+         <div class=":flex">
+    <a href="/consultation-form"
+   class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
+
+    <span class="relative z-10 flex items-center gap-2">
+       Book a Consultation Call
+    </span>
+
+    <span class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+</a>
+
       </div>
     </div>
   </div>
@@ -749,7 +739,6 @@
     <!-----------------------------------DISCOVER TOP FIELDS  SECTION ----------------------------------------------->
     <section class="py-16">
       <div class="px-12">
-        <!-- Section Heading -->
 <div class="text-center max-w-5xl mx-auto mb-12">
   <h2 class="text-2xl md:text-4xl font-bold mb-6">
     Discover <span class="text-[#74BF1A]">Top Fields</span> in Studies
@@ -774,13 +763,13 @@
               class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
-              <h2 class="text-xl font-semibold mb-2">Law</h2>
+              <h2 class="text-2xl font-semibold mb-2">Law</h2>
              <p class="text-gray-600 mb-4">
-  Gain world-class education and hands-on experience that prepare you for success in a rapidly evolving global landscape.
+  Gain world-class education and hands-on experience that prepare you for success.
 
 </p>
 
-              <a href="#" class="text-[#0A2D5A] font-semibold hover:underline">
+              <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
                 Explore More  <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
@@ -796,12 +785,12 @@
               class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
-              <h2 class="text-xl font-semibold mb-2">Engineering</h2>
+              <h2 class="text-2xl font-semibold mb-2">Engineering</h2>
               <p class="text-gray-600 mb-4">
                 Explore innovative fields like mechanical, civil, and computer
                 engineering.
               </p>
-              <a href="#" class="text-[#0A2D5A] font-semibold hover:underline">
+                <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
                 Explore More  <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
@@ -817,12 +806,12 @@
               class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
-              <h2 class="text-xl font-semibold mb-2">Medicine</h2>
+              <h2 class="text-2xl font-semibold mb-2">Medicine</h2>
               <p class="text-gray-600 mb-4">
                 Join top universities for medical studies, research, and
                 healthcare training.
               </p>
-              <a href="#" class="text-[#0A2D5A] font-semibold hover:underline">
+                <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
                 Explore More  <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
@@ -838,11 +827,11 @@
               class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
-              <h2 class="text-xl font-semibold mb-2">Business</h2>
+              <h2 class="text-2xl font-semibold mb-2">Business</h2>
               <p class="text-gray-600 mb-4">
                 Study management, finance, and entrepreneurship worldwide.
               </p>
-              <a href="#" class="text-[#0A2D5A] font-semibold hover:underline">
+                <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
                 Explore More  <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
@@ -858,11 +847,11 @@
               class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
-              <h2 class="text-xl font-semibold mb-2">IT & Computer Science</h2>
+              <h2 class="text-2xl font-semibold mb-2">IT & Computer Science</h2>
               <p class="text-gray-600 mb-4">
                 Learn software engineering, AI, and data science globally.
               </p>
-              <a href="#" class="text-[#0A2D5A] font-semibold hover:underline">
+                <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
                 Explore More  <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
@@ -878,12 +867,12 @@
               class="w-full h-58 object-cover rounded-t-2xl"
             />
             <div class="p-6">
-              <h2 class="text-xl font-semibold mb-2">Arts & Humanities</h2>
+              <h2 class="text-2xl font-semibold mb-2">Arts & Humanities</h2>
               <p class="text-gray-600 mb-4">
                 Pursue studies in literature, history, psychology, and social
                 sciences.
               </p>
-              <a href="#" class="text-[#0A2D5A] font-semibold hover:underline">
+                <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
                 Explore More  <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
@@ -895,7 +884,6 @@
     <!-----------------------------------PROCESS SECTION ----------------------------------------------->
  <section class="py-16 bg-[#F6F6F6]">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
       Study <span class="text-[#74BF1A]">Abroad</span>
     </h2>
@@ -905,9 +893,7 @@
 
     <!-- Content -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-      <!-- Left Side: Steps -->
       <div class="space-y-6">
-        <!-- Reusable step card -->
         @php
           $steps = [
             ['Select Your Program', 'Choose the course that matches your career goals and interests.', 'fa-graduation-cap'],
@@ -966,17 +952,18 @@
           Our mission is to make studying abroad stress-free and achievable. We stand by you every step of the way — from your first consultation to your first day on campus.
         </p>
         <div class="hidden md:flex mt-6">
-        <button
-          class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300"
-        >
-          <span class="relative z-10 flex items-center gap-2">
-          Start Your Journey
-          </span>
-          <!-- Animated overlay -->
-          <span
-            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-          ></span>
-        </button>
+    <div class=":flex">
+    <a href="/destination"
+   class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
+
+    <span class="relative z-10 flex items-center gap-2">
+       Start Your Journey
+    </span>
+
+    <span class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+</a>
+
+      </div>
       </div>
       </div>
     </div>
@@ -1199,7 +1186,7 @@
             </div>
           </div>
 
-          <!-- small card 2 (dark) -->
+          <!-- small card 2  -->
           <div class="bg-[#041C47] rounded-2xl p-6 flex flex-col justify-between text-white shadow-lg">
             <div>
               <h4 class="text-lg md:text-xl font-semibold">Germany</h4>
@@ -1239,7 +1226,7 @@
         </div>
         <p class="text-xs md:text-sm text-gray-500 mt-2 sm:mt-0">Based on 1.5K+ reviews</p>
       </div>
-      <a href="#" class="text-sm md:text-base font-semibold text-[#092962] mt-4 sm:mt-0 hover:text-[#74BF1A] transition-all">
+      <a href="#" class="text-sm md:text-base font-bold text-[#092962] mt-4 sm:mt-0 hover:text-[#74BF1A] transition-all">
         View all reviews <i class="fa-solid fa-arrow-right ml-1"></i>
       </a>
     </div>

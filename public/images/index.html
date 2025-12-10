@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- NAV BAR -->
+    <nav class="fixed top-0 z-50 bg-white w-full">
+        <div class="flex justify-between items-center px-10">
+            <div class="h-20">
+                <img class="h-full" src="./logo.png" alt="" />
+            </div>
+
+            <!-- DESKTOP MENU -->
+            <ul class="hidden lg:flex justify-around items-center gap-20">
+                <li class="cursor-pointer hover:text-amber-200">About Us</li>
+                <li class="cursor-pointer hover:text-amber-200">Events</li>
+                <li class="cursor-pointer hover:text-amber-200">Blog</li>
+
+                <li>
+                    <select class="cursor-pointer hover:text-amber-200">
+                        <option value="">Services</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="in">India</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="us">United States</option>
+                    </select>
+                </li>
+
+                <li>
+                    <select class="cursor-pointer hover:text-amber-200">
+                        <option value="">Study Destination</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="in">India</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="us">United States</option>
+                    </select>
+                </li>
+            </ul>
+
+            <!-- BUTTON -->
+            <button
+                class="lg:flex hidden items-center gap-6 bg-[#74BF1A] hover:bg-green-400 text-white px-10 py-2.5 rounded-md cursor-pointer hover:shadow-md">
+                Booking free consulting
+                <span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="menuBtn" class="lg:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="hidden lg:hidden px-10 space-y-2.5 pb-4">
+            <ul class="w-full space-y-2">
+                <li class="cursor-pointer hover:text-amber-200">About Us</li>
+                <li class="cursor-pointer hover:text-amber-200">Events</li>
+                <li class="cursor-pointer hover:text-amber-200">Blog</li>
+
+                <li>
+                    <select class="cursor-pointer hover:text-amber-200">
+                        <option value="">Services</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="in">India</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="us">United States</option>
+                    </select>
+                </li>
+
+                <li>
+                    <select class="cursor-pointer hover:text-amber-200">
+                        <option value="">Study Destination</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="in">India</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="us">United States</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="h-screen w-full">
+        <div class="h-full w-full bg-[url('./Group.png')] bg-no-repeat bg-cover flex justify-center items-center">
+            <p class="text-7xl font-medium text-center text-white leading-[5.5rem]">
+                Explore Thousands of Programs <br /> across the World
+            </p>
+        </div>
+    </div>
+
+    <!-- ART -->
+    <section class="md:flex py-20 space-y-5 md:space-y-0 justify-center items-center px-10 h-screen w-full">
+
+        <!-- Left Section -->
+        <div class="w-full md:w-1/2 space-y-2.5">
+            <h1 class="font-bold text-4xl">Art & Humanities</h1>
+            <p class="text-[16px] max-w-2xl">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text
+                ever since the 1500s, when an unknown printer took a galley of type
+                and scrambled it to make a type specimen book. It has survived not
+                only five centuries, but also the leap into electronic
+            </p>
+            <button class="p-3.5 cursor-pointer rounded-md bg-[#092962] text-white">
+                Read More
+            </button>
+        </div>
+
+        <!-- Right Section -->
+        <div class="w-full md:w-1/2 overflow-hidden rounded-md">
+            <img class="h-96 w-full object-cover transition ease-in rounded-md hover:scale-105 cursor-pointer"
+                src="./art.jpg" alt="Art Image" />
+        </div>
+
+    </section>
+
+    <!-- CARDS SECTION -->
+    <div class="px-10 py-20 flex gap-9 bg-[#f5f5f5]">
+
+        <!-- ASIDE FILTERS -->
+        <aside class="shadow-lg flex flex-col w-1/4 h-1/3">
+
+            <!-- HEADER -->
+            <div class="bg-[#98D94A] flex justify-around items-center h-20 w-full rounded-t-2xl">
+                <h1 class="font-medium text-white">Filters</h1>
+                <p class="text-[#092962] font-medium">Discover All</p>
+            </div>
+
+            <!-- FILTER BOX 1 -->
+            <div class="p-1.5 space-y-3 bg-white shadow-lg">
+
+                <!-- Select Box -->
+                <div>
+                    <select class="cursor-pointer w-full border p-2 rounded-md">
+                        <option value="">Country</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="in">India</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="us">United States</option>
+                    </select>
+                </div>
+
+                <!-- Search Box -->
+                <div class="relative">
+                    <input class="bg-amber-50 rounded-lg pl-10 p-2 shadow-lg w-full" type="text"
+                        placeholder="search country" />
+                    <i class="fa fa-search absolute top-3 left-3 text-gray-500"></i>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="space-y-3.5">
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                    <div class="flex gap-3.5 items-center">
+                        <input type="checkbox" class="cursor-pointer">
+                        <label>country names</label>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="flex justify-center items-center">
+                    <button class="bg-[#092962] text-white py-1.5 px-6 rounded-lg cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+            </div>
+
+            <!-- FILTER BOX 2 -->
+            <div>
+                <div class="space-y-3 p-1.5 shadow-lg mt-2.5 mr-2 bg-white">
+
+                    <!-- Select -->
+                    <select class="cursor-pointer w-full border p-2 rounded-md">
+                        <option value="">Degree Level</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="in">India</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="us">United States</option>
+                    </select>
+
+                    <!-- Search -->
+                    <div class="relative">
+                        <input class="bg-amber-50 rounded-lg pl-10 p-2 shadow-lg w-full" type="text"
+                            placeholder="search country" />
+                        <i class="fa fa-search absolute top-3 left-3 text-gray-500"></i>
+                    </div>
+
+                    <!-- Checkboxes -->
+                    <div class="space-y-3.5">
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+
+                        <div class="flex gap-3.5 items-center">
+                            <input type="checkbox" class="cursor-pointer">
+                            <label>country names</label>
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="flex justify-center items-center">
+                        <button class="bg-[#092962] text-white py-1.5 px-6 rounded-lg cursor-pointer">
+                            Discover
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- CARDS SECTION (replace with your card HTML) -->
+        <div class="w-full">
+            <!-- Put your Card HTML here -->
+            <!-- GRID CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- CARD START -->
+                <div class="w-[300px] bg-white rounded-md shadow-md">
+                    <div
+                        class="bg-[#C0F283] relative h-44 flex flex-col justify-center items-center border-b-2 border-b-[#508C08] rounded-t-md">
+                        <span class="absolute top-2.5 right-10">↗</span>
+                        <span class="absolute top-2.5 right-2.5">❤️</span>
+
+                        <img class="h-14" src="/cardlogo.png" alt="">
+                        <p class="text-[#092962] font-medium">University of Oxford</p>
+                        <p class="font-light text-center">Wellington Square, Oxford OX1 2JD, UK</p>
+                    </div>
+
+                    <div class="p-3.5 space-y-5">
+
+                        <div class="space-y-2.5">
+                            <h1 class="text-[#48464C] font-bold">
+                                Master of Transport in <br> Sustainable Transport
+                            </h1>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1.5">
+                                    <img src="/course.png" class="h-5" alt="">
+                                    <span class="font-medium text-[#092962]">Transport in Sustainable...</span>
+                                </div>
+                                <img src="/exc.png" class="h-5" alt="">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="space-y-2.5">
+                                <span class="flex items-center gap-2"><img src="/degree.png" class="h-4">Masters</span>
+                                <span class="flex items-center gap-2"><img src="/map.png" class="h-4">On Campus</span>
+                                <span class="flex items-center gap-2"><img src="/dolar.png" class="h-4">18,000
+                                    USD/Year</span>
+                            </div>
+
+                            <div class="space-y-2.5">
+                                <span class="flex items-center gap-2"><img src="/clock.png" class="h-4">18 Months</span>
+                                <span class="flex items-center gap-2"><img src="/lang.png" class="h-4">English</span>
+                                <span class="flex items-center gap-2"><img src="/time.png" class="h-4">Full Time</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center gap-3.5">
+                            <button class="bg-[#092962] text-white py-1.5 px-10 rounded-lg shadow-lg">Discover</button>
+                            <button class="bg-[#092962] text-white py-1.5 px-10 rounded-lg shadow-lg">Apply</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-5 bg-white">
+        <div class="px-10 h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- COLUMN 1 -->
+            <div class="space-y-3.5">
+                <img class="h-[60px]" src="./Logo.png" alt="Logo" />
+                <p class="text-[12px]">
+                    Global Minds Consultant — Pakistan’s #1 Abroad<br />
+                    Consultant. Trusted by 1500+ people.
+                </p>
+
+                <div class="bg-blue-950 px-1.5 py-2.5 rounded-md flex justify-around items-center text-white w-1/2">
+                    <i class="fa-brands fa-facebook-square text-lg"></i>
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                    <i class="fa-brands fa-linkedin text-lg"></i>
+                    <i class="fa-brands fa-twitter text-lg"></i>
+                </div>
+            </div>
+
+            <!-- COLUMN 2 -->
+            <div class="space-y-1.5">
+                <h1 class="font-medium text-2xl">Get free link</h1>
+
+                <ul class="space-y-1">
+                    <li class="flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-angle-right"></i> About
+                    </li>
+                    <li class="flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-angle-right"></i> Locations
+                    </li>
+                    <li class="flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-angle-right"></i> Blogs
+                    </li>
+                    <li class="flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-angle-right"></i> FAQs
+                    </li>
+                    <li class="flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-angle-right"></i> Student Guide
+                    </li>
+                    <li class="flex items-center gap-2.5 cursor-pointer">
+                        <i class="fa-solid fa-angle-right"></i> Private Policy
+                    </li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3 -->
+            <div class="space-y-3.5">
+                <h1 class="font-medium text-2xl">Recent Blogs</h1>
+
+                <!-- Blog item 1 -->
+                <div class="flex items-center gap-1.5">
+                    <div class="h-10 w-10">
+                        <img class="rounded-md h-full w-full object-cover" src="./footer-img.jpg" alt="" />
+                    </div>
+                    <div>
+                        <p class="flex items-center gap-1">
+                            <img src="./bag.png" class="h-4" alt="bag" />
+                            <span>24-06-09</span>
+                        </p>
+                        <p>Blog title</p>
+                    </div>
+                </div>
+
+                <!-- Blog item 2 -->
+                <div class="flex items-center gap-1.5">
+                    <div class="h-10 w-10">
+                        <img class="rounded-md h-full w-full object-cover" src="./footer-img.jpg" alt="" />
+                    </div>
+                    <div>
+                        <p class="flex items-center gap-1">
+                            <img src="./bag.png" class="h-4" alt="bag" />
+                            <span>24-06-09</span>
+                        </p>
+                        <p>Blog title</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMN 4 -->
+            <div class="space-y-3.5">
+                <h1 class="font-medium text-2xl">Contact Us</h1>
+
+                <div class="flex items-center gap-2.5">
+                    <img class="h-10 w-10" src="./phone.png" alt="phone" />
+                    <span>+92 123 456789</span>
+                </div>
+
+                <div class="flex items-center gap-2.5">
+                    <img class="h-10 w-10" src="./email.png" alt="email" />
+                    <span>abcd@gmail.com</span>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="my-4" />
+
+        <p class="text-center p-2.5">
+            Global Minds Consultant 2025 | All Rights Reserved
+        </p>
+
+
+    </footer>
+
+    <!-- SIMPLE JS TO OPEN/CLOSE MENU -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+
+            // toggle icon
+            if (mobileMenu.classList.contains("hidden")) {
+                menuBtn.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+            } else {
+                menuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

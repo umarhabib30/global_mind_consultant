@@ -12,6 +12,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Outfit", sans-serif !important;
+        }
+    </style> --}}
     @yield('styles')
 
   </head>
@@ -34,6 +41,12 @@
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-8 items-center font-semibold">
+           <a
+          href="{{ route('home') }}"
+          class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition"
+        >
+         Home
+        </a>
         <a
           href="{{ route('about') }}"
           class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition"
@@ -78,7 +91,6 @@
           <span class="relative z-10 flex items-center gap-2">
             Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
           </span>
-          <!-- Animated overlay -->
           <span
             class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
           ></span>

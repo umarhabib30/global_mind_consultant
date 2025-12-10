@@ -5,10 +5,8 @@
 <section
   class="relative bg-[url('/images/blog-hero.png')] bg-cover bg-center w-full h-[75vh] md:h-screen flex items-center"
 >
-  <!-- Dark Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
-  <!-- Content shifted slightly right -->
   <div
     class="relative z-10 text-left px-6 sm:px-12 md:px-20 max-w-3xl ml-auto"
   >
@@ -25,12 +23,18 @@
       updates to help you achieve your academic dreams with confidence.
     </p>
 
-    <a
-      href="#"
-      class="inline-block bg-[#74BF1A] text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-lg hover:bg-green-600 transition"
-    >
-      Discover More  <i class="fa-solid fa-arrow-right"></i>
-    </a>
+      <div class=":flex">
+    <a href="/consultation-form"
+   class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-4 rounded-lg font-semibold group transition-all duration-300 inline-block">
+
+    <span class="relative z-10 flex items-center gap-2">
+        Discover More <i class="fa-solid fa-arrow-right"></i>
+    </span>
+
+    <span class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+</a>
+
+      </div>
   </div>
 </section>
 
@@ -59,7 +63,6 @@
 
    <section class="py-16">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
       Our <span class="text-[#74BF1A]">Latest</span> Blogs
     </h2>
@@ -114,11 +117,11 @@
           </ul>
 
           <!-- Button -->
-          <button
-            class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition"
-          >
-            Read More
-          </button>
+        <a href="/single-blog"
+   class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition inline-block">
+    Read More
+</a>
+
         </div>
       </div>
 
@@ -161,12 +164,11 @@
               Ms. Sarah
             </li>
           </ul>
+<a href="/single-blog"
+   class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition inline-block">
+    Read More
+</a>
 
-          <button
-            class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition"
-          >
-            Read More
-          </button>
         </div>
       </div>
 
@@ -210,11 +212,11 @@
             </li>
           </ul>
 
-          <button
-            class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition"
-          >
-            Read More
-          </button>
+          <a href="/single-blog"
+   class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition inline-block">
+    Read More
+</a>
+
         </div>
       </div>
     </div>
@@ -327,39 +329,47 @@
   const eventCardsContainer = document.getElementById("eventCards");
   const tabButtons = document.querySelectorAll(".tab-btn");
 
-  function renderCards(category) {
-    const cards = eventData[category]
-      .map(event => `
-        <div class="bg-[#74BF1A] rounded-2xl shadow-lg overflow-hidden">
-          <img src="${event.img}" alt="${event.title}" class="w-full h-62 object-cover p-4 rounded-3xl" />
-          <div class="p-6 text-white">
-            <div class="flex items-center justify-between mb-3">
-              <span class="flex items-center gap-2 bg-white text-[#74BF1A] text-xs font-semibold px-2 py-1 rounded-full">
-                <i class="fa-solid fa-tag"></i> ${event.category}
-              </span>
-              <i class="fa-regular fa-heart text-white text-lg hover:text-red-500 transition"></i>
-            </div>
-            <h3 class="font-bold text-[#322F35] text-xl mb-3">${event.title}</h3>
-            <p class="text-lg mb-4">
-              Learn and enhance your skills with expert guidance and resources.
-            </p>
-            <ul class="space-y-3 text-sm">
-              <li class="flex items-center gap-2">
-                <i class="fa-regular fa-calendar text-[#092962] text-3xl"></i> ${event.date}
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fa-solid fa-user-tie text-[#092962] text-3xl"></i> ${event.author}
-              </li>
-            </ul>
-            <button class="mt-6 py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition w-full sm:w-auto">
-              Read More
-            </button>
-          </div>
-        </div>
-      `).join("");
+ function renderCards(category) {
+  const cards = eventData[category]
+    .map(event => `
+      <div class="bg-[#74BF1A] rounded-2xl shadow-lg overflow-hidden flex flex-col">
+        <img src="${event.img}" alt="${event.title}" class="w-full h-62 object-cover p-4 rounded-3xl" />
 
-    eventCardsContainer.innerHTML = cards;
-  }
+        <div class="p-6 text-white flex flex-col flex-grow">
+          <div class="flex items-center justify-between mb-3">
+            <span class="flex items-center gap-2 bg-white text-[#74BF1A] text-xs font-semibold px-2 py-1 rounded-full">
+              <i class="fa-solid fa-tag"></i> ${event.category}
+            </span>
+            <i class="fa-regular fa-heart text-white text-lg hover:text-red-500 transition"></i>
+          </div>
+
+          <h3 class="font-bold text-[#322F35] text-xl mb-3">${event.title}</h3>
+          <p class="text-lg mb-4">
+            Learn and enhance your skills with expert guidance and resources.
+          </p>
+
+          <ul class="space-y-3 text-sm mb-6">
+            <li class="flex items-center gap-2">
+              <i class="fa-regular fa-calendar text-[#092962] text-3xl"></i> ${event.date}
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-user-tie text-[#092962] text-3xl"></i> ${event.author}
+            </li>
+          </ul>
+
+          <!-- FIXED BOTTOM BUTTON -->
+         <a href="/single-blog"
+  class="mt-auto w-fit py-3 px-8 bg-[#092962] text-white font-semibold rounded-lg hover:bg-green-500 transition inline-block">
+  Read More
+</a>
+
+        </div>
+      </div>
+    `).join("");
+
+  eventCardsContainer.innerHTML = cards;
+}
+
 
   // Default: All
   renderCards("all");

@@ -8,7 +8,6 @@
     <!-----------------------------------FORM SECTION----------------------------------------------->
     <section class="py-16 bg-[#F6F6F6]">
       <div class="px-6 md:px-12">
-        <!-- Section Heading -->
         <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
           Career
           <span class="text-[#74BF1A]"> Counseling & </span>

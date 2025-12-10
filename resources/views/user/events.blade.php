@@ -20,14 +20,18 @@
     </p>
 
     <!-- Button -->
-    <div class="flex justify-center items-center mt-6 mb-6">
-      <a
-        href="#"
-        class="bg-[#74BF1A] text-white px-6 sm:px-10 md:px-12 font-semibold sm:font-bold py-2 sm:py-3 rounded-lg hover:bg-green-600 transition duration-300"
-      >
-        Join Us
-      </a>
-    </div>
+    <div class=":flex">
+    <a href="/single-event"
+   class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
+
+    <span class="relative z-10 flex items-center gap-2">
+       Join Now
+    </span>
+
+    <span class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+</a>
+
+      </div>
 
     <!-- Social Icons -->
     <div
@@ -58,7 +62,6 @@
     <!-----------------------------------UPCOMING EVENT SECTION----------------------------------------------->
 <section class="py-16 bg-[#F6F6F6]">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
       Our <span class="text-[#74BF1A]">Upcoming</span> Events
     </h2>
@@ -100,11 +103,11 @@
             </li>
           </ul>
 
-          <button
-            class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto"
-          >
-            Register Now
-          </button>
+        <a href="/single-event"
+   class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto inline-block">
+    Register Now
+</a>
+
         </div>
       </div>
 
@@ -118,7 +121,7 @@
         <div class="p-6 text-white">
           <h3 class="font-bold text-xl mb-3">Australia Study Visa Seminar</h3>
           <p class="text-sm mb-4 text-gray-200">
-            Learn about Australia’s admission process, visa updates, and scholarship opportunities for 2025 intake.
+            Learn about Australia’s admission process, visa updates, and scholarship opportunities for 2025 intake.Register as soon as possible.
           </p>
 
           <ul class="space-y-3 text-sm">
@@ -140,11 +143,11 @@
             </li>
           </ul>
 
-          <button
-            class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto"
-          >
-            Register Now
-          </button>
+         <a href="/single-event"
+   class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto inline-block">
+    Register Now
+</a>
+
         </div>
       </div>
 
@@ -180,11 +183,11 @@
             </li>
           </ul>
 
-          <button
-            class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto"
-          >
-            Register Now
-          </button>
+        <a href="/single-event"
+   class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto inline-block">
+    Register Now
+</a>
+
         </div>
       </div>
     </div>
@@ -205,7 +208,7 @@
 
     <!--TABS SECTION----------------------------------------------->
 
- <section class="py-16 bg-[#F6F6F6]">
+ <section class="py-16">
   <div class="px-6 md:px-12">
     <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
@@ -367,9 +370,11 @@
                 <span>${event.location}</span>
               </li>
             </ul>
-            <button class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto">
-              Register Now
-            </button>
+            <a href="/single-event"
+   class="mt-6 bg-[#74BF1A] text-white font-semibold py-2 px-8 rounded-lg hover:bg-green-500 transition w-full sm:w-auto inline-block">
+    Register Now
+</a>
+
           </div>
         </div>`
       )
@@ -378,7 +383,6 @@
     eventCardsContainer.innerHTML = cards;
   }
 
-  // Default load: All Events
   renderCards("all");
 
   // Tab switching

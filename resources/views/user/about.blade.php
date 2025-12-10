@@ -85,7 +85,7 @@
           <img
             src="images/AboutUs1.png"
             alt="Students"
-            class="w-full object-cover rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+            class="w-full object-cover cursor-pointer rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl"
           />
         </div>
       </div>
@@ -121,7 +121,6 @@
     <!-----------------------------------CARDS SECTION----------------------------------------------->
 <section class="py-16 bg-[#F6F6F6]">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
       Scholarship <span class="text-[#74BF1A]">Assistance</span>
     </h2>
@@ -130,7 +129,7 @@
     </p>
 
     <!-- Cards Grid -->
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
       <!-- Card 1 -->
       <div class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px]">
         <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
@@ -142,8 +141,8 @@
         </div>
         <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-lg">Muhammad Nouman Afzal</h3>
-            <p class="text-[#74BF1A]">Scholarship Coordinator</p>
+            <h3 class="font-bold text-2xl">Muhammad Nouman Afzal</h3>
+            <p class="text-[#74BF1A] text-xl">Scholarship Coordinator</p>
             <p class="text-sm mt-2">
               Expert in guiding students toward international scholarships and preparing strong applications.
             </p>
@@ -166,8 +165,8 @@
         </div>
         <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-lg">Ayesha Khan</h3>
-            <p class="text-[#74BF1A]">Financial Aid Advisor</p>
+            <h3 class="font-bold text-2xl">Ayesha Khan</h3>
+            <p class="text-[#74BF1A] text-xl">Financial Aid Advisor</p>
             <p class="text-sm mt-2">
               Assists students in identifying need-based aid programs and preparing effective financial documentation.
             </p>
@@ -190,8 +189,8 @@
         </div>
         <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-lg">Hassan Raza</h3>
-            <p class="text-[#74BF1A]">Application Consultant</p>
+            <h3 class="font-bold text-2xl">Hassan Raza</h3>
+            <p class="text-[#74BF1A] text-xl">Application Consultant</p>
             <p class="text-sm mt-2">
               Specializes in reviewing scholarship applications and ensuring every detail meets international standards.
             </p>
@@ -214,8 +213,8 @@
         </div>
         <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-lg">Sara Ahmed</h3>
-            <p class="text-[#74BF1A]">Career Counselor</p>
+            <h3 class="font-bold text-2xl">Sara Ahmed</h3>
+            <p class="text-[#74BF1A] text-xl">Career Counselor</p>
             <p class="text-sm mt-2">
               Helps students align scholarship options with their academic goals and future career paths.
             </p>
@@ -238,8 +237,8 @@
         </div>
         <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-lg">Ali Zain</h3>
-            <p class="text-[#74BF1A]">Essay Specialist</p>
+            <h3 class="font-bold text-2xl">Ali Zain</h3>
+            <p class="text-[#74BF1A] text-xl">Essay Specialist</p>
             <p class="text-sm mt-2">
               Guides students in writing compelling personal statements that stand out to scholarship committees.
             </p>
@@ -262,8 +261,8 @@
         </div>
         <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-lg">Fatima Noor</h3>
-            <p class="text-[#74BF1A]">Mentorship Lead</p>
+            <h3 class="font-bold text-2xl">Fatima Noor</h3>
+            <p class="text-[#74BF1A] text-xl">Mentorship Lead</p>
             <p class="text-sm mt-2">
               Provides personalized mentorship throughout the scholarship journey, from application to admission.
             </p>
@@ -283,7 +282,6 @@
 
  <section class="py-16 bg-[#F6F6F6]">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
       Why <span class="text-[#74BF1A]">Choose</span> Us
     </h2>
@@ -307,7 +305,6 @@
       <!-- Right Content -->
       <div class="w-full lg:w-1/2">
         <div class="flex flex-col gap-6">
-          <!-- Feature Item -->
           <div>
             <div class="flex items-start gap-3 mb-1">
               <div
@@ -452,7 +449,6 @@
 <!----------------------------------- FAQS SECTION ----------------------------------------------->
 <section class="py-16 bg-white">
   <div class="px-6 md:px-12">
-    <!-- Section Heading -->
     <h2 class="text-2xl md:text-4xl font-bold text-center mb-10">
       Frequently Asked <span class="text-[#74BF1A]">Questions</span>
     </h2>
