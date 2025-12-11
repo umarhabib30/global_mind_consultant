@@ -6,29 +6,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link href="{{ asset('assets/vendor/fonts/circular-std/style.css" rel="stylesheet') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
-    <link rel="stylesheet" href="{{ 'assets/vendor/fonts/fontawesome/css/fontawesome-all.css' }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/charts/chartist-bundle/chartist.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/charts/morris-bundle/morris.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/charts/c3charts/c3.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/flag-icon-css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" />
+    <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}" />
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/vendor/datatables/css/dataTables.bootstrap4.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/datatables/css/buttons.bootstrap4.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/datatables/css/select.bootstrap4.css') }}" />
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/vendor/datatables/css/fixedHeader.bootstrap4.css') }}" />
+</head>
 
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('../assets/vendor/datatables/css/dataTables.bootstrap4.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('../assets/vendor/datatables/css/buttons.bootstrap4.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('../assets/vendor/datatables/css/select.bootstrap4.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('../assets/vendor/datatables/css/fixedHeader.bootstrap4.css') }}" />
+<title>Admin Dashboard</title>
 
-    <title>Admin Dashboard</title>
-
-    @yield('style')
+@yield('style')
 
 </head>
 
@@ -44,8 +36,8 @@
         <!-- navbar -->
         <!-- ============================================================== -->
         <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Global Minds  Dashboard</a>
+            <nav class="navbar navbar-expand-lg fixed-top  sidebar-dark">
+                <a class="navbar-brand" href="index.html">Global Minds Dashboard</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -59,9 +51,9 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span
-                                    class="indicator"></span></a>
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
                                     <div class="notification-title"> Notification</div>
@@ -124,41 +116,42 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown connection">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
+                                    class="fas fa-fw fa-th"></i> </a>
                             <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
                                 <li class="connection-list">
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/github.png"
-                                                    alt="">
+                                            <a href="#" class="connection-item"><img
+                                                    src="assets/images/github.png" alt="">
                                                 <span>Github</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/dribbble.png"
-                                                    alt="">
+                                            <a href="#" class="connection-item"><img
+                                                    src="assets/images/dribbble.png" alt="">
                                                 <span>Dribbble</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/dropbox.png"
-                                                    alt="">
+                                            <a href="#" class="connection-item"><img
+                                                    src="assets/images/dropbox.png" alt="">
                                                 <span>Dropbox</span></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/bitbucket.png"
-                                                    alt="">
+                                            <a href="#" class="connection-item"><img
+                                                    src="assets/images/bitbucket.png" alt="">
                                                 <span>Bitbucket</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png"
-                                                    alt=""><span>Mail
+                                            <a href="#" class="connection-item"><img
+                                                    src="assets/images/mail_chimp.png" alt=""><span>Mail
                                                     chimp</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/slack.png"
-                                                    alt="">
+                                            <a href="#" class="connection-item"><img
+                                                    src="assets/images/slack.png" alt="">
                                                 <span>Slack</span></a>
                                         </div>
                                     </div>
@@ -171,7 +164,8 @@
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                                    src="assets/images/avatar-1.jpg" alt=""
+                                    class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
@@ -180,7 +174,8 @@
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="#"><i
+                                        class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -193,9 +188,9 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
+        <div class="nav-left-sidebar sidebar-dark style='background-color: #74BF1A;'">
             <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-light ">
                     <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -208,7 +203,8 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link @if ($active == 'dashboard') active @endif"
-                                    href="{{ url('admin/dashboard') }}"><i class="fa fa-fw fa-user-circle"></i>Dashboard
+                                    href="{{ url('admin/dashboard') }}"><i
+                                        class="fa fa-fw fa-user-circle"></i>Dashboard
                                     <span class="badge badge-success">6</span></a>
 
                             </li>
@@ -216,41 +212,62 @@
 
 
 
-<!-- Team Menu -->
-<li class="nav-item">
-    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-        data-target="#submenu-team" aria-controls="submenu-team">
-        <i class="fas fa-users"></i> Team
-    </a>
-    <div id="submenu-team" class="collapse submenu">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('team.index') }}">View Team</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('team.create') }}">Add Team Member</a>
-            </li>
-        </ul>
-    </div>
-</li>
+                            <!-- Team Menu -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-team" aria-controls="submenu-team">
+                                    <i class="fas fa-users"></i> Team
+                                </a>
+                                <div id="submenu-team" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('team.index') }}">View Team</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('team.create') }}">Add Team Member</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
-<!-- Event Menu -->
-<li class="nav-item">
-    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-        data-target="#submenu-event" aria-controls="submenu-event">
-        <i class="fas fa-calendar-alt"></i> Event
-    </a>
-    <div id="submenu-event" class="collapse submenu">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('event.index') }}">View Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('event.create') }}">Add Event</a>
-            </li>
-        </ul>
-    </div>
-</li>
+                            <!-- Event Menu -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-event" aria-controls="submenu-event">
+                                    <i class="fas fa-calendar-alt"></i> Event
+                                </a>
+                                <div id="submenu-event" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('event.index') }}">View Events</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('event.create') }}">Add Event</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <!-- University Menu -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-university" aria-controls="submenu-university">
+                                    <i class="fas fa-university"></i> Universities
+                                </a>
+                                <div id="submenu-university" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('university.index') }}">View
+                                                Universities</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('university.create') }}">Add
+                                                University</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
 
 
                             <li class="nav-item">
@@ -288,7 +305,7 @@
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
 
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
                                 <div class="page-breadcrumb">
@@ -325,58 +342,27 @@
         <!-- end wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper  -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 -->
+
+
     <script src="{{ asset('assets/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
-    <!-- bootstap bundle js -->
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-    <!-- slimscroll js -->
     <script src="{{ asset('assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
-    <!-- main js -->
+    <script src="{{ asset('assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script>
     <script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
-    <!-- chart chartist js -->
-    <script src="{{ asset('assets/vendor/charts/chartist-bundle/chartist.min.js') }}"></script>
-    <!-- sparkline js -->
-    <script src="{{ asset('assets/vendor/charts/sparkline/jquery.sparkline.js') }}"></script>
-    <!-- morris js -->
-    <script src="{{ asset('assets/vendor/charts/morris-bundle/raphael.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/charts/morris-bundle/morris.js') }}"></script>
-    <!-- chart c3 js -->
-    <script src="{{ asset('assets/vendor/charts/c3charts/c3.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/charts/c3charts/d3-5.4.0.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/charts/c3charts/C3chartjs.js') }}"></script>
-    <script src="{{ asset('assets/libs/js/dashboard-ecommerce.js') }}"></script>
-
-
-
-    <script src="{{ asset('../assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('../assets/vendor/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('../assets/vendor/datatables/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('../assets/vendor/datatables/js/data-table.js') }}"></script>
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') }}"></script>
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js') }}"></script>
-
-
-
-
-
-
-
-
-
-
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets/vendor/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="{{ asset('assets/vendor/datatables/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/js/data-table.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
     @yield('script')
 </body>
 

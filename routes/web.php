@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\UniversityController;
 use App\Http\Controllers\User\AboutController;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\ConsultationFormController;
@@ -47,6 +48,18 @@ Route::get('admin/event/edit/{id}', [EventController::class, 'edit'])->name('eve
 Route::post('admin/event/update', [EventController::class, 'update'])->name('event.update');
 Route::get('admin/event/destroy/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 Route::get('admin/event/details/{id}', [EventController::class, 'show'])->name('event.show');
+
+
+
+
+// UNIVERSITIES ROUTES
+Route::get('admin/university/index', [UniversityController::class, 'index'])->name('university.index');
+Route::get('admin/university/create', [UniversityController::class, 'create'])->name('university.create');
+Route::post('admin/university/store', [UniversityController::class, 'store'])->name('university.store');
+Route::get('admin/university/edit/{id}', [UniversityController::class, 'edit'])->name('university.edit');
+Route::post('admin/university/update', [UniversityController::class, 'update'])->name('university.update');
+Route::get('admin/university/destroy/{id}', [UniversityController::class, 'destroy'])->name('university.destroy');
+
 
 
 

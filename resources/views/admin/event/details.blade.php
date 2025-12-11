@@ -1,70 +1,93 @@
 @extends('layouts.admin')
 @section('content')
-<div class="row">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <div class="card">
-            <h5 class="card-header">Event Details</h5>
-            <div class="card-body">
+    <div class="container-fluid">
+        <div class="card shadow-lg rounded-lg border-0">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Title</th>
-                                <td>{{ $event->title }}</td>
-                            </tr>
-                            <tr>
-                                <th>Person</th>
-                                <td>{{ $event->person }}</td>
-                            </tr>
-                            <tr>
-                                <th>Date</th>
-                                <td>{{ $event->date }}</td>
-                            </tr>
-                            <tr>
-                                <th>Time</th>
-                                <td>{{ $event->time }}</td>
-                            </tr>
-                            <tr>
-                                <th>Duration</th>
-                                <td>{{ $event->duration ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Location</th>
-                                <td>{{ $event->location }}</td>
-                            </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td>{{ $event->description ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Status</th>
-                                <td>
-                                    @php
-                                        $statusClass = match($event->status) {
-                                            'scheduled' => 'badge bg-primary',
-                                            'in_progress' => 'badge bg-info',
-                                            'completed' => 'badge bg-success',
-                                            'cancelled' => 'badge bg-danger',
-                                            default => 'badge bg-secondary',
-                                        };
-                                    @endphp
-                                    <span class="{{ $statusClass }}">{{ ucfirst($event->status) }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Attendees</th>
-                                <td>{{ $event->attendees }}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
+            <!-- Card Header -->
+            <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #0A245D;">
+                <h5 class="text-white mb-0">Event Details</h5>
+                <a href="{{ route('event.index') }}" class="btn"
+                    style="background-color: #74BF1A; color: white; font-weight: 600;">
+                    Back to Events
+                </a>
             </div>
-            <div class="card-footer text-end">
-                <a href="{{ route('event.index') }}" class="btn btn-secondary">Back</a>
+
+            <!-- Card Body -->
+            <div class="card-body p-5">
+                <div class="row g-4">
+
+                    <!-- Title -->
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">Title</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->title }}</div>
+                    </div>
+
+                    <!-- Person -->
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">Person</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->person }}</div>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="col-md-4 mb-4">
+                        <label class="form-label fw-semibold">Date</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->date }}</div>
+                    </div>
+
+                    <!-- Time -->
+                    <div class="col-md-4 mb-4">
+                        <label class="form-label fw-semibold">Time</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->time }}</div>
+                    </div>
+
+                    <!-- Duration -->
+                    <div class="col-md-4 mb-4">
+                        <label class="form-label fw-semibold">Duration</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->duration ?? '-' }}
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">Location</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->location }}</div>
+                    </div>
+
+                    <!-- Attendees -->
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">Attendees</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">{{ $event->attendees }}</div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="col-md-12 mb-4">
+                        <label class="form-label fw-semibold">Description</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light" style="min-height:120px;">
+                            {{ $event->description ?? '-' }}
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">Status</label>
+                        <div class="form-control form-control-lg shadow-sm rounded bg-light">
+                            @php
+                                $statusClass = match ($event->status) {
+                                    'scheduled' => 'badge bg-primary',
+                                    'in_progress' => 'badge bg-info',
+                                    'completed' => 'badge bg-success',
+                                    'cancelled' => 'badge bg-danger',
+                                    default => 'badge bg-secondary',
+                                };
+                            @endphp
+                            <span
+                                class="{{ $statusClass }} px-3 py-2">{{ ucfirst(str_replace('_', ' ', $event->status)) }}</span>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
