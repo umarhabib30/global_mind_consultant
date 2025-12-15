@@ -71,15 +71,18 @@
                 </div>
 
                 <!-- Right Button -->
-                <div class="hidden md:flex">
-                    <button
-                        class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300">
+
+                <div class="flex slide-left" data-delay="1.5" data-duration="0.8">
+                    <a href="/consultation-form"
+                        class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block transform hover:scale-105">
+
                         <span class="relative z-10 flex items-center gap-2">
                             Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
                         </span>
+
                         <span
                             class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
