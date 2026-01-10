@@ -146,91 +146,67 @@
 
     <!----------------------------------- WHY CHOOSE US SECTION ----------------------------------------------->
     <section class="py-16 bg-white overflow-hidden">
-        <div class="px-12">
-            <h2 class="slide-down text-2xl md:text-5xl font-bold mb-12" data-delay="0.3" data-duration="1.2">
-                Why <span class="text-[#74BF1A]">Global Minds</span> is The Right
-                Choice for You?
+        <div class="  px-6 md:px-12">
+            <h2 class="reveal-up text-2xl md:text-5xl font-bold mb-12 opacity-0" data-delay="0.1">
+                Why <span class="text-[#74BF1A]">Global Minds</span> is The Right Choice for You?
             </h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-grid" data-stagger="0.2">
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-container">
 
-                    <!-- Card 1 -->
-                    <div class="slide-left hover-card bg-gray-100 rounded-2xl shadow-md p-6 transition-all duration-300 group cursor-pointer"
-                        data-delay="0.5" data-duration="1.2">
+                    <div
+                        class="reveal-up hover-card bg-gray-100 rounded-2xl shadow-md p-8 transition-all duration-500 group cursor-pointer relative opacity-0">
                         <div
-                            class="text-3xl mb-4 text-[#74BF1A] transform transition-transform duration-300 group-hover:scale-110">
+                            class="text-4xl mb-4 text-[#74BF1A] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-2">
-                            <span class="text-[#092962] counter" data-target="2500">0</span>+ Global University Partners
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            <span class="text-[#092962] counter" data-target="2500">0</span>+ Global Partners
                         </h3>
-                        <p class="text-gray-600 text-base leading-relaxed">
-                            Global Minds collaborates with over 2,500 top-ranked universities and colleges worldwide.
-                            Whether you dream of studying in the UK, USA, Canada, Australia, or Europe, our strong
-                            partnerships open doors to prestigious institutions that match your academic goals and career
-                            aspirations. We ensure you have access to the widest range of opportunities to make the best
-                            choice for your future.
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Collaborating with over 2,500 top-ranked universities worldwide. Whether it's the UK, USA, or
+                            Europe, we open doors to prestigious institutions that match your aspirations.
                         </p>
-                        <!-- Decorative line  -->
-                        <div class="line-reveal mt-4 pt-4">
-                            <div
-                                class="reveal-line h-1 bg-gradient-to-r from-[#74BF1A] to-transparent scale-x-0 origin-left">
-                            </div>
-                        </div>
+                        <div class="mt-6 h-1 w-0 bg-[#74BF1A] transition-all duration-700 group-hover:w-full"></div>
                     </div>
 
-                    <!-- Card 2  -->
-                    <div class="slide-left hover-card bg-gray-100 rounded-2xl shadow-md p-6 transition-all duration-300 group  cursor-pointer"
-                        data-delay="0.7" data-duration="1.2">
-                        <div
-                            class="text-3xl mb-4 text-[#74BF1A] transform transition-transform duration-300 group-hover:rotate-12">
+                    <div
+                        class="reveal-up hover-card bg-gray-100 rounded-2xl shadow-md p-8 transition-all duration-500 group cursor-pointer relative opacity-0">
+                        <div class="text-4xl mb-4 text-[#74BF1A] transition-transform duration-500 group-hover:rotate-12">
                             <i class="fa-solid fa-university"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-2">
-                            <span class="text-[#092962]">Expert</span> Admission Guidance
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            <span class="text-[#092962]">Expert</span> Guidance
                         </h3>
-                        <p class="text-gray-600 text-base leading-relaxed">
-                            Applying to study abroad can feel overwhelming, but our team of expert counselors makes the
-                            process simple and stress-free. From evaluating your academic background to shortlisting the
-                            right courses and universities, we guide you at every stage. We help you prepare strong
-                            applications, highlight your strengths, and stand out in a competitive admissions process —
-                            maximizing your chances of acceptance.
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Our expert counselors make the study abroad process simple. From shortlisting courses to
+                            preparing strong applications, we maximize your chances of acceptance.
                         </p>
-                        <!-- Decorative line  -->
-                        <div class="line-reveal mt-4 pt-4">
-                            <div
-                                class="reveal-line h-1 bg-gradient-to-r from-[#74BF1A] to-transparent scale-x-0 origin-left">
-                            </div>
-                        </div>
+                        <div class="mt-6 h-1 w-0 bg-[#74BF1A] transition-all duration-700 group-hover:w-full"></div>
                     </div>
 
-                    <!-- Card 3 -->
-                    <div class="flip-in-y hover-card bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl shadow-md p-6 transition-all duration-300 group md:col-span-2  cursor-pointer"
-                        data-delay="0." data-duration="1.4">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="text-3xl flex-shrink-0 text-[#74BF1A] transform transition-transform duration-300 group-hover:scale-125">
+                    <div
+                        class="reveal-up hover-card bg-gray-50 border border-gray-100 rounded-2xl shadow-md p-8 transition-all duration-500 group md:col-span-2 cursor-pointer relative opacity-0">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="text-4xl text-[#74BF1A] group-hover:scale-110 transition-transform duration-500">
                                 <i class="fa-solid fa-circle-check"></i>
                             </div>
-                            <div>
-                                <h3 class="text-3xl font-bold text-gray-900 mb-2">
+                            <div class="flex-1 w-full">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">
                                     <span class="text-[#092962]">Trusted</span> & Transparent Process
                                 </h3>
-                                <p class="text-gray-600 text-base leading-relaxed">
-                                    With a strong track record of successful admissions, we pride
-                                    ourselves on honest advice, personalized support, and clear
-                                    guidance throughout your study abroad journey.
+                                <p class="text-gray-600 text-sm mb-6">
+                                    Honest advice and personalized support throughout your journey.
                                 </p>
-                                <!-- Progress bar  -->
-                                <div class="mt-6">
+                                <div class="w-full">
                                     <div class="flex justify-between mb-2">
-                                        <span class="text-sm font-semibold text-[#092962]">Student Satisfaction</span>
-                                        <span class="text-sm font-bold text-[#74BF1A]">98%</span>
+                                        <span class="text-xs font-bold text-[#092962] uppercase tracking-wider">Student
+                                            Satisfaction</span>
+                                        <span class="text-xs font-bold text-[#74BF1A]">98%</span>
                                     </div>
-                                    <div class="progress-bar h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
                                         <div
-                                            class="progress-fill h-full bg-gradient-to-r from-[#74BF1A] to-[#092962] w-0 rounded-full">
+                                            class="progress-fill h-full bg-gradient-to-r from-[#74BF1A] to-[#092962] w-0 transition-all duration-1000 ease-out">
                                         </div>
                                     </div>
                                 </div>
@@ -239,168 +215,152 @@
                     </div>
                 </div>
 
-                <!-- Featured Card  -->
-                <div class="scale-in hover-card bg-gradient-to-br from-[#0A2D5A] to-[#092962] text-white rounded-2xl shadow-xl p-6 flex flex-col justify-between group relative overflow-hidden  cursor-pointer"
-                    data-delay="0.2" data-duration="1.5">
-                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-[#74BF1A] opacity-10 rounded-full blur-xl"></div>
-                    <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-[#74BF1A] opacity-5 rounded-full blur-xl"></div>
-
-                    <div class="relative z-10">
-                        <div class="text-3xl mb-4 text-[#74BF1A] float" data-duration="3">
-                            <i class="fa-solid fa-trophy"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-2">
-                            <span class="text-[#74BF1A]">Proven</span> Success Stories
-                        </h3>
-                        <p class="text-base leading-relaxed mb-6">
-                            Thousands of students have trusted Global Minds to fulfill their
-                            dream of studying abroad. With our personalized counseling and
-                            dedicated support, we ensure your journey is smooth and successful.
-                        </p>
-
-                        <!-- Counter stats -->
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="text-center">
-                                <div class="text-4xl font-bold text-[#74BF1A] counter" data-target="5000"
-                                    data-duration="3">0</div>
-                                <div class="text-sm text-gray-300">Students Placed</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-4xl font-bold text-[#74BF1A] counter" data-target="98"
-                                    data-duration="2.5">0</div>
-                                <div class="text-sm text-gray-300">Success Rate</div>
-                            </div>
-                        </div>
+                <div
+                    class="reveal-up hover-card bg-gradient-to-br from-[#0A2D5A] to-[#092962] text-white rounded-2xl shadow-xl p-8 flex flex-col justify-between group relative overflow-hidden opacity-0">
+                    <div
+                        class="absolute -top-10 -right-10 w-32 h-32 bg-[#74BF1A] opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity">
                     </div>
 
-                    <!--  CTA  -->
-                    <div class="relative z-10 hidden md:block">
-                        <a href="/services"
-                            class="relative overflow-hidden bg-gradient-to-r from-[#74BF1A] to-green-600 text-white px-6 py-3 rounded-lg font-semibold group transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="relative z-10">
+                        <div class="text-4xl mb-6 text-[#74BF1A] float-anim">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">
+                            <span class="text-[#74BF1A]">Proven</span> Success
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-8">
+                            Thousands of students have trusted us to fulfill their dreams. We ensure your journey is smooth
+                            and successful.
+                        </p>
 
-                            <span class="relative z-10 flex items-center gap-2">
-                                Apply Now
-                                <i
-                                    class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                            </span>
-
-                            <span
-                                class="absolute inset-0 bg-gradient-to-r from-green-600 to-[#74BF1A] translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
-
-                            <span
-                                class="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-all duration-700"></span>
-                        </a>
-
-                        <!-- Animated arrow -->
-                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="flex items-center text-sm text-gray-300">
-                                <i class="fa-solid fa-hand-point-right text-[#74BF1A] mr-2"></i>
-                                <span>Start your journey today</span>
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="text-3xl font-bold text-[#74BF1A] counter" data-target="5000">0</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400">Placed</div>
+                            </div>
+                            <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="text-3xl font-bold text-[#74BF1A] counter" data-target="98">0</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400">Success %</div>
                             </div>
                         </div>
+
+                        <a href="/services"
+                            class="inline-flex items-center gap-3 bg-[#74BF1A] hover:bg-white hover:text-[#092962] text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 w-full justify-center shadow-lg">
+                            Apply Now
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
+
     <style>
-        /* Custom animations for the enhanced section */
+        /* 1. Base State for Reveal */
+        .reveal-up {
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1 !important;
+            transform: translateY(0);
+        }
+
+        /* 2. Enhanced Hover Effects */
         .hover-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
+            will-change: transform, box-shadow;
         }
 
         .hover-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(116, 191, 26, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Button hover effect */
-        .group:hover .group-hover\:translate-x-1 {
-            transform: translateX(4px);
-        }
-
-        /* Progress bar animation */
-        .progress-bar {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            transition: width 2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        /* Floating animation */
-        .float {
-            animation: float 3s ease-in-out infinite;
+        /* 3. Smooth Floating Animation */
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
 
             0%,
             100% {
-                transform: translateY(0px);
+                transform: translateY(0);
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-12px);
             }
         }
 
-        /* Shine effect for button */
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        .group:hover .shine-animation {
-            animation: shine 1.5s ease-in-out;
-        }
-
-        /* Card border animation on hover */
-        .hover-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #74BF1A, #092962);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-            border-radius: 2px 2px 0 0;
-        }
-
-        .hover-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        /* Subtle pulse for icons */
-        .pulse-soft {
-            animation: pulse-soft 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-soft {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.8;
-            }
+        /* 4. Progress Bar logic - will be triggered by JS */
+        .active .progress-fill {
+            width: 98% !important;
+            /* Matches the data */
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer Options
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+
+                        // Handle Staggering for child cards
+                        if (element.classList.contains('stagger-container')) {
+                            const cards = element.querySelectorAll('.reveal-up');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('active');
+                                }, index * 150); // 150ms delay between cards
+                            });
+                        } else {
+                            element.classList.add('active');
+                        }
+
+                        // If this element contains counters, start them
+                        const counters = element.querySelectorAll('.counter');
+                        counters.forEach(counter => animateCounter(counter));
+
+                        // Stop observing after animation triggers
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Elements to observe
+            document.querySelectorAll('.reveal-up, .stagger-container').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Smooth Counter Function
+            function animateCounter(el) {
+                const target = +el.getAttribute('data-target');
+                const duration = 2000; // 2 seconds
+                const stepTime = 20;
+                const totalSteps = duration / stepTime;
+                const increment = target / totalSteps;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        el.innerText = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        el.innerText = Math.floor(current).toLocaleString();
+                    }
+                }, stepTime);
+            }
+        });
+    </script>
     <!-----------------------------------SUPPORT STUDENT SECTION ----------------------------------------------->
     <section class="py-16 bg-[#F6F6F6]">
         <div class="px-6 md:px-12">

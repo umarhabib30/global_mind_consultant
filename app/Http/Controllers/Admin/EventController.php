@@ -117,7 +117,7 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-         $event = Event::findOrFail($id);
+        $event = Event::findOrFail($id);
         $event->delete();
 
         return redirect()->back()->with('success', 'Event  deleted successfully');

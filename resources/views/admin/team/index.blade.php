@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @section('content')
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
@@ -9,53 +10,93 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone</th>
                                 <th>Role</th>
-                                <th>Image</th>
+                                {{-- <th>Company</th>
+                                <th>Experience</th> --}}
+                                <th>Profile Pic</th>
                                 <th>Status</th>
-                                <th class="text-center">Action</th>
-                                <th class="text-center">Action</th>
-                                <th class="text-center">Action</th>
-                            </tr>
+                                <th class="text-center">Edit</th>
+                                <th class="text-center">Delete</th>
+                                <th class="text-center">Details</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            @foreach ($teams as $team)
+                            @forelse ($teams as $team)
                                 <tr>
                                     <td>{{ $team->name }}</td>
                                     <td>{{ $team->email }}</td>
-                                    <td>{{ $team->phone }}</td>
-                                    <td>{{ $team->role }}</td>
+
+                                    <td>{{ $team->role ?? '—' }}</td>
+                                    {{-- <td>{{ $team->company_name ?? '—' }}</td>
+
                                     <td>
-                                        @if ($team->image)
-                                            <img src="{{ asset($team->image) }}" alt="{{ $team->name }}"
-                                                class="rounded-circle" width="50" height="50">
+                                        @if ($team->work_start_year)
+                                            {{ $team->work_start_year }}
+                                            @if ($team->work_end_year)
+                                                - {{ $team->work_end_year }}
+                                            @else
+                                                - Present
+                                            @endif
+                                        @else
+                                            —
+                                        @endif
+                                    </td> --}}
+
+                                    <td>
+                                        @if ($team->profile_pic)
+                                            <img src="{{ asset($team->profile_pic) }}" alt="{{ $team->name }}"
+                                                class="rounded-circle" width="50" height="50"
+                                                style="object-fit: cover;">
                                         @else
                                             <span class="text-muted">No Image</span>
                                         @endif
                                     </td>
+
                                     <td>
                                         @if ($team->status === 'active')
-                                            <span class="badge bg-success text-white">{{ $team->status }}</span>
+                                            <span class="badge bg-success">Active</span>
                                         @else
-                                            <span class="badge bg-danger text-white">{{ $team->status }}</span>
+                                            <span class="badge bg-danger">Inactive</span>
                                         @endif
                                     </td>
-                                    <td>
-                                        <a href="{{ url('admin/team/edit', $team->id) }}"
-                                            class="btn btn-primary btn-sm">Edit</a>
+
+                                    {{-- Edit --}}
+                                    <td class="text-center">
+                                        <a href="{{ route('team.edit', $team->id) }}" class="btn btn-primary btn-sm">
+                                            Edit
+                                        </a>
                                     </td>
-                                    <td>
-                                        <a href="{{ url('admin/team/destroy', $team->id) }}"
-                                            onclick="return confirm('Are you sure you want to delete this team member?')"
-                                            class="btn btn-danger btn-sm">Delete</a>
+
+                                    {{-- Delete --}}
+                                    {{-- Delete --}}
+                                    <td class="text-center">
+                                        <form action="{{ route('team.destroy', $team->id) }}" method="POST"
+                                            onsubmit="return confirm('Are you sure you want to delete this team member?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                Delete
+                                            </button>
+                                        </form>
                                     </td>
-                                    <td>
-                                        <a href="{{ url('admin/team/details', $team->id) }}" class="btn btn-info btn-sm"
-                                            style="background-color: #0A245D; color: white;">Details</a>
+
+
+                                    {{-- Details --}}
+                                    <td class="text-center">
+                                        <a href="{{ route('team.show', $team->id) }}" class="btn btn-info btn-sm"
+                                            style="background-color:#0A245D; color:#fff;">
+                                            Details
+                                        </a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="10" class="text-center text-muted">
+                                        No team members found
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

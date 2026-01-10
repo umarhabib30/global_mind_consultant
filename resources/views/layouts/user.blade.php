@@ -26,118 +26,120 @@
 
 <body>
     <!-----------------------------------NAVBAR----------------------------------------------- -->
-    <!-- Navigation -->
-    <nav class="bg-white fixed w-full p-2 left-0 z-50 shadow-md">
-        <div class="px-4 sm:px-6 lg:px-8 mx-auto">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo"
-                            class="h-[70px] w-auto sm:h-[90px] md:h-[110px] lg:h-[130px]" />
-                    </a>
-                </div>
+   <!-- Navigation -->
+<nav class="bg-white fixed w-full p-2 left-0 z-50 shadow-md">
+    <div class="px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                        class="h-[70px] w-auto sm:h-[90px] md:h-[110px] lg:h-[130px]" />
+                </a>
+            </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center font-semibold">
-                    <a href="{{ route('home') }}"
-                        class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                        Home
-                    </a>
-                    <a href="{{ route('about') }}"
-                        class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                        About Us
-                    </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center font-semibold">
+                <a href="{{ route('home') }}"
+                    class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    Home
+                </a>
+                <a href="{{ route('about') }}"
+                    class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    About Us
+                </a>
+                <a href="{{ route('events') }}"
+                    class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    Events
+                </a>
+                <a href="{{ route('blog') }}"
+                    class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    Blog
+                </a>
+                <a href="{{ route('services') }}"
+                    class="{{ request()->routeIs('services') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    Services
+                </a>
+                <a href="{{ route('destination') }}"
+                    class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    Study Destinations
+                </a>
+                <a href="{{ route('contact') }}"
+                    class="{{ request()->routeIs('contact') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+                    Contact
+                </a>
+            </div>
 
-                    <a href="{{ route('events') }}"
-                        class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                        Events
-                    </a>
+            <!-- Right Button (Desktop only) -->
+            <div class="hidden md:flex slide-left" data-delay="1.5" data-duration="0.8">
+                <a href="/consultation-form"
+                    class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block transform hover:scale-105">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                    <span
+                        class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                </a>
+            </div>
 
-                    <a href="{{ route('blog') }}"
-                        class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                        Blog
-                    </a>
-
-                    <a href="{{ route('services') }}"
-                        class="{{ request()->routeIs('services') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                        Services
-                    </a>
-
-                    <a href="{{ route('destination') }}"
-                        class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                        Study Destinations
-                    </a>
-                </div>
-
-                <!-- Right Button -->
-
-                <div class="flex slide-left" data-delay="1.5" data-duration="0.8">
-                    <a href="/consultation-form"
-                        class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block transform hover:scale-105">
-
-                        <span class="relative z-10 flex items-center gap-2">
-                            Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-
-                        <span
-                            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-[#48464C] focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-[#48464C] focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- Mobile Menu Fullscreen -->
-        <div id="mobile-menu"
-            class="hidden fixed inset-0 bg-white z-40 flex flex-col items-start justify-start px-6 pt-20 space-y-6 font-semibold text-lg">
-            <!-- Close button -->
-            <button id="close-menu-btn" class="absolute top-4 right-6 text-3xl text-[#48464C]">
-                <i class="fa-solid fa-times"></i>
-            </button>
+    <!-- Mobile Menu Fullscreen -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 bg-white z-40 flex flex-col items-start justify-start px-6 pt-20 space-y-6 font-semibold text-lg">
+        <!-- Close button -->
+        <button id="close-menu-btn" class="absolute top-4 right-6 text-3xl text-[#48464C]">
+            <i class="fa-solid fa-times"></i>
+        </button>
 
-            <a href="{{ route('about') }}"
-                class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                About Us
-            </a>
+        <a href="{{ route('home') }}"
+            class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            Home
+        </a>
+        <a href="{{ route('about') }}"
+            class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            About Us
+        </a>
+        <a href="{{ route('events') }}"
+            class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            Events
+        </a>
+        <a href="{{ route('blog') }}"
+            class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            Blog
+        </a>
+        <a href="{{ route('services') }}"
+            class="{{ request()->routeIs('services') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            Services
+        </a>
+        <a href="{{ route('destination') }}"
+            class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            Study Destinations
+        </a>
+        <a href="{{ route('contact') }}"
+            class="{{ request()->routeIs('contact') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
+            Contact
+        </a>
 
-            <a href="{{ route('events') }}"
-                class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                Events
-            </a>
+        <!-- Mobile Free Counselling Button -->
+        <a href="/consultation-form"
+            class="relative overflow-hidden bg-[#74BF1A] text-white px-6 py-3 rounded-lg font-semibold group transition-all duration-300 w-full text-center">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+                Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
+            </span>
+            <span
+                class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+        </a>
+    </div>
+</nav>
 
-            <a href="{{ route('blog') }}"
-                class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                Blog
-            </a>
-
-            <a href="{{ route('services') }}"
-                class="{{ request()->routeIs('services') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                Services
-            </a>
-
-            <a href="{{ route('destination') }}"
-                class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                Study Destinations
-            </a>
-
-            <!-- Mobile Button -->
-            <button
-                class="relative overflow-hidden bg-[#74BF1A] text-white px-6 py-3 rounded-lg font-semibold group transition-all duration-300 w-full text-center">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                    Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
-                </span>
-                <span
-                    class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-            </button>
-        </div>
-    </nav>
 
 
 

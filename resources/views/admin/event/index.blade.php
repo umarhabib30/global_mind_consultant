@@ -9,47 +9,65 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Date</th>
-                                <th>Time</th>
-                                <th>Duration</th>
+                                <th>Start Time</th>
                                 <th>Location</th>
                                 <th>Status</th>
-                                <th>Attendees</th>
-                                <th class="text-center">Action</th>
-                                <th class="text-center">Action</th>
-                                <th class="text-center">Action</th>
-                            </tr>
+                                <th class="text-center">Edit</th>
+                                <th class="text-center">Delete</th>
+                                <th class="text-center">Details</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($events as $event)
                                 <tr>
+                                    <!-- Title -->
                                     <td>{{ $event->title }}</td>
-                                    <td>{{ $event->date }}</td>
-                                    <td>{{ $event->time }}</td>
-                                    <td>{{ $event->duration ?? '-' }}</td>
-                                    <td>{{ $event->location }}</td>
-                                    <td>
-                                        <span class="badge bg-success text-white">{{ ucfirst($event->status) }}</span>
 
-                                    </td>
-                                    <td>{{ $event->attendees }}</td>
+                                    <!-- Date -->
+                                    <td>{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</td>
+
+                                    <!-- Start Time -->
+                                    <td>{{ $event->start_time ?? '-' }}</td>
+
+                                    <!-- Location -->
+                                    <td>{{ $event->location ?? '-' }}</td>
+
+                                    <!-- Status -->
                                     <td>
+                                        @if ($event->status == 'scheduled')
+                                            <span class="badge bg-primary">Scheduled</span>
+                                        @elseif($event->status == 'in_progress')
+                                            <span class="badge bg-warning text-dark">In Progress</span>
+                                        @elseif($event->status == 'completed')
+                                            <span class="badge bg-success">Completed</span>
+                                        @elseif($event->status == 'cancelled')
+                                            <span class="badge bg-danger">Cancelled</span>
+                                        @endif
+                                    </td>
+
+                                    <!-- Actions -->
+                                    <td class="text-center">
                                         <a href="{{ route('event.edit', $event->id) }}"
                                             class="btn btn-primary btn-sm">Edit</a>
                                     </td>
-                                    <td>
-                                        <a href="{{ route('event.destroy', $event->id) }}"
-                                            onclick="return confirm('Are you sure you want to delete this event?')"
-                                            class="btn btn-danger btn-sm">Delete</a>
+                                    <td class="text-center">
+                                        <form action="{{ route('event.destroy', $event->id) }}" method="POST"
+                                            style="display:inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                onclick="return confirm('Are you sure you want to delete this event?')"
+                                                class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ route('event.show', $event->id) }}" class="btn btn-info btn-sm"
                                             style="background-color: #0A245D; color: white;">Details</a>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="12" class="text-center">No events found.</td>
+                                    <td colspan="8" class="text-center">No events found.</td>
                                 </tr>
                             @endforelse
                         </tbody>

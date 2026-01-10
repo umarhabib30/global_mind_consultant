@@ -12,17 +12,31 @@ class Team extends Model
     protected $fillable = [
         'name',
         'email',
-        'phone',
         'role',
-        'role_details',
         'bio',
-        'image',
-        'linkedin',
+
+        'profile_pic',
+        'banner',
+
+        'skills',
+
         'facebook',
         'instagram',
-        'experience_years',
-        'education',
-        'specialization',
+        'linkedin',
+
+        'work_start_year',
+        'work_end_year',
+        'designation',
+        'company_name',
+
+        'degree_name',
+        'university_name',
+        'education_year',
+
         'status',
+    ];
+
+    protected $casts = [
+        'skills' => 'array',
     ];
 }

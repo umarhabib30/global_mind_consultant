@@ -110,222 +110,440 @@
     </section>
 
     <!-----------------------------------CARDS SECTION----------------------------------------------->
-    <section class="py-16 bg-[#F6F6F6]">
-        <div class="px-6 md:px-12">
-            <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center slide-down" data-delay="0.2" data-duration="1.2">
+    <section class="py-12 md:py-16 bg-[#F6F6F6] overflow-hidden">
+        <div class="px-4 sm:px-6 md:px-12">
+
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center reveal-down">
                 Scholarship <span class="text-[#74BF1A]">Assistance</span>
             </h2>
-            <p class="text-lg md:text-xl text-center mb-12 text-gray-600 fade-up" data-delay="0.5" data-duration="1.2">
+
+            <p class="text-base sm:text-lg md:text-xl text-center mb-8 md:mb-12 text-gray-600 reveal-up">
                 Helping students access global scholarship opportunities and fulfill their dreams of higher education.
             </p>
 
-            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 slide-up ">
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
 
                 <div
-                    class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px] relative
-                        cursor-pointer transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
-                    <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
+                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
+    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
+    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+
+                    <!-- IMAGE WRAPPER -->
+                    <div
+                        class="bg-[#C7F28C] flex justify-center items-center
+        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+
                         <img src="images/team.png" alt="Scholarship Advisor"
-                            class="object-cover h-full w-full rounded-t-2xl" />
+                            class="w-full h-full object-contain
+            rounded-t-2xl transition-transform duration-700
+            group-hover:scale-110" />
                     </div>
-                    <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
+
+                    <!-- CONTENT -->
+                    <div
+                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
+        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+
                         <div>
-                            <h3 class="font-bold text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2">
+                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
+                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
+                            <p class="text-sm mt-2 opacity-90">
                                 Expert in guiding students toward international scholarships and preparing strong
                                 applications.
                             </p>
                         </div>
-                        <div class="flex justify-center gap-4 ">
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-facebook"></i></a>
+
+                        <div class="flex justify-center gap-4 mt-4">
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </a>
                         </div>
                     </div>
 
+                    <!-- HOVER OVERLAY -->
                     <div
-                        class="absolute inset-0 bg-[#092962]/60 flex flex-col items-center justify-center
-                            text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-xl font-semibold mb-4 text-center px-4">See full bio and services offered by Nouman.
+                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
+        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
+        z-20 backdrop-blur-sm px-4">
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
+            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            See full bio and services offered by Nouman.
                         </p>
+
                         <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition">
+                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
+            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
+            transform scale-95 group-hover:scale-100">
+                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
+    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
+    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+
+                    <!-- IMAGE WRAPPER -->
+                    <div
+                        class="bg-[#C7F28C] flex justify-center items-center
+        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+
+                        <img src="images/team.png" alt="Scholarship Advisor"
+                            class="w-full h-full object-contain
+            rounded-t-2xl transition-transform duration-700
+            group-hover:scale-110" />
+                    </div>
+
+                    <!-- CONTENT -->
+                    <div
+                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
+        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+
+                        <div>
+                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
+                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
+                            <p class="text-sm mt-2 opacity-90">
+                                Expert in guiding students toward international scholarships and preparing strong
+                                applications.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-center gap-4 mt-4">
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- HOVER OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
+        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
+        z-20 backdrop-blur-sm px-4">
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
+            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            See full bio and services offered by Nouman.
+                        </p>
+
+                        <a href="#"
+                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
+            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
+            transform scale-95 group-hover:scale-100">
                             Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
 
                 <div
-                    class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px] relative
-                        cursor-pointer transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
-                    <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
-                        <img src="images/team.png" alt="Financial Aid Expert"
-                            class="object-cover h-full w-full rounded-t-2xl" />
+                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
+    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
+    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+
+                    <!-- IMAGE WRAPPER -->
+                    <div
+                        class="bg-[#C7F28C] flex justify-center items-center
+        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+
+                        <img src="images/team.png" alt="Scholarship Advisor"
+                            class="w-full h-full object-contain
+            rounded-t-2xl transition-transform duration-700
+            group-hover:scale-110" />
                     </div>
-                    <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
+
+                    <!-- CONTENT -->
+                    <div
+                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
+        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+
                         <div>
-                            <h3 class="font-bold text-2xl">Ayesha Khan</h3>
-                            <p class="text-[#74BF1A] text-xl">Financial Aid Advisor</p>
-                            <p class="text-sm mt-2">
-                                Assists students in identifying need-based aid programs and preparing effective financial
-                                documentation.
+                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
+                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
+                            <p class="text-sm mt-2 opacity-90">
+                                Expert in guiding students toward international scholarships and preparing strong
+                                applications.
                             </p>
                         </div>
+
                         <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </a>
                         </div>
                     </div>
 
+                    <!-- HOVER OVERLAY -->
                     <div
-                        class="absolute inset-0 bg-[#092962]/90 flex flex-col items-center justify-center
-                            text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-xl font-semibold mb-4 text-center px-4">See full bio and services offered by Ayesha.
+                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
+        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
+        z-20 backdrop-blur-sm px-4">
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
+            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            See full bio and services offered by Nouman.
                         </p>
+
                         <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition">
+                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
+            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
+            transform scale-95 group-hover:scale-100">
                             Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
-
                 <div
-                    class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px] relative
-                        cursor-pointer transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
-                    <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
-                        <img src="images/team.png" alt="Documentation Expert"
-                            class="object-cover h-full w-full rounded-t-2xl" />
+                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
+    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
+    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+
+                    <!-- IMAGE WRAPPER -->
+                    <div
+                        class="bg-[#C7F28C] flex justify-center items-center
+        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+
+                        <img src="images/team.png" alt="Scholarship Advisor"
+                            class="w-full h-full object-contain
+            rounded-t-2xl transition-transform duration-700
+            group-hover:scale-110" />
                     </div>
-                    <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
+
+                    <!-- CONTENT -->
+                    <div
+                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
+        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+
                         <div>
-                            <h3 class="font-bold text-2xl">Hassan Raza</h3>
-                            <p class="text-[#74BF1A] text-xl">Application Consultant</p>
-                            <p class="text-sm mt-2">
-                                Specializes in reviewing scholarship applications and ensuring every detail meets
-                                international standards.
+                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
+                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
+                            <p class="text-sm mt-2 opacity-90">
+                                Expert in guiding students toward international scholarships and preparing strong
+                                applications.
                             </p>
                         </div>
+
                         <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </a>
                         </div>
                     </div>
 
+                    <!-- HOVER OVERLAY -->
                     <div
-                        class="absolute inset-0 bg-[#092962]/90 flex flex-col items-center justify-center
-                            text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-xl font-semibold mb-4 text-center px-4">See full bio and services offered by Hassan.
+                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
+        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
+        z-20 backdrop-blur-sm px-4">
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
+            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            See full bio and services offered by Nouman.
                         </p>
+
                         <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition">
+                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
+            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
+            transform scale-95 group-hover:scale-100">
                             Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
-
                 <div
-                    class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px] relative
-                        cursor-pointer transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
-                    <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
-                        <img src="images/team.png" alt="Career Counselor"
-                            class="object-cover h-full w-full rounded-t-2xl" />
+                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
+    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
+    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+
+                    <!-- IMAGE WRAPPER -->
+                    <div
+                        class="bg-[#C7F28C] flex justify-center items-center
+        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+
+                        <img src="images/team.png" alt="Scholarship Advisor"
+                            class="w-full h-full object-contain
+            rounded-t-2xl transition-transform duration-700
+            group-hover:scale-110" />
                     </div>
-                    <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
+
+                    <!-- CONTENT -->
+                    <div
+                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
+        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+
                         <div>
-                            <h3 class="font-bold text-2xl">Sara Ahmed</h3>
-                            <p class="text-[#74BF1A] text-xl">Career Counselor</p>
-                            <p class="text-sm mt-2">
-                                Helps students align scholarship options with their academic goals and future career paths.
+                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
+                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
+                            <p class="text-sm mt-2 opacity-90">
+                                Expert in guiding students toward international scholarships and preparing strong
+                                applications.
                             </p>
                         </div>
+
                         <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </a>
                         </div>
                     </div>
 
+                    <!-- HOVER OVERLAY -->
                     <div
-                        class="absolute inset-0 bg-[#092962]/90 flex flex-col items-center justify-center
-                            text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-xl font-semibold mb-4 text-center px-4">See full bio and services offered by Sara.
+                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
+        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
+        z-20 backdrop-blur-sm px-4">
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
+            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            See full bio and services offered by Nouman.
                         </p>
+
                         <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition">
+                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
+            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
+            transform scale-95 group-hover:scale-100">
                             Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
-
                 <div
-                    class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px] relative
-                        cursor-pointer transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
-                    <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
-                        <img src="images/team.png" alt="Essay Specialist"
-                            class="object-cover h-full w-full rounded-t-2xl" />
+                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
+    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
+    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+
+                    <!-- IMAGE WRAPPER -->
+                    <div
+                        class="bg-[#C7F28C] flex justify-center items-center
+        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+
+                        <img src="images/team.png" alt="Scholarship Advisor"
+                            class="w-full h-[100%] object-contain
+            rounded-t-2xl transition-transform duration-700
+            group-hover:scale-110" />
                     </div>
-                    <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
+
+                    <!-- CONTENT -->
+                    <div
+                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
+        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+
                         <div>
-                            <h3 class="font-bold text-2xl">Ali Zain</h3>
-                            <p class="text-[#74BF1A] text-xl">Essay Specialist</p>
-                            <p class="text-sm mt-2">
-                                Guides students in writing compelling personal statements that stand out to scholarship
-                                committees.
+                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
+                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
+                            <p class="text-sm mt-2 opacity-90">
+                                Expert in guiding students toward international scholarships and preparing strong
+                                applications.
                             </p>
                         </div>
+
                         <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </a>
                         </div>
                     </div>
 
+                    <!-- HOVER OVERLAY -->
                     <div
-                        class="absolute inset-0 bg-[#092962]/90 flex flex-col items-center justify-center
-                            text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-xl font-semibold mb-4 text-center px-4">See full bio and services offered by Ali.
+                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
+        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
+        z-20 backdrop-blur-sm px-4">
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
+            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            See full bio and services offered by Nouman.
                         </p>
+
                         <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition">
+                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
+            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
+            transform scale-95 group-hover:scale-100">
                             Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
 
-                <div
-                    class="rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col h-[470px] relative
-                        cursor-pointer transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
-                    <div class="bg-[#C7F28C] flex justify-center items-end flex-[0.6]">
-                        <img src="images/team.png" alt="Scholarship Mentor"
-                            class="object-cover h-full w-full rounded-t-2xl" />
-                    </div>
-                    <div class="bg-[#092962] text-white text-center p-6 flex-[0.4] flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-bold text-2xl">Fatima Noor</h3>
-                            <p class="text-[#74BF1A] text-xl">Mentorship Lead</p>
-                            <p class="text-sm mt-2">
-                                Provides personalized mentorship throughout the scholarship journey, from application to
-                                admission.
-                            </p>
-                        </div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="hover:text-[#74BF1A]"><i class="fa-brands fa-facebook"></i></a>
-                        </div>
-                    </div>
 
-                    <div
-                        class="absolute inset-0 bg-[#092962]/90 flex flex-col items-center justify-center
-                            text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-xl font-semibold mb-4 text-center px-4">See full bio and services offered by Fatima.
-                        </p>
-                        <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </section>
+
+    <style>
+        /* Animation States */
+        .reveal-down {
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .card-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <script>
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('card-reveal')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                        }, (index % 3) * 150);
+                    } else {
+                        entry.target.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-down, .reveal-up, .card-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+
 
     <!----------------------------------- WHY CHOOSE SECTION ----------------------------------------------->
 

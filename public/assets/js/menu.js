@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.getElementById("mobile-menu-btn");
     const closeBtn = document.getElementById("close-menu-btn");
@@ -19,3 +20,4 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     );
 });
+
