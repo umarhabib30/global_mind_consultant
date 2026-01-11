@@ -160,21 +160,54 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-blog" aria-controls="submenu-blog">
-                                    <i class="fas fa-blog"></i> Blog Management
+                                    <i class="fas fa-newspaper"></i> Blog Management
                                 </a>
-                                <div id="submenu-blog" class="collapse submenu">
+                                <div id="submenu-blog"
+                                    class="collapse submenu {{ $active == 'blog' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('posts.index') }}">View All Blogs</a>
+                                            <a class="nav-link" href="{{ route('posts.index') }}"
+                                                style="{{ Request::is('admin/posts') ? 'color: #79BD21 !important;' : '' }}">
+                                                <i class="fas fa-list-ul me-2"></i> View All Blogs
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('posts.create') }}">Add New Blog</a>
+                                            <a class="nav-link" href="{{ route('posts.create') }}"
+                                                style="{{ Request::is('admin/posts/create') ? 'color: #79BD21 !important;' : '' }}">
+                                                <i class="fas fa-plus-circle me-2"></i> Add New Blog
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.contact.index') }}">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Contact Messages</span>
+                                    @php
+                                        $unreadCount = \App\Models\ContactSubmission::count();
+                                    @endphp
+                                    @if ($unreadCount > 0)
+                                        <span class="badge badge-success ml-2">{{ $unreadCount }}</span>
+                                    @endif
+                                </a>
+                            </li>
 
 
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.consultation.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.consultation.index') }}">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Consultation Bookings</span>
+                                    @php
+                                        $consultationCount = \App\Models\Consultation::count();
+                                    @endphp
+                                    @if ($consultationCount > 0)
+                                        <span class="badge badge-info ml-2">{{ $consultationCount }}</span>
+                                    @endif
+                                </a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"

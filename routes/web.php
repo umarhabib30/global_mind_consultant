@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\ConsultationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\{
+    ContactController as AdminContactController,
     DashboardController,
     EventController,
     PostController,
@@ -21,6 +23,7 @@ use App\Http\Controllers\User\{
     DestinationController,
     EventsController,
     IeltsController,
+    ScholarshipController,
     ServicesController,
     SingleBlogController,
     SingleEventController,
@@ -49,26 +52,26 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
     // Team Routes
     // Team Routes
     Route::controller(TeamController::class)->prefix('team')->group(function () {
-        Route::get('/', 'index')->name('team.index');                 // List all team members
-        Route::get('/create', 'create')->name('team.create');          // Show create form
-        Route::post('/store', 'store')->name('team.store');            // Store new team member
-        Route::get('/edit/{id}', 'edit')->name('team.edit');           // Show edit form
-        Route::put('/update', 'update')->name('team.update');         // Update team member
-        Route::delete('/{id}', 'destroy')->name('team.destroy');       // Delete team member
-        Route::get('/{id}', 'show')->name('team.show');               // Show team member details
+        Route::get('/', 'index')->name('team.index');
+        Route::get('/create', 'create')->name('team.create');
+        Route::post('/store', 'store')->name('team.store');
+        Route::get('/edit/{id}', 'edit')->name('team.edit');
+        Route::put('/update', 'update')->name('team.update');
+        Route::delete('/{id}', 'destroy')->name('team.destroy');
+        Route::get('/{id}', 'show')->name('team.show');
     });
 
 
     // Event Routes
 
     Route::controller(EventController::class)->prefix('event')->group(function () {
-        Route::get('/', 'index')->name('event.index');             // List all events
-        Route::get('/create', 'create')->name('event.create');      // Show create form
-        Route::post('/store', 'store')->name('event.store');        // Store new event
-        Route::get('/edit/{id}', 'edit')->name('event.edit');       // Show edit form
-        Route::put('/update', 'update')->name('event.update');      // Update event
-        Route::delete('/{id}', 'destroy')->name('event.destroy');   // Delete event
-        Route::get('/{id}', 'show')->name('event.show');            // Show event details
+        Route::get('/', 'index')->name('event.index');
+        Route::get('/create', 'create')->name('event.create');
+        Route::post('/store', 'store')->name('event.store');
+        Route::get('/edit/{id}', 'edit')->name('event.edit');
+        Route::put('/update', 'update')->name('event.update');
+        Route::delete('/{id}', 'destroy')->name('event.destroy');
+        Route::get('/{id}', 'show')->name('event.show');
     });
 
     // University Routes
@@ -82,9 +85,21 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
     });
 
     // Admin Blog Routes
-Route::prefix('blog')->group(function () {
-    Route::resource('posts', PostController::class);
-});
+    Route::prefix('blog')->group(function () {
+        Route::resource('posts', PostController::class);
+    });
+    // Admin Contact Messages Routes
+    Route::controller(AdminContactController::class)->prefix('contact-messages')->group(function () {
+        Route::get('/', 'index')->name('admin.contact.index');
+        Route::get('/{id}', 'show')->name('admin.contact.show'); // Added Show Route
+        Route::delete('/{id}', 'destroy')->name('admin.contact.destroy');
+    });
+    //// Admin Consultation Bookings Routes
+    Route::controller(ConsultationController::class)->prefix('consultations')->group(function () {
+        Route::get('/', 'index')->name('admin.consultation.index');
+        Route::get('/{id}', 'show')->name('admin.consultation.show'); // Add this line
+        Route::delete('/{id}', 'destroy')->name('admin.consultation.destroy');
+    });
 });
 
 /*
@@ -106,3 +121,9 @@ Route::get('/ielts', [IeltsController::class, 'index'])->name('ielts');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/course-filter', [CourseFilterController::class, 'index'])->name('course-filter');
 Route::get('/universities', [UniversitiesController::class, 'index'])->name('universities');
+Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('scholarships');
+
+// Contact Form Submission Route
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+// Consultation Form Submission Route
+Route::post('/consultation-form', [ConsultationFormController::class, 'store'])->name('consultation.store');

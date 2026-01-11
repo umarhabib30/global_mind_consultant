@@ -12,7 +12,7 @@ class IeltsController extends Controller
      */
     public function index()
     {
-        return view('user.ielts');
+        return view(view: 'user.ielts');
     }
 
     /**

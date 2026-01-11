@@ -105,35 +105,72 @@
                 </div>
 
                 {{-- Right Side: Form --}}
-                <form class="px-6 py-10 space-y-5 md:w-1/2 lg:p-10" action="#" method="POST">
-                    @csrf
-                    <h2 class="text-3xl text-[#48464C] font-bold">Send us a message</h2>
-                    <input
-                        class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                        type="text" name="name" placeholder="Your Name" required>
+                {{-- Success Message Alert --}}
+                @if (session('success'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 shadow-sm">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
-                    <input
-                        class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                        type="email" name="email" placeholder="Email Address" required>
+                {{-- Updated form tag: replaced action="#" with route('contact.store') --}}
+                {{-- Right Side: Form --}}
+                <div class="px-6 py-10 md:w-1/2 lg:p-10">
+                    {{-- Success Message Alert --}}
+                    @if (session('success'))
+                        <div
+                            class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 shadow-sm">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
-                    <select
-                        class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                        name="country">
-                        <option value="">Select Country</option>
-                        <option value="Pakistan">Pakistan</option>
-                        <option value="USA">USA</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Japan">Japan</option>
-                    </select>
+                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-5">
+                        @csrf
 
-                    <textarea class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                        name="message" placeholder="How can we help you?" rows="5" required></textarea>
+                        <h2 class="text-3xl text-[#48464C] font-bold">Send us a message</h2>
 
-                    <button type="submit"
-                        class="w-full rounded-md text-center bg-[#092962] hover:bg-[#071d44] text-white font-bold p-4 transition duration-300 shadow-md">
-                        Send Message
-                    </button>
-                </form>
+                        <div>
+                            <input
+                                class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
+                                type="text" name="name" placeholder="Your Name" value="{{ old('name') }}" required>
+                            @error('name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <input
+                                class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
+                                type="email" name="email" placeholder="Email Address" value="{{ old('email') }}"
+                                required>
+                            @error('email')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <select
+                            class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
+                            name="country">
+                            <option value="">Select Country</option>
+                            <option value="Pakistan" {{ old('country') == 'Pakistan' ? 'selected' : '' }}>Pakistan</option>
+                            <option value="USA" {{ old('country') == 'USA' ? 'selected' : '' }}>USA</option>
+                            <option value="Canada" {{ old('country') == 'Canada' ? 'selected' : '' }}>Canada</option>
+                            <option value="Japan" {{ old('country') == 'Japan' ? 'selected' : '' }}>Japan</option>
+                        </select>
+
+                        <div>
+                            <textarea class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
+                                name="message" placeholder="How can we help you?" rows="5" required>{{ old('message') }}</textarea>
+                            @error('message')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <button type="submit"
+                            class="w-full rounded-md text-center bg-[#092962] hover:bg-[#071d44] text-white font-bold p-4 transition duration-300 shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
 

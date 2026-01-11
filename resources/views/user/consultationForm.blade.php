@@ -53,88 +53,121 @@
                                 Share Your Details Our Experts Will Contact You
                             </h1>
 
-                            <form action="" class="space-y-6">
+                            @if (session('success'))
+                                <div
+                                    class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded shadow-md">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded">
+                                    <ul class="list-disc pl-5">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <form action="{{ route('consultation.store') }}" method="POST" class="space-y-6">
+                                @csrf
+
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input
+                                    <input name="first_name" required value="{{ old('first_name') }}"
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
                                         placeholder="First Name" />
-                                    <input
+
+                                    <input name="last_name" required value="{{ old('last_name') }}"
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
                                         placeholder="Last Name" />
                                 </div>
 
-                                <input
+                                <input name="email" type="email" required value="{{ old('email') }}"
                                     class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
                                     placeholder="E-mail" />
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input
+                                    <input name="phone" required value="{{ old('phone') }}"
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
                                         placeholder="Phone Number" />
-                                    <input
+
+                                    <input name="linkedin_profile" value="{{ old('linkedin_profile') }}"
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
                                         placeholder="LinkedIn Profile" />
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <select
+                                    <select name="destination" required
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>
-                                            Preferred Study Destination
+                                        <option selected disabled value="">Preferred Study Destination</option>
+                                        <option value="uk" {{ old('destination') == 'uk' ? 'selected' : '' }}>UK
                                         </option>
-                                        <option value="uk">UK</option>
-                                        <option value="usa">USA</option>
-                                        <option value="canada">Canada</option>
+                                        <option value="usa" {{ old('destination') == 'usa' ? 'selected' : '' }}>USA
+                                        </option>
+                                        <option value="canada" {{ old('destination') == 'canada' ? 'selected' : '' }}>
+                                            Canada</option>
                                     </select>
 
-                                    <select
+                                    <select name="branch_time" required
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>Nearest Branch Time</option>
-                                        <option value="morning">Morning</option>
-                                        <option value="afternoon">Afternoon</option>
-                                        <option value="evening">Evening</option>
+                                        <option selected disabled value="">Nearest Branch Time</option>
+                                        <option value="morning" {{ old('branch_time') == 'morning' ? 'selected' : '' }}>
+                                            Morning</option>
+                                        <option value="afternoon"
+                                            {{ old('branch_time') == 'afternoon' ? 'selected' : '' }}>Afternoon</option>
+                                        <option value="evening" {{ old('branch_time') == 'evening' ? 'selected' : '' }}>
+                                            Evening</option>
                                     </select>
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <select
+                                    <select name="counseling_mode" required
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>
-                                            Preferred Mode of Counseling
+                                        <option selected disabled value="">Preferred Mode of Counseling</option>
+                                        <option value="online" {{ old('counseling_mode') == 'online' ? 'selected' : '' }}>
+                                            Online</option>
+                                        <option value="in-person"
+                                            {{ old('counseling_mode') == 'in-person' ? 'selected' : '' }}>In-Person
                                         </option>
-                                        <option value="online">Online</option>
-                                        <option value="in-person">In-Person</option>
-                                        <option value="phone">Phone Call</option>
+                                        <option value="phone" {{ old('counseling_mode') == 'phone' ? 'selected' : '' }}>
+                                            Phone Call</option>
                                     </select>
 
-                                    <select
+                                    <select name="study_level" required
                                         class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>Preferred Study Level</option>
-                                        <option value="undergraduate">Undergraduate</option>
-                                        <option value="postgraduate">Postgraduate</option>
-                                        <option value="phd">PhD / Research</option>
-                                        <option value="diploma">Diploma / Certificate</option>
+                                        <option selected disabled value="">Preferred Study Level</option>
+                                        <option value="undergraduate"
+                                            {{ old('study_level') == 'undergraduate' ? 'selected' : '' }}>Undergraduate
+                                        </option>
+                                        <option value="postgraduate"
+                                            {{ old('study_level') == 'postgraduate' ? 'selected' : '' }}>Postgraduate
+                                        </option>
+                                        <option value="phd" {{ old('study_level') == 'phd' ? 'selected' : '' }}>PhD /
+                                            Research</option>
+                                        <option value="diploma" {{ old('study_level') == 'diploma' ? 'selected' : '' }}>
+                                            Diploma / Certificate</option>
                                     </select>
                                 </div>
 
-                                <textarea rows="5"
+                                <textarea name="message" rows="5" required
                                     class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none resize-none"
-                                    placeholder="Message"></textarea>
-                            </form>
-                        </div>
+                                    placeholder="Message">{{ old('message') }}</textarea>
 
-                        <div class="mt-8 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-[#74BF1A] text-white px-6 md:px-32 font-bold py-3 rounded-lg hover:bg-green-600 transition w-full text-center">
-                                Submit
-                            </a>
+                                <div class="mt-8 flex items-center justify-center">
+                                    <button type="submit"
+                                        class="bg-[#74BF1A] text-white px-6 md:px-32 font-bold py-3 rounded-lg hover:bg-green-600 transition w-full text-center">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
 
                 <div class="w-full lg:w-1/2 flex items-center slide-right" data-delay="0.9" data-duration="1.2">
                     <div class="overflow-hidden rounded-2xl shadow-lg w-full h-[800px] my-auto">
-                        <img src="images/call-form.png" alt="Students"
+                        <img src="{{ asset('images/call-form.png') }}" alt="Students"
                             class="w-full h-full object-cover rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl" />
                     </div>
                 </div>

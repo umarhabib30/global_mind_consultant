@@ -601,68 +601,73 @@
     <!-------------------------------------------------TABS SECTION--------------------------------------------------->
     <section class="py-16" id="partner-universities">
         <div class="px-6 md:px-12 text-center">
-            <h2 class="slide-left text-3xl md:text-5xl font-bold mb-4 text-[#0A2D5A]" data-delay="0.3"
+            <h2 class="md:slide-left text-3xl md:text-5xl font-bold mb-4 text-[#0A2D5A]" data-delay="0.3"
                 data-duration="1.2">
                 Our <span class="text-[#74BF1A]">Partner Universities</span>
             </h2>
-            <p class=" slide-right text-gray-600 max-w-2xl mx-auto mb-12" data-delay="0.5" data-duration="1.2">
+            <p class=" md:slide-right text-gray-600 max-w-2xl mx-auto mb-12 text-sm md:text-base" data-delay="0.5"
+                data-duration="1.2">
                 We are proudly associated with globally recognized institutions to help students access the best education
                 opportunities around the world.
             </p>
 
-            <!-- Tabs -->
-            <div class="relative flex flex-wrap justify-center gap-8 mb-10 pb-2 slide-left" data-delay="0.8"
+            <div class="relative flex flex-wrap justify-center gap-4 md:gap-8 mb-10 pb-2 slide-left" data-delay="0.8"
                 data-duration="1.5">
-                <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative active flex items-center gap-2"
+                <button
+                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative active flex items-center gap-2 text-sm md:text-base"
                     data-target="all">
                     All
                 </button>
 
-                <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2"
+                <button
+                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
                     data-target="uk">
-                    <img src="{{ asset('images/ukFlag.png') }}" alt="UK Flag" class="w-12 h-12 object-cover rounded-sm">
+                    <img src="{{ asset('images/ukFlag.png') }}" alt="UK Flag"
+                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
                     UK
                 </button>
 
-                <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2"
+                <button
+                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
                     data-target="germany">
                     <img src="{{ asset('images/germanyFlag.png') }}" alt="Germany Flag"
-                        class="w-12 h-12 object-cover rounded-sm">
+                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
                     Germany
                 </button>
 
-                <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2"
+                <button
+                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
                     data-target="australia">
                     <img src="{{ asset('images/australiaFlag.png') }}" alt="Australia Flag"
-                        class="w-12 h-12 object-cover rounded-sm">
+                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
                     Australia
                 </button>
 
-                <button class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2"
+                <button
+                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
                     data-target="canada">
                     <img src="{{ asset('images/canadaFlag.png') }}" alt="Canada Flag"
-                        class="w-12 h-12 object-cover rounded-sm">
+                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
                     Canada
                 </button>
 
-                <!-- Active  -->
                 <div id="tab-underline" class="absolute bottom-0 h-[3px] bg-[#74BF1A] transition-all duration-300"></div>
             </div>
 
-            <!-- All Tab -->
-            <div id="all" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
+            <div id="all" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 @foreach (range(1, 8) as $i)
                     <div
-                        class=" cursor-pointer slide-up  bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
+                        class="cursor-pointer slide-up bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
                         <div class="flex mb-4">
                             <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
                             <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
                         </div>
                         <div class="flex justify-center mb-4">
                             <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-24 h-24 object-contain">
+                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
                         </div>
-                        <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
+                            {{ $i }}</h3>
                         <p class="text-gray-600 text-sm text-left leading-relaxed">
                             Globally reputed institution offering excellence in education and research.
                         </p>
@@ -670,21 +675,20 @@
                 @endforeach
             </div>
 
-            <!-- UK Tab -->
-            <div id="uk" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="uk" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 @foreach (range(1, 6) as $i)
                     <div
-                        class=" cursor-pointer slide-up  bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
+                        class="cursor-pointer slide-up bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
                         <div class="flex mb-4">
                             <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
                             <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
                         </div>
                         <div class="flex justify-center mb-4 relative">
-
                             <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-24 h-24 object-contain mx-auto">
+                                class="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto">
                         </div>
-                        <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
+                            {{ $i }}</h3>
                         <p class="text-gray-600 text-sm text-left leading-relaxed">
                             Leading UK institution recognized for global excellence in research and academics.
                         </p>
@@ -692,21 +696,20 @@
                 @endforeach
             </div>
 
-            <!-- Germany Tab -->
-            <div id="germany" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="germany" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 @foreach (range(1, 6) as $i)
                     <div
-                        class=" cursor-pointer slide-up  bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
+                        class="cursor-pointer slide-up bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
                         <div class="flex mb-4">
                             <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
                             <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
                         </div>
                         <div class="flex justify-center mb-4 relative">
-
                             <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-24 h-24 object-contain">
+                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
                         </div>
-                        <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
+                            {{ $i }}</h3>
                         <p class="text-gray-600 text-sm text-left leading-relaxed">
                             Prestigious German university known for innovation and quality education.
                         </p>
@@ -714,22 +717,20 @@
                 @endforeach
             </div>
 
-            <!-- Australia Tab -->
-            <div id="australia"
-                class=" cursor-pointer slide-up  tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="australia" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 @foreach (range(1, 6) as $i)
                     <div
-                        class="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
+                        class="cursor-pointer bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative slide-up">
                         <div class="flex mb-4">
                             <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
                             <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
                         </div>
                         <div class="flex justify-center mb-4 relative">
-
                             <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-24 h-24 object-contain">
+                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
                         </div>
-                        <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
+                            {{ $i }}</h3>
                         <p class="text-gray-600 text-sm text-left leading-relaxed">
                             Top-ranked Australian university fostering innovation and global collaboration.
                         </p>
@@ -737,22 +738,20 @@
                 @endforeach
             </div>
 
-            <!-- Canada Tab -->
-            <div id="canada"
-                class=" cursor-pointer slide-up  tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="canada" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 @foreach (range(1, 6) as $i)
                     <div
-                        class="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
+                        class="cursor-pointer bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative slide-up">
                         <div class="flex mb-4">
                             <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
                             <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
                         </div>
                         <div class="flex justify-center mb-4 relative">
-
                             <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-24 h-24 object-contain">
+                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
                         </div>
-                        <h3 class="text-2xl font-bold text-[#0A2D5A] text-left mb-2">University {{ $i }}</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
+                            {{ $i }}</h3>
                         <p class="text-gray-600 text-sm text-left leading-relaxed">
                             Canadian institution with world-class programs and diverse academic excellence.
                         </p>
@@ -761,7 +760,6 @@
             </div>
 
 
-            <!-- Pagination Dots -->
             <div class="flex justify-center items-center mt-10 gap-3" id="dots-container">
                 <span class="dot w-3 h-3 rounded-full bg-[#74BF1A]"></span>
                 <span class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-[#74BF1A] cursor-pointer transition"></span>
@@ -770,7 +768,6 @@
                 <span class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-[#74BF1A] cursor-pointer transition"></span>
             </div>
 
-            <!-- More Universities -->
             <div class="mt-6">
                 <a href="#" class="text-[#74BF1A] font-semibold hover:underline hover:text-[#0A2D5A] transition">
                     More Universities <i class="fa-solid fa-arrow-right"></i>
@@ -1113,7 +1110,7 @@
                     </p>
                     <div class="hidden md:flex mt-6">
                         <div class=":flex">
-                            <a href="/destination"
+                            <a href="/contact"
                                 class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
 
                                 <span class="relative z-10 flex items-center gap-2">

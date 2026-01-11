@@ -4,62 +4,45 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Consultation;
+use Illuminate\Support\Facades\Mail; // Added for Mail support
+use App\Mail\ConsultationSubmitted;   // Added to use your mailable class
 
 class ConsultationFormController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the consultation form page.
      */
     public function index()
     {
-        return view(view: 'user.consultationForm');
+        return view('user.consultationForm');
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store the consultation request in the database and send email.
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'first_name'       => 'required|string|max:255',
+            'last_name'        => 'required|string|max:255',
+            'email'            => 'required|email|max:255',
+            'phone'            => 'required|string|max:20',
+            'linkedin_profile' => 'nullable|url',
+            'destination'      => 'required|string',
+            'branch_time'      => 'required|string',
+            'counseling_mode'  => 'required|string',
+            'study_level'      => 'required|string',
+            'message'          => 'required|string',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        // 1. Store in Database
+        Consultation::create($validatedData);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        // 2. Send Email to Admin
+        // Replace 'admin@yourdomain.com' with your actual receiving email
+        Mail::to('makeuse928@gmail.com')->send(new ConsultationSubmitted($validatedData));
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Your details have been shared. Our experts will contact you soon!');
     }
 }

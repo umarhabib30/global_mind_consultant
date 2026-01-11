@@ -16,8 +16,7 @@
             }
         }
     </style>
-
-    <section class="py-[10%] bg-[#F6F6F6]   ">
+    <section class="pt-32 pb-20 bg-[#F6F6F6] overflow-hidden">
         <div class="px-4 sm:px-6 md:px-8 lg:px-36">
             <div class="flex flex-col lg:flex-row items-center gap-8">
                 <div class="w-full lg:w-1/2 relative flex flex-col items-center lg:items-start slide-left" data-delay="0.4"
@@ -69,7 +68,7 @@
     </section>
 
     <!-----------------------------------VISION SECTION----------------------------------------------->
-    <section class="py-16">
+    <section class="py-16 overflow-hidden">
         <div class="px-6 md:px-12">
             <div class="flex flex-col lg:flex-row items-center gap-10">
                 <div class="w-full lg:w-1/2 slide-right" data-delay="0.2" data-duration="1.4">
@@ -176,7 +175,7 @@
                             See full bio and services offered by Nouman.
                         </p>
 
-                        <a href="#"
+                        <a href="/single-person"
                             class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
             hover:bg-white hover:text-[#74BF1A] transition-all duration-300
             transform scale-95 group-hover:scale-100">

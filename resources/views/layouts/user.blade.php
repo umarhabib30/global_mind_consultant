@@ -26,121 +26,134 @@
 
 <body>
     <!-----------------------------------NAVBAR----------------------------------------------- -->
-   <!-- Navigation -->
-<nav class="bg-white fixed w-full p-2 left-0 z-50 shadow-md">
-    <div class="px-4 sm:px-6 lg:px-8 mx-auto">
-        <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <a href="{{ route('home') }}">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo"
-                        class="h-[70px] w-auto sm:h-[90px] md:h-[110px] lg:h-[130px]" />
-                </a>
-            </div>
+    <!-- Navigation -->
+    <nav class="bg-white fixed w-full left-0 z-[100] shadow-md">
+        <div class="px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="flex justify-between items-center h-20 md:h-24">
+                <div class="flex-shrink-0">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                            class="h-[120px] w-auto md:h-[80px] lg:h-[90px] transition-all" />
+                    </a>
+                </div>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 items-center font-semibold">
-                <a href="{{ route('home') }}"
-                    class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    Home
-                </a>
-                <a href="{{ route('about') }}"
-                    class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    About Us
-                </a>
-                <a href="{{ route('events') }}"
-                    class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    Events
-                </a>
-                <a href="{{ route('blog') }}"
-                    class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    Blog
-                </a>
-                <a href="{{ route('services') }}"
-                    class="{{ request()->routeIs('services') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    Services
-                </a>
-                <a href="{{ route('destination') }}"
-                    class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    Study Destinations
-                </a>
-                <a href="{{ route('contact') }}"
-                    class="{{ request()->routeIs('contact') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-                    Contact
-                </a>
-            </div>
+                <div class="hidden md:flex space-x-6 items-center font-semibold">
+                    <a href="{{ route('home') }}"
+                        class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Home</a>
+                    <a href="{{ route('about') }}"
+                        class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">About
+                        Us</a>
 
-            <!-- Right Button (Desktop only) -->
-            <div class="hidden md:flex slide-left" data-delay="1.5" data-duration="0.8">
-                <a href="/consultation-form"
-                    class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block transform hover:scale-105">
-                    <span class="relative z-10 flex items-center gap-2">
-                        Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                    <span
-                        class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                </a>
-            </div>
+                    <div class="relative group h-full flex items-center">
+                        <a href="/services"
+                            class="flex items-center gap-1 {{ request()->routeIs('services*') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition py-8">
+                            Services <i
+                                class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+                        </a>
 
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-btn" class="text-[#48464C] focus:outline-none">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
+                        <div class="absolute left-0 top-[80%] pt-4 w-48 hidden group-hover:block z-[110]">
+                            <div class="bg-white border border-gray-100 shadow-xl rounded-lg py-2">
+                                <a href="/ielts"
+                                    class="block px-4 py-2 text-sm text-[#48464C] hover:bg-gray-50 hover:text-[#74BF1A]">IELTS</a>
+                                <a href="/universities"
+                                    class="block px-4 py-2 text-sm text-[#48464C] hover:bg-gray-50 hover:text-[#74BF1A]">Universities</a>
+                                <a href="/scholarships"
+                                    class="block px-4 py-2 text-sm text-[#48464C] hover:bg-gray-50 hover:text-[#74BF1A]">Scholarships</a>
+                                <a href="/course-filter"
+                                    class="block px-4 py-2 text-sm text-[#48464C] hover:bg-gray-50 hover:text-[#74BF1A]">Course-Filter</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{{ route('events') }}"
+                        class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Events</a>
+                    <a href="{{ route('blog') }}"
+                        class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Blog</a>
+                    <a href="{{ route('destination') }}"
+                        class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Study
+                        Destinations</a>
+                    <a href="{{ route('contact') }}"
+                        class="{{ request()->routeIs('contact') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Contact</a>
+                </div>
+
+                <div class="hidden md:flex">
+                    <a href="/consultation-form"
+                        class="bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-green-600 transition">
+                        Book Free Counselling
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-[#48464C] p-2 relative z-[110]">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Mobile Menu Fullscreen -->
-    <div id="mobile-menu"
-        class="hidden fixed inset-0 bg-white z-40 flex flex-col items-start justify-start px-6 pt-20 space-y-6 font-semibold text-lg">
-        <!-- Close button -->
-        <button id="close-menu-btn" class="absolute top-4 right-6 text-3xl text-[#48464C]">
-            <i class="fa-solid fa-times"></i>
-        </button>
+        <div id="mobile-menu"
+            class="hidden fixed inset-0 bg-white z-[120] flex flex-col px-6 pt-6 overflow-y-auto no-scrollbar">
+            <div class="flex justify-between items-center w-full mb-10">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-20 w-auto" />
+                <button id="close-menu-btn" class="text-3xl text-[#48464C]">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
 
-        <a href="{{ route('home') }}"
-            class="{{ request()->routeIs('home') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            Home
-        </a>
-        <a href="{{ route('about') }}"
-            class="{{ request()->routeIs('about') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            About Us
-        </a>
-        <a href="{{ route('events') }}"
-            class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            Events
-        </a>
-        <a href="{{ route('blog') }}"
-            class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            Blog
-        </a>
-        <a href="{{ route('services') }}"
-            class="{{ request()->routeIs('services') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            Services
-        </a>
-        <a href="{{ route('destination') }}"
-            class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            Study Destinations
-        </a>
-        <a href="{{ route('contact') }}"
-            class="{{ request()->routeIs('contact') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">
-            Contact
-        </a>
+            <div class="flex flex-col space-y-4 font-semibold text-lg pb-10">
+                <a href="{{ route('home') }}" class="py-2 border-b border-gray-50">Home</a>
+                <a href="{{ route('about') }}" class="py-2 border-b border-gray-50">About Us</a>
 
-        <!-- Mobile Free Counselling Button -->
-        <a href="/consultation-form"
-            class="relative overflow-hidden bg-[#74BF1A] text-white px-6 py-3 rounded-lg font-semibold group transition-all duration-300 w-full text-center">
-            <span class="relative z-10 flex items-center justify-center gap-2">
-                Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
-            </span>
-            <span
-                class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-        </a>
-    </div>
-</nav>
+                <div class="border-b border-gray-50">
+                    <div class="flex justify-between items-center w-full py-2">
+                        <a href="/services" class="flex-grow">Services</a>
+                        <button id="mobile-services-btn" class="p-2">
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-services-list" class="hidden flex-col bg-gray-50 rounded-lg">
+                        <a href="/scholarships" class="px-4 py-3 text-base border-b border-gray-100">Scholarships</a>
+                        <a href="/universities" class="px-4 py-3 text-base border-b border-gray-100">Universities</a>
+                        <a href="/ielts" class="px-4 py-3 text-base">IELTS</a>
+                    </div>
+                </div>
 
+                <a href="{{ route('events') }}" class="py-2 border-b border-gray-50">Events</a>
+                <a href="{{ route('destination') }}" class="py-2 border-b border-gray-50">Study Destinations</a>
+                <a href="{{ route('contact') }}" class="py-2">Contact</a>
 
+                <a href="/consultation-form"
+                    class="bg-[#74BF1A] text-white px-6 py-4 rounded-lg text-center mt-4 shadow-lg">
+                    Book Free Counselling
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        /* Hide scrollbar but allow scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Ensure the dropdown area is connected to the trigger */
+        .nav-dropdown-bridge {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            /* Bridges the gap between link and menu */
+            background: transparent;
+        }
+    </style>
 
 
 

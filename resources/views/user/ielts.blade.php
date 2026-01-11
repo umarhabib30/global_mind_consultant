@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="pt-4">
-                        <a href="/consultation"
+                        <a href="/consultation-form"
                             class="inline-block bg-[#74BF1A] hover:bg-[#092962] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-[#74BF1A]/20 transform hover:-translate-y-1 slide-right"
                             data-delay="0.8">
                             Book a Free Consultation
@@ -213,7 +213,7 @@
                         </ul>
 
                         <div class="flex justify-center lg:justify-start scale-in" data-delay="1.8" data-duration="0.8">
-                            <a href="#"
+                            <a href="/consultation-form"
                                 class="bg-[#74BF1A] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
                                 Book Free Consultation
                             </a>
@@ -455,10 +455,11 @@
                     </div>
 
                     <div class="slide-right pt-4" data-delay="1.2">
-                        <button
-                            class="bg-[#74BF1A] hover:bg-[#092962] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95">
-                            Book a free consultation
-                        </button>
+                       <a href="/scholarships"
+   class="inline-block bg-[#74BF1A] text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-green-600 transition w-full md:w-auto text-sm sm:text-base text-center">
+   Explore Scholarships
+</a>
+
                     </div>
                 </div>
             </div>

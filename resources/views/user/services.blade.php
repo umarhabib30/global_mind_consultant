@@ -25,7 +25,7 @@
 
 
             <div class="flex justify-center items-center mt-6 mb-6">
-                <a href="#"
+                <a href="/contact"
                     class="bg-[#74BF1A] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-green-600 transition text-sm sm:text-base scale-in"
                     data-delay="1.8" data-duration="0.8">
                     Contact Us
@@ -86,7 +86,7 @@
                         </p>
 
                         <div class="flex justify-center lg:justify-start feature-item">
-                            <a href="#"
+                            <a href="/consultation-form"
                                 class="bg-[#092962] text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-green-600 transition text-sm sm:text-base">
                                 Book Free Consultation
                             </a>
@@ -131,10 +131,11 @@
                         </div>
 
                         <div class="mt-6 sm:mt-8 scale-in" data-delay="1.8" data-duration="1.0">
-                            <button type="submit"
-                                class="bg-[#74BF1A] text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-green-600 transition w-full md:w-auto text-sm sm:text-base">
+                            <a href="/scholarships"
+                                class="inline-block bg-[#74BF1A] text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-green-600 transition w-full md:w-auto text-sm sm:text-base text-center">
                                 Explore Scholarships
-                            </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -267,7 +268,7 @@
                         </ul>
 
                         <div class="flex justify-center lg:justify-start scale-in" data-delay="1.8" data-duration="0.8">
-                            <a href="#"
+                            <a href="/consultation-form"
                                 class="bg-[#74BF1A] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
                                 Book Free Consultation
                             </a>
@@ -428,7 +429,7 @@
                         </ul>
 
                         <div class="flex justify-center lg:justify-start scale-in" data-delay="2.0" data-duration="0.8">
-                            <a href="#"
+                            <a href="/consultation-form"
                                 class="bg-[#74BF1A] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
                                 Book Free Consultation
                             </a>
@@ -510,7 +511,7 @@
                         </ul>
 
                         <div class="flex justify-center lg:justify-start scale-in" data-delay="1.8" data-duration="0.8">
-                            <a href="#"
+                            <a href="/consultation-form"
                                 class="bg-[#74BF1A] text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
                                 Book Free Consultation
                             </a>
