@@ -9,6 +9,23 @@ use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
+    private function normalizeSkills($skills): array
+    {
+        if (is_string($skills)) {
+            $skills = explode(',', $skills);
+        }
+
+        if (!is_array($skills)) {
+            return [];
+        }
+
+        return collect($skills)
+            ->map(fn($skill) => trim((string) $skill))
+            ->filter(fn($skill) => $skill !== '')
+            ->values()
+            ->all();
+    }
+
     public function index()
     {
         $teams = Team::all();
@@ -53,7 +70,7 @@ class TeamController extends Controller
             'profile_pic' => $profilePicPath,
             'banner' => $bannerPath,
 
-            'skills' => $request->skills, // array → JSON (auto cast)
+            'skills' => $this->normalizeSkills($request->input('skills')),
 
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
@@ -108,7 +125,7 @@ class TeamController extends Controller
             'role' => $request->role,
             'bio' => $request->bio,
 
-            'skills' => $request->skills,
+            'skills' => $this->normalizeSkills($request->input('skills')),
 
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,

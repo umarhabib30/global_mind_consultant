@@ -71,8 +71,23 @@
 
                             <div class="col-md-12 mb-3">
                                 <label class="form-label fw-semibold">Areas of Expertise </label>
-                                <input type="text" name="skills" class="form-control form-control-lg"
-                                    placeholder="Risk Management, Tax Strategy, Corporate Law, Mergers & Acquisitions">
+                                @php
+                                    $skills = old('skills', ['']);
+                                    if (!is_array($skills) || empty($skills)) {
+                                        $skills = [''];
+                                    }
+                                @endphp
+                                <div id="skills-wrapper">
+                                    @foreach ($skills as $skill)
+                                        <div class="input-group mb-2 skill-row">
+                                            <input type="text" name="skills[]" class="form-control form-control-lg"
+                                                value="{{ $skill }}" placeholder="e.g. Risk Management">
+                                            <button class="btn btn-outline-danger remove-skill-btn" type="button">Remove</button>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-primary mt-1" id="add-skill-btn">+ Add
+                                    Point</button>
                             </div>
                         </div>
                     </div>
@@ -166,4 +181,43 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrapper = document.getElementById('skills-wrapper');
+            const addButton = document.getElementById('add-skill-btn');
+
+            const buildSkillRow = (value = '') => {
+                const row = document.createElement('div');
+                row.className = 'input-group mb-2 skill-row';
+                row.innerHTML = `
+                    <input type="text" name="skills[]" class="form-control form-control-lg" placeholder="e.g. Risk Management">
+                    <button class="btn btn-outline-danger remove-skill-btn" type="button">Remove</button>
+                `;
+                row.querySelector('input').value = value;
+                return row;
+            };
+
+            addButton.addEventListener('click', function() {
+                wrapper.appendChild(buildSkillRow());
+            });
+
+            wrapper.addEventListener('click', function(event) {
+                const removeButton = event.target.closest('.remove-skill-btn');
+                if (!removeButton) {
+                    return;
+                }
+
+                const row = removeButton.closest('.skill-row');
+                const rows = wrapper.querySelectorAll('.skill-row');
+
+                if (rows.length === 1) {
+                    row.querySelector('input').value = '';
+                    return;
+                }
+
+                row.remove();
+            });
+        });
+    </script>
 @endsection
