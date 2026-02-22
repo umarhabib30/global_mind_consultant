@@ -1,76 +1,166 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <div class="mb-3">
-            <a href="{{ route('admin.contact.index') }}" class="btn btn-sm shadow-sm"
-                style="background-color: #0A245D; color: white;">
-                <i class="fa fa-arrow-left"></i> Back to Inquiries
+    <style>
+        /* Custom styles for a unique look */
+        .detail-card {
+            border: none;
+            border-radius: 24px;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .glass-header {
+            background: linear-gradient(135deg, #0A245D 0%, #1c4bb0 100%);
+            border-radius: 24px 24px 0 0 !important;
+            padding: 2.5rem !important;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .avatar-circle {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 20px;
+        }
+
+        .message-bubble {
+            background: #f8fafc;
+            border: 1px solid #edf2f7;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+
+        .action-btn {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <div class="container-fluid py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 px-2">
+            <a href="{{ route('admin.contact.index') }}" class="btn action-btn btn-light bg-white shadow-sm border-0">
+                <i class="fa fa-chevron-left me-2 text-primary"></i> Back to Inbox
             </a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge bg-soft-success text-success rounded-pill px-3 py-2"
+                    style="background: #ecfdf5; color: #059669;">
+                    <i class="fa fa-check-circle me-1"></i> Received
+                </span>
+            </div>
         </div>
 
-        <div class="card shadow-sm border-0">
-            <div class="card-header bg-white border-bottom" style="border-left: 5px solid #0A245D;">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0 fw-bold" style="color: #0A245D;">Contact Message Detail</h3>
-                    <span class="text-muted small">Received: {{ $message->created_at->format('d M Y, h:i A') }}</span>
+        <div class="card detail-card">
+            <div class="card-header glass-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-circle me-4 text-white">
+                                {{ strtoupper(substr($message->name ?? 'U', 0, 1)) }}
+                            </div>
+                            <div>
+                                <h3 class="text-white fw-bold mb-1">{{ $message->name }}</h3>
+                                <p class="text-white-50 mb-0">
+                                    <i class="fa fa-clock me-1"></i> Sent
+                                    {{ $message->created_at->format('F j, Y \a\t g:i A') }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <div class="text-white-50 small">Reference ID: #{{ $message->id }}</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-5 border-end">
-                        <h5 class="mb-4 pb-2 border-bottom fw-bold" style="color: #79BD21;">
-                            <i class="fa fa-user me-2"></i>Sender Information
-                        </h5>
+            <div class="card-body p-4 p-lg-5">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="pe-lg-4 border-end-lg">
+                            <div class="mb-5">
+                                <div class="info-label">Email Address</div>
+                                <h5 class="fw-bold mb-3">
+                                    <a href="mailto:{{ $message->email }}" class="text-dark text-decoration-none">
+                                        {{ $message->email }} <i class="fa fa-external-link-alt ms-1 small text-muted"></i>
+                                    </a>
+                                </h5>
 
-                        <div class="mb-4">
-                            <label class="small text-uppercase fw-bold text-muted d-block mb-1">Full Name</label>
-                            <p class="fs-5 fw-semibold text-dark">{{ $message->name }}</p>
-                        </div>
+                                <div class="info-label mt-4">Location</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light rounded-3 px-3 py-2 border">
+                                        <i class="fa fa-globe-americas me-2 text-primary"></i>
+                                        <span class="fw-semibold text-dark">{{ $message->country ?: 'Unknown' }}</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="mb-4">
-                            <label class="small text-uppercase fw-bold text-muted d-block mb-1">Email Address</label>
-                            <p class="fs-5">
-                                <a href="mailto:{{ $message->email }}" style="color: #0A245D; text-decoration: none;">
-                                    <i class="fa fa-envelope me-1 small"></i> {{ $message->email }}
+                            <hr class="my-4 opacity-50">
+
+                            <div class="d-grid gap-3 space">
+                                <a href="mailto:{{ $message->email }}" class="btn action-btn btn-primary py-3">
+                                    <i class="fa fa-paper-plane me-2"></i> Send Direct Reply
                                 </a>
-                            </p>
-                        </div>
-
-                        <div class="mb-4">
-                            <label class="small text-uppercase fw-bold text-muted d-block mb-1">Location/Country</label>
-                            <p class="fs-5 text-dark">
-                                <i class="fa fa-globe me-1 small"></i> {{ $message->country ?? 'Not Provided' }}
-                            </p>
+                                <form action="{{ route('admin.contact.destroy', $message->id) }}" method="POST"
+                                    onsubmit="return confirm('Delete this inquiry forever?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn action-btn btn-outline-danger w-100">
+                                        <i class="fa fa-trash-alt me-2"></i> Move to Trash
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-md-7 ps-md-4">
-                        <h5 class="mb-4 pb-2 border-bottom fw-bold" style="color: #79BD21;">
-                            <i class="fa fa-envelope-open me-2"></i>Inquiry Message
-                        </h5>
+                    <div class="col-lg-8">
+                        <div class="d-flex justify-content-between align-items-end mb-4">
+                            <h4 class="fw-bold mb-0" style="color: #0A245D;">Message Brief</h4>
+                            <span class="text-muted small">{{ $message->created_at->diffForHumans() }}</span>
+                        </div>
 
-                        <div class="p-4 rounded shadow-sm"
-                            style="background-color: #f8faff; border-left: 4px solid #0A245D; min-height: 200px;">
-                            <label class="small text-uppercase fw-bold text-muted d-block mb-2">Message Content:</label>
-                            <p class="text-dark" style="white-space: pre-wrap; line-height: 1.8;">
-                                {{ $message->message }}
-                            </p>
+                        <div class="message-bubble shadow-sm">
+                            {{ $message->message ?: 'The sender did not include a message body.' }}
+                        </div>
+
+                        <div class="mt-5 p-4 rounded-4 bg-light border-0 d-flex align-items-start gap-3">
+                            <div class="bg-white rounded-circle p-2 shadow-sm">
+                                <i class="fa fa-lightbulb text-warning"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-muted small">
+                                    <strong>Admin Tip:</strong> When replying, ensure you mention the sender's country
+                                    ({{ $message->country }}) if it pertains to shipping or regional policies to add a
+                                    personal touch.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card-footer bg-light d-flex justify-content-end py-3">
-                <form action="{{ route('admin.contact.destroy', $message->id) }}" method="POST"
-                    onsubmit="return confirm('Are you sure you want to delete this message permanently?')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-outline-danger btn-sm px-4">
-                        <i class="fa fa-trash me-1"></i> Delete Message
-                    </button>
-                </form>
             </div>
         </div>
     </div>
