@@ -29,7 +29,7 @@
     <!-- Navigation -->
     <nav class="bg-white fixed w-full left-0 z-[100] shadow-md">
         <div class="px-4 sm:px-6 lg:px-8 mx-auto">
-            <div class="flex justify-between items-center h-20 md:h-24">
+            <div class="flex justify-between items-center h-20 md:h-18">
                 <div class="flex-shrink-0">
                     <a href="{{ route('home') }}">
                         <img src="{{ asset('images/logo.png') }}" alt="Logo"

@@ -1,5 +1,54 @@
-@extends('layouts.user')
+﻿@extends('layouts.user')
 @section('content')
+    <!-- Offer Popup -->
+    <div id="homeOfferPopup"
+        class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 px-4 opacity-0 transition-opacity duration-500 ease-out">
+        <div id="homeOfferPopupCard"
+            class="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl opacity-0 translate-y-4 scale-95 transition-all duration-500 ease-out md:p-8">
+            <button id="closeHomeOfferPopup"
+                class="absolute right-3 top-3 rounded-full p-2 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
+                aria-label="Close offer popup">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <p class="mb-2 inline-block rounded-full bg-[#74BF1A]/10 px-3 py-1 text-xs font-semibold text-[#0A245D]">
+                Limited Time Offer
+            </p>
+            <h2 class="text-2xl font-bold text-[#0A245D] md:text-3xl">Get Free Counselling + Application Fee Support</h2>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600 md:text-base">
+                Start your study abroad journey with an expert session and special support for your first application.
+            </p>
+
+            <a href="/consultation-form"
+                class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#74BF1A] px-5 py-3 text-center font-semibold text-white transition hover:bg-green-600">
+                Claim This Offer
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <div class="mt-6 border-t pt-4">
+                <p class="mb-3 text-sm font-semibold text-[#0A245D]">Follow us</p>
+                <div class="flex flex-wrap gap-2">
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
+                        class="rounded-md bg-red-100 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-200">
+                        YouTube
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                        class="rounded-md bg-pink-100 px-3 py-2 text-sm font-medium text-pink-700 hover:bg-pink-200">
+                        Instagram
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                        class="rounded-md bg-blue-100 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-200">
+                        Facebook
+                    </a>
+                    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer"
+                        class="rounded-md bg-green-100 px-3 py-2 text-sm font-medium text-green-700 hover:bg-green-200">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-----------------------------------HERO SECTION----------------------------------------------->
     <section
         class="relative bg-[url('/images/home-01.png')] bg-cover bg-top w-full min-h-screen flex items-center justify-center pb-22 overflow-hidden">
@@ -110,7 +159,8 @@
                             <button @click="open = !open"
                                 class="w-full flex justify-between items-center border rounded-md px-4 py-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#74BF1A]">
                                 <span x-text="selected"></span>
-                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -1394,4 +1444,55 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('homeOfferPopup');
+            const popupCard = document.getElementById('homeOfferPopupCard');
+            const closeBtn = document.getElementById('closeHomeOfferPopup');
+            if (!popup) return;
+
+            const openPopup = () => {
+                popup.classList.remove('hidden');
+                popup.classList.add('flex');
+
+                requestAnimationFrame(() => {
+                    popup.classList.remove('opacity-0');
+                    popup.classList.add('opacity-100');
+                    if (popupCard) {
+                        popupCard.classList.remove('opacity-0', 'translate-y-4', 'scale-95');
+                        popupCard.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+                    }
+                });
+            };
+
+            const closePopup = () => {
+                popup.classList.remove('opacity-100');
+                popup.classList.add('opacity-0');
+                if (popupCard) {
+                    popupCard.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+                    popupCard.classList.add('opacity-0', 'translate-y-4', 'scale-95');
+                }
+
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                    popup.classList.remove('flex');
+                }, 500);
+            };
+
+            setTimeout(openPopup, 1000);
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    closePopup();
+                });
+            }
+
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    closePopup();
+                }
+            });
+        });
+    </script>
 @endsection
