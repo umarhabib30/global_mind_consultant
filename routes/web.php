@@ -10,7 +10,8 @@ use App\Http\Controllers\Admin\{
     EventController,
     PostController,
     TeamController,
-    UniversityController
+    UniversityController,
+    DestinationController,
 };
 
 use App\Http\Controllers\User\{
@@ -20,7 +21,6 @@ use App\Http\Controllers\User\{
     ConsultationFormController,
     ContactController,
     CourseFilterController,
-    DestinationController,
     EventsController,
     IeltsController,
     ScholarshipController,
@@ -83,6 +83,9 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::post('/university/update', 'update')->name('university.update');
         Route::get('/university/delete/{id}', 'destroy')->name('university.destroy');
     });
+
+    //Destination Routes
+    Route::get('/destination', [DestinationController::class, 'index'])->name('destination.index');
 
     // Admin Blog Routes
     Route::prefix('blog')->group(function () {

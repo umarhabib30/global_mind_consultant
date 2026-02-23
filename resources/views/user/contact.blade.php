@@ -1,179 +1,235 @@
 @extends('layouts.user')
+
 @section('content')
     <section class="bg-[#F6F6F6] overflow-hidden">
-        <div class="px-6 md:px-12"></div>
 
         {{-- Hero Section --}}
-        <div class="h-screen w-full relative">
-            <img class="h-full w-full object-cover" src="/images/img.jpg" alt="Contact Background">
+        <div class="h-[70vh] md:h-screen w-full relative flex items-center justify-center overflow-hidden">
+            {{-- Parallax Background --}}
+            <img class="hero-bg h-[110%] w-full object-cover absolute top-0 left-0 brightness-50" src="/images/img.jpg"
+                alt="Contact Background">
+
             <div
-                class="w-11/12 md:w-1/2 h-auto md:h-1/2 bg-white/10 absolute backdrop-blur-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-white/30">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
-                <p class="text-center text-white text-lg">
-                    Have questions? We're here to help. Reach out to our team for expert guidance and support tailored
-                    to
-                    your needs.
+                class="hero-card w-11/12 md:w-2/3 lg:w-1/2 z-10 bg-white/10 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-2xl text-center">
+                <h1 class="hero-title text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
+                    Contact <span class="text-blue-400">Us</span>
+                </h1>
+                <p class="hero-text text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    Have questions? We're here to help. Reach out to our team for expert guidance and support tailored to
+                    your unique needs.
                 </p>
+                <div class="hero-btn mt-8">
+                    <a href="#contact-form"
+                        class="px-8 py-3 bg-white text-[#092962] font-bold rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg">
+                        Scroll to Message
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Contact Info & Form Section --}}
-        <section class="relative min-h-screen flex flex-col justify-center items-center bg-gray-50 ">
+        <section id="contact-form" class="relative min-h-screen flex flex-col justify-center items-center bg-gray-50 py-20">
+
             <div
-                class="flex flex-col md:flex-row justify-center relative md:absolute md:-top-[15%] bg-white w-[90%] lg:w-[70%] rounded-2xl shadow-2xl overflow-hidden">
+                class="flex flex-col md:flex-row justify-center relative md:-top-32 bg-white w-[92%] lg:w-[85%] xl:w-[75%] rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden">
 
                 {{-- Left Side: Contact Details --}}
-                <div class="bg-[#FAFAFA] px-6 py-10 space-y-8 md:w-1/2 p-5 lg:p-10">
-                    <div class="space-y-4">
-                        <h2 class="text-3xl text-[#48464C] font-bold">Get in touch</h2>
-                        <p class="text-gray-600 leading-relaxed">
-                            We value your feedback and inquiries. Please fill out the form or use our contact details
-                            below
-                            to get started.
+                <div class="bg-[#092962] text-white px-8 py-12 md:w-5/12 lg:p-16 flex flex-col justify-between slide-left">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-bold word-split">Get in touch</h2>
+                        <p class="text-blue-100/80 leading-relaxed text-lg fade-in" data-delay="0.5">
+                            We value your feedback and inquiries. Use our contact details or the form to start a
+                            conversation.
                         </p>
+
+                        <div class="space-y-8 pt-8 stagger-up" data-stagger="0.2">
+                            {{-- Location --}}
+                            <div class="flex gap-6 items-start group">
+                                <div
+                                    class="h-14 w-14 shrink-0 flex justify-center items-center rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors border border-white/10">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-white">Head Office</h3>
+                                    <p class="text-blue-100/70">Noori Gate, Silanwali Road, Sargodha</p>
+                                </div>
+                            </div>
+
+                            {{-- Phone --}}
+                            <div class="flex gap-6 items-start group">
+                                <div
+                                    class="h-14 w-14 shrink-0 flex justify-center items-center rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors border border-white/10">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-white">Phone</h3>
+                                    <p class="text-blue-100/70">+92 48 1234567</p>
+                                </div>
+                            </div>
+
+                            {{-- Email --}}
+                            <div class="flex gap-6 items-start group">
+                                <div
+                                    class="h-14 w-14 shrink-0 flex justify-center items-center rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors border border-white/10">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-white">E-mail</h3>
+                                    <p class="text-blue-100/70">support@yourcompany.com</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="space-y-6">
-                        {{-- Location Icon & Text --}}
-                        <div class="flex gap-5 items-start">
-                            <div class="h-12 w-12 shrink-0 flex justify-center items-center rounded-full bg-[#092962]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-[#092962]">Head Office</h3>
-                                <p class="text-gray-600">Noori Gate, Silanwali Road</p>
-                                <p class="text-gray-600">Sargodha, Pakistan</p>
-                            </div>
+                    <div class="pt-12 fade-up" data-delay="1">
+                        <p class="font-medium text-blue-200 mb-6 uppercase tracking-widest text-sm">Follow us</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="h-12 w-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-[#092962] transition-all duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="h-12 w-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-pink-600 transition-all duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#"
+                                class="h-12 w-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-blue-500 transition-all duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
-
-                        {{-- Phone Icon & Text --}}
-                        <div class="flex gap-5 items-start">
-                            <div class="h-12 w-12 shrink-0 flex justify-center items-center rounded-full bg-[#092962]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-[#092962]">Phone Number</h3>
-                                <p class="text-gray-600">+92 48 1234567</p>
-                                <p class="text-gray-600">+92 300 0000000</p>
-                            </div>
-                        </div>
-
-                        {{-- Email Icon & Text --}}
-                        <div class="flex gap-5 items-start">
-                            <div class="h-12 w-12 shrink-0 flex justify-center items-center rounded-full bg-[#092962]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-[#092962]">E-mail</h3>
-                                <p class="text-gray-600">info@yourcompany.com</p>
-                                <p class="text-gray-600">support@yourcompany.com</p>
-                            </div>
-                        </div>
-
-                        <div class="pt-4">
-                            <p class="font-bold mb-4">Follow us on social media</p>
-                            <div class="flex items-center gap-6">
-                                {{-- Social Icons using Font Awesome --}}
-                                <a href="#" class="text-[#092962] hover:text-blue-800 transition text-2xl">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                                <a href="#" class="text-[#092962] hover:text-pink-600 transition text-2xl">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="text-[#092962] hover:text-blue-700 transition text-2xl">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
                 {{-- Right Side: Form --}}
-                {{-- Success Message Alert --}}
-                @if (session('success'))
-                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 shadow-sm">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                {{-- Updated form tag: replaced action="#" with route('contact.store') --}}
-                {{-- Right Side: Form --}}
-                <div class="px-6 py-10 md:w-1/2 lg:p-10">
-                    {{-- Success Message Alert --}}
+                <div class="px-8 py-12 md:w-7/12 lg:p-16 slide-right">
                     @if (session('success'))
                         <div
-                            class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 shadow-sm">
-                            {{ session('success') }}
+                            class="fade-in bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-r-lg shadow-sm flex items-center gap-3">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="font-medium">{{ session('success') }}</span>
                         </div>
                     @endif
 
-                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-5">
+                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
                         @csrf
-
-                        <h2 class="text-3xl text-[#48464C] font-bold">Send us a message</h2>
-
-                        <div>
-                            <input
-                                class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                                type="text" name="name" placeholder="Your Name" value="{{ old('name') }}" required>
-                            @error('name')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
-                            @enderror
+                        <div class="space-y-2">
+                            <h2 class="text-3xl text-gray-800 font-bold mb-2">Send us a message</h2>
+                            <div class="h-1.5 w-16 bg-blue-600 rounded-full mb-8"></div>
                         </div>
 
-                        <div>
-                            <input
-                                class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                                type="email" name="email" placeholder="Email Address" value="{{ old('email') }}"
-                                required>
-                            @error('email')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
-                            @enderror
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="fade-up" data-delay="0.1">
+                                <label class="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
+                                <input class="form-input-modern" type="text" name="name" placeholder="John Doe"
+                                    value="{{ old('name') }}" required>
+                                @error('name')
+                                    <span class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="fade-up" data-delay="0.2">
+                                <label class="text-sm font-semibold text-gray-700 ml-1">Email Address</label>
+                                <input class="form-input-modern" type="email" name="email"
+                                    placeholder="john@example.com" value="{{ old('email') }}" required>
+                                @error('email')
+                                    <span class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <select
-                            class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                            name="country">
-                            <option value="">Select Country</option>
-                            <option value="Pakistan" {{ old('country') == 'Pakistan' ? 'selected' : '' }}>Pakistan</option>
-                            <option value="USA" {{ old('country') == 'USA' ? 'selected' : '' }}>USA</option>
-                            <option value="Canada" {{ old('country') == 'Canada' ? 'selected' : '' }}>Canada</option>
-                            <option value="Japan" {{ old('country') == 'Japan' ? 'selected' : '' }}>Japan</option>
-                        </select>
+                        <div class="fade-up" data-delay="0.3">
+                            <label class="text-sm font-semibold text-gray-700 ml-1">Country</label>
+                            <select class="form-input-modern cursor-pointer" name="country">
+                                <option value="">Select Country</option>
+                                <option value="Pakistan" {{ old('country') == 'Pakistan' ? 'selected' : '' }}>Pakistan
+                                </option>
+                                <option value="USA" {{ old('country') == 'USA' ? 'selected' : '' }}>USA</option>
+                                <option value="Canada" {{ old('country') == 'Canada' ? 'selected' : '' }}>Canada</option>
+                            </select>
+                        </div>
 
-                        <div>
-                            <textarea class="border border-gray-300 rounded-md w-full p-4 focus:ring-2 focus:ring-[#092962] outline-none transition"
-                                name="message" placeholder="How can we help you?" rows="5" required>{{ old('message') }}</textarea>
+                        <div class="fade-up" data-delay="0.4">
+                            <label class="text-sm font-semibold text-gray-700 ml-1">Your Message</label>
+                            <textarea class="form-input-modern" name="message" placeholder="How can we help you today?" rows="4" required>{{ old('message') }}</textarea>
                             @error('message')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                <span class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <button type="submit"
-                            class="w-full rounded-md text-center bg-[#092962] hover:bg-[#071d44] text-white font-bold p-4 transition duration-300 shadow-md">
-                            Send Message
+                            class="group relative w-full overflow-hidden rounded-xl bg-[#092962] py-5 text-white transition-all duration-300 hover:shadow-[0_15px_30px_-5px_rgba(9,41,98,0.4)] active:scale-[0.98]">
+                            <div class="relative z-10 flex items-center justify-center gap-3 font-bold text-lg">
+                                <span>Send Inquiry</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path
+                                        d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                                </svg>
+                            </div>
                         </button>
                     </form>
                 </div>
             </div>
         </section>
-
-        </div>
     </section>
+
+    <style>
+        .form-input-modern {
+            @apply w-full bg-white border border-gray-200 rounded-xl px-5 py-4 mt-2 outline-none transition-all duration-300 ease-in-out text-gray-700 placeholder-gray-400;
+            /* Outer soft shadow and inner tiny bevel */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02), inset 0 1px 2px rgba(0, 0, 0, 0.01);
+        }
+
+        .form-input-modern:hover {
+            @apply border-gray-300;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-input-modern:focus {
+            @apply border-blue-500 bg-white ring-0;
+            /* Double halo: soft blue ring + slightly stronger shadow to show elevation */
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12), 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            @apply block mb-1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Basic animation placeholders if not using a library like GSAP or AOS */
+        .fade-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 @endsection
