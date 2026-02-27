@@ -444,158 +444,104 @@
     </section>
 
     <!----------------------------------- FAQS SECTION ----------------------------------------------->
-    <<section class="py-16 bg-white">
-        <div class="px-6 md:px-12">
+    <section class="py-16 bg-white">
+        <div class="px-6 md:px-12 ">
             <h2 class="text-2xl md:text-4xl font-bold text-center mb-10 slide-down" data-delay="0.2" data-duration="1.2">
-                Frequently Asked <span class="text-[#74BF1A]">Questions</span>
+                Destination <span class="text-[#74BF1A]">FAQs</span>
             </h2>
 
-            <div class="space-y-6 fade-in" data-delay="0.5" data-duration="1.0">
-
+            <div class="space-y-4 fade-in" data-delay="0.5" data-duration="1.0">
                 <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
                     <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">1</span>
-                            <span>What is the main purpose of Global Mind Consultants?</span>
-                        </div>
+                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
+                        <span>How do I choose the best country for my study goals?</span>
                         <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Global Mind Consultants is dedicated to guiding students and professionals
-                        towards global education and career opportunities by providing expert
-                        counseling, admission support, and scholarship assistance.
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
+                        Compare your academic interests, budget, preferred climate, language, and future work options. We
+                        help you shortlist destinations like the USA, UK, France, Germany, Italy, UAE, Sweden, Finland,
+                        and Turkey based on your profile.
                     </div>
                 </div>
 
                 <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
                     <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">2</span>
-                            <span>How long has Global Mind Consultants been operating?</span>
-                        </div>
+                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
+                        <span>Which destination is more affordable for tuition and living costs?</span>
                         <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        We have been serving students for several years, building strong partnerships
-                        with international universities and ensuring successful admissions for
-                        thousands of students across the globe.
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
+                        Costs vary by city and university. In general, Germany, France, Turkey, and Italy can be more
+                        budget-friendly than some USA or UK options. We provide a personalized cost estimate before you
+                        apply.
                     </div>
                 </div>
 
                 <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
                     <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">3</span>
-                            <span>What services does Global Mind Consultants provide?</span>
-                        </div>
+                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
+                        <span>Can I get scholarships for these destinations?</span>
                         <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        We offer career counseling, admission guidance, scholarship assistance,
-                        visa support, document preparation, and pre-departure orientation to
-                        make your study abroad journey seamless.
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
+                        Yes. Scholarship availability depends on your academic record, English score, and chosen program.
+                        We guide you on merit-based, need-based, and university-specific scholarships in each destination.
                     </div>
                 </div>
 
                 <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
                     <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">4</span>
-                            <span>What makes Global Mind Consultants different?</span>
-                        </div>
+                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
+                        <span>Do you support the visa process after admission?</span>
                         <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Our personalized counseling approach, experienced team, transparent
-                        process, and long-standing relationships with top universities make us
-                        a trusted name in international education consulting.
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
+                        Yes, we support complete visa documentation, file review, interview preparation, and pre-departure
+                        guidance so your move is smooth and well planned.
                     </div>
                 </div>
 
                 <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
                     <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">5</span>
-                            <span>How can I get in touch with your team?</span>
-                        </div>
+                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
+                        <span>How early should I start my study abroad application?</span>
                         <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        You can reach out via our website contact form, email, or visit our
-                        nearest office. Our counselors are always ready to assist you with
-                        your queries and guide you through every step.
+                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
+                        Start at least 6 to 12 months before your intended intake. This gives enough time for university
+                        shortlisting, document preparation, language tests, admission, visa processing, and accommodation.
                     </div>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const faqToggles = document.querySelectorAll('.faq-toggle');
+    <script>
+        document.querySelectorAll(".faq-toggle").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const item = btn.closest(".faq-item");
+                const content = item.querySelector(".faq-content");
+                const icon = btn.querySelector("i");
+                const isOpen = !content.classList.contains("hidden");
 
-                faqToggles.forEach(toggle => {
-                    toggle.addEventListener('click', () => {
-                        const faqItem = toggle.closest('.faq-item');
-                        const content = faqItem.querySelector('.faq-content');
-                        const icon = toggle.querySelector('i');
-
-                        // Check if the current item is already open
-                        const isOpened = content.style.maxHeight !== '0px';
-
-                        // Close all other open FAQs (optional, but good practice for accordions)
-                        document.querySelectorAll('.faq-content').forEach(c => {
-                            if (c !== content) {
-                                c.style.maxHeight = '0px';
-                                c.closest('.faq-item').querySelector('.faq-toggle i').classList
-                                    .remove('rotate-90');
-                            }
-                        });
-
-                        // Toggle the current FAQ
-                        if (isOpened) {
-                            content.style.maxHeight = '0px';
-                            icon.classList.remove('rotate-90');
-                        } else {
-                            // Set maxHeight to scrollHeight to enable the transition
-                            content.style.maxHeight = content.scrollHeight + "px";
-                            icon.classList.add('rotate-90');
-                        }
-                    });
+                document.querySelectorAll(".faq-item").forEach((el) => {
+                    el.querySelector(".faq-content").classList.add("hidden");
+                    el.querySelector(".faq-toggle i").classList.remove("rotate-90");
+                    el.classList.remove("border-[#74BF1A]",
+                        "shadow-[0_8px_24px_rgba(116,191,26,0.22)]");
                 });
-            });
-        </script>
-        <!-- Accordion Script -->
-        <script>
-            document.querySelectorAll(".faq-toggle").forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const item = btn.closest(".faq-item");
-                    const content = item.querySelector(".faq-content");
-                    const icon = btn.querySelector("i");
 
-                    // Toggle current FAQ
-                    content.classList.toggle("hidden");
-                    icon.classList.toggle("rotate-90");
-
-                    // Toggle green border when open
-                    if (!content.classList.contains("hidden")) {
-                        item.classList.add("border-b-[4px]", "border-[#74BF1A]",
-                            "shadow-[0_6px_20px_rgba(116,191,26,0.3)]");
-                    } else {
-                        item.classList.remove("border-b-[4px]", "border-[#74BF1A]",
-                            "shadow-[0_6px_20px_rgba(116,191,26,0.3)]");
-                    }
-                });
+                if (!isOpen) {
+                    content.classList.remove("hidden");
+                    icon.classList.add("rotate-90");
+                    item.classList.add("border-[#74BF1A]", "shadow-[0_8px_24px_rgba(116,191,26,0.22)]");
+                }
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

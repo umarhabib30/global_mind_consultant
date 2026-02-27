@@ -166,107 +166,83 @@
     @yield('content')
     <script src="{{ asset('assets/js/menu.js') }}"></script>
     <script src="{{ asset('assets/js/animations.js') }}"></script>
-
-
-    <!------------------------ footer----------------------------------  -->
-    <section>
-        <footer class="flex flex-wrap lg:flex-nowrap justify-between px-6 md:px-12">
-            <!-- 1st part -->
-            <div class="w-full sm:w-1/2 lg:w-auto">
-                <img src="images/logo.png" class="w-56 mb-2" alt="logo" />
-                <p class="w-full sm:w-72 lg:w-96 leading-relaxed">
-                    Global Minds Consultant - Pakistan’s #1 Abroad Consultant. Trusted
-                    by 1500+ people.
-                </p>
-                <p class="space-x-6 bg-[#092962] text-white text-xl h-10 pt-1 w-48 rounded-lg mt-5">
-                    <i class="fa-brands fa-facebook ml-3 cursor-pointer"></i>
-                    <i class="fa-brands fa-instagram cursor-pointer"></i>
-                    <i class="fa-brands fa-linkedin cursor-pointer"></i>
-                    <i class="fa-brands fa-twitter cursor-pointer"></i>
-                </p>
-
-            </div>
-
-
-            <!-- 2nd part -->
-            <div class="mt-10 sm:mt-20 w-full sm:w-1/2 lg:w-auto">
-                <h1 class="text-xl font-bold mb-3">Get free links</h1>
-                <div class="space-y-2">
-                    <p class="text-[#605D64]">
-                        <i class="fa-solid fa-angle-right"></i> <a href="/"> About Us</a>
+    <!------------------------ Footer ----------------------------------  -->
+    <footer class="mt-16 bg-[#0A245D] text-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div>
+                    <a href="{{ route('home') }}" class="inline-flex items-center">
+                        <img src="{{ asset('images/logo.png') }}" class="h-20 w-auto" alt="Global Minds Consultants" />
+                    </a>
+                    <p class="mt-4 text-sm leading-7 text-blue-100">
+                        Global Minds Consultants helps students choose the right destination, apply confidently, and complete
+                        their visa process with expert support.
                     </p>
-                    <p class="text-[#605D64]">
-                        <i class="fa-solid fa-angle-right"></i> <a href="/"> Locations</a>
-                    </p>
-                    <p class="text-[#605D64]">
-                        <i class="fa-solid fa-angle-right"></i> <a href="/"> Blogs</a>
-                    </p>
-                    <p class="text-[#605D64]">
-                        <i class="fa-solid fa-angle-right"></i> <a href="/"> FAQs</a>
-                    </p>
-                    <p class="text-[#605D64]">
-                        <i class="fa-solid fa-angle-right"></i>
-                        <a href="/"> Student Guide</a>
-                    </p>
-                    <p class="text-[#605D64]">
-                        <i class="fa-solid fa-angle-right"></i>
-                        <a href="/"> Private Policy</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- 3rd part -->
-            <div class="mt-10 sm:mt-20 w-full sm:w-1/2 lg:w-auto">
-                <h1 class="text-xl font-bold mb-3">Recent Blogs</h1>
-                <div class="flex space-x-3">
-                    <div>
-                        <img src="image/image-4.jpg" class="h-16 rounded-lg" alt="" />
-                    </div>
-                    <div>
-                        <p>
-                            <i class="fa-solid fa-calendar text-xl text-[#092962]"></i>
-                            2024-06-07
-                        </p>
-                        <p class="font-bold">Blog title</p>
+                    <div class="mt-5 flex items-center gap-3">
+                        <a href="#" class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="flex space-x-3 mt-4">
-                    <div>
-                        <img src="image/image-4.jpg" class="h-16 rounded-lg" alt="" />
-                    </div>
-                    <div>
-                        <p>
-                            <i class="fa-solid fa-calendar text-xl text-[#092962]"></i>
-                            2024-06-07
-                        </p>
-                        <p class="font-bold">Blog title</p>
-                    </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="{{ route('services') }}" class="hover:text-white transition">Services</a></li>
+                        <li><a href="{{ route('destination') }}" class="hover:text-white transition">Study Destinations</a></li>
+                        <li><a href="{{ route('events') }}" class="hover:text-white transition">Events</a></li>
+                        <li><a href="{{ route('blog') }}" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><a href="{{ route('ielts') }}" class="hover:text-white transition">IELTS Preparation</a></li>
+                        <li><a href="{{ route('universities') }}" class="hover:text-white transition">University Admissions</a></li>
+                        <li><a href="{{ route('scholarships') }}" class="hover:text-white transition">Scholarship Guidance</a></li>
+                        <li><a href="{{ route('course-filter') }}" class="hover:text-white transition">Course Filter</a></li>
+                        <li><a href="{{ route('consultation') }}" class="hover:text-white transition">Book Free Consultation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-4 text-blue-100">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-[#74BF1A]"></i>
+                            <span>Office no 14, 4th floor, Mall of Sargodha</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone mt-1 text-[#74BF1A]"></i>
+                            <span>+92 317 1115091 / +92 317 1115092</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-brands fa-facebook-f mt-1 text-[#74BF1A]"></i>
+                            <span>Global Minds Consultants</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- 4th part -->
-            <div class="mt-10 sm:mt-20 w-full sm:w-1/2 lg:w-auto">
-                <h1 class="font-bold text-xl mb-3">Contact Us</h1>
-                <p class="mt-3">
-                    <i class="fa-solid fa-phone border border-black w-9 h-9 text-center pt-2 rounded-md"></i>
-                    +92 312 000000
-                </p>
-                <p class="mt-3">
-                    <i class="fa-solid fa-envelope border border-black w-9 h-9 text-center pt-2 rounded-md"></i>
-                    abcd@gmail.com
-                </p>
-            </div>
-        </footer>
-
-        <!-- All rights reserved -->
-        <br /><br />
-        <hr />
-        <div class="text-center m-5">
-            <p>Global Minds Consultant 2025 | All Rights Reserved</p>
         </div>
-    </section>
+
+        <div class="border-t border-white/15">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 text-sm text-blue-100 text-center">
+                Global Minds Consultants {{ date('Y') }} | All Rights Reserved
+            </div>
+        </div>
+    </footer>
 
 </body>
 
 </html>
+
