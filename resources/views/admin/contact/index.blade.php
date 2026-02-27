@@ -22,7 +22,6 @@
                                 <th>Sender</th>
                                 <th>Email</th>
                                 <th class="text-center">Country</th>
-                                <th>Message</th>
                                 <th class="text-center">Details</th>
                                 <th class="text-center">Delete</th>
                             </tr>
@@ -40,10 +39,6 @@
                                         <span class="badge" style="background-color: #79BD21; color: white;">
                                             {{ strtoupper($message->country ?? 'N/A') }}
                                         </span>
-                                    </td>
-
-                                    <td class="small text-muted">
-                                        {{ Str::limit($message->message, 40) }}
                                     </td>
 
                                     <td class="text-center">

@@ -3,16 +3,15 @@
 @section('content')
     <section class="bg-[#F6F6F6] overflow-hidden">
 
-        {{-- Hero Section --}}
+        <!-------------------------- HERO SECTION-------------------------------->
         <div class="h-[70vh] md:h-screen w-full relative flex items-center justify-center overflow-hidden">
-            {{-- Parallax Background --}}
-            <img class="hero-bg h-[110%] w-full object-cover absolute top-0 left-0 brightness-50" src="/images/img.jpg"
+            <img class="hero-bg h-[140%] w-full object-cover absolute top-0 left-0 brightness-50" src="/images/img.jpg"
                 alt="Contact Background">
 
             <div
                 class="hero-card w-11/12 md:w-2/3 lg:w-1/2 z-10 bg-white/10 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-2xl text-center">
                 <h1 class="hero-title text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
-                    Contact <span class="text-blue-400">Us</span>
+                    Contact <span class="text-[#74BF1A]">Us</span>
                 </h1>
                 <p class="hero-text text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                     Have questions? We're here to help. Reach out to our team for expert guidance and support tailored to
@@ -57,7 +56,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-bold text-xl text-white">Head Office</h3>
-                                    <p class="text-blue-100/70">Noori Gate, Silanwali Road, Sargodha</p>
+                                    <p class="text-blue-100/70">Office no 14, 4th floor, Mall of Sargodha</p>
                                 </div>
                             </div>
 
@@ -73,7 +72,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-bold text-xl text-white">Phone</h3>
-                                    <p class="text-blue-100/70">+92 48 1234567</p>
+                                    <p class="text-blue-100/70">+92 317 1115091 / +92 317 1115092</p>
                                 </div>
                             </div>
 
@@ -88,8 +87,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-bold text-xl text-white">E-mail</h3>
-                                    <p class="text-blue-100/70">support@yourcompany.com</p>
+                                    <h3 class="font-bold text-xl text-white">Email</h3>
+                                    <p class="text-blue-100/70">info@globalmindsconsultants.com</p>
                                 </div>
                             </div>
                         </div>
@@ -133,18 +132,22 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div class="fade-up" data-delay="0.1">
-                                <label class="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
-                                <input class="form-input-modern" type="text" name="name" placeholder="John Doe"
-                                    value="{{ old('name') }}" required>
+                                <label class="block mb-1 ml-1 text-sm font-semibold text-gray-700">Full Name</label>
+                                <input
+                                    class="mt-2 block w-full min-h-[52px] rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-gray-700 placeholder-gray-400 shadow-sm outline-none transition-all duration-300 ease-in-out hover:border-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                                    type="text" name="name" placeholder="John Doe" value="{{ old('name') }}"
+                                    required>
                                 @error('name')
                                     <span class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="fade-up" data-delay="0.2">
-                                <label class="text-sm font-semibold text-gray-700 ml-1">Email Address</label>
-                                <input class="form-input-modern" type="email" name="email"
-                                    placeholder="john@example.com" value="{{ old('email') }}" required>
+                                <label class="block mb-1 ml-1 text-sm font-semibold text-gray-700">Email Address</label>
+                                <input
+                                    class="mt-2 block w-full min-h-[52px] rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-gray-700 placeholder-gray-400 shadow-sm outline-none transition-all duration-300 ease-in-out hover:border-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                                    type="email" name="email" placeholder="john@example.com"
+                                    value="{{ old('email') }}" required>
                                 @error('email')
                                     <span class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</span>
                                 @enderror
@@ -152,19 +155,18 @@
                         </div>
 
                         <div class="fade-up" data-delay="0.3">
-                            <label class="text-sm font-semibold text-gray-700 ml-1">Country</label>
-                            <select class="form-input-modern cursor-pointer" name="country">
-                                <option value="">Select Country</option>
-                                <option value="Pakistan" {{ old('country') == 'Pakistan' ? 'selected' : '' }}>Pakistan
-                                </option>
-                                <option value="USA" {{ old('country') == 'USA' ? 'selected' : '' }}>USA</option>
-                                <option value="Canada" {{ old('country') == 'Canada' ? 'selected' : '' }}>Canada</option>
-                            </select>
+                            <label class="block mb-1 ml-1 text-sm font-semibold text-gray-700">Country</label>
+                            <input
+                                class="mt-2 block w-full min-h-[52px] rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-gray-700 placeholder-gray-400 shadow-sm outline-none transition-all duration-300 ease-in-out hover:border-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                                type="text" name="country" placeholder="Enter your country"
+                                value="{{ old('country') }}">
                         </div>
 
                         <div class="fade-up" data-delay="0.4">
-                            <label class="text-sm font-semibold text-gray-700 ml-1">Your Message</label>
-                            <textarea class="form-input-modern" name="message" placeholder="How can we help you today?" rows="4" required>{{ old('message') }}</textarea>
+                            <label class="block mb-1 ml-1 text-sm font-semibold text-gray-700">Your Message</label>
+                            <textarea
+                                class="mt-2 block w-full min-h-[130px] resize-y rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-gray-700 placeholder-gray-400 shadow-sm outline-none transition-all duration-300 ease-in-out hover:border-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                                name="message" placeholder="How can we help you today?" rows="4" required>{{ old('message') }}</textarea>
                             @error('message')
                                 <span class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</span>
                             @enderror
@@ -189,27 +191,6 @@
     </section>
 
     <style>
-        .form-input-modern {
-            @apply w-full bg-white border border-gray-200 rounded-xl px-5 py-4 mt-2 outline-none transition-all duration-300 ease-in-out text-gray-700 placeholder-gray-400;
-            /* Outer soft shadow and inner tiny bevel */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02), inset 0 1px 2px rgba(0, 0, 0, 0.01);
-        }
-
-        .form-input-modern:hover {
-            @apply border-gray-300;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-input-modern:focus {
-            @apply border-blue-500 bg-white ring-0;
-            /* Double halo: soft blue ring + slightly stronger shadow to show elevation */
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12), 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        label {
-            @apply block mb-1;
-        }
-
         html {
             scroll-behavior: smooth;
         }

@@ -84,8 +84,18 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/university/delete/{id}', 'destroy')->name('university.destroy');
     });
 
-    //Destination Routes
-    Route::get('/destination', [DestinationController::class, 'index'])->name('destination.index');
+    Route::prefix('admin')->group(function () {
+        Route::get('/destination', [DestinationController::class, 'index'])->name('destination.index');
+        Route::get('/destination/create', [DestinationController::class, 'create'])->name('destination.create');
+        Route::post('/destination/store', [DestinationController::class, 'store'])->name('destination.store');
+
+        Route::get('/destination/edit/{id}', [DestinationController::class, 'edit'])->name('destination.edit');
+
+        // ✅ include {id} because your controller update() expects it
+        Route::post('/destination/update/{id}', [DestinationController::class, 'update'])->name('destination.update');
+
+        Route::get('/destination/delete/{id}', [DestinationController::class, 'destroy'])->name('destination.destroy');
+    });
 
     // Admin Blog Routes
     Route::prefix('blog')->group(function () {

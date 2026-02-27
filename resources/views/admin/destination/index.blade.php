@@ -23,23 +23,24 @@
                                     <tr>
                                         <td>{{ $destination->title }}</td>
                                         <td>{{ $destination->description }}</td>
-                                                {{-- <td>
+                                        {{-- <td>
                                                     @if ($university->image)
                                                         <img src="{{ asset($university->image) }}" alt="{{ $university->name }}"
                                                             class="rounded-circle" width="50" height="50">
                                                     @else
                                                         <span class="text-muted">No Image</span>
                                                     @endif
-                                                </td> --}}
-                                        {{-- <td>
-                                            <a href="{{ url('admin/university/edit', $university->id) }}"
+                                                </td>  --}}
+                                        <td>
+                                            <a href="{{ route('destination.edit', $destination->id) }}"
                                                 class="btn btn-primary btn-sm">Edit</a>
                                         </td>
+
                                         <td>
-                                            <a href="{{ url('admin/university/destroy', $university->id) }}"
-                                                onclick="return confirm('Are you sure you want to delete this university?')"
+                                            <a href="{{ route('destination.destroy', $destination->id) }}"
+                                                onclick="return confirm('Are you sure you want to delete this destination?')"
                                                 class="btn btn-danger btn-sm">Delete</a>
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -52,5 +53,4 @@
         <!-- end basic table  -->
         <!-- ============================================================== -->
     </div>
-
 @endsection

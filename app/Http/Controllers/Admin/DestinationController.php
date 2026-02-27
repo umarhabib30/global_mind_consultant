@@ -29,7 +29,12 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'heading' => "Destination",
+            'title' => "Add Destination",
+            'active' => 'destination',
+        ];
+        return view('admin.destination.create', $data);
     }
 
     /**
@@ -37,7 +42,17 @@ class DestinationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        Destination::create([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->back()->with('success', 'Destination added successfully');
     }
 
     /**
@@ -53,7 +68,14 @@ class DestinationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $destination = Destination::findOrFail($id);
+        $data = [
+            'heading' => 'Destination',
+            'title' => 'Edit Destination',
+            'active' => 'destination',
+            'destination' => $destination
+        ];
+        return view('admin.destination.edit', $data);
     }
 
     /**
@@ -61,7 +83,18 @@ class DestinationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $destination = Destination::findOrFail($id);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        $destination->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->back()->with('success', 'Destination updated successfully');
     }
 
     /**
@@ -69,6 +102,8 @@ class DestinationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Destination = Destination::findOrFail($id);
+        $Destination->delete();
+        return redirect()->back()->with('success', 'Destination deleted successfully');
     }
 }

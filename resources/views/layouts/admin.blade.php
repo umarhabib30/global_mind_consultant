@@ -180,6 +180,41 @@
                                     </ul>
                                 </div>
                             </li>
+
+
+                            <!-- Destination Menu -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-destination" aria-controls="submenu-destination">
+                                    <i class="fas fa-map-marker-alt"></i> Destination Management
+                                </a>
+
+                                <div id="submenu-destination"
+                                    class="collapse submenu {{ request()->routeIs('destination.*') ? 'show' : '' }}">
+
+                                    <ul class="nav flex-column">
+
+                                        <!-- View All Destinations -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('destination.index') }}"
+                                                style="{{ Request::is('admin/destination') ? 'color: #79BD21 !important;' : '' }}">
+
+                                                <i class="fas fa-list-ul me-2"></i> View All Destinations
+                                            </a>
+                                        </li>
+
+                                        <!-- Add Destination -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('destination.create') }}"
+                                                style="{{ Request::is('admin/destination/create') ? 'color: #79BD21 !important;' : '' }}">
+
+                                                <i class="fas fa-plus-circle me-2"></i> Add New Destination
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}"
                                     href="{{ route('admin.contact.index') }}">
@@ -208,6 +243,9 @@
                                     @endif
                                 </a>
                             </li>
+
+
+
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"

@@ -2,166 +2,279 @@
 
 @section('content')
     <style>
-        /* Custom styles for a unique look */
         .detail-card {
-            border: none;
+            border: 0;
             border-radius: 24px;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+            overflow: hidden;
         }
 
         .glass-header {
-            background: linear-gradient(135deg, #0A245D 0%, #1c4bb0 100%);
-            border-radius: 24px 24px 0 0 !important;
-            padding: 2.5rem !important;
-        }
-
-        .info-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            color: #94a3b8;
-            margin-bottom: 0.5rem;
+            padding: 2.25rem 2rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 45%, #2563eb 100%);
+            position: relative;
         }
 
         .avatar-circle {
             width: 64px;
             height: 64px;
-            background: rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .25);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 800;
             font-size: 1.5rem;
-            border-radius: 20px;
+            color: #fff;
+            flex: 0 0 auto;
         }
 
-        .message-bubble {
-            background: #f8fafc;
-            border: 1px solid #edf2f7;
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            font-size: 1.05rem;
-            color: #334155;
-            line-height: 1.8;
+        .pill-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .35rem .75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: rgba(255, 255, 255, .9);
+            font-size: .9rem;
+            width: fit-content;
+        }
+
+        .chip-row {
+            margin-top: .8rem;
+            column-gap: .7rem !important;
+            row-gap: .6rem !important;
+        }
+
+        .quick-card {
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .10);
+            border: 1px solid rgba(255, 255, 255, .16);
+            padding: 1rem 1rem;
+            color: #fff;
+        }
+
+        .quick-label {
+            font-size: .72rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .65);
+            font-weight: 800;
+            margin-bottom: .25rem;
+        }
+
+        .quick-value {
+            font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .soft-success {
+            background: #ecfdf5 !important;
+            color: #059669 !important;
+            border: 1px solid #d1fae5;
+            border-radius: 999px;
+            padding: .5rem .9rem;
+            font-weight: 700;
         }
 
         .action-btn {
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            padding: 10px 20px;
-            font-weight: 600;
+            border-radius: 14px;
+            padding: .85rem 1rem;
+            font-weight: 700;
+            transition: all .2s ease;
         }
 
         .action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 18px rgba(2, 6, 23, .10);
+        }
+
+        .meta-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 1.25rem;
+        }
+
+        .info-label {
+            font-size: .72rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #64748b;
+            font-weight: 800;
+            margin-bottom: .35rem;
+        }
+
+        .message-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 1.5rem;
+            background: #fff;
+            box-shadow: 0 6px 16px rgba(15, 23, 42, .05);
+        }
+
+        .tip-card {
+            border-radius: 18px;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 1.1rem;
+        }
+
+        .tip-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid #fde68a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 14px rgba(15, 23, 42, .06);
+            flex: 0 0 auto;
         }
     </style>
 
     <div class="container-fluid py-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 px-2">
-            <a href="{{ route('admin.contact.index') }}" class="btn action-btn btn-light bg-white shadow-sm border-0">
-                <i class="fa fa-chevron-left me-2 text-primary"></i> Back to Inbox
+
+        {{-- Top bar --}}
+        <div
+            class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4 px-2">
+            <a href="{{ route('admin.contact.index') }}" class="btn bg-white border-0 shadow-sm action-btn">
+                <span class="me-2 text-muted">←</span>
+                Back to Inbox
             </a>
-            <div class="d-flex align-items-center gap-3">
-                <span class="badge bg-soft-success text-success rounded-pill px-3 py-2"
-                    style="background: #ecfdf5; color: #059669;">
-                    <i class="fa fa-check-circle me-1"></i> Received
-                </span>
-            </div>
+
+            <span class="soft-success d-inline-flex align-items-center gap-2">
+                <span style="width:10px;height:10px;border-radius:999px;background:#10b981;display:inline-block;"></span>
+                Received
+            </span>
         </div>
 
         <div class="card detail-card">
-            <div class="card-header glass-header">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar-circle me-4 text-white">
-                                {{ strtoupper(substr($message->name ?? 'U', 0, 1)) }}
-                            </div>
-                            <div>
-                                <h3 class="text-white fw-bold mb-1">{{ $message->name }}</h3>
-                                <p class="text-white-50 mb-0">
-                                    <i class="fa fa-clock me-1"></i> Sent
-                                    {{ $message->created_at->format('F j, Y \a\t g:i A') }}
-                                </p>
-                            </div>
+            {{-- Header --}}
+            <div class="glass-header">
+                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-12">
+                    <div class="avatar-circle">
+                        {{ strtoupper(substr($message->name ?? 'U', 0, 1)) }}
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <h3 class="text-white fw-bold mb-3">
+                            {{ $message->name ?? 'Unknown Sender' }}
+                        </h3>
+
+                        <div class="d-flex flex-wrap chip-row">
+                            <span class="pill-chip">
+                                <span class="opacity-75">🕒</span>
+                                <span class="fw-semibold">Sent:</span>
+                                {{ optional($message->created_at)->format('F j, Y \a\t g:i A') }}
+                            </span>
+
+                            <span class="pill-chip">
+                                <span class="opacity-75">⏳</span>
+                                <span class="fw-semibold">
+                                    {{ optional($message->created_at)->diffForHumans() }}
+                                </span>
+                            </span>
                         </div>
                     </div>
-                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <div class="text-white-50 small">Reference ID: #{{ $message->id }}</div>
+                </div>
+
+                {{-- Quick details row --}}
+                <div class="row g-3 mt-4">
+                    <div class="col-12 col-md-4">
+                        <a href="mailto:{{ $message->email }}" class="text-decoration-none">
+                            <div class="quick-card">
+                                <div class="quick-label">Email</div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <div class="quick-value">{{ $message->email }}</div>
+                                    <div class="opacity-75">↗</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="quick-card">
+                            <div class="quick-label">Location</div>
+                            <div class="quick-value">{{ $message->country ?: 'Unknown' }}</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="quick-card">
+                            <div class="quick-label">Status</div>
+                            <div class="quick-value">Received ✅</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            {{-- Body --}}
             <div class="card-body p-4 p-lg-5">
                 <div class="row g-5">
+                    {{-- Left meta --}}
                     <div class="col-lg-4">
-                        <div class="pe-lg-4 border-end-lg">
-                            <div class="mb-5">
+                        <div class="meta-card">
+                            <div class="mb-4">
                                 <div class="info-label">Email Address</div>
-                                <h5 class="fw-bold mb-3">
+                                <div class="fw-bold">
                                     <a href="mailto:{{ $message->email }}" class="text-dark text-decoration-none">
-                                        {{ $message->email }} <i class="fa fa-external-link-alt ms-1 small text-muted"></i>
+                                        {{ $message->email }}
+                                        <span class="text-muted ms-1">↗</span>
                                     </a>
-                                </h5>
-
-                                <div class="info-label mt-4">Location</div>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-light rounded-3 px-3 py-2 border">
-                                        <i class="fa fa-globe-americas me-2 text-primary"></i>
-                                        <span class="fw-semibold text-dark">{{ $message->country ?: 'Unknown' }}</span>
-                                    </div>
                                 </div>
                             </div>
 
-                            <hr class="my-4 opacity-50">
+                            <div class="mb-4">
+                                <div class="info-label">Country</div>
+                                <div class="d-inline-flex align-items-center gap-2 bg-white border rounded-3 px-3 py-2">
+                                    <span>🌍</span>
+                                    <span class="fw-semibold">{{ $message->country ?: 'Unknown' }}</span>
+                                </div>
+                            </div>
 
-                            <div class="d-grid gap-3 space">
-                                <a href="mailto:{{ $message->email }}" class="btn action-btn btn-primary py-3">
-                                    <i class="fa fa-paper-plane me-2"></i> Send Direct Reply
+                            <div class="d-grid">
+                                <a href="mailto:{{ $message->email }}" class="btn btn-primary action-btn">
+                                    ✉️ Send Direct Reply
                                 </a>
-                                <form action="{{ route('admin.contact.destroy', $message->id) }}" method="POST"
-                                    onsubmit="return confirm('Delete this inquiry forever?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn action-btn btn-outline-danger w-100">
-                                        <i class="fa fa-trash-alt me-2"></i> Move to Trash
-                                    </button>
-                                </form>
                             </div>
                         </div>
                     </div>
 
+                    {{-- Right message --}}
                     <div class="col-lg-8">
-                        <div class="d-flex justify-content-between align-items-end mb-4">
-                            <h4 class="fw-bold mb-0" style="color: #0A245D;">Message Brief</h4>
-                            <span class="text-muted small">{{ $message->created_at->diffForHumans() }}</span>
+                        <div class="d-flex justify-content-between align-items-end mb-3">
+                            <h4 class="fw-bold mb-0" style="color:#0f172a;">Message Brief</h4>
+                            <span class="text-muted small">
+                                {{ optional($message->created_at)->diffForHumans() }}
+                            </span>
                         </div>
 
-                        <div class="message-bubble shadow-sm">
-                            {{ $message->message ?: 'The sender did not include a message body.' }}
-                        </div>
-
-                        <div class="mt-5 p-4 rounded-4 bg-light border-0 d-flex align-items-start gap-3">
-                            <div class="bg-white rounded-circle p-2 shadow-sm">
-                                <i class="fa fa-lightbulb text-warning"></i>
+                        <div class="message-card">
+                            <div class="text-secondary" style="line-height:1.9; white-space:pre-line;">
+                                {{ $message->message ?: 'The sender did not include a message body.' }}
                             </div>
-                            <div>
-                                <p class="mb-0 text-muted small">
-                                    <strong>Admin Tip:</strong> When replying, ensure you mention the sender's country
-                                    ({{ $message->country }}) if it pertains to shipping or regional policies to add a
-                                    personal touch.
-                                </p>
+                        </div>
+
+                        <div class="tip-card mt-4 d-flex gap-3">
+                            <div class="tip-icon">💡</div>
+                            <div class="small text-warning-emphasis">
+                                <strong>Admin Tip:</strong>
+                                When replying, mention the sender’s country
+                                <strong>({{ $message->country ?: 'Unknown' }})</strong>
+                                if it impacts shipping or regional policies—it adds a personal touch.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $messages = ContactSubmission::latest()->paginate(10);
+        $messages = ContactSubmission::orderByDesc('id')->paginate(10);
 
         $data = [
             'heading' => "Contact Messages",
@@ -30,7 +30,6 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        // Find the specific message or throw a 404 error
         $message = ContactSubmission::findOrFail($id);
 
         $data = [
