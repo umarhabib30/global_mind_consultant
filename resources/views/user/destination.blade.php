@@ -451,72 +451,21 @@
             </h2>
 
             <div class="space-y-4 fade-in" data-delay="0.5" data-duration="1.0">
-                <div
-                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
-                        <span>How do I choose the best country for my study goals?</span>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
-                        Compare your academic interests, budget, preferred climate, language, and future work options. We
-                        help you shortlist destinations like the USA, UK, France, Germany, Italy, UAE, Sweden, Finland,
-                        and Turkey based on your profile.
+                @forelse ($faqs as $faq)
+                    <div
+                        class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
+                            <span>{{ $faq->question }}</span>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
+                            {{ $faq->answer }}
+                        </div>
                     </div>
-                </div>
-
-                <div
-                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
-                        <span>Which destination is more affordable for tuition and living costs?</span>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
-                        Costs vary by city and university. In general, Germany, France, Turkey, and Italy can be more
-                        budget-friendly than some USA or UK options. We provide a personalized cost estimate before you
-                        apply.
-                    </div>
-                </div>
-
-                <div
-                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
-                        <span>Can I get scholarships for these destinations?</span>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
-                        Yes. Scholarship availability depends on your academic record, English score, and chosen program.
-                        We guide you on merit-based, need-based, and university-specific scholarships in each destination.
-                    </div>
-                </div>
-
-                <div
-                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
-                        <span>Do you support the visa process after admission?</span>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
-                        Yes, we support complete visa documentation, file review, interview preparation, and pre-departure
-                        guidance so your move is smooth and well planned.
-                    </div>
-                </div>
-
-                <div
-                    class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-800 focus:outline-none faq-toggle">
-                        <span>How early should I start my study abroad application?</span>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-gray-600 leading-relaxed">
-                        Start at least 6 to 12 months before your intended intake. This gives enough time for university
-                        shortlisting, document preparation, language tests, admission, visa processing, and accommodation.
-                    </div>
-                </div>
+                @empty
+                    <div class="text-center text-gray-500">No FAQs available right now.</div>
+                @endforelse
             </div>
         </div>
     </section>

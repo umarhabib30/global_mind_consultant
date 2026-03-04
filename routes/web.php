@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\{
     ContactController as AdminContactController,
+    DestinationFaqsController,
     DashboardController,
     EventController,
     PostController,
@@ -101,6 +102,16 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/', 'index')->name('admin.consultation.index');
         Route::get('/{id}', 'show')->name('admin.consultation.show'); // Add this line
         Route::delete('/{id}', 'destroy')->name('admin.consultation.destroy');
+    });
+
+    // Destination FAQ Routes
+    Route::controller(DestinationFaqsController::class)->prefix('destination-faqs')->group(function () {
+        Route::get('/', 'index')->name('destination-faqs.index');
+        Route::get('/create', 'create')->name('destination-faqs.create');
+        Route::post('/', 'store')->name('destination-faqs.store');
+        Route::get('/{id}/edit', 'edit')->name('destination-faqs.edit');
+        Route::put('/{id}', 'update')->name('destination-faqs.update');
+        Route::delete('/{id}', 'destroy')->name('destination-faqs.destroy');
     });
 });
 

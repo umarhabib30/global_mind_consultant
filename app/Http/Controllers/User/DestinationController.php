@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\DestinationFaqs;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -12,7 +13,12 @@ class DestinationController extends Controller
      */
     public function index()
     {
-                return view(view: 'user.destination');
+        $faqs = DestinationFaqs::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('user.destination', compact('faqs'));
 
     }
 

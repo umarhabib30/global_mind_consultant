@@ -212,6 +212,14 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('destination-faqs.*') ? 'active' : '' }}"
+                                    href="{{ route('destination-faqs.index') }}">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>Destination FAQs</span>
+                                </a>
+                            </li>
+
 
 
 
