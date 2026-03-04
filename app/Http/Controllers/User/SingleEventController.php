@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
+use App\Models\EventReservation;
 use Illuminate\Http\Request;
 
 class SingleEventController extends Controller
@@ -12,7 +14,8 @@ class SingleEventController extends Controller
      */
     public function index()
     {
-        return view('user.singleEvent');
+        $event = Event::orderBy('date')->orderBy('start_time')->firstOrFail();
+        return view('user.singleEvent', compact('event'));
     }
 
     /**
@@ -36,7 +39,28 @@ class SingleEventController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('user.singleEvent', compact('event'));
+    }
+
+    public function reserve(Request $request, string $id)
+    {
+        $event = Event::findOrFail($id);
+
+        $validated = $request->validate([
+            'full_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'phone' => ['required', 'string', 'max:30'],
+            'country_interested' => ['required', 'string', 'max:255'],
+            'study_level' => ['required', 'string', 'max:255'],
+        ]);
+
+        $validated['event_id'] = $event->id;
+        EventReservation::create($validated);
+
+        return redirect()
+            ->route('single-event.show', $event->id)
+            ->with('success', 'Your seat has been reserved successfully.');
     }
 
     /**

@@ -220,6 +220,20 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.event-reservation.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.event-reservation.index') }}">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <span>Event Reservations</span>
+                                    @php
+                                        $reservationCount = \App\Models\EventReservation::count();
+                                    @endphp
+                                    @if ($reservationCount > 0)
+                                        <span class="badge badge-warning ml-2">{{ $reservationCount }}</span>
+                                    @endif
+                                </a>
+                            </li>
+
 
 
 

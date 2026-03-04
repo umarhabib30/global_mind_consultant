@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\{
     DestinationFaqsController,
     DashboardController,
     EventController,
+    EventReservationController,
     PostController,
     TeamController,
     UniversityController,
@@ -104,6 +105,13 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::delete('/{id}', 'destroy')->name('admin.consultation.destroy');
     });
 
+    // Admin Event Reservation Routes
+    Route::controller(EventReservationController::class)->prefix('event-reservations')->group(function () {
+        Route::get('/', 'index')->name('admin.event-reservation.index');
+        Route::get('/{id}', 'show')->name('admin.event-reservation.show');
+        Route::delete('/{id}', 'destroy')->name('admin.event-reservation.destroy');
+    });
+
     // Destination FAQ Routes
     Route::controller(DestinationFaqsController::class)->prefix('destination-faqs')->group(function () {
         Route::get('/', 'index')->name('destination-faqs.index');
@@ -128,6 +136,8 @@ Route::get('/destination', [DestinationController::class, 'index'])->name('desti
 Route::get('/consultation-form', [ConsultationFormController::class, 'index'])->name('consultation');
 Route::get('/events', [EventsController::class, 'index'])->name('events');
 Route::get('/single-event', [SingleEventController::class, 'index'])->name('single-event');
+Route::get('/single-event/{id}', [SingleEventController::class, 'show'])->name('single-event.show');
+Route::post('/single-event/{id}/reserve', [SingleEventController::class, 'reserve'])->name('single-event.reserve');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/single-blog', [SingleBlogController::class, 'index'])->name('single-blog');
 Route::get('/ielts', [IeltsController::class, 'index'])->name('ielts');
