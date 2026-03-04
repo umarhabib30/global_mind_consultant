@@ -27,7 +27,7 @@
 <body>
     <!-----------------------------------NAVBAR----------------------------------------------- -->
     <!-- Navigation -->
-    <nav class="bg-white fixed w-full left-0 z-[100] shadow-md">
+    <nav class="bg-white  w-full left-0 z-[100] shadow-md">
         <div class="px-4 sm:px-6 lg:px-8 mx-auto">
             <div class="flex justify-between items-center h-20 md:h-18">
                 <div class="flex-shrink-0">
@@ -175,17 +175,21 @@
                         <img src="{{ asset('images/logo.png') }}" class="h-20 w-auto" alt="Global Minds Consultants" />
                     </a>
                     <p class="mt-4 text-sm leading-7 text-blue-100">
-                        Global Minds Consultants helps students choose the right destination, apply confidently, and complete
+                        Global Minds Consultants helps students choose the right destination, apply confidently, and
+                        complete
                         their visa process with expert support.
                     </p>
                     <div class="mt-5 flex items-center gap-3">
-                        <a href="#" class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
+                        <a href="#"
+                            class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
+                        <a href="#"
+                            class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="#" class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
+                        <a href="#"
+                            class="h-10 w-10 rounded-full bg-white/15 hover:bg-white hover:text-[#0A245D] transition flex items-center justify-center">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -197,7 +201,8 @@
                         <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-white transition">About Us</a></li>
                         <li><a href="{{ route('services') }}" class="hover:text-white transition">Services</a></li>
-                        <li><a href="{{ route('destination') }}" class="hover:text-white transition">Study Destinations</a></li>
+                        <li><a href="{{ route('destination') }}" class="hover:text-white transition">Study
+                                Destinations</a></li>
                         <li><a href="{{ route('events') }}" class="hover:text-white transition">Events</a></li>
                         <li><a href="{{ route('blog') }}" class="hover:text-white transition">Blog</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
@@ -207,11 +212,16 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4">Our Services</h3>
                     <ul class="space-y-2 text-blue-100">
-                        <li><a href="{{ route('ielts') }}" class="hover:text-white transition">IELTS Preparation</a></li>
-                        <li><a href="{{ route('universities') }}" class="hover:text-white transition">University Admissions</a></li>
-                        <li><a href="{{ route('scholarships') }}" class="hover:text-white transition">Scholarship Guidance</a></li>
-                        <li><a href="{{ route('course-filter') }}" class="hover:text-white transition">Course Filter</a></li>
-                        <li><a href="{{ route('consultation') }}" class="hover:text-white transition">Book Free Consultation</a></li>
+                        <li><a href="{{ route('ielts') }}" class="hover:text-white transition">IELTS Preparation</a>
+                        </li>
+                        <li><a href="{{ route('universities') }}" class="hover:text-white transition">University
+                                Admissions</a></li>
+                        <li><a href="{{ route('scholarships') }}" class="hover:text-white transition">Scholarship
+                                Guidance</a></li>
+                        <li><a href="{{ route('course-filter') }}" class="hover:text-white transition">Course
+                                Filter</a></li>
+                        <li><a href="{{ route('consultation') }}" class="hover:text-white transition">Book Free
+                                Consultation</a></li>
                     </ul>
                 </div>
 
@@ -245,4 +255,3 @@
 </body>
 
 </html>
-

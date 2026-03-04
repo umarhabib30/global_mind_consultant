@@ -1,91 +1,220 @@
-﻿@extends('layouts.user')
+@extends('layouts.user')
 @section('content')
-    <!-- Offer Popup -->
-    <div id="homeOfferPopup"
-        class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 px-4 opacity-0 transition-opacity duration-500 ease-out">
-        <div id="homeOfferPopupCard"
-            class="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl opacity-0 translate-y-4 scale-95 transition-all duration-500 ease-out md:p-8">
-            <button id="closeHomeOfferPopup"
-                class="absolute right-3 top-3 rounded-full p-2 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
-                aria-label="Close offer popup">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+    <!------------------------------ Offer Popup ------------------------------>
+    @if ($popup)
+        <div x-data="{
+            showPopup: false,
+            init() {
+                setTimeout(() => this.showPopup = true, 2000);
+            }
+        }" x-show="showPopup" class="fixed inset-0 z-[9999] flex items-center justify-center px-4 overflow-hidden"
+            x-cloak>
 
-            <p class="mb-2 inline-block rounded-full bg-[#74BF1A]/10 px-3 py-1 text-xs font-semibold text-[#0A245D]">
-                Limited Time Offer
-            </p>
-            <h2 class="text-2xl font-bold text-[#0A245D] md:text-3xl">Get Free Counselling + Application Fee Support</h2>
-            <p class="mt-3 text-sm leading-relaxed text-gray-600 md:text-base">
-                Start your study abroad journey with an expert session and special support for your first application.
-            </p>
+            <div x-show="showPopup" x-transition:enter="transition ease-out duration-500" @click="showPopup = false"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
-            <a href="/consultation-form"
-                class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#74BF1A] px-5 py-3 text-center font-semibold text-white transition hover:bg-green-600">
-                Claim This Offer
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <div x-show="showPopup" x-transition:enter="transition ease-out duration-500 delay-100"
+                x-transition:enter-start="opacity-0 translate-y-12 scale-90"
+                x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                x-transition:leave-end="opacity-0 translate-y-12 scale-90"
+                class="relative w-full max-w-lg rounded-[2rem] bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] md:p-10 overflow-hidden">
 
-            <div class="mt-6 border-t pt-4">
-                <p class="mb-3 text-sm font-semibold text-[#0A245D]">Follow us</p>
-                <div class="flex flex-wrap gap-2">
-                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
-                        class="rounded-md bg-red-100 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-200">
-                        YouTube
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-                        class="rounded-md bg-pink-100 px-3 py-2 text-sm font-medium text-pink-700 hover:bg-pink-200">
-                        Instagram
-                    </a>
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
-                        class="rounded-md bg-blue-100 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-200">
-                        Facebook
-                    </a>
-                    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer"
-                        class="rounded-md bg-green-100 px-3 py-2 text-sm font-medium text-green-700 hover:bg-green-200">
-                        WhatsApp
-                    </a>
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#74BF1A]/10 rounded-full blur-3xl"></div>
+
+                <button @click="showPopup = false"
+                    class="absolute right-5 top-5 rounded-full p-2 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-900 hover:rotate-90"
+                    aria-label="Close offer popup">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+
+                <div class="relative">
+                    <span
+                        class="inline-flex items-center gap-1.5 mb-4 rounded-full bg-[#74BF1A]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#74BF1A]">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#74BF1A] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#74BF1A]"></span>
+                        </span>
+                        Limited Time Offer
+                    </span>
+
+                    <h2 class="text-2xl font-extrabold text-[#0A245D] md:text-3xl leading-tight">
+                        {{ $popup->title }}
+                    </h2>
+
+                    @if ($popup->description)
+                        <p class="mt-4 text-base leading-relaxed text-gray-500">
+                            {{ $popup->description }}
+                        </p>
+                    @endif
+
+                    @if ($popup->button_text)
+                        <a href="{{ $popup->button_link ?: '#' }}"
+                            class="group mt-8 flex w-full items-center justify-center gap-3 rounded-xl bg-[#74BF1A] px-6 py-4 text-center font-bold text-white shadow-lg shadow-[#74BF1A]/30 transition-all hover:scale-[1.02] active:scale-95">
+                            {{ $popup->button_text }}
+                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    @endif
+
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-gray-400 text-center">Join Our
+                            Community
+                        </p>
+                        <div class="flex justify-center gap-4">
+                            <a href="#"
+                                class="h-10 w-10 flex items-center justify-center rounded-full bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-all"><i
+                                    class="fa-brands fa-youtube"></i></a>
+                            <a href="#"
+                                class="h-10 w-10 flex items-center justify-center rounded-full bg-pink-50 text-pink-600 hover:bg-pink-600 hover:text-white transition-all"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="#"
+                                class="h-10 w-10 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"
+                                class="h-10 w-10 flex items-center justify-center rounded-full bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-all"><i
+                                    class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
     <!-----------------------------------HERO SECTION----------------------------------------------->
-    <section
-        class="relative bg-[url('/images/home-01.png')] bg-cover bg-top w-full min-h-screen flex items-center justify-center pb-22 overflow-hidden">
+    @php
+        $dynamicSlides = $heroSlides
+            ->values()
+            ->map(function ($slide, $index) {
+                return [
+                    'title' => $slide->title,
+                    'highlight' => $slide->highlight_text,
+                    'desc' => $slide->description,
+                    'img' => $slide->background_image ? asset($slide->background_image) : asset('images/home-01.png'),
+                    'accent' => $index % 2 === 0 ? 'border-[#74BF1A]' : 'border-blue-500',
+                    'button_text' => $slide->button_text,
+                    'button_link' => $slide->button_link,
+                ];
+            })
+            ->all();
 
-        <div class="absolute inset-0 bg-black/30 bg-zoom"></div>
+        if (empty($dynamicSlides)) {
+            $dynamicSlides[] = [
+                'title' => 'Your Journey to Global Education',
+                'highlight' => 'Starts Here',
+                'desc' => 'Global Minds Consultants helps you unlock international opportunities with expert study abroad guidance.',
+                'img' => asset('images/home-01.png'),
+                'accent' => 'border-[#74BF1A]',
+                'button_text' => 'Book Free Counselling',
+                'button_link' => '/consultation-form',
+            ];
+        }
+    @endphp
 
-        <div class="relative z-10 flex items-center justify-end h-full max-w-7xl mx-auto px-6">
-            <div class="w-full md:w-1/2 text-white">
+    <section x-data="{
+        active: 0,
+        autoPlayInterval: null,
+        slides: {{ Js::from($dynamicSlides) }},
+        next() { this.active = (this.active + 1) % this.slides.length },
+        prev() { this.active = (this.active - 1 + this.slides.length) % this.slides.length },
+        init() {
+            if (this.slides.length > 1) {
+                this.autoPlayInterval = setInterval(() => { this.next() }, 8000);
+            }
+        }
+    }" class="relative w-full h-screen overflow-hidden bg-gray-950">
 
-                <h1 class="slide-left text-3xl md:text-5xl font-semibold leading-snug md:leading-tight mb-6 mt-20"
-                    data-delay="0.5" data-duration="1.2">
-                    Your Journey to Global Education Starts Here<br />with Global Minds
-                </h1>
+        <template x-for="(slide, index) in slides" :key="index">
+            <div x-show="active === index" x-transition:enter="transition duration-1000 ease-in-out"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="transition duration-1000 ease-in-out" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" class="absolute inset-0">
 
-                <p class="slide-left text-base md:text-lg leading-relaxed mb-8" data-delay="1.0" data-duration="1.0">
-                    Global Minds Consultants helps you unlock international opportunities
-                    with expert study abroad guidance. From selecting top universities to
-                    securing admissions and visas, we make your dream of studying overseas
-                    simple, smooth, and successful. Let’s build your future together.
-                </p>
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms] ease-linear scale-110"
+                        :class="active === index ? 'scale-100' : 'scale-110'"
+                        :style="'background-image: url(' + slide.img + ')'">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+                </div>
 
-                <div class="flex slide-left" data-delay="1.5" data-duration="0.8">
-                    <a href="/consultation-form"
-                        class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block transform hover:scale-105">
+                <div class="relative z-10 h-full max-w-7xl mx-auto px-6 flex items-center">
+                    <div class="w-full md:w-2/3 lg:w-1/2 space-y-6">
 
-                        <span class="relative z-10 flex items-center gap-2">
-                            Book Free Counselling <i class="fa-solid fa-arrow-right"></i>
-                        </span>
+                        <div x-show="active === index" x-transition:enter="transition delay-300 duration-700 transform"
+                            x-transition:enter-start="opacity-0 -translate-y-4"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#74BF1A] text-sm font-bold tracking-widest uppercase">
+                            Global Minds Consultants
+                        </div>
 
-                        <span
-                            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    </a>
+                        <h1 class="text-white text-4xl md:text-6xl font-bold ">
+                            <span x-show="active === index"
+                                x-transition:enter="transition delay-500 duration-1000 blur-md opacity-0 scale-95"
+                                x-transition:enter-end="blur-0 opacity-100 scale-100" class="block"
+                                x-text="slide.title"></span>
+                            <template x-if="slide.highlight">
+                                <span x-show="active === index"
+                                    x-transition:enter="transition delay-700 duration-1000 blur-md opacity-0 scale-95"
+                                    x-transition:enter-end="blur-0 opacity-100 scale-100" class="text-[#74BF1A]"
+                                    x-text="slide.highlight"></span>
+                            </template>
+                        </h1>
+
+                        <p x-show="active === index" x-transition:enter="transition delay-900 duration-700 transform"
+                            x-transition:enter-start="opacity-0 translate-x-10"
+                            x-transition:enter-end="opacity-100 translate-x-0"
+                            class="text-gray-300 text-lg md:text-xl border-l-4 pl-6" :class="slide.accent"
+                            x-text="slide.desc || ''">
+                        </p>
+
+                        <div x-show="active === index" x-transition:enter="transition delay-1000 duration-500"
+                            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                            class="pt-4">
+                            <a :href="slide.button_link || '#'"
+                                class="relative inline-flex items-center gap-3 px-8 py-4 bg-[#74BF1A] text-white rounded-xl font-bold group transition-all hover:shadow-[0_0_30px_-5px_rgba(116,191,26,0.6)]">
+                                <span class="relative z-10 flex items-center gap-2">
+                                    <span x-text="slide.button_text || 'Book Free Counselling'"></span> <i
+                                        class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </span>
+
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </template>
+
+        <div class="absolute bottom-12 right-12 z-20 flex gap-4">
+            <button @click="prev()"
+                class="w-12 h-12 flex items-center justify-center rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-[#74BF1A] hover:border-[#74BF1A] transition-all duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button @click="next()"
+                class="w-12 h-12 flex items-center justify-center rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-[#74BF1A] hover:border-[#74BF1A] transition-all duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="active = index" class="h-1.5 rounded-full transition-all duration-500"
+                    :class="active === index ? 'w-12 bg-[#74BF1A]' : 'w-4 bg-white/30'"></button>
+            </template>
         </div>
     </section>
-
     <!-----------------------------------SEARCH SECTION----------------------------------------------->
 
     <section class="bg-[#F6F6F6] py-[90px] slide-up" data-delay="0.7" data-duration="1.5">
@@ -117,7 +246,8 @@
                             <button @click="open = !open"
                                 class="w-full flex justify-between items-center border rounded-md px-4 py-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#74BF1A]">
                                 <span x-text="selected"></span>
-                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -138,7 +268,8 @@
                             <button @click="open = !open"
                                 class="w-full flex justify-between items-center border rounded-md px-4 py-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#74BF1A]">
                                 <span x-text="selected"></span>
-                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -1178,115 +1309,7 @@
         </div>
     </section>
 
-    <!-----------------------------------FORM SECTION----------------------------------------------->
-    <section class="py-16 ">
-        <div class="px-6 md:px-12 overflow-hidden">
-            <div class="flex flex-col lg:flex-row items-stretch gap-10">
-                <!--  Image  -->
-                <div class="w-full lg:w-1/2 flex items-center slide-left" data-delay="0.6" data-duration="1.2">
-                    <div class="overflow-hidden rounded-2xl shadow-lg w-full h-[800px] my-auto">
-                        <img src="images/home-11.png" alt="Students"
-                            class="w-full h-full object-cover rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl" />
-                    </div>
-                </div>
-
-                <!-- Right Form -->
-                <div class="w-full lg:w-1/2 flex flex-col justify-between slide-right" data-delay="1" data-duration="2">
-                    <div
-                        class="border rounded-2xl shadow-lg p-6 md:p-8 bg-gray-50 flex flex-col justify-between w-full h-full">
-                        <div>
-                            <h1 class="text-3xl font-bold mb-6 text-black">
-                                Share Your Details Our Experts Will Contact You
-                            </h1>
-
-                            <form action="" class="space-y-6">
-                                <!-- First Name + Last Name -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="First Name" />
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="Last Name" />
-                                </div>
-
-                                <!--  Email  -->
-                                <input
-                                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                    placeholder="E-mail" />
-
-                                <!--  Phone Number + LinkedIn -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="Phone Number" />
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="LinkedIn Profile" />
-                                </div>
-
-                                <!--  Preferred Study Destination + Nearest Branch Time -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none">
-                                        <option selected disabled>
-                                            Preferred Study Destination
-                                        </option>
-                                        <option value="uk">UK</option>
-                                        <option value="usa">USA</option>
-                                        <option value="canada">Canada</option>
-                                    </select>
-
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none">
-                                        <option selected disabled>Nearest Branch Time</option>
-                                        <option value="morning">Morning</option>
-                                        <option value="afternoon">Afternoon</option>
-                                        <option value="evening">Evening</option>
-                                    </select>
-                                </div>
-                                <!--  Preferred Mode of Counseling + Preferred Study Level -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none">
-                                        <option selected disabled>
-                                            Preferred Mode of Counseling
-                                        </option>
-                                        <option value="online">Online</option>
-                                        <option value="in-person">In-Person</option>
-                                        <option value="phone">Phone Call</option>
-                                    </select>
-
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none">
-                                        <option selected disabled>Preferred Study Level</option>
-                                        <option value="undergraduate">Undergraduate</option>
-                                        <option value="postgraduate">Postgraduate</option>
-                                        <option value="phd">PhD / Research</option>
-                                        <option value="diploma">Diploma / Certificate</option>
-                                    </select>
-                                </div>
-
-                                <!--  Message -->
-                                <textarea rows="5"
-                                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none resize-none"
-                                    placeholder="Message"></textarea>
-                            </form>
-                        </div>
-
-                        <!-- Button  -->
-                        <div class="hidden md:flex items-center justify-center">
-                            <a href="#"
-                                class="bg-[#74BF1A] text-white px-6 md:px-32 font-bold py-3 rounded-lg hover:bg-green-600 transition">
-                                Submit
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- ---------------Testimonials Section--------------------------------------------- -->
     <section class="py-16 bg-[#F6F6F6] overflow-hidden">

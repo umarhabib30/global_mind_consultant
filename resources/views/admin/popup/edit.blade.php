@@ -1,0 +1,80 @@
+@extends('layouts.admin')
+
+@section('content')
+    <div class="container-fluid mb-5">
+        <div class="card shadow-lg rounded-lg border-0">
+            <div class="card-header text-white d-flex justify-content-between align-items-center"
+                style="background-color: #0A245D;">
+                <h5 class="mb-0 text-white">Edit Popup</h5>
+                <a href="{{ route('popup.index') }}" class="btn btn-success btn-sm">Back to Popup List</a>
+            </div>
+
+            <div class="card-body p-4">
+                <form action="{{ route('popup.update') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="id" value="{{ $popup->id }}">
+
+                    <div class="row g-3">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-semibold">Title</label>
+                            <input type="text" name="title" value="{{ old('title', $popup->title) }}"
+                                class="form-control form-control-lg" required>
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-semibold">Description</label>
+                            <textarea name="description" rows="4" class="form-control form-control-lg">{{ old('description', $popup->description) }}</textarea>
+                            @error('description')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Button Text</label>
+                            <input type="text" name="button_text" value="{{ old('button_text', $popup->button_text) }}"
+                                class="form-control form-control-lg">
+                            @error('button_text')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Button Link</label>
+                            <input type="text" name="button_link" value="{{ old('button_link', $popup->button_link) }}"
+                                class="form-control form-control-lg" placeholder="/consultation-form or https://example.com">
+                            @error('button_link')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Status</label>
+                            <select name="is_active" class="form-control form-control-lg" required>
+                                <option value="1" {{ old('is_active', (string) $popup->is_active) == '1' ? 'selected' : '' }}>
+                                    Active
+                                </option>
+                                <option value="0" {{ old('is_active', (string) $popup->is_active) == '0' ? 'selected' : '' }}>
+                                    Inactive
+                                </option>
+                            </select>
+                            @error('is_active')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-lg shadow-sm"
+                            style="background-color: #74BF1A; color: white; padding: 12px 60px; font-weight: 600; border-radius: 30px;">
+                            Update Popup
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

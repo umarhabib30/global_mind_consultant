@@ -234,6 +234,22 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('popup.*') ? 'active' : '' }}"
+                                    href="{{ route('popup.index') }}">
+                                    <i class="fas fa-window-maximize"></i>
+                                    <span>Popup Management</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('hero-slider.*') ? 'active' : '' }}"
+                                    href="{{ route('hero-slider.index') }}">
+                                    <i class="fas fa-images"></i>
+                                    <span>Hero Slider</span>
+                                </a>
+                            </li>
+
 
 
 

@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\{
     DashboardController,
     EventController,
     EventReservationController,
+    HeroSlideController,
+    PopupController,
     PostController,
     TeamController,
     UniversityController,
@@ -120,6 +122,26 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/{id}/edit', 'edit')->name('destination-faqs.edit');
         Route::put('/{id}', 'update')->name('destination-faqs.update');
         Route::delete('/{id}', 'destroy')->name('destination-faqs.destroy');
+    });
+
+    // Popup Routes
+    Route::controller(PopupController::class)->prefix('popup')->group(function () {
+        Route::get('/', 'index')->name('popup.index');
+        Route::get('/create', 'create')->name('popup.create');
+        Route::post('/store', 'store')->name('popup.store');
+        Route::get('/edit/{id}', 'edit')->name('popup.edit');
+        Route::put('/update', 'update')->name('popup.update');
+        Route::delete('/{id}', 'destroy')->name('popup.destroy');
+    });
+
+    // Hero Slider Routes
+    Route::controller(HeroSlideController::class)->prefix('hero-slider')->group(function () {
+        Route::get('/', 'index')->name('hero-slider.index');
+        Route::get('/create', 'create')->name('hero-slider.create');
+        Route::post('/store', 'store')->name('hero-slider.store');
+        Route::get('/edit/{id}', 'edit')->name('hero-slider.edit');
+        Route::put('/update', 'update')->name('hero-slider.update');
+        Route::delete('/{id}', 'destroy')->name('hero-slider.destroy');
     });
 });
 
