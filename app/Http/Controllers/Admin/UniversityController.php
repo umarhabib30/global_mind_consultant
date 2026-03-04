@@ -43,14 +43,27 @@ class UniversityController extends Controller
      */
     public function store(Request $request)
     {
-        $path = ImageHelper::saveImage($request->image, 'Image');
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:100'],
+            'description' => ['nullable', 'string'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
+            'button_text' => ['nullable', 'string', 'max:100'],
+            'button_link' => ['nullable', 'string', 'max:500'],
+        ]);
+
+        $path = null;
+        if ($request->hasFile('image')) {
+            $path = ImageHelper::saveImage($request->image, 'Image');
+        }
 
         University::create([
-            'name' => $request->name,
-            'description' => $request->description,
+            'name' => $validated['name'],
+            'country' => $validated['country'],
+            'description' => $validated['description'] ?? null,
             'image' => $path,
-
-
+            'button_text' => $validated['button_text'] ?? null,
+            'button_link' => $validated['button_link'] ?? null,
         ]);
         return redirect()->back()->with('success', 'University added succesfully');
     }
@@ -80,14 +93,25 @@ class UniversityController extends Controller
      */
     public function update(Request $request)
     {
-
         $university = University::findOrFail($request->id);
+        $validated = $request->validate([
+            'id' => ['required', 'exists:universities,id'],
+            'name' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:100'],
+            'description' => ['nullable', 'string'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
+            'button_text' => ['nullable', 'string', 'max:100'],
+            'button_link' => ['nullable', 'string', 'max:500'],
+        ]);
+
         $data = [
-            'name' => $request->name,
-            'description' => $request->description,
-
-
+            'name' => $validated['name'],
+            'country' => $validated['country'],
+            'description' => $validated['description'] ?? null,
+            'button_text' => $validated['button_text'] ?? null,
+            'button_link' => $validated['button_link'] ?? null,
         ];
+
         // handle image update
         if ($request->hasFile('image')) {
             $path         = ImageHelper::saveImage($request->image, 'Image');

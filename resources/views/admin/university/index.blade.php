@@ -12,8 +12,11 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Country</th>
                                     <th>Description</th>
                                     <th>Logo</th>
+                                    <th>Button Text</th>
+                                    <th>Button Link</th>
                                     <th class="text-center">Action</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -22,14 +25,25 @@
 
                                 @foreach ($universities as $university)
                                     <tr>
-                                        <td>{{ $university->name }}</td>
-                                        <td>{{ $university->description }}</td>
+                                        <td class="font-weight-bold">{{ $university->name }}</td>
+                                        <td>
+                                            <span class="badge badge-info">{{ $university->country ?: '-' }}</span>
+                                        </td>
+                                        <td>{{ \Illuminate\Support\Str::limit($university->description, 80) }}</td>
                                         <td>
                                             @if ($university->image)
                                                 <img src="{{ asset($university->image) }}" alt="{{ $university->name }}"
                                                     class="rounded-circle" width="50" height="50">
                                             @else
                                                 <span class="text-muted">No Image</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $university->button_text ?: '-' }}</td>
+                                        <td>
+                                            @if ($university->button_link)
+                                                <a href="{{ $university->button_link }}" target="_blank">Open Link</a>
+                                            @else
+                                                -
                                             @endif
                                         </td>
                                         <td>

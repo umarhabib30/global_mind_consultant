@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\HeroSlide;
 use App\Models\Popup;
+use App\Models\University;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,8 +20,9 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->orderByDesc('id')
             ->get();
+        $universities = University::latest()->get();
 
-        return view('user.home', compact('popup', 'heroSlides'));
+        return view('user.home', compact('popup', 'heroSlides', 'universities'));
     }
 
     /**

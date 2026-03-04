@@ -779,232 +779,156 @@
             updateSlider();
         });
     </script>
-    <!-------------------------------------------------TABS SECTION--------------------------------------------------->
-    <section class="py-16" id="partner-universities">
-        <div class="px-6 md:px-12 text-center">
-            <h2 class="md:slide-left text-3xl md:text-5xl font-bold mb-4 text-[#0A2D5A]" data-delay="0.3"
-                data-duration="1.2">
-                Our <span class="text-[#74BF1A]">Partner Universities</span>
-            </h2>
-            <p class=" md:slide-right text-gray-600 max-w-2xl mx-auto mb-12 text-sm md:text-base" data-delay="0.5"
-                data-duration="1.2">
-                We are proudly associated with globally recognized institutions to help students access the best education
-                opportunities around the world.
-            </p>
+    <!-------------------------------------------------PARTNER UNIVERSITIES SECTION--------------------------------------------------->
+    <section class="py-16 bg-gradient-to-b from-white to-[#F8FBF3]" id="partner-universities">
+        @php
+            $countryTabs = $universities
+                ->pluck('country')
+                ->filter(fn($country) => !empty(trim((string) $country)))
+                ->map(fn($country) => trim((string) $country))
+                ->unique()
+                ->sort()
+                ->values();
 
-            <div class="relative flex flex-wrap justify-center gap-4 md:gap-8 mb-10 pb-2 slide-left" data-delay="0.8"
-                data-duration="1.5">
-                <button
-                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative active flex items-center gap-2 text-sm md:text-base"
-                    data-target="all">
-                    All
-                </button>
+            $universityCards = $universities->map(function ($university) {
+                return [
+                    'name' => $university->name,
+                    'country' => trim((string) ($university->country ?? '')),
+                    'description' => \Illuminate\Support\Str::limit(
+                        $university->description ?: 'Explore globally recognized programs with strong academic outcomes.',
+                        130,
+                    ),
+                    'image' => $university->image ? asset($university->image) : asset('images/uni.1.png'),
+                    'button_text' => $university->button_text ?: 'View Programs',
+                    'button_link' => $university->button_link ?: route('universities'),
+                ];
+            })->values();
+        @endphp
 
-                <button
-                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
-                    data-target="uk">
-                    <img src="{{ asset('images/ukFlag.png') }}" alt="UK Flag"
-                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
-                    UK
-                </button>
-
-                <button
-                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
-                    data-target="germany">
-                    <img src="{{ asset('images/germanyFlag.png') }}" alt="Germany Flag"
-                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
-                    Germany
-                </button>
-
-                <button
-                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
-                    data-target="australia">
-                    <img src="{{ asset('images/australiaFlag.png') }}" alt="Australia Flag"
-                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
-                    Australia
-                </button>
-
-                <button
-                    class="tab-btn text-[#0A2D5A] font-semibold pb-2 relative flex items-center gap-2 text-sm md:text-base"
-                    data-target="canada">
-                    <img src="{{ asset('images/canadaFlag.png') }}" alt="Canada Flag"
-                        class="w-8 h-8 md:w-12 md:h-12 object-cover rounded-sm">
-                    Canada
-                </button>
-
-                <div id="tab-underline" class="absolute bottom-0 h-[3px] bg-[#74BF1A] transition-all duration-300"></div>
+        <div class="px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="md:slide-left text-3xl md:text-5xl font-bold mb-4 text-[#0A2D5A]" data-delay="0.3"
+                    data-duration="1.2">
+                    Our <span class="text-[#74BF1A]">Partner Universities</span>
+                </h2>
+                <p class="md:slide-right text-gray-600 mb-12 text-sm md:text-base" data-delay="0.5" data-duration="1.2">
+                    We collaborate with trusted institutions worldwide so you can access quality education with confidence.
+                </p>
             </div>
 
-            <div id="all" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                @foreach (range(1, 8) as $i)
-                    <div
-                        class="cursor-pointer slide-up bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
-                        <div class="flex mb-4">
-                            <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
-                            <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
-                        </div>
-                        <div class="flex justify-center mb-4">
-                            <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
-                            {{ $i }}</h3>
-                        <p class="text-gray-600 text-sm text-left leading-relaxed">
-                            Globally reputed institution offering excellence in education and research.
-                        </p>
+            @if ($universities->isNotEmpty())
+                <div x-data="{
+                    activeCountry: 'all',
+                    visibleCount: 8,
+                    countries: {{ Js::from($countryTabs) }},
+                    universities: {{ Js::from($universityCards) }},
+                    get filteredUniversities() {
+                        if (this.activeCountry === 'all') return this.universities;
+                        return this.universities.filter((uni) => uni.country === this.activeCountry);
+                    },
+                    get visibleUniversities() {
+                        return this.filteredUniversities.slice(0, this.visibleCount);
+                    },
+                    get hasMore() {
+                        return this.visibleCount < this.filteredUniversities.length;
+                    },
+                    get canShowLess() {
+                        return this.filteredUniversities.length > 8 && !this.hasMore;
+                    },
+                    setCountry(country) {
+                        this.activeCountry = country;
+                        this.visibleCount = 8;
+                    },
+                    loadMore() {
+                        this.visibleCount = Math.min(this.visibleCount + 8, this.filteredUniversities.length);
+                    },
+                    showLess() {
+                        this.visibleCount = 8;
+                        document.getElementById('partner-universities')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }">
+                    <div class="flex flex-wrap justify-center gap-3 mb-10">
+                        <button @click="setCountry('all')"
+                            :class="activeCountry === 'all' ? 'bg-[#0A2D5A] text-white border-[#0A2D5A]' :
+                                'bg-white text-[#0A2D5A] border-gray-200'"
+                            class="px-5 py-2.5 rounded-full border font-semibold text-sm md:text-base transition">
+                            All
+                        </button>
+
+                        <template x-for="country in countries" :key="country">
+                            <button @click="setCountry(country)"
+                                :class="activeCountry === country ? 'bg-[#74BF1A] text-white border-[#74BF1A]' :
+                                    'bg-white text-[#0A2D5A] border-gray-200'"
+                                class="px-5 py-2.5 rounded-full border font-semibold text-sm md:text-base transition">
+                                <span x-text="country"></span>
+                            </button>
+                        </template>
                     </div>
-                @endforeach
-            </div>
 
-            <div id="uk" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                @foreach (range(1, 6) as $i)
-                    <div
-                        class="cursor-pointer slide-up bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
-                        <div class="flex mb-4">
-                            <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
-                            <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
-                        </div>
-                        <div class="flex justify-center mb-4 relative">
-                            <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto">
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
-                            {{ $i }}</h3>
-                        <p class="text-gray-600 text-sm text-left leading-relaxed">
-                            Leading UK institution recognized for global excellence in research and academics.
-                        </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
+                        <template x-for="(university, index) in visibleUniversities" :key="university.name + '-' + index">
+                            <article x-transition
+                                class="group slide-up bg-white rounded-2xl border border-gray-100 shadow-[0_10px_28px_rgba(0,0,0,0.08)] p-6 flex flex-col hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,36,93,0.14)] transition-all duration-300">
+                                <div class="flex items-center justify-between mb-5">
+                                    <span
+                                        class="inline-flex items-center rounded-full bg-[#74BF1A]/10 text-[#74BF1A] px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                                        Prime Partner
+                                    </span>
+                                    <span class="text-[11px] font-semibold text-gray-500 uppercase">
+                                        <span x-text="university.country || 'Other'"></span>
+                                    </span>
+                                </div>
+
+                                <div
+                                    class="h-24 rounded-xl bg-[#F6F9FF] border border-gray-100 flex items-center justify-center mb-5 p-4">
+                                    <img :src="university.image" :alt="university.name"
+                                        class="max-h-full max-w-full object-contain">
+                                </div>
+
+                                <h3 class="text-xl font-bold text-[#0A2D5A] text-left mb-2">
+                                    <span x-text="university.name"></span>
+                                </h3>
+                                <p class="text-gray-600 text-sm text-left leading-relaxed">
+                                    <span x-text="university.description"></span>
+                                </p>
+
+                                <div class="mt-6 pt-5 border-t border-gray-100">
+                                    <a :href="university.button_link"
+                                        class="inline-flex items-center gap-2 text-[#0A2D5A] font-semibold group-hover:text-[#74BF1A] transition">
+                                        <span x-text="university.button_text"></span>
+                                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        </template>
                     </div>
-                @endforeach
-            </div>
 
-            <div id="germany" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                @foreach (range(1, 6) as $i)
-                    <div
-                        class="cursor-pointer slide-up bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative">
-                        <div class="flex mb-4">
-                            <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
-                            <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
-                        </div>
-                        <div class="flex justify-center mb-4 relative">
-                            <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
-                            {{ $i }}</h3>
-                        <p class="text-gray-600 text-sm text-left leading-relaxed">
-                            Prestigious German university known for innovation and quality education.
-                        </p>
+                    <div class="mt-10 text-center" x-show="hasMore || canShowLess">
+                        <button x-show="hasMore" @click="loadMore()"
+                            class="inline-flex items-center gap-2 rounded-lg border border-[#74BF1A] text-[#74BF1A] px-6 py-3 font-semibold hover:bg-[#74BF1A] hover:text-white transition">
+                            More Universities <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <button x-show="canShowLess" @click="showLess()"
+                            class="inline-flex items-center gap-2 rounded-lg bg-[#0A2D5A] text-white px-6 py-3 font-semibold hover:bg-[#081d4b] transition">
+                            Show Less <i class="fa-solid fa-arrow-up"></i>
+                        </button>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @else
+                <div
+                    class="max-w-2xl mx-auto text-center rounded-2xl border border-dashed border-[#74BF1A]/40 bg-white p-10 shadow-sm">
+                    <h3 class="text-2xl font-bold text-[#0A2D5A] mb-2">Universities will appear here</h3>
+                    <p class="text-gray-600 mb-6">Add universities from admin panel to show them in this section.</p>
+                    <a href="{{ route('contact') }}"
+                        class="inline-flex items-center gap-2 rounded-lg bg-[#74BF1A] text-white px-6 py-3 font-semibold hover:bg-green-600 transition">
+                        Contact Us <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            @endif
 
-            <div id="australia" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                @foreach (range(1, 6) as $i)
-                    <div
-                        class="cursor-pointer bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative slide-up">
-                        <div class="flex mb-4">
-                            <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
-                            <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
-                        </div>
-                        <div class="flex justify-center mb-4 relative">
-                            <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
-                            {{ $i }}</h3>
-                        <p class="text-gray-600 text-sm text-left leading-relaxed">
-                            Top-ranked Australian university fostering innovation and global collaboration.
-                        </p>
-                    </div>
-                @endforeach
-            </div>
-
-            <div id="canada" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                @foreach (range(1, 6) as $i)
-                    <div
-                        class="cursor-pointer bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col hover:scale-[1.02] transition relative slide-up">
-                        <div class="flex mb-4">
-                            <img src="{{ asset('images/partner.png') }}" alt="Partner" class="w-6 h-6 mr-2">
-                            <span class="text-[#74BF1A] font-semibold text-sm">Prime Partner</span>
-                        </div>
-                        <div class="flex justify-center mb-4 relative">
-                            <img src="{{ asset("images/uni.$i.png") }}" alt="University {{ $i }}"
-                                class="w-20 h-20 md:w-24 md:h-24 object-contain">
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold text-[#0A2D5A] text-left mb-2">University
-                            {{ $i }}</h3>
-                        <p class="text-gray-600 text-sm text-left leading-relaxed">
-                            Canadian institution with world-class programs and diverse academic excellence.
-                        </p>
-                    </div>
-                @endforeach
-            </div>
-
-
-            <div class="flex justify-center items-center mt-10 gap-3" id="dots-container">
-                <span class="dot w-3 h-3 rounded-full bg-[#74BF1A]"></span>
-                <span class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-[#74BF1A] cursor-pointer transition"></span>
-                <span class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-[#74BF1A] cursor-pointer transition"></span>
-                <span class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-[#74BF1A] cursor-pointer transition"></span>
-                <span class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-[#74BF1A] cursor-pointer transition"></span>
-            </div>
-
-            <div class="mt-6">
-                <a href="#" class="text-[#74BF1A] font-semibold hover:underline hover:text-[#0A2D5A] transition">
-                    More Universities <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
         </div>
     </section>
-
-    <!-- Tabs Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const buttons = document.querySelectorAll(".tab-btn");
-            const contents = document.querySelectorAll(".tab-content");
-            const underline = document.getElementById("tab-underline");
-            const dots = document.querySelectorAll("#dots-container .dot");
-
-            function moveUnderline(activeBtn) {
-                const rect = activeBtn.getBoundingClientRect();
-                const parentRect = activeBtn.parentElement.getBoundingClientRect();
-                underline.style.width = rect.width + "px";
-                underline.style.left = rect.left - parentRect.left + "px";
-            }
-
-            function updateDots(activeIndex) {
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle("bg-[#74BF1A]", index === activeIndex);
-                    dot.classList.toggle("bg-gray-300", index !== activeIndex);
-                });
-            }
-
-            // Default active tab
-            let active = document.querySelector(".tab-btn.active");
-            moveUnderline(active);
-            updateDots(0);
-
-            buttons.forEach((btn, index) => {
-                btn.addEventListener("click", () => {
-                    buttons.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-                    moveUnderline(btn);
-                    updateDots(index);
-
-                    const target = btn.getAttribute("data-target");
-                    contents.forEach((content) => {
-                        content.classList.add("hidden");
-                        if (content.id === target) content.classList.remove("hidden");
-                    });
-                });
-            });
-
-            window.addEventListener("resize", () => {
-                const active = document.querySelector(".tab-btn.active");
-                moveUnderline(active);
-            });
-        });
-    </script>
 
 
 

@@ -27,6 +27,12 @@
                         </div>
 
                         <div class="col-md-6">
+                            <label for="country" class="form-label fw-semibold">Country</label>
+                            <input id="country" type="text" class="form-control form-control-lg shadow-sm rounded"
+                                name="country" placeholder="e.g. UK, USA, Germany" required>
+                        </div>
+
+                        <div class="col-md-6">
                             <label for="image" class="form-label fw-semibold">University Logo</label>
                             <input id="image" type="file" class="form-control form-control-lg shadow-sm rounded"
                                 name="image">
@@ -36,6 +42,18 @@
                         <div class="col-md-12">
                             <label for="description" class="form-label fw-semibold">Description</label>
                             <textarea id="description" class="form-control form-control-lg shadow-sm rounded" name="description" rows="4"></textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="button_text" class="form-label fw-semibold">Button Text</label>
+                            <input id="button_text" type="text" class="form-control form-control-lg shadow-sm rounded"
+                                name="button_text" placeholder="Apply Now">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="button_link" class="form-label fw-semibold">Button Link</label>
+                            <input id="button_link" type="text" class="form-control form-control-lg shadow-sm rounded"
+                                name="button_link" placeholder="/consultation-form or https://example.com">
                         </div>
 
                     </div>

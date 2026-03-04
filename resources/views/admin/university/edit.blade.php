@@ -28,6 +28,12 @@
                         </div>
 
                         <div class="col-md-6 mb-4">
+                            <label for="country" class="form-label fw-semibold">Country</label>
+                            <input id="country" type="text" class="form-control form-control-lg shadow-sm rounded"
+                                name="country" value="{{ $university->country }}" required>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
                             <label for="image" class="form-label fw-semibold">University Logo</label>
                             <input id="image" type="file" class="form-control form-control-lg shadow-sm rounded"
                                 name="image">
@@ -44,6 +50,18 @@
                         <div class="col-md-12 mb-4">
                             <label for="description" class="form-label fw-semibold">Description</label>
                             <textarea id="description" class="form-control form-control-lg shadow-sm rounded" name="description" rows="4">{{ $university->description }}</textarea>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <label for="button_text" class="form-label fw-semibold">Button Text</label>
+                            <input id="button_text" type="text" class="form-control form-control-lg shadow-sm rounded"
+                                name="button_text" value="{{ $university->button_text }}">
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <label for="button_link" class="form-label fw-semibold">Button Link</label>
+                            <input id="button_link" type="text" class="form-control form-control-lg shadow-sm rounded"
+                                name="button_link" value="{{ $university->button_link }}">
                         </div>
 
                     </div>

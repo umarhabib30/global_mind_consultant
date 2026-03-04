@@ -11,8 +11,11 @@ class University extends Model
 
     protected $fillable = [
         'name',
+        'country',
         'description',
         'image',
+        'button_text',
+        'button_link',
 
     ];
 }
