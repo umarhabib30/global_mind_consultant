@@ -1226,7 +1226,7 @@
         </div>
     </section>
     <!-- ---------------Testimonials Section--------------------------------------------- -->
-    <section class="py-16 bg-[#F6F6F6] overflow-hidden">
+    <section class="py-16  overflow-hidden">
         <div class="px-6 md:px-12">
             <div class="max-w-4xl mx-auto text-center mb-12">
                 <p class="text-4xl font-semibold text-[#092962] fade-up" data-delay="0.2" data-duration="0.8">
@@ -1247,7 +1247,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-6">
-                <div class="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col justify-between shadow-lg fade-up"
+                <div class="bg-[#F6F6F6] rounded-2xl border border-gray-200 p-8 flex flex-col justify-between shadow-lg fade-up"
                     data-delay="1.2" data-duration="1.0">
                     <div>
                         <h3 class="text-2xl md:text-3xl font-semibold text-[#000000]">Canada</h3>
@@ -1276,7 +1276,7 @@
 
                 <div class="space-y-6 flex flex-col">
 
-                    <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg fade-up" data-delay="1.4"
+                    <div class="bg-[#F6F6F6] rounded-2xl border border-gray-200 p-8 shadow-lg fade-up" data-delay="1.4"
                         data-duration="1.0">
                         <h3 class="text-2xl md:text-3xl font-semibold text-[#000000]">Australia</h3>
                         <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Engineering &amp; Technology</p>
@@ -1304,7 +1304,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 fade-up" data-delay="1.6"
                         data-duration="1.0">
                         <div
-                            class="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col justify-between shadow-lg">
+                            class="bg-[#F6F6F6] rounded-2xl border border-gray-200 p-6 flex flex-col justify-between shadow-lg">
                             <div>
                                 <h4 class="text-2xl md:text-3xl font-semibold text-[#000000]">United Kingdom</h4>
                                 <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Business &amp; Management
