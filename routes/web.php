@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\{
     HeroSlideController,
     PopupController,
     PostController,
+    ReviewController as AdminReviewController,
     TeamController,
     TopFieldController as AdminTopFieldController,
     UniversityController,
@@ -33,6 +34,7 @@ use App\Http\Controllers\User\{
     SingleBlogController,
     SingleEventController,
     SinglePersonController,
+    ReviewController as UserReviewController,
     TopFieldController as UserTopFieldController,
     UniversitiesController
 };
@@ -156,6 +158,14 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::post('/update', 'update')->name('top-field.update');
         Route::delete('/{id}', 'destroy')->name('top-field.destroy');
     });
+
+    // Reviews Routes
+    Route::controller(AdminReviewController::class)->prefix('reviews')->group(function () {
+        Route::get('/', 'index')->name('admin.reviews.index');
+        Route::patch('/{id}/approve', 'approve')->name('admin.reviews.approve');
+        Route::patch('/{id}/reject', 'reject')->name('admin.reviews.reject');
+        Route::delete('/{id}', 'destroy')->name('admin.reviews.destroy');
+    });
 });
 
 /*
@@ -181,6 +191,8 @@ Route::get('/course-filter', [CourseFilterController::class, 'index'])->name('co
 Route::get('/universities', [UniversitiesController::class, 'index'])->name('universities');
 Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('scholarships');
 Route::get('/top-field/{id}', [UserTopFieldController::class, 'show'])->name('top-field.show');
+Route::get('/reviews', [UserReviewController::class, 'index'])->name('reviews.index');
+Route::post('/reviews', [UserReviewController::class, 'store'])->name('reviews.store');
 
 // Contact Form Submission Route
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

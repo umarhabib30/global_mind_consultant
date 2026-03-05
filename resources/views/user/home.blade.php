@@ -1225,8 +1225,12 @@
             </div>
         </div>
     </section>
-    <!-- ---------------Testimonials Section--------------------------------------------- -->
-    <section class="py-16  overflow-hidden">
+        <!-- ---------------Testimonials Section--------------------------------------------- -->
+    @php
+        $avgRating = $reviewsPreview->count() ? number_format($reviewsPreview->avg('rating'), 1) : '0.0';
+        $totalPreview = $reviewsPreview->count();
+    @endphp
+    <section class="py-16 overflow-hidden bg-gradient-to-b from-white to-slate-50">
         <div class="px-6 md:px-12">
             <div class="max-w-4xl mx-auto text-center mb-12">
                 <p class="text-4xl font-semibold text-[#092962] fade-up" data-delay="0.2" data-duration="0.8">
@@ -1234,147 +1238,68 @@
                 </p>
                 <h1 class="text-3xl md:text-4xl font-semibold text-[#322F35] mt-2 fade-up" data-delay="0.4"
                     data-duration="0.8">
-                    Study Abroad Experiences
+                    Real Reviews from Students
                 </h1>
-                <h2 class="text-xl md:text-2xl font-semibold text-[#322F35] mt-1 fade-up" data-delay="0.6"
-                    data-duration="0.8">
-                    Hear from Our Students
-                </h2>
                 <p class="text-xl md:text-lg text-[#79767D] mt-2 fade-up" data-delay="0.8" data-duration="0.8">
-                    Discover how our students have transformed their dreams into reality by studying in top universities
-                    across the world.
+                    Trusted feedback from students we supported through their study abroad journey.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-6">
-                <div class="bg-[#F6F6F6] rounded-2xl border border-gray-200 p-8 flex flex-col justify-between shadow-lg fade-up"
-                    data-delay="1.2" data-duration="1.0">
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-semibold text-[#000000]">Canada</h3>
-                        <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Arts &amp; Humanities</p>
-
-                        <div class="text-5xl text-[#092962] mt-6 mb-4 leading-none font-sans"> <i
-                                class="fa-solid fa-quote-right"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @forelse ($reviewsPreview as $review)
+                    <article class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl fade-up"
+                        data-delay="1.0" data-duration="0.8">
+                        <div class="flex items-center justify-between">
+                            <div class="text-yellow-500">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <i class="fa{{ $i <= $review->rating ? 's' : 'r' }} fa-star"></i>
+                                @endfor
+                            </div>
+                            <span class="text-xs text-slate-400">{{ optional($review->created_at)->format('d M Y') }}</span>
                         </div>
-
-                        <p class="text-sm md:text-base text-[#000000] leading-relaxed">
-                            Studying in Canada has been a life-changing journey. The academic standards, cultural diversity,
-                            and opportunities for growth exceeded my expectations. I gained confidence, independence, and
-                            skills that prepared me for a global career.
+                        <h3 class="mt-3 text-lg font-semibold text-[#0A245D]">
+                            {{ $review->title ?: 'Student Review' }}
+                        </h3>
+                        <p class="mt-2 text-sm md:text-base text-slate-600 leading-relaxed">
+                            {{ \Illuminate\Support\Str::limit($review->message, 140) }}
                         </p>
-                    </div>
-
-                    <div class="flex items-center gap-4 mt-6">
-                        <img src="images/man.png" alt="Reviewer"
-                            class="w-12 h-12 rounded-full object-cover border border-gray-300" />
-                        <div>
-                            <p class="text-sm md:text-base font-semibold text-[#322F35]">Ali Raza</p>
-                            <p class="text-xs md:text-sm text-[#322F35]">University of Toronto</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-6 flex flex-col">
-
-                    <div class="bg-[#F6F6F6] rounded-2xl border border-gray-200 p-8 shadow-lg fade-up" data-delay="1.4"
-                        data-duration="1.0">
-                        <h3 class="text-2xl md:text-3xl font-semibold text-[#000000]">Australia</h3>
-                        <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Engineering &amp; Technology</p>
-
-                        <div class="text-5xl text-[#092962] mt-6 mb-4 leading-none font-sans"> <i
-                                class="fa-solid fa-quote-right"></i>
-                        </div>
-
-                        <p class="text-sm md:text-base text-[#000000] leading-relaxed">
-                            My study abroad experience in Australia opened new horizons. The practical learning environment
-                            and supportive faculty helped me develop real-world engineering skills. I also met students from
-                            all over the world who became lifelong friends.
-                        </p>
-
-                        <div class="flex items-center gap-4 mt-6">
-                            <img src="images/man.png" alt="Reviewer"
-                                class="w-12 h-12 rounded-full object-cover border border-gray-300" />
+                        <div class="mt-5 flex items-center gap-3">
+                            @if ($review->image_url)
+                                <img src="{{ asset($review->image_url) }}" alt="{{ $review->name }}"
+                                    class="w-10 h-10 rounded-full object-cover border border-gray-200" />
+                            @else
+                                <div class="w-10 h-10 rounded-full bg-[#0A245D] text-white flex items-center justify-center font-semibold">
+                                    {{ \Illuminate\Support\Str::upper(\Illuminate\Support\Str::substr($review->name, 0, 1)) }}
+                                </div>
+                            @endif
                             <div>
-                                <p class="text-sm md:text-base font-semibold text-[#322F35]">Sara Khan</p>
-                                <p class="text-xs md:text-sm text-[#322F35]">University of Melbourne</p>
+                                <p class="text-sm md:text-base font-semibold text-[#322F35]">{{ $review->name }}</p>
+                                @if ($review->company_role)
+                                    <p class="text-xs md:text-sm text-[#6b7280]">{{ $review->company_role }}</p>
+                                @endif
                             </div>
                         </div>
+                    </article>
+                @empty
+                    <div class="lg:col-span-3 rounded-2xl border border-dashed border-slate-200 bg-white p-10 text-center text-slate-500">
+                        No approved reviews yet. Be the first to share your feedback.
                     </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 fade-up" data-delay="1.6"
-                        data-duration="1.0">
-                        <div
-                            class="bg-[#F6F6F6] rounded-2xl border border-gray-200 p-6 flex flex-col justify-between shadow-lg">
-                            <div>
-                                <h4 class="text-2xl md:text-3xl font-semibold text-[#000000]">United Kingdom</h4>
-                                <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Business &amp; Management
-                                </p>
-
-                                <div class="text-4xl text-[#092962] mt-4 mb-3 leading-none font-sans"> <i
-                                        class="fa-solid fa-quote-right"></i>
-                                </div>
-
-                                <p class="text-sm md:text-base text-[#000000] leading-relaxed">
-                                    Studying in the UK helped me gain a deeper understanding of international business
-                                    practices. The multicultural exposure and internship opportunities boosted my confidence
-                                    and global mindset.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center gap-3 mt-4">
-                                <img src="images/man.png" alt="Reviewer"
-                                    class="w-9 h-9 rounded-full object-cover border border-gray-300" />
-                                <div>
-                                    <p class="text-sm md:text-base font-semibold text-[#322F35]">Hassan Ahmed</p>
-                                    <p class="text-xs md:text-sm text-[#322F35]">University of London</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#041C47] rounded-2xl p-6 flex flex-col justify-between text-white shadow-lg">
-                            <div>
-                                <h4 class="text-lg md:text-xl font-semibold">Germany</h4>
-                                <p class="text-sm md:text-base mt-1 opacity-90">Science &amp; Research</p>
-
-                                <div class="text-4xl text-green-400 mt-4 mb-3 leading-none font-sans"> <i
-                                        class="fa-solid fa-quote-right"></i>
-                                </div>
-
-                                <p class="text-sm md:text-base text-white/90 leading-relaxed">
-                                    My time in Germany was remarkable — a perfect blend of innovation, discipline, and
-                                    academic excellence. I learned not only from professors but also from the rich culture
-                                    and advanced research opportunities.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center gap-3 mt-4">
-                                <img src="images/man.png" alt="Reviewer"
-                                    class="w-9 h-9 rounded-full object-cover border border-white/30" />
-                                <div>
-                                    <p class="text-sm md:text-base font-semibold">Fatima Noor</p>
-                                    <p class="text-xs md:text-sm opacity-80">Technical University of Munich</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
 
             <div class="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto mt-10 text-center sm:text-left fade-up"
                 data-delay="1.8" data-duration="1.0">
                 <div class="flex flex-col sm:flex-row items-center sm:space-x-4 text-gray-600">
-                    <p class="text-sm md:text-base">1500+ Satisfied Students</p>
+                    <p class="text-sm md:text-base">{{ $totalPreview }} recent reviews</p>
                     <div class="flex items-center text-yellow-500 mt-2 sm:mt-0">
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star-half-alt text-xs md:text-sm"></i>
-                        <span class="text-sm md:text-base text-gray-800 ml-2">4.9</span>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <i class="fa{{ $i <= floor((float) $avgRating) ? 's' : 'r' }} fa-star text-xs md:text-sm"></i>
+                        @endfor
+                        <span class="text-sm md:text-base text-gray-800 ml-2">{{ $avgRating }}</span>
                     </div>
-                    <p class="text-xs md:text-sm text-gray-500 mt-2 sm:mt-0">Based on 1.5K+ reviews</p>
+                    <p class="text-xs md:text-sm text-gray-500 mt-2 sm:mt-0">Average from approved reviews</p>
                 </div>
-                <a href="#"
+                <a href="{{ route('reviews.index') }}"
                     class="text-sm md:text-base font-semibold text-[#092962] mt-4 sm:mt-0 hover:text-[#74BF1A] transition-all">
                     View all reviews <i class="fa-solid fa-arrow-right ml-1"></i>
                 </a>
@@ -1433,3 +1358,4 @@
         });
     </script>
 @endsection
+

@@ -71,6 +71,8 @@
                         class="{{ request()->routeIs('events') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Events</a>
                     <a href="{{ route('blog') }}"
                         class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Blog</a>
+                    <a href="{{ route('reviews.index') }}"
+                        class="{{ request()->routeIs('reviews.*') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Reviews</a>
                     <a href="{{ route('destination') }}"
                         class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Study
                         Destinations</a>
@@ -121,6 +123,7 @@
                 </div>
 
                 <a href="{{ route('events') }}" class="py-2 border-b border-gray-50">Events</a>
+                <a href="{{ route('reviews.index') }}" class="py-2 border-b border-gray-50">Reviews</a>
                 <a href="{{ route('destination') }}" class="py-2 border-b border-gray-50">Study Destinations</a>
                 <a href="{{ route('contact') }}" class="py-2">Contact</a>
 
@@ -205,6 +208,7 @@
                                 Destinations</a></li>
                         <li><a href="{{ route('events') }}" class="hover:text-white transition">Events</a></li>
                         <li><a href="{{ route('blog') }}" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="{{ route('reviews.index') }}" class="hover:text-white transition">Reviews</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>

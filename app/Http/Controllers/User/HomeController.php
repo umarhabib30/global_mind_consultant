@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\HeroSlide;
 use App\Models\Popup;
+use App\Models\Review;
 use App\Models\TopField;
 use App\Models\University;
 use Illuminate\Http\Request;
@@ -26,8 +27,12 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->orderByDesc('id')
             ->get();
+        $reviewsPreview = Review::approved()
+            ->latest()
+            ->take(6)
+            ->get();
 
-        return view('user.home', compact('popup', 'heroSlides', 'universities', 'topFields'));
+        return view('user.home', compact('popup', 'heroSlides', 'universities', 'topFields', 'reviewsPreview'));
     }
 
     /**
