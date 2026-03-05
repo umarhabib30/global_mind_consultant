@@ -1225,7 +1225,48 @@
             </div>
         </div>
     </section>
-        <!-- ---------------Testimonials Section--------------------------------------------- -->
+        <!-- ---------------Success Stories Preview--------------------------------------------- -->
+    <section class="py-16 bg-white">
+        <div class="px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+                <div>
+                    <p class="text-sm uppercase tracking-[0.2em] text-[#74BF1A] font-bold">Case Portfolio</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A245D] mt-2">Recent Success Stories</h2>
+                    <p class="text-slate-600 mt-2">Verified immigration and education outcomes handled by our consultants.</p>
+                </div>
+                <a href="{{ route('success-stories.index') }}"
+                    class="inline-flex items-center gap-2 text-[#0A245D] font-semibold hover:text-[#74BF1A] transition">
+                    View All Stories <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @forelse ($featuredSuccessStories as $story)
+                    <article class="rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <img src="{{ $story->cover_image ? asset($story->cover_image) : asset('images/home-01.png') }}"
+                            alt="{{ $story->cover_image_alt ?: $story->title }}"
+                            class="w-full h-48 object-cover {{ $story->cover_image_blur ? 'blur-sm' : '' }}">
+                        <div class="p-5">
+                            <div class="text-xs text-slate-500">{{ $story->country ?: 'N/A' }} | {{ $story->visa_type ?: 'N/A' }}</div>
+                            <h3 class="text-lg font-bold text-[#0A245D] mt-2">{{ $story->title ?: 'Untitled Story' }}</h3>
+                            <p class="text-sm text-slate-600 mt-2 leading-7">
+                                {{ \Illuminate\Support\Str::limit($story->case_summary ?: strip_tags($story->full_story), 110) }}
+                            </p>
+                            <a href="{{ route('success-stories.show', $story->slug) }}"
+                                class="mt-4 inline-flex items-center gap-2 text-[#0A245D] font-semibold hover:text-[#74BF1A]">
+                                View Details <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                @empty
+                    <div class="lg:col-span-3 rounded-xl border border-dashed border-slate-200 p-8 text-center text-slate-500">
+                        No published success stories yet.
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </section>
+    <!-- ---------------Testimonials Section--------------------------------------------- -->
     @php
         $avgRating = $reviewsPreview->count() ? number_format($reviewsPreview->avg('rating'), 1) : '0.0';
         $totalPreview = $reviewsPreview->count();
@@ -1358,4 +1399,5 @@
         });
     </script>
 @endsection
+
 

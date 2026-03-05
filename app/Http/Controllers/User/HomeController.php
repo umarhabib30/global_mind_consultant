@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HeroSlide;
 use App\Models\Popup;
 use App\Models\Review;
+use App\Models\SuccessStory;
 use App\Models\TopField;
 use App\Models\University;
 use Illuminate\Http\Request;
@@ -31,8 +32,16 @@ class HomeController extends Controller
             ->latest()
             ->take(6)
             ->get();
+        $featuredSuccessStories = SuccessStory::published()
+            ->orderByDesc('featured')
+            ->latest()
+            ->take(3)
+            ->get();
 
-        return view('user.home', compact('popup', 'heroSlides', 'universities', 'topFields', 'reviewsPreview'));
+        return view(
+            'user.home',
+            compact('popup', 'heroSlides', 'universities', 'topFields', 'reviewsPreview', 'featuredSuccessStories')
+        );
     }
 
     /**

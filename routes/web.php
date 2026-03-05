@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\{
     PopupController,
     PostController,
     ReviewController as AdminReviewController,
+    SuccessStoryController as AdminSuccessStoryController,
     TeamController,
     TopFieldController as AdminTopFieldController,
     UniversityController,
@@ -34,6 +35,7 @@ use App\Http\Controllers\User\{
     SingleBlogController,
     SingleEventController,
     SinglePersonController,
+    SuccessStoryController as UserSuccessStoryController,
     ReviewController as UserReviewController,
     TopFieldController as UserTopFieldController,
     UniversitiesController
@@ -166,6 +168,18 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::patch('/{id}/reject', 'reject')->name('admin.reviews.reject');
         Route::delete('/{id}', 'destroy')->name('admin.reviews.destroy');
     });
+
+    // Success Stories Routes
+    Route::controller(AdminSuccessStoryController::class)->prefix('success-stories')->group(function () {
+        Route::get('/', 'index')->name('admin.success-stories.index');
+        Route::get('/create', 'create')->name('admin.success-stories.create');
+        Route::post('/store', 'store')->name('admin.success-stories.store');
+        Route::get('/edit/{id}', 'edit')->name('admin.success-stories.edit');
+        Route::post('/update', 'update')->name('admin.success-stories.update');
+        Route::patch('/{id}/toggle-status', 'toggleStatus')->name('admin.success-stories.toggle-status');
+        Route::patch('/{id}/toggle-featured', 'toggleFeatured')->name('admin.success-stories.toggle-featured');
+        Route::delete('/{id}', 'destroy')->name('admin.success-stories.destroy');
+    });
 });
 
 /*
@@ -193,6 +207,8 @@ Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('scho
 Route::get('/top-field/{id}', [UserTopFieldController::class, 'show'])->name('top-field.show');
 Route::get('/reviews', [UserReviewController::class, 'index'])->name('reviews.index');
 Route::post('/reviews', [UserReviewController::class, 'store'])->name('reviews.store');
+Route::get('/success-stories', [UserSuccessStoryController::class, 'index'])->name('success-stories.index');
+Route::get('/success-stories/{slug}', [UserSuccessStoryController::class, 'show'])->name('success-stories.show');
 
 // Contact Form Submission Route
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

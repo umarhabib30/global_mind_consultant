@@ -73,6 +73,9 @@
                         class="{{ request()->routeIs('blog') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Blog</a>
                     <a href="{{ route('reviews.index') }}"
                         class="{{ request()->routeIs('reviews.*') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Reviews</a>
+                    <a href="{{ route('success-stories.index') }}"
+                        class="{{ request()->routeIs('success-stories.*') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Success
+                        Stories</a>
                     <a href="{{ route('destination') }}"
                         class="{{ request()->routeIs('destination') ? 'text-[#74BF1A]' : 'text-[#48464C]' }} hover:text-[#74BF1A] transition">Study
                         Destinations</a>
@@ -124,6 +127,7 @@
 
                 <a href="{{ route('events') }}" class="py-2 border-b border-gray-50">Events</a>
                 <a href="{{ route('reviews.index') }}" class="py-2 border-b border-gray-50">Reviews</a>
+                <a href="{{ route('success-stories.index') }}" class="py-2 border-b border-gray-50">Success Stories</a>
                 <a href="{{ route('destination') }}" class="py-2 border-b border-gray-50">Study Destinations</a>
                 <a href="{{ route('contact') }}" class="py-2">Contact</a>
 
@@ -209,6 +213,8 @@
                         <li><a href="{{ route('events') }}" class="hover:text-white transition">Events</a></li>
                         <li><a href="{{ route('blog') }}" class="hover:text-white transition">Blog</a></li>
                         <li><a href="{{ route('reviews.index') }}" class="hover:text-white transition">Reviews</a></li>
+                        <li><a href="{{ route('success-stories.index') }}" class="hover:text-white transition">Success
+                                Stories</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
