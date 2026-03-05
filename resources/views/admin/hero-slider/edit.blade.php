@@ -89,10 +89,10 @@
                         <div class="col-md-3 mb-3">
                             <label class="form-label fw-semibold">Status</label>
                             <select name="is_active" class="form-control form-control-lg" required>
-                                <option value="1" {{ old('is_active', (string) $slide->is_active) == '1' ? 'selected' }}>
+                                <option value="1" {{ old('is_active', (string) $slide->is_active) == '1' ? 'selected' : '' }}>
                                     Active
                                 </option>
-                                <option value="0" {{ old('is_active', (string) $slide->is_active) == '0' ? 'selected' }}>
+                                <option value="0" {{ old('is_active', (string) $slide->is_active) == '0' ? 'selected' : '' }}>
                                     Inactive
                                 </option>
                             </select>

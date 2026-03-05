@@ -5,8 +5,16 @@
         <!-- basic table  -->
         <!-- ============================================================== -->
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="card">
+            <div class="card shadow-sm border-0">
+                <div class="card-header d-flex justify-content-between align-items-center"
+                    style="background-color: #0A245D;">
+                    <h5 class="mb-0 text-white">Universities</h5>
+                    <a href="{{ route('university.create') }}" class="btn btn-success btn-sm">Add University</a>
+                </div>
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered first">
                             <thead>
@@ -17,8 +25,7 @@
                                     <th>Logo</th>
                                     <th>Button Text</th>
                                     <th>Button Link</th>
-                                    <th class="text-center">Action</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center" style="min-width: 170px;">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,14 +53,18 @@
                                                 -
                                             @endif
                                         </td>
-                                        <td>
-                                            <a href="{{ url('admin/university/edit', $university->id) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('admin/university/destroy', $university->id) }}"
-                                                onclick="return confirm('Are you sure you want to delete this university?')"
-                                                class="btn btn-danger btn-sm">Delete</a>
+                                        <td class="text-center">
+                                            <a href="{{ route('university.edit', $university->id) }}"
+                                                class="btn btn-primary btn-sm mr-1">Edit</a>
+                                            <form action="{{ route('university.destroy', $university->id) }}" method="POST"
+                                                class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure you want to delete this university?')">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

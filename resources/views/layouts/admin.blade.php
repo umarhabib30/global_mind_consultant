@@ -250,6 +250,14 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('top-field.*') ? 'active' : '' }}"
+                                    href="{{ route('top-field.index') }}">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Top Fields</span>
+                                </a>
+                            </li>
+
 
 
 

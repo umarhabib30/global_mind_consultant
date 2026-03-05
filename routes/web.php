@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\{
     PopupController,
     PostController,
     TeamController,
+    TopFieldController as AdminTopFieldController,
     UniversityController,
 };
 
@@ -32,6 +33,7 @@ use App\Http\Controllers\User\{
     SingleBlogController,
     SingleEventController,
     SinglePersonController,
+    TopFieldController as UserTopFieldController,
     UniversitiesController
 };
 
@@ -84,8 +86,8 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/university/create', 'create')->name('university.create');
         Route::post('/university/store', 'store')->name('university.store');
         Route::get('/university/edit/{id}', 'edit')->name('university.edit');
-        Route::post('/university/update', 'update')->name('university.update');
-        Route::get('/university/delete/{id}', 'destroy')->name('university.destroy');
+        Route::put('/university/update', 'update')->name('university.update');
+        Route::delete('/university/{id}', 'destroy')->name('university.destroy');
     });
 
 
@@ -143,6 +145,17 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::put('/update', 'update')->name('hero-slider.update');
         Route::delete('/{id}', 'destroy')->name('hero-slider.destroy');
     });
+
+    // Top Fields Routes
+    Route::controller(AdminTopFieldController::class)->prefix('top-field')->group(function () {
+        Route::get('/', 'index')->name('top-field.index');
+        Route::get('/create', 'create')->name('top-field.create');
+        Route::post('/store', 'store')->name('top-field.store');
+        Route::get('/details/{id}', 'show')->name('top-field.details');
+        Route::get('/edit/{id}', 'edit')->name('top-field.edit');
+        Route::post('/update', 'update')->name('top-field.update');
+        Route::delete('/{id}', 'destroy')->name('top-field.destroy');
+    });
 });
 
 /*
@@ -167,6 +180,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/course-filter', [CourseFilterController::class, 'index'])->name('course-filter');
 Route::get('/universities', [UniversitiesController::class, 'index'])->name('universities');
 Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('scholarships');
+Route::get('/top-field/{id}', [UserTopFieldController::class, 'show'])->name('top-field.show');
 
 // Contact Form Submission Route
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

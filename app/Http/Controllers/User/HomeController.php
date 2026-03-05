@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\HeroSlide;
 use App\Models\Popup;
+use App\Models\TopField;
 use App\Models\University;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,12 @@ class HomeController extends Controller
             ->orderByDesc('id')
             ->get();
         $universities = University::latest()->get();
+        $topFields = TopField::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('id')
+            ->get();
 
-        return view('user.home', compact('popup', 'heroSlides', 'universities'));
+        return view('user.home', compact('popup', 'heroSlides', 'universities', 'topFields'));
     }
 
     /**

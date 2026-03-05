@@ -14,7 +14,7 @@ class UniversityController extends Controller
      */
     public function index()
     {
-        $universities = University::all();
+        $universities = University::latest()->get();
         $data = [
             'heading' => "University",
             'title' => "View Universities",
@@ -65,7 +65,7 @@ class UniversityController extends Controller
             'button_text' => $validated['button_text'] ?? null,
             'button_link' => $validated['button_link'] ?? null,
         ]);
-        return redirect()->back()->with('success', 'University added succesfully');
+        return redirect()->route('university.index')->with('success', 'University added successfully');
     }
 
     /**
@@ -93,7 +93,6 @@ class UniversityController extends Controller
      */
     public function update(Request $request)
     {
-        $university = University::findOrFail($request->id);
         $validated = $request->validate([
             'id' => ['required', 'exists:universities,id'],
             'name' => ['required', 'string', 'max:255'],
@@ -103,6 +102,7 @@ class UniversityController extends Controller
             'button_text' => ['nullable', 'string', 'max:100'],
             'button_link' => ['nullable', 'string', 'max:500'],
         ]);
+        $university = University::findOrFail($validated['id']);
 
         $data = [
             'name' => $validated['name'],
@@ -132,6 +132,6 @@ class UniversityController extends Controller
         $university = University::findOrFail($id);
         $university->delete();
 
-        return redirect()->back()->with('success', 'University deleted successfully');
+        return redirect()->route('university.index')->with('success', 'University deleted successfully');
     }
 }

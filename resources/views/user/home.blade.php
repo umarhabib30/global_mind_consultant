@@ -7,8 +7,8 @@
             init() {
                 setTimeout(() => this.showPopup = true, 2000);
             }
-        }" x-show="showPopup" class="fixed inset-0 z-[9999] flex items-center justify-center px-4 overflow-hidden"
-            x-cloak>
+        }" x-show="showPopup"
+            class="fixed inset-0 z-[9999] flex items-center justify-center px-4 overflow-hidden" x-cloak>
 
             <div x-show="showPopup" x-transition:enter="transition ease-out duration-500" @click="showPopup = false"
                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
@@ -110,7 +110,8 @@
             $dynamicSlides[] = [
                 'title' => 'Your Journey to Global Education',
                 'highlight' => 'Starts Here',
-                'desc' => 'Global Minds Consultants helps you unlock international opportunities with expert study abroad guidance.',
+                'desc' =>
+                    'Global Minds Consultants helps you unlock international opportunities with expert study abroad guidance.',
                 'img' => asset('images/home-01.png'),
                 'accent' => 'border-[#74BF1A]',
                 'button_text' => 'Book Free Counselling',
@@ -327,64 +328,94 @@
 
     <!----------------------------------- WHY CHOOSE US SECTION ----------------------------------------------->
     <section class="py-16 bg-white overflow-hidden">
-        <div class="  px-6 md:px-12">
-            <h2 class="reveal-up text-2xl md:text-5xl font-bold mb-12 opacity-0" data-delay="0.1">
-                Why <span class="text-[#74BF1A]">Global Minds</span> is The Right Choice for You?
+        <div class="px-6 md:px-12">
+            <!-- Heading + Paragraph -->
+            <h2 class="reveal-up text-2xl md:text-5xl font-bold mb-6 opacity-0" data-delay="0.1">
+                Why <span class="text-[#74BF1A]">Students Trust</span> Global Minds Consultants?
             </h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-container">
+            <p class="reveal-up text-gray-600 text-base md:text-lg max-w-4xl mb-12 opacity-0" data-delay="0.2">
+                Choosing the right consultancy is an important step in your study abroad journey. At Global Minds
+                Consultants, we
+                guide students with honest advice, clear information, and practical support at every stage.
+            </p>
 
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left 2 cols -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-container">
+                    <!-- Box 1 -->
                     <div
                         class="reveal-up hover-card bg-gray-100 rounded-2xl shadow-md p-8 transition-all duration-500 group cursor-pointer relative opacity-0">
                         <div
                             class="text-4xl mb-4 text-[#74BF1A] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
+
                         <h3 class="text-2xl font-bold text-gray-900 mb-3">
-                            <span class="text-[#092962] counter" data-target="2500">0</span>+ Global Partners
+                            <span class="text-[#092962] counter" data-target="2500">0</span>+ International University
+                            Partners
                         </h3>
+
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            Collaborating with over 2,500 top-ranked universities worldwide. Whether it's the UK, USA, or
-                            Europe, we open doors to prestigious institutions that match your aspirations.
+                            We work with a wide network of recognized universities and colleges across Europe, the UK, and
+                            other popular
+                            study destinations. This allows us to help students choose programs that match their academic
+                            background,
+                            budget, and future goals.
                         </p>
+
                         <div class="mt-6 h-1 w-0 bg-[#74BF1A] transition-all duration-700 group-hover:w-full"></div>
                     </div>
 
+                    <!-- Box 2 -->
                     <div
                         class="reveal-up hover-card bg-gray-100 rounded-2xl shadow-md p-8 transition-all duration-500 group cursor-pointer relative opacity-0">
                         <div class="text-4xl mb-4 text-[#74BF1A] transition-transform duration-500 group-hover:rotate-12">
                             <i class="fa-solid fa-university"></i>
                         </div>
+
                         <h3 class="text-2xl font-bold text-gray-900 mb-3">
-                            <span class="text-[#092962]">Expert</span> Guidance
+                            <span class="text-[#092962]">Experienced</span> Study Abroad Advisors
                         </h3>
+
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            Our expert counselors make the study abroad process simple. From shortlisting courses to
-                            preparing strong applications, we maximize your chances of acceptance.
+                            Our team guides students through every step of the admission process. From selecting the right
+                            course and
+                            university to preparing documents and applications, we make sure students move forward with
+                            confidence.
                         </p>
+
                         <div class="mt-6 h-1 w-0 bg-[#74BF1A] transition-all duration-700 group-hover:w-full"></div>
                     </div>
 
+                    <!-- Bottom Section (wide card) -->
                     <div
                         class="reveal-up hover-card bg-gray-50 border border-gray-100 rounded-2xl shadow-md p-8 transition-all duration-500 group md:col-span-2 cursor-pointer relative opacity-0">
                         <div class="flex flex-col md:flex-row items-start gap-6">
                             <div class="text-4xl text-[#74BF1A] group-hover:scale-110 transition-transform duration-500">
                                 <i class="fa-solid fa-circle-check"></i>
                             </div>
+
                             <div class="flex-1 w-full">
                                 <h3 class="text-2xl font-bold text-gray-900 mb-2">
-                                    <span class="text-[#092962]">Trusted</span> & Transparent Process
+                                    <span class="text-[#092962]">Clear</span> & Transparent Process
                                 </h3>
+
                                 <p class="text-gray-600 text-sm mb-6">
-                                    Honest advice and personalized support throughout your journey.
+                                    We believe students should always know what is happening at every stage of their
+                                    application. Our team
+                                    keeps the process clear and straightforward, from the first consultation to the final
+                                    visa stage.
                                 </p>
+
                                 <div class="w-full">
                                     <div class="flex justify-between mb-2">
-                                        <span class="text-xs font-bold text-[#092962] uppercase tracking-wider">Student
-                                            Satisfaction</span>
+                                        <span class="text-xs font-bold text-[#092962] uppercase tracking-wider">
+                                            Student Satisfaction
+                                        </span>
                                         <span class="text-xs font-bold text-[#74BF1A]">98%</span>
                                     </div>
+
                                     <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
                                         <div
                                             class="progress-fill h-full bg-gradient-to-r from-[#74BF1A] to-[#092962] w-0 transition-all duration-1000 ease-out">
@@ -396,6 +427,7 @@
                     </div>
                 </div>
 
+                <!-- Right Blue Card -->
                 <div
                     class="reveal-up hover-card bg-gradient-to-br from-[#0A2D5A] to-[#092962] text-white rounded-2xl shadow-xl p-8 flex flex-col justify-between group relative overflow-hidden opacity-0">
                     <div
@@ -406,22 +438,28 @@
                         <div class="text-4xl mb-6 text-[#74BF1A] float-anim">
                             <i class="fa-solid fa-trophy"></i>
                         </div>
+
                         <h3 class="text-3xl font-bold mb-4">
-                            <span class="text-[#74BF1A]">Proven</span> Success
+                            <span class="text-[#74BF1A]">A Proven</span> Record of Student Success
                         </h3>
+
                         <p class="text-gray-300 text-sm leading-relaxed mb-8">
-                            Thousands of students have trusted us to fulfill their dreams. We ensure your journey is smooth
-                            and successful.
+                            Many students from different cities in Pakistan have trusted Global Minds Consultants for their
+                            study abroad
+                            plans. With proper guidance and careful application preparation, we help students take the right
+                            steps
+                            toward their international education.
                         </p>
 
                         <div class="grid grid-cols-2 gap-4 mb-8">
                             <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                                <div class="text-3xl font-bold text-[#74BF1A] counter" data-target="5000">0</div>
-                                <div class="text-[10px] uppercase tracking-widest text-gray-400">Placed</div>
+                                <div class="text-3xl font-bold text-[#74BF1A] counter" data-target="500">0</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400">Students Placed</div>
                             </div>
+
                             <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
                                 <div class="text-3xl font-bold text-[#74BF1A] counter" data-target="98">0</div>
-                                <div class="text-[10px] uppercase tracking-widest text-gray-400">Success %</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400">Student Satisfaction</div>
                             </div>
                         </div>
 
@@ -545,164 +583,181 @@
     <!-----------------------------------SUPPORT STUDENT SECTION ----------------------------------------------->
     <section class="py-16 bg-[#F6F6F6]">
         <div class="px-6 md:px-12">
-            <h2 class=" slide-down text-2xl md:text-5xl font-bold mb-12 text-center" data-delay="0.7"
-                data-duration="1.5">
-                How do We <span class="text-[#74BF1A]">Support</span> Our Students?
+
+            <!-- Heading -->
+            <h2 class="slide-down text-2xl md:text-5xl font-bold text-center mb-4" data-delay="0.7" data-duration="1.5">
+                How We <span class="text-[#74BF1A]">Support</span> Our Students
             </h2>
 
-            <div class="relative overflow-hidden ">
-                <div id="slider" class="flex transition-transform duration-500 ease-in-out space-x-6 slide-up "
-                    data-delay="0.2" data-duration="0.4">
+            <!-- Short line -->
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                From the first consultation to the final visa stage, our team supports students at every step of the
+                study abroad process.
+            </p>
 
-                    <!-- Card  -->
+            <div class="relative overflow-hidden">
+                <div id="slider" class="flex transition-transform duration-500 ease-in-out space-x-6 slide-up">
+
+                    <!-- CARD 1 Scholarship -->
                     <div
-                        class="relative z-10 min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)]
-  bg-white rounded-2xl shadow-md p-6
-  hover:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.28)]
-  transition-shadow duration-300
-  flex flex-col justify-between h-full md:h-[450px] cursor-pointer">
-
+                        class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)] bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition flex flex-col justify-between md:h-[480px]">
 
                         <div>
-                            <div class="text-3xl mb-4 text-[#0A2D5A] float">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-3">
-                                Country and University Selection
-                            </h3>
-                            <p class="text-gray-600 mb-4">
-                                We guide you to choose the best-fit country and university based on your goals, budget.
-                            </p>
-                            <h4 class="font-semibold text-gray-800 mb-2">What We Offer</h4>
-                            <ul class="space-y-2 text-gray-600">
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Guidance on choosing the
-                                    right country</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Top university
-                                    recommendations</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling
-                                    sessions</li>
-                            </ul>
-                        </div>
-                        <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
-                            Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div
-                        class="relative z-10 min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)]
-  bg-white rounded-2xl shadow-md p-6
-  hover:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.28)]
-  transition-shadow duration-300
-  flex flex-col justify-between h-full md:h-[450px] cursor-pointer">
-                        <div>
-                            <div class="text-3xl mb-4 text-[#0A2D5A]  float">
+                            <div class="text-3xl mb-4 text-[#0A2D5A]">
                                 <i class="fa-solid fa-hand-holding-dollar"></i>
                             </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-3">
-                                Scholarship Assistance
-                            </h3>
+
+                            <h3 class="text-2xl font-bold mb-3">Scholarship Assistance</h3>
+
                             <p class="text-gray-600 mb-4">
-                                Find and secure scholarships abroad to make your dream education affordable and stress-free.
+                                Studying abroad can be expensive, but many universities offer scholarships and funding
+                                opportunities. Our team helps students identify suitable scholarships and prepare strong
+                                applications to improve their chances.
                             </p>
-                            <h4 class="font-semibold text-gray-800 mb-2">What We Offer</h4>
+
+                            <h4 class="font-semibold mb-2">What We Offer</h4>
+
                             <ul class="space-y-2 text-gray-600">
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Scholarship application
-                                    guidance</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Document preparation
-                                    support</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Access to exclusive
-                                    funding options</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling
-                                    sessions</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Guidance on available scholarships
+                                </li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Support with scholarship
+                                    applications</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Help with required documents</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>One-to-one counseling for funding
+                                    options</li>
                             </ul>
                         </div>
-                        <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+
+                        <a href="/services" class="text-[#092962] font-semibold mt-6 hover:underline">
                             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
 
-                    <!-- Card 3 -->
+
+                    <!-- CARD 2 Career -->
                     <div
-                        class="relative z-10 min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)]
-  bg-white rounded-2xl shadow-md p-6
-  hover:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.28)]
-  transition-shadow duration-300
-  flex flex-col justify-between h-full md:h-[450px] cursor-pointer">
+                        class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)] bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition flex flex-col justify-between md:h-[480px]">
+
                         <div>
-                            <div class="text-3xl mb-4 text-[#0A2D5A] float">
+                            <div class="text-3xl mb-4 text-[#0A2D5A]">
                                 <i class="fa-solid fa-briefcase"></i>
                             </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-3">
-                                Career Guidance
-                            </h3>
+
+                            <h3 class="text-2xl font-bold mb-3">Career Guidance</h3>
+
                             <p class="text-gray-600 mb-4">
-                                Get mentorship, workshops, and job placement support to build a strong career path.
+                                Choosing the right program is an important decision. Our advisors help students select
+                                courses that match their academic background, career plans, and future opportunities.
                             </p>
-                            <h4 class="font-semibold text-gray-800 mb-2">What We Offer</h4>
+
+                            <h4 class="font-semibold mb-2">What We Offer</h4>
+
                             <ul class="space-y-2 text-gray-600">
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Resume and interview
-                                    training</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Networking opportunities
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Advice on suitable study programs
                                 </li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Internship and placement
-                                    assistance</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling
-                                    sessions</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Resume and profile preparation
+                                </li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Career pathway guidance</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Personal counseling sessions</li>
                             </ul>
                         </div>
-                        <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+
+                        <a href="/services" class="text-[#092962] font-semibold mt-6 hover:underline">
                             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
 
-                    <!-- Card 4 -->
+
+                    <!-- CARD 3 Visa -->
                     <div
-                        class="relative z-10 min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)]
-  bg-white rounded-2xl shadow-md p-6
-  hover:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.28)]
-  transition-shadow duration-300
-  flex flex-col justify-between h-full md:h-[450px] cursor-pointer">
+                        class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)] bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition flex flex-col justify-between md:h-[480px]">
+
                         <div>
-                            <div class="text-3xl mb-4 text-[#0A2D5A] float">
+                            <div class="text-3xl mb-4 text-[#0A2D5A]">
                                 <i class="fa-solid fa-passport"></i>
                             </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-3">
-                                Visa Assistance
-                            </h3>
+
+                            <h3 class="text-2xl font-bold mb-3">Visa Assistance</h3>
+
                             <p class="text-gray-600 mb-4">
-                                Full support for preparing and submitting your visa application with expert guidance.
+                                Visa preparation can feel complicated for many students. Our team provides step-by-step
+                                support to make sure applications are properly prepared and submitted.
                             </p>
-                            <h4 class="font-semibold text-gray-800 mb-2">What We Offer</h4>
+
+                            <h4 class="font-semibold mb-2">What We Offer</h4>
+
                             <ul class="space-y-2 text-gray-600">
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Document verification</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Mock visa interviews</li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> End-to-end visa guidance
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Document review and verification
                                 </li>
-                                <li><i class="fa-solid fa-check-circle text-[#0A2D5A] mr-2"></i> Personalized counseling
-                                    sessions</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Visa application guidance</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Interview preparation (if
+                                    required)</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Complete support until visa
+                                    submission</li>
                             </ul>
                         </div>
-                        <a href="/services" class="text-[#092962] font-semibold inline-block mt-4 hover:underline">
+
+                        <a href="/services" class="text-[#092962] font-semibold mt-6 hover:underline">
                             Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
+
+
+                    <!-- CARD 4 Country -->
+                    <div
+                        class="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(33.3%-16px)] bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition flex flex-col justify-between md:h-[480px]">
+
+                        <div>
+                            <div class="text-3xl mb-4 text-[#0A2D5A]">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                            <h3 class="text-2xl font-bold mb-3">Country & University Selection</h3>
+
+                            <p class="text-gray-600 mb-4">
+                                Selecting the right country and university is one of the most important steps in the
+                                process. We help students compare options and choose institutions that match their goals
+                                and budget.
+                            </p>
+
+                            <h4 class="font-semibold mb-2">What We Offer</h4>
+
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Guidance on choosing the right
+                                    country</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Recommendations for suitable
+                                    universities</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>Course and intake planning</li>
+                                <li><i class="fa-solid fa-check text-[#0A2D5A] mr-2"></i>One-to-one counseling sessions
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="/services" class="text-[#092962] font-semibold mt-6 hover:underline">
+                            Start Preparing Now <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
                 </div>
 
-                <!-- Arrows -->
+                <!-- Slider arrows -->
                 <div class="flex justify-center space-x-4 mt-8">
                     <button id="prev"
                         class="w-10 h-10 flex items-center justify-center bg-[#092962] text-white rounded-full hover:bg-[#74BF1A] transition">
                         <i class="fa-solid fa-arrow-left"></i>
                     </button>
+
                     <button id="next"
                         class="w-10 h-10 flex items-center justify-center bg-[#092962] text-white rounded-full hover:bg-[#74BF1A] transition">
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
+
             </div>
         </div>
+
     </section>
+
 
 
     <script>
@@ -790,19 +845,22 @@
                 ->sort()
                 ->values();
 
-            $universityCards = $universities->map(function ($university) {
-                return [
-                    'name' => $university->name,
-                    'country' => trim((string) ($university->country ?? '')),
-                    'description' => \Illuminate\Support\Str::limit(
-                        $university->description ?: 'Explore globally recognized programs with strong academic outcomes.',
-                        130,
-                    ),
-                    'image' => $university->image ? asset($university->image) : asset('images/uni.1.png'),
-                    'button_text' => $university->button_text ?: 'View Programs',
-                    'button_link' => $university->button_link ?: route('universities'),
-                ];
-            })->values();
+            $universityCards = $universities
+                ->map(function ($university) {
+                    return [
+                        'name' => $university->name,
+                        'country' => trim((string) ($university->country ?? '')),
+                        'description' => \Illuminate\Support\Str::limit(
+                            $university->description ?:
+                            'Explore globally recognized programs with strong academic outcomes.',
+                            130,
+                        ),
+                        'image' => $university->image ? asset($university->image) : asset('images/uni.1.png'),
+                        'button_text' => $university->button_text ?: 'View Programs',
+                        'button_link' => $university->button_link ?: route('universities'),
+                    ];
+                })
+                ->values();
         @endphp
 
         <div class="px-6 md:px-12">
@@ -880,7 +938,7 @@
                                 </div>
 
                                 <div
-                                    class="h-24 rounded-xl bg-[#F6F9FF] border border-gray-100 flex items-center justify-center mb-5 p-4">
+                                    class="h-34 rounded-xl bg-[#F6F9FF] border border-gray-100 flex items-center justify-center mb-5 p-4">
                                     <img :src="university.image" :alt="university.name"
                                         class="max-h-full max-w-full object-contain">
                                 </div>
@@ -934,58 +992,60 @@
 
     <!-----------------------------------JOURNEY SECTION ----------------------------------------------->
 
-    <section class=" py-16 bg-[#F6F6F6] overflow-hidden">
-        <div class="px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-20">
-            <!-- Left Side -->
-            <div class="flex w-full md:h-[32rem] lg:h-[28rem] slide-left" data-delay="0.6" data-duration="1.7">
-                <!-- Show only this image on mobile -->
-                <img src="images/home-02.png" alt="home-02"
-                    class="w-full h-[12rem] object-cover rounded-lg md:rounded-none md:rounded-l-lg md:w-3/5 md:h-[75%] self-center" />
+    <section class="py-16 bg-[#F6F6F6] overflow-hidden">
+        <div class="px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
+                <!-- Left Side (Images) -->
+                <div class="w-full slide-left" data-delay="0.6" data-duration="1.7">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Image 1 (Always visible) -->
+                        <img src="images/home-02.png" alt="home-02"
+                            class="w-full h-[220px] sm:h-[280px] md:h-[360px] object-cover rounded-2xl shadow-md" />
 
-                <!-- Hide this image on mobile -->
-                <img src="images/home-03.png" alt="home-03"
-                    class="hidden md:block w-3/5 h-full object-cover rounded-lg" />
-            </div>
+                        <!-- Image 2 (Hidden on mobile) -->
+                        <img src="images/home-03.png" alt="home-03"
+                            class="hidden md:block w-full h-[360px] object-cover rounded-2xl shadow-md" />
+                    </div>
+                </div>
 
-            <!-- Right Side -->
-            <div class="slide-right" data-delay="0.6" data-duration="1.7">
-                <h2 class="text-2xl md:text-5xl leading-relaxed font-bold mb-4">
-                    Your Journey to Study
-                    <span class="block mt-4"></span>
-                    Abroad Starts with Us.
-                </h2>
+                <!-- Right Side (Content) -->
+                <div class="slide-right" data-delay="0.6" data-duration="1.7">
+                    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-[#092962]">
+                        Start Your Study Abroad Journey with
+                        <span class="text-[#74BF1A]">Global Minds Consultants</span>
+                    </h2>
 
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Studying abroad opens the door to world-class education, new cultures,
-                    and endless opportunities. Whether you dream of pursuing higher studies
-                    in leading universities or exploring global career paths, we provide the
-                    right guidance every step of the way. From choosing the perfect program
-                    to visa assistance and career counseling, our experts ensure your
-                    transition is smooth and stress-free.
-                </p>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Join thousands of students who have trusted us to achieve their goals
-                    and start building a brighter future today. Let’s turn your study abroad
-                    dream into reality.
-                </p>
-                <div class=":flex">
-                    <a href="/consultation-form"
-                        class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
+                    <p class="text-gray-600 mt-5 leading-relaxed text-sm sm:text-base md:text-lg">
+                        Studying abroad is a big decision, and the right guidance can make the process much easier. At
+                        Global Minds Consultants, we help students plan every step carefully — from selecting the right
+                        country and university to preparing applications and visa documents.
+                    </p>
 
-                        <span class="relative z-10 flex items-center gap-2">
-                            Book a Consultation Call
-                        </span>
+                    <p class="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base md:text-lg">
+                        Our advisors work closely with students to understand their goals, academic background, and budget.
+                        With proper guidance and reliable support, we help students move forward with confidence and make
+                        the right choices for their future.
+                    </p>
 
-                        <span
-                            class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    </a>
+                    <p class="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base md:text-lg">
+                        If you are planning to study abroad, our team is here to guide you and answer your questions.
+                        Let’s discuss your options and help you take the next step toward your international education.
+                    </p>
 
+                    <!-- Button -->
+                    <div class="mt-8">
+                        <a href="/consultation-form"
+                            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-xl font-semibold
+                   bg-[#74BF1A] text-white shadow-lg transition-all duration-300
+                   hover:bg-white hover:text-[#092962] hover:-translate-y-0.5 hover:shadow-xl border border-transparent hover:border-[#092962]">
+                            Book a Free Consultation
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <!-----------------------------------DISCOVER TOP FIELDS  SECTION ----------------------------------------------->
     <section class="py-16">
@@ -1003,190 +1063,122 @@
 
 
             <!-- Grid Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 slide-up" data-delay="0.9"
-                data-duration="1.8">
-                <!-- Card 1 -->
-                <div
-                    class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer ">
-                    <img src="images/home-05.png" alt="Law" class="w-full h-58 object-cover rounded-t-2xl" />
-                    <div class="p-6">
-                        <h2 class="text-2xl font-semibold mb-2">Law</h2>
-                        <p class="text-gray-600 mb-4">
-                            Gain world-class education and hands-on experience that prepare you for success.
-
-                        </p>
-
-                        <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
-                            Explore More <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
+            @if ($topFields->isNotEmpty())
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 slide-up" data-delay="0.9"
+                    data-duration="1.8">
+                    @foreach ($topFields as $field)
+                        <article
+                            class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer">
+                            <img src="{{ $field->image ? asset($field->image) : asset('images/home-05.png') }}"
+                                alt="{{ $field->title }}" class="w-full h-58 object-cover rounded-t-2xl" />
+                            <div class="p-6">
+                                <h2 class="text-2xl font-semibold mb-2">{{ $field->title }}</h2>
+                                <p class="text-gray-600 mb-4">
+                                    {{ \Illuminate\Support\Str::limit($field->short_description ?: 'Explore global opportunities in this field with expert guidance.', 130) }}
+                                </p>
+                                <a href="{{ route('top-field.show', $field->id) }}"
+                                    class="text-[#0A2D5A] font-semibold hover:underline">
+                                    {{ $field->button_text ?: 'Discover More' }}
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    @endforeach
                 </div>
-
-                <!-- Card 2 -->
+            @else
                 <div
-                    class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer ">
-                    <img src="images/home-06.png" alt="Engineering" class="w-full h-58 object-cover rounded-t-2xl" />
-                    <div class="p-6">
-                        <h2 class="text-2xl font-semibold mb-2">Engineering</h2>
-                        <p class="text-gray-600 mb-4">
-                            Explore innovative fields like mechanical, civil, and computer
-                            engineering.
-                        </p>
-                        <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
-                            Explore More <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
+                    class="max-w-2xl mx-auto text-center rounded-2xl border border-dashed border-[#74BF1A]/40 bg-white p-10 shadow-sm">
+                    <h3 class="text-2xl font-bold text-[#0A2D5A] mb-2">Top fields will appear here</h3>
+                    <p class="text-gray-600 mb-6">Add top fields from admin panel to show them on homepage.</p>
+                    <a href="{{ route('contact') }}"
+                        class="inline-flex items-center gap-2 rounded-lg bg-[#74BF1A] text-white px-6 py-3 font-semibold hover:bg-green-600 transition">
+                        Contact Us <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-
-                <!-- Card 3 -->
-                <div
-                    class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer ">
-                    <img src="images/home-07.png" alt="Medicine" class="w-full h-58 object-cover rounded-t-2xl" />
-                    <div class="p-6">
-                        <h2 class="text-2xl font-semibold mb-2">Medicine</h2>
-                        <p class="text-gray-600 mb-4">
-                            Join top universities for medical studies, research, and
-                            healthcare training.
-                        </p>
-                        <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
-                            Explore More <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div
-                    class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer ">
-                    <img src="images/home-08.png" alt="Business" class="w-full h-58 object-cover rounded-t-2xl" />
-                    <div class="p-6">
-                        <h2 class="text-2xl font-semibold mb-2">Business</h2>
-                        <p class="text-gray-600 mb-4">
-                            Study management, finance, and entrepreneurship worldwide.
-                        </p>
-                        <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
-                            Explore More <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div
-                    class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer ">
-                    <img src="images/home-09.png" alt="IT" class="w-full h-58 object-cover rounded-t-2xl" />
-                    <div class="p-6">
-                        <h2 class="text-2xl font-semibold mb-2">IT & Computer Science</h2>
-                        <p class="text-gray-600 mb-4">
-                            Learn software engineering, AI, and data science globally.
-                        </p>
-                        <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
-                            Explore More <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div
-                    class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden hover:shadow-[0_0_55px_rgba(0,0,0,0.25)] transition cursor-pointer ">
-                    <img src="images/home-10.png" alt="Arts" class="w-full h-58 object-cover rounded-t-2xl" />
-                    <div class="p-6">
-                        <h2 class="text-2xl font-semibold mb-2">Arts & Humanities</h2>
-                        <p class="text-gray-600 mb-4">
-                            Pursue studies in literature, history, psychology, and social
-                            sciences.
-                        </p>
-                        <a href="/services" class="text-[#0A2D5A] font-semibold hover:underline">
-                            Explore More <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </section>
 
     <!-----------------------------------PROCESS SECTION ----------------------------------------------->
-    <section class="py-16 bg-[#F6F6F6]">
+    <section class="py-16 bg-[#F6F6F6] overflow-hidden">
         <div class="px-6 md:px-12">
+            <!-- Heading -->
             <div class="slide-down" data-delay="0.6" data-duration="1.7">
-                <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">
-                    Study <span class="text-[#74BF1A]">Abroad</span>
+                <h2 class="text-2xl md:text-4xl font-bold mb-4 text-center text-[#0A2D5A]">
+                    Study Abroad <span class="text-[#74BF1A]">Steps</span>
                 </h2>
-                <p class="text-lg md:text-xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">
-                    Your complete step-by-step guide to making your study abroad journey smooth and successful.
+
+                <p class="text-base md:text-lg text-center mb-12 text-gray-700 max-w-3xl mx-auto">
+                    A clear step-by-step process to make your study abroad journey simple and well organized.
                 </p>
             </div>
 
-
             <!-- Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start slide-left" data-delay="0.8"
-                data-duration="1.9">
-                <div class="space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Side Steps -->
+                <div class="space-y-6 slide-left" data-delay="0.8" data-duration="1.9">
                     @php
                         $steps = [
                             [
-                                'Select Your Program',
-                                'Choose the course that matches your career goals and interests.',
-                                'fa-graduation-cap',
+                                'Profile Evaluation',
+                                'We review your academic background, interests, and future goals to understand the best study options for you.',
+                                'fa-user-check',
                             ],
                             [
-                                'Choose University & Country',
-                                'Find the best destination and university tailored to your needs.',
-                                'fa-university',
+                                'Country & University Selection',
+                                'Our advisors help you choose suitable countries, universities, and programs based on your profile and budget.',
+                                'fa-globe',
                             ],
                             [
-                                'Prepare Application',
-                                'Get guidance on writing SOPs, resumes, and recommendation letters.',
-                                'fa-file-alt',
+                                'Application Preparation',
+                                'We assist in preparing your documents and submitting complete applications to the selected universities.',
+                                'fa-file-circle-check',
                             ],
                             [
-                                'Submit Documents',
-                                'Submit transcripts, test scores, and all required paperwork.',
-                                'fa-pen-nib',
-                            ],
-                            [
-                                'Receive Offer Letter',
-                                'Get your conditional or unconditional admission letter.',
+                                'Offer Letter',
+                                'Once your application is approved, you will receive an offer letter from the university.',
                                 'fa-envelope-open-text',
                             ],
                             [
-                                'Apply for Scholarships',
-                                'Explore funding opportunities and apply for scholarships.',
-                                'fa-hand-holding-usd',
-                            ],
-                            [
                                 'Visa Application',
-                                'Complete visa forms, attend interviews, and get approvals.',
+                                'Our team guides you through the student visa process, including document preparation and interview guidance if required.',
                                 'fa-passport',
                             ],
                             [
-                                'Book Flights',
-                                'Plan your travel dates and book affordable tickets.',
+                                'Departure & Study Abroad Journey',
+                                'After visa approval, we assist you with final preparations so you can start your studies abroad with confidence.',
                                 'fa-plane-departure',
-                            ],
-                            [
-                                'Arrive & Start Your Journey',
-                                'Land in your dream country and begin your global education journey.',
-                                'fa-house-flag',
                             ],
                         ];
                     @endphp
 
                     @foreach ($steps as $index => $step)
                         <div
-                            class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.1)] rounded-xl p-5 hover:shadow-lg transition flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                            <div class="flex items-center gap-4 w-full">
-                                <div class="text-[#74BF1A] text-2xl flex-shrink-0">
+                            class="bg-white shadow-[0_0_25px_rgba(0,0,0,0.08)] rounded-2xl p-5 hover:shadow-lg transition flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <div class="flex items-start sm:items-center gap-4 w-full">
+                                <div class="text-[#74BF1A] text-2xl flex-shrink-0 mt-1 sm:mt-0">
                                     <i class="fa-solid {{ $step[2] }}"></i>
                                 </div>
+
                                 <div class="flex-1">
+                                    <!-- Step badge on mobile -->
                                     <div class="flex items-center justify-between sm:hidden mb-1">
                                         <span class="bg-[#0A2D5A] text-white px-3 py-0.5 rounded-md text-xs font-medium">
                                             Step {{ $index + 1 }}
                                         </span>
                                     </div>
-                                    <h3 class="font-semibold text-base md:text-lg text-[#0A2D5A]">{{ $step[0] }}</h3>
-                                    <p class="text-gray-600 text-sm leading-relaxed">{{ $step[1] }}</p>
+
+                                    <h3 class="font-semibold text-base md:text-lg text-[#0A2D5A]">
+                                        {{ $step[0] }}
+                                    </h3>
+
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        {{ $step[1] }}
+                                    </p>
                                 </div>
                             </div>
+
+                            <!-- Step badge on desktop -->
                             <span
                                 class="hidden sm:inline-block bg-[#0A2D5A] text-white px-4 py-1 rounded-lg text-sm font-medium whitespace-nowrap">
                                 Step {{ $index + 1 }}
@@ -1199,42 +1191,40 @@
                 <div class="text-center lg:text-left slide-right" data-delay="1" data-duration="2">
                     <img src="images/home-04.png" alt="Study Abroad"
                         class="mx-auto lg:mx-0 rounded-2xl shadow-lg mb-6 w-full max-w-md lg:max-w-none" />
-                    <p class="text-gray-700 text-lg leading-relaxed">
-                        At Global Minds, we simplify the entire study abroad process — from choosing the right program to
-                        settling in your dream country. Our expert consultants ensure every document, application, and step
-                        is handled with precision.
-                    </p>
-                    <p class="mt-4 text-gray-700">
-                        With partnerships across top universities worldwide, we help you access quality education, secure
-                        scholarships, and confidently move abroad. Whether it’s the UK, USA, Canada, Australia, or Europe,
-                        your future starts here.
-                    </p>
-                    <p class="mt-4 text-gray-700">
-                        Our mission is to make studying abroad stress-free and achievable. We stand by you every step of the
-                        way — from your first consultation to your first day on campus.
-                    </p>
-                    <div class="hidden md:flex mt-6">
-                        <div class=":flex">
-                            <a href="/contact"
-                                class="relative overflow-hidden bg-[#74BF1A] text-white px-5 py-2.5 rounded-lg font-semibold group transition-all duration-300 inline-block">
 
-                                <span class="relative z-10 flex items-center gap-2">
-                                    Start Your Journey
-                                </span>
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+                        At Global Minds Consultants, we keep the entire study abroad process clear and organized. From the
+                        first
+                        evaluation to your final departure, our advisors guide you with practical support at every stage.
+                    </p>
 
-                                <span
-                                    class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                            </a>
+                    <p class="mt-4 text-gray-700 text-sm md:text-base">
+                        We help you choose the right country and university, prepare strong applications, and manage the
+                        visa process
+                        with confidence. Our goal is to make your journey simple, stress-free, and successful.
+                    </p>
 
-                        </div>
+                    <p class="mt-4 text-gray-700 text-sm md:text-base">
+                        If you’re planning to study abroad, our team is ready to guide you and answer your questions — step
+                        by step.
+                    </p>
+
+                    <div class="mt-6 flex justify-center lg:justify-start">
+                        <a href="/contact"
+                            class="relative overflow-hidden bg-[#74BF1A] text-white px-6 py-3 rounded-xl font-semibold group transition-all duration-300 inline-flex items-center gap-2">
+                            <span class="relative z-10 flex items-center gap-2">
+                                Start Your Journey
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+
+                            <span
+                                class="absolute inset-0 bg-green-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-   
-
     <!-- ---------------Testimonials Section--------------------------------------------- -->
     <section class="py-16 bg-[#F6F6F6] overflow-hidden">
         <div class="px-6 md:px-12">
