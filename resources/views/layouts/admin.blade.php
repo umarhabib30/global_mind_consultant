@@ -183,6 +183,123 @@
 
 
 
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-destination-faqs" aria-controls="submenu-destination-faqs">
+                                    <i class="fas fa-question-circle"></i> Destination FAQs
+                                </a>
+                                <div id="submenu-destination-faqs" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('destination-faqs.index') }}">View
+                                                FAQs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('destination-faqs.create') }}">Add
+                                                FAQ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-popup" aria-controls="submenu-popup">
+                                    <i class="fas fa-window-maximize"></i> Popup Management
+                                </a>
+                                <div id="submenu-popup" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('popup.index') }}">View All Popups</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('popup.create') }}">Add Popup</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-hero-slider" aria-controls="submenu-hero-slider">
+                                    <i class="fas fa-images"></i> Hero Slider
+                                </a>
+                                <div id="submenu-hero-slider" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('hero-slider.index') }}">View All
+                                                Slides</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('hero-slider.create') }}">Add
+                                                Slide</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-top-field" aria-controls="submenu-top-field">
+                                    <i class="fas fa-layer-group"></i> Top Fields
+                                </a>
+                                <div id="submenu-top-field" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('top-field.index') }}">View Top
+                                                Fields</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('top-field.create') }}">Add Top
+                                                Field</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-reviews" aria-controls="submenu-reviews">
+                                    <i class="fas fa-star"></i> Reviews
+                                </a>
+                                <div id="submenu-reviews" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.reviews.index') }}">View
+                                                Reviews</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-success-stories" aria-controls="submenu-success-stories">
+                                    <i class="fas fa-trophy"></i> Success Stories
+                                </a>
+                                <div id="submenu-success-stories" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                                href="{{ route('admin.success-stories.index') }}">View Success
+                                                Stories</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                                href="{{ route('admin.success-stories.create') }}">Add Success
+                                                Story</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}"
                                     href="{{ route('admin.contact.index') }}">
@@ -194,29 +311,6 @@
                                     @if ($unreadCount > 0)
                                         <span class="badge badge-success ml-2">{{ $unreadCount }}</span>
                                     @endif
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.consultation.*') ? 'active' : '' }}"
-                                    href="{{ route('admin.consultation.index') }}">
-                                    <i class="fas fa-calendar-check"></i>
-                                    <span>Consultation Bookings</span>
-                                    @php
-                                        $consultationCount = \App\Models\Consultation::count();
-                                    @endphp
-                                    @if ($consultationCount > 0)
-                                        <span class="badge badge-info ml-2">{{ $consultationCount }}</span>
-                                    @endif
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('destination-faqs.*') ? 'active' : '' }}"
-                                    href="{{ route('destination-faqs.index') }}">
-                                    <i class="fas fa-question-circle"></i>
-                                    <span>Destination FAQs</span>
                                 </a>
                             </li>
 
@@ -234,63 +328,20 @@
                                 </a>
                             </li>
 
+
+
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('popup.*') ? 'active' : '' }}"
-                                    href="{{ route('popup.index') }}">
-                                    <i class="fas fa-window-maximize"></i>
-                                    <span>Popup Management</span>
+                                <a class="nav-link {{ request()->routeIs('admin.consultation.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.consultation.index') }}">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Consultation Bookings</span>
+                                    @php
+                                        $consultationCount = \App\Models\Consultation::count();
+                                    @endphp
+                                    @if ($consultationCount > 0)
+                                        <span class="badge badge-info ml-2">{{ $consultationCount }}</span>
+                                    @endif
                                 </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('hero-slider.*') ? 'active' : '' }}"
-                                    href="{{ route('hero-slider.index') }}">
-                                    <i class="fas fa-images"></i>
-                                    <span>Hero Slider</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('top-field.*') ? 'active' : '' }}"
-                                    href="{{ route('top-field.index') }}">
-                                    <i class="fas fa-layer-group"></i>
-                                    <span>Top Fields</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}"
-                                    href="{{ route('admin.reviews.index') }}">
-                                    <i class="fas fa-star"></i>
-                                    <span>Reviews</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.success-stories.*') ? 'active' : '' }}"
-                                    href="{{ route('admin.success-stories.index') }}">
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Success Stories</span>
-                                </a>
-                            </li>
-
-
-
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-5" aria-controls="submenu-5"><i
-                                        class="fas fa-fw fa-table"></i>table</a>
-                                <div id="submenu-5" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/general-table.html">General Tables</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/data-tables.html">Data Tables</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
 
                         </ul>
