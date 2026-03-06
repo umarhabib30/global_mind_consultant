@@ -701,122 +701,55 @@
     </section>
 
     <!----------------------------------- FAQS SECTION ----------------------------------------------->
-    <<section class="py-16 bg-white">
+    <section class="py-16 bg-white">
         <div class="px-6 md:px-12">
             <h2 class="text-2xl md:text-4xl font-bold text-center mb-10 slide-down" data-delay="0.2" data-duration="1.2">
                 Frequently Asked <span class="text-[#74BF1A]">Questions</span>
             </h2>
 
             <div class="space-y-6 fade-in" data-delay="0.5" data-duration="1.0">
-
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">1</span>
-                            <span>What is the main purpose of Global Mind Consultants?</span>
+                @forelse ($faqs as $index => $faq)
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">{{ $index + 1 }}</span>
+                                <span>{{ $faq->question }}</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            {{ $faq->answer }}
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Global Mind Consultants is dedicated to guiding students and professionals
-                        towards global education and career opportunities by providing expert
-                        counseling, admission support, and scholarship assistance.
                     </div>
-                </div>
-
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">2</span>
-                            <span>How long has Global Mind Consultants been operating?</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        We have been serving students for several years, building strong partnerships
-                        with international universities and ensuring successful admissions for
-                        thousands of students across the globe.
-                    </div>
-                </div>
-
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">3</span>
-                            <span>What services does Global Mind Consultants provide?</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        We offer career counseling, admission guidance, scholarship assistance,
-                        visa support, document preparation, and pre-departure orientation to
-                        make your study abroad journey seamless.
-                    </div>
-                </div>
-
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">4</span>
-                            <span>What makes Global Mind Consultants different?</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Our personalized counseling approach, experienced team, transparent
-                        process, and long-standing relationships with top universities make us
-                        a trusted name in international education consulting.
-                    </div>
-                </div>
-
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">5</span>
-                            <span>How can I get in touch with your team?</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        You can reach out via our website contact form, email, or visit our
-                        nearest office. Our counselors are always ready to assist you with
-                        your queries and guide you through every step.
-                    </div>
-                </div>
+                @empty
+                    <div class="text-center text-gray-500">No FAQs available right now.</div>
+                @endforelse
             </div>
         </div>
-        </section>
-        <!-- Accordion Script -->
-        <script>
-            document.querySelectorAll(".faq-toggle").forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const item = btn.closest(".faq-item");
-                    const content = item.querySelector(".faq-content");
-                    const icon = btn.querySelector("i");
+    </section>
+    <!-- Accordion Script -->
+    <script>
+        document.querySelectorAll(".faq-toggle").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const item = btn.closest(".faq-item");
+                const content = item.querySelector(".faq-content");
+                const icon = btn.querySelector("i");
 
-                    // Toggle current FAQ
-                    content.classList.toggle("hidden");
-                    icon.classList.toggle("rotate-90");
+                // Toggle current FAQ
+                content.classList.toggle("hidden");
+                icon.classList.toggle("rotate-90");
 
-                    // Toggle green border when open
-                    if (!content.classList.contains("hidden")) {
-                        item.classList.add("border-b-[4px]", "border-[#74BF1A]",
-                            "shadow-[0_6px_20px_rgba(116,191,26,0.3)]");
-                    } else {
-                        item.classList.remove("border-b-[4px]", "border-[#74BF1A]",
-                            "shadow-[0_6px_20px_rgba(116,191,26,0.3)]");
-                    }
-                });
+                // Toggle green border when open
+                if (!content.classList.contains("hidden")) {
+                    item.classList.add("border-b-[4px]", "border-[#74BF1A]",
+                        "shadow-[0_6px_20px_rgba(116,191,26,0.3)]");
+                } else {
+                    item.classList.remove("border-b-[4px]", "border-[#74BF1A]",
+                        "shadow-[0_6px_20px_rgba(116,191,26,0.3)]");
+                }
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\{
+    AboutFaqController,
     ContactController as AdminContactController,
     DestinationController as AdminDestinationController,
     DestinationFaqsController,
@@ -139,6 +140,16 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/{id}/edit', 'edit')->name('destination-faqs.edit');
         Route::put('/{id}', 'update')->name('destination-faqs.update');
         Route::delete('/{id}', 'destroy')->name('destination-faqs.destroy');
+    });
+
+    // About FAQ Routes
+    Route::controller(AboutFaqController::class)->prefix('about-faqs')->group(function () {
+        Route::get('/', 'index')->name('about-faqs.index');
+        Route::get('/create', 'create')->name('about-faqs.create');
+        Route::post('/', 'store')->name('about-faqs.store');
+        Route::get('/{id}/edit', 'edit')->name('about-faqs.edit');
+        Route::put('/{id}', 'update')->name('about-faqs.update');
+        Route::delete('/{id}', 'destroy')->name('about-faqs.destroy');
     });
 
     // Popup Routes

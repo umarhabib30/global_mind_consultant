@@ -225,6 +225,26 @@
                                 </div>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-about-faqs" aria-controls="submenu-about-faqs">
+                                    <i class="fas fa-info-circle"></i> About FAQs
+                                </a>
+                                <div id="submenu-about-faqs"
+                                    class="collapse submenu {{ $active == 'about-faqs' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('about-faqs.index') }}">View
+                                                FAQs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('about-faqs.create') }}">Add
+                                                FAQ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
 
 
                             <li class="nav-item">

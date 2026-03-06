@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutFaq;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -12,7 +13,12 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view(view: 'user.about');
+        $faqs = AboutFaq::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('user.about', compact('faqs'));
     }
 
     /**
