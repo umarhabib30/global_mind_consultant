@@ -16,12 +16,207 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/datatables/css/select.bootstrap4.css') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/vendor/datatables/css/fixedHeader.bootstrap4.css') }}" />
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Admin Dashboard</title>
+    <style>
+        :root {
+            --admin-bg: #f2f6ff;
+            --admin-topbar-grad: linear-gradient(120deg, #0f2f72 0%, #1a4da7 52%, #2f79e9 100%);
+            --admin-sidebar-grad: linear-gradient(180deg, #081b49 0%, #0c2a67 46%, #0f367d 100%);
+            --admin-text: #15213f;
+            --admin-muted: #7b86a3;
+            --admin-soft: rgba(255, 255, 255, 0.1);
+            --admin-active: #8fd33a;
+        }
 
-<title>Admin Dashboard</title>
+        body {
+            font-family: 'Manrope', sans-serif !important;
+            background: var(--admin-bg);
+            color: var(--admin-text);
+        }
 
-@yield('style')
+        .admin-topbar {
+            height: 76px;
+            background: var(--admin-topbar-grad) !important;
+            border: 0;
+            box-shadow: 0 14px 35px rgba(14, 40, 99, 0.35);
+            padding: 0 20px;
+        }
 
+        .admin-brand {
+            display: inline-flex;
+            align-items: center;
+            color: #fff !important;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: .2px;
+            font-size: 19px;
+            line-height: 1;
+        }
+
+        .admin-brand small {
+            display: block;
+            font-size: 11px;
+            opacity: .85;
+            margin-top: 4px;
+            font-weight: 500;
+            letter-spacing: .4px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .18);
+            border: 1px solid rgba(255, 255, 255, .28);
+            font-size: 16px;
+        }
+
+        .admin-topbar .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, .28);
+            background: rgba(255, 255, 255, .12);
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .admin-topbar .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        .admin-pill-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .14);
+            color: #fff !important;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 12px;
+            text-decoration: none !important;
+            margin-right: 10px;
+        }
+
+        .admin-pill-link:hover {
+            background: rgba(255, 255, 255, .2);
+        }
+
+        .admin-sidebar {
+            background: var(--admin-sidebar-grad) !important;
+            box-shadow: 10px 0 28px rgba(9, 26, 70, 0.22);
+            border-right: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .admin-sidebar .navbar {
+            padding: 12px 10px 20px;
+        }
+
+        .nav-left-sidebar .navbar-nav .nav-link {
+            color: rgba(235, 242, 255, 0.88);
+            border-radius: 10px;
+            margin: 3px 8px;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 13.5px;
+            transition: all .22s ease;
+        }
+
+        .nav-left-sidebar .navbar-nav .nav-link i {
+            color: rgba(235, 242, 255, 0.92);
+            min-width: 18px;
+        }
+
+        .nav-left-sidebar .navbar-nav .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transform: translateX(2px);
+        }
+
+        .nav-left-sidebar .navbar-nav .nav-link.active,
+        .nav-left-sidebar .navbar-nav .show>.nav-link {
+            background: linear-gradient(90deg, rgba(143, 211, 58, 0.24), rgba(143, 211, 58, 0.1));
+            color: #fff !important;
+            border: 1px solid rgba(143, 211, 58, 0.35);
+            box-shadow: inset 3px 0 0 var(--admin-active);
+        }
+
+        .nav-left-sidebar .navbar-nav .submenu .nav-link {
+            padding-left: 40px;
+            font-size: 12.5px;
+            opacity: .95;
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+
+        .nav-divider {
+            margin: 8px 12px 10px;
+            padding: 7px 12px !important;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .08);
+            color: rgba(228, 236, 255, .9) !important;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .nav-left-sidebar .badge {
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 7px;
+        }
+
+        .dashboard-wrapper {
+            background: transparent;
+        }
+
+        .page-breadcrumb .breadcrumb {
+            background: #fff;
+            border: 1px solid #e4eaf8;
+            border-radius: 12px;
+            padding: 10px 14px;
+            box-shadow: 0 7px 20px rgba(24, 45, 99, 0.06);
+        }
+
+        .breadcrumb-item,
+        .breadcrumb-link {
+            color: #33416a !important;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .nav-user-img img {
+            width: 42px;
+            height: 42px;
+            object-fit: cover;
+            box-shadow: 0 6px 16px rgba(11, 30, 76, 0.3);
+        }
+
+        .nav-user-dropdown {
+            border-radius: 12px;
+            border: 1px solid #e3e9f8;
+            box-shadow: 0 12px 28px rgba(20, 42, 96, 0.16);
+        }
+
+        @media (max-width: 991px) {
+            .admin-topbar {
+                height: auto;
+                padding: 10px 14px;
+            }
+
+            .admin-pill-link {
+                margin-top: 8px;
+            }
+        }
+    </style>
+    @yield('style')
 </head>
 
 <body>
@@ -36,8 +231,11 @@
         <!-- navbar -->
         <!-- ============================================================== -->
         <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Global Minds Consultants</a>
+            <nav class="navbar navbar-expand-lg fixed-top admin-topbar">
+                <a class="navbar-brand admin-brand" href="{{ url('admin/dashboard') }}">
+                    <span class="brand-icon"><i class="fas fa-globe-asia"></i></span>
+                    <span>Global Minds <small>Admin Control Center</small></span>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -45,6 +243,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="{{ url('/') }}" target="_blank" class="admin-pill-link">
+                                <i class="fas fa-external-link-alt"></i> View Website
+                            </a>
+                        </li>
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,7 +280,7 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark style='background-color: #74BF1A;'">
+        <div class="nav-left-sidebar sidebar-dark admin-sidebar">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light ">
                     <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
@@ -88,13 +291,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider">
-                                Menu
+                                Main Navigation
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link @if ($active == 'dashboard') active @endif"
                                     href="{{ url('admin/dashboard') }}"><i
                                         class="fa fa-fw fa-user-circle"></i>Dashboard
-                                    <span class="badge badge-success">6</span></a>
+                                    <span class="badge badge-success">Live</span></a>
 
                             </li>
 
@@ -163,17 +366,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-top-field" aria-controls="submenu-top-field">
-                                    <i class="fas fa-layer-group"></i> Top Fields
+                                    <i class="fa fa-th-large"></i> Top Fields
                                 </a>
                                 <div id="submenu-top-field" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('top-field.index') }}">View Top
-                                                Fields</a>
+                                            <a class="nav-link" href="{{ route('top-field.index') }}">
+                                                <i class="fa fa-eye"></i> View Top Fields
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('top-field.create') }}">Add Top
-                                                Field</a>
+                                            <a class="nav-link" href="{{ route('top-field.create') }}">
+                                                <i class="fa fa-plus"></i> Add Top Field
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
