@@ -113,381 +113,67 @@
         <div class="px-4 sm:px-6 md:px-12">
 
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center reveal-down">
-                Scholarship <span class="text-[#74BF1A]">Assistance</span>
+                Meet Our <span class="text-[#74BF1A]">Expert Team</span>
             </h2>
 
             <p class="text-base sm:text-lg md:text-xl text-center mb-8 md:mb-12 text-gray-600 reveal-up">
-                Helping students access global scholarship opportunities and fulfill their dreams of higher education.
+                Explore personalized consultant profiles with real experience, certifications, and portfolio details.
             </p>
 
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-
-                <div
-                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
-    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
-    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
-
-                    <!-- IMAGE WRAPPER -->
+                @forelse ($teams as $team)
                     <div
-                        class="bg-[#C7F28C] flex justify-center items-center
-        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+                        class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
+                        <div class="bg-[#C7F28C] flex justify-center items-center h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
+                            <img src="{{ asset($team->profile_pic ?: 'images/team.png') }}" alt="{{ $team->name }}"
+                                class="w-full h-full object-cover rounded-t-2xl transition-transform duration-700 group-hover:scale-110" />
+                        </div>
 
-                        <img src="images/team.png" alt="Scholarship Advisor"
-                            class="w-full h-full object-contain
-            rounded-t-2xl transition-transform duration-700
-            group-hover:scale-110" />
-                    </div>
+                        <div class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6 sm:flex-[0.4] flex flex-col justify-between relative z-10">
+                            <div>
+                                <h3 class="font-bold text-xl sm:text-2xl">{{ $team->name }}</h3>
+                                <p class="text-[#74BF1A] text-lg sm:text-xl">{{ $team->role ?: 'Consultant' }}</p>
+                                <p class="text-sm mt-2 opacity-90">
+                                    {{ \Illuminate\Support\Str::limit($team->bio, 110) }}
+                                </p>
+                            </div>
 
-                    <!-- CONTENT -->
-                    <div
-                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
-        sm:flex-[0.4] flex flex-col justify-between relative z-10">
+                            <div class="flex justify-center gap-4 mt-4">
+                                @if ($team->linkedin)
+                                    <a href="{{ $team->linkedin }}" target="_blank" class="hover:text-[#74BF1A] transition-colors">
+                                        <i class="fa-brands fa-linkedin text-lg"></i>
+                                    </a>
+                                @endif
+                                @if ($team->facebook)
+                                    <a href="{{ $team->facebook }}" target="_blank" class="hover:text-[#74BF1A] transition-colors">
+                                        <i class="fa-brands fa-facebook text-lg"></i>
+                                    </a>
+                                @endif
+                                @if ($team->instagram)
+                                    <a href="{{ $team->instagram }}" target="_blank" class="hover:text-[#74BF1A] transition-colors">
+                                        <i class="fa-brands fa-instagram text-lg"></i>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
 
-                        <div>
-                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2 opacity-90">
-                                Expert in guiding students toward international scholarships and preparing strong
-                                applications.
+                        <div
+                            class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 backdrop-blur-sm px-4">
+                            <p
+                                class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                {{ \Illuminate\Support\Str::limit($team->tagline ?: 'See full profile and achievements.', 80) }}
                             </p>
-                        </div>
-
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-linkedin text-lg"></i>
-                            </a>
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-facebook text-lg"></i>
+                            <a href="{{ route('single-person.show', $team->id) }}"
+                                class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold hover:bg-white hover:text-[#74BF1A] transition-all duration-300 transform scale-95 group-hover:scale-100">
+                                Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
-
-                    <!-- HOVER OVERLAY -->
-                    <div
-                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
-        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
-        z-20 backdrop-blur-sm px-4">
-
-                        <p
-                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
-            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            See full bio and services offered by Nouman.
-                        </p>
-
-                        <a href="/single-person"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
-            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
-            transform scale-95 group-hover:scale-100">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
+                @empty
+                    <div class="col-span-full text-center text-gray-500 py-8">
+                        No active team members available right now.
                     </div>
-                </div>
-                <div
-                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
-    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
-    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
-
-                    <!-- IMAGE WRAPPER -->
-                    <div
-                        class="bg-[#C7F28C] flex justify-center items-center
-        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
-
-                        <img src="images/team.png" alt="Scholarship Advisor"
-                            class="w-full h-full object-contain
-            rounded-t-2xl transition-transform duration-700
-            group-hover:scale-110" />
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div
-                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
-        sm:flex-[0.4] flex flex-col justify-between relative z-10">
-
-                        <div>
-                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2 opacity-90">
-                                Expert in guiding students toward international scholarships and preparing strong
-                                applications.
-                            </p>
-                        </div>
-
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-linkedin text-lg"></i>
-                            </a>
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-facebook text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- HOVER OVERLAY -->
-                    <div
-                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
-        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
-        z-20 backdrop-blur-sm px-4">
-
-                        <p
-                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
-            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            See full bio and services offered by Nouman.
-                        </p>
-
-                        <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
-            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
-            transform scale-95 group-hover:scale-100">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
-    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
-    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
-
-                    <!-- IMAGE WRAPPER -->
-                    <div
-                        class="bg-[#C7F28C] flex justify-center items-center
-        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
-
-                        <img src="images/team.png" alt="Scholarship Advisor"
-                            class="w-full h-full object-contain
-            rounded-t-2xl transition-transform duration-700
-            group-hover:scale-110" />
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div
-                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
-        sm:flex-[0.4] flex flex-col justify-between relative z-10">
-
-                        <div>
-                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2 opacity-90">
-                                Expert in guiding students toward international scholarships and preparing strong
-                                applications.
-                            </p>
-                        </div>
-
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-linkedin text-lg"></i>
-                            </a>
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-facebook text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- HOVER OVERLAY -->
-                    <div
-                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
-        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
-        z-20 backdrop-blur-sm px-4">
-
-                        <p
-                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
-            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            See full bio and services offered by Nouman.
-                        </p>
-
-                        <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
-            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
-            transform scale-95 group-hover:scale-100">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
-    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
-    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
-
-                    <!-- IMAGE WRAPPER -->
-                    <div
-                        class="bg-[#C7F28C] flex justify-center items-center
-        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
-
-                        <img src="images/team.png" alt="Scholarship Advisor"
-                            class="w-full h-full object-contain
-            rounded-t-2xl transition-transform duration-700
-            group-hover:scale-110" />
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div
-                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
-        sm:flex-[0.4] flex flex-col justify-between relative z-10">
-
-                        <div>
-                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2 opacity-90">
-                                Expert in guiding students toward international scholarships and preparing strong
-                                applications.
-                            </p>
-                        </div>
-
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-linkedin text-lg"></i>
-                            </a>
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-facebook text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- HOVER OVERLAY -->
-                    <div
-                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
-        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
-        z-20 backdrop-blur-sm px-4">
-
-                        <p
-                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
-            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            See full bio and services offered by Nouman.
-                        </p>
-
-                        <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
-            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
-            transform scale-95 group-hover:scale-100">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
-    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
-    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
-
-                    <!-- IMAGE WRAPPER -->
-                    <div
-                        class="bg-[#C7F28C] flex justify-center items-center
-        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
-
-                        <img src="images/team.png" alt="Scholarship Advisor"
-                            class="w-full h-full object-contain
-            rounded-t-2xl transition-transform duration-700
-            group-hover:scale-110" />
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div
-                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
-        sm:flex-[0.4] flex flex-col justify-between relative z-10">
-
-                        <div>
-                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2 opacity-90">
-                                Expert in guiding students toward international scholarships and preparing strong
-                                applications.
-                            </p>
-                        </div>
-
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-linkedin text-lg"></i>
-                            </a>
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-facebook text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- HOVER OVERLAY -->
-                    <div
-                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
-        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
-        z-20 backdrop-blur-sm px-4">
-
-                        <p
-                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
-            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            See full bio and services offered by Nouman.
-                        </p>
-
-                        <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
-            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
-            transform scale-95 group-hover:scale-100">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="card-reveal rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col
-    min-h-[420px] sm:min-h-[450px] md:h-[500px] relative cursor-pointer
-    transition-all duration-500 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
-
-                    <!-- IMAGE WRAPPER -->
-                    <div
-                        class="bg-[#C7F28C] flex justify-center items-center
-        h-[220px] sm:h-auto sm:flex-[0.6] overflow-hidden">
-
-                        <img src="images/team.png" alt="Scholarship Advisor"
-                            class="w-full h-[100%] object-contain
-            rounded-t-2xl transition-transform duration-700
-            group-hover:scale-110" />
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div
-                        class="bg-[#092962] text-white text-center p-4 sm:p-5 md:p-6
-        sm:flex-[0.4] flex flex-col justify-between relative z-10">
-
-                        <div>
-                            <h3 class="font-bold text-xl sm:text-2xl">Muhammad Nouman Afzal</h3>
-                            <p class="text-[#74BF1A] text-lg sm:text-xl">Scholarship Coordinator</p>
-                            <p class="text-sm mt-2 opacity-90">
-                                Expert in guiding students toward international scholarships and preparing strong
-                                applications.
-                            </p>
-                        </div>
-
-                        <div class="flex justify-center gap-4 mt-4">
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-linkedin text-lg"></i>
-                            </a>
-                            <a href="#" class="hover:text-[#74BF1A] transition-colors">
-                                <i class="fa-brands fa-facebook text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- HOVER OVERLAY -->
-                    <div
-                        class="absolute inset-0 bg-[#092962]/80 flex flex-col items-center justify-center
-        text-white opacity-0 group-hover:opacity-100 transition-all duration-300
-        z-20 backdrop-blur-sm px-4">
-
-                        <p
-                            class="text-base sm:text-lg md:text-xl font-semibold mb-4 text-center
-            translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            See full bio and services offered by Nouman.
-                        </p>
-
-                        <a href="#"
-                            class="bg-[#74BF1A] text-white py-2 px-6 rounded-full font-bold
-            hover:bg-white hover:text-[#74BF1A] transition-all duration-300
-            transform scale-95 group-hover:scale-100">
-                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-
-
+                @endforelse
             </div>
         </div>
     </section>

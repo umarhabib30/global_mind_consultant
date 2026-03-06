@@ -212,6 +212,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/single-person', [SinglePersonController::class, 'index'])->name('single-person');
+Route::get('/single-person/{id}', [SinglePersonController::class, 'show'])->name('single-person.show');
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/destination', [DestinationController::class, 'index'])->name('destination');
 Route::get('/consultation-form', [ConsultationFormController::class, 'index'])->name('consultation');

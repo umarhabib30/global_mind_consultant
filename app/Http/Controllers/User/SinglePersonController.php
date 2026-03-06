@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class SinglePersonController extends Controller
@@ -12,7 +13,12 @@ class SinglePersonController extends Controller
      */
     public function index()
     {
-                                return view('user.singlePerson');
+        $team = Team::where('status', 'active')
+            ->orderByDesc('is_featured')
+            ->latest()
+            ->first();
+
+        return view('user.singlePerson', compact('team'));
     }
 
     /**
@@ -36,7 +42,13 @@ class SinglePersonController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $team = Team::findOrFail($id);
+
+        if ($team->status !== 'active') {
+            abort(404);
+        }
+
+        return view('user.singlePerson', compact('team'));
     }
 
     /**
