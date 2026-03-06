@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\{
     ContactController as AdminContactController,
+    DestinationController as AdminDestinationController,
     DestinationFaqsController,
     DashboardController,
     EventController,
@@ -92,6 +93,16 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/university/edit/{id}', 'edit')->name('university.edit');
         Route::put('/university/update', 'update')->name('university.update');
         Route::delete('/university/{id}', 'destroy')->name('university.destroy');
+    });
+
+    // Destination Routes
+    Route::controller(AdminDestinationController::class)->prefix('destination')->group(function () {
+        Route::get('/', 'index')->name('destination.index');
+        Route::get('/create', 'create')->name('destination.create');
+        Route::post('/store', 'store')->name('destination.store');
+        Route::get('/edit/{id}', 'edit')->name('destination.edit');
+        Route::put('/update', 'update')->name('destination.update');
+        Route::delete('/{id}', 'destroy')->name('destination.destroy');
     });
 
 

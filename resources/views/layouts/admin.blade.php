@@ -156,6 +156,27 @@
                                     </ul>
                                 </div>
                             </li>
+
+                            <!-- Destination Menu -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-destination" aria-controls="submenu-destination">
+                                    <i class="fas fa-map-marker-alt"></i> Destinations
+                                </a>
+                                <div id="submenu-destination"
+                                    class="collapse submenu {{ $active == 'destination' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('destination.index') }}">View
+                                                Destinations</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('destination.create') }}">Add
+                                                Destination</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                             <!-- Blog Menu -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"

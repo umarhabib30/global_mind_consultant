@@ -43,168 +43,27 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center stagger-up"
                 data-stagger="0.1" data-delay="0.6" data-duration="1.0">
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                @forelse ($destinations as $destination)
                     <div
-                        class="absolute inset-0 bg-[url('/images/usa.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
+                        class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            style="background-image: url('{{ asset($destination->pic ?: 'images/hero-bg-destination.jpg') }}')">
+                        </div>
+                        <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
 
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            USA
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Experience world-class innovation and flexible degree paths at leading US universities.
-                        </p>
+                        <div
+                            class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <h1 class="text-2xl md:text-3xl font-bold mb-2">
+                                {{ $destination->title }}
+                            </h1>
+                            <p class="text-sm text-gray-200">
+                                {{ \Illuminate\Support\Str::limit($destination->description, 160) }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/uk.png')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            UK
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Access prestigious, historic universities and shorter, specialized master's programs.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/france.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            France
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Dive into culture, excellent research, and affordable tuition fees in beautiful cities.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/germany.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            Germany
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Benefit from free or low-cost public education and a strong job market for engineers.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/italy.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            Italy
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Study at ancient universities with high academic standards, particularly in the arts.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/uae.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            UAE
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Attend international branch campuses in a rapidly growing economic hub in the Middle East.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/sweden.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            Sweden
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Focus on sustainability and innovation with degrees taught fully in English.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/finland.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            Finland
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Benefit from a world-renowned education system focusing on equity and creativity.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative w-full max-w-[391px] h-[500px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    <div
-                        class="absolute inset-0 bg-[url('/images/turkey.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h1 class="text-2xl md:text-3xl font-bold mb-2">
-                            Turkey
-                        </h1>
-                        <p class="text-sm text-gray-200">
-                            Study at a crossroads of civilizations with a mix of Eastern and Western culture.
-                        </p>
-                    </div>
-                </div>
+                @empty
+                    <div class="col-span-full text-center text-gray-500">No destinations available right now.</div>
+                @endforelse
             </div>
         </div>
     </section>
