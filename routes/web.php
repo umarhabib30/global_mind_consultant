@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\{
     EventController,
     EventReservationController,
     HeroSlideController,
+    IeltsFaqController,
     PopupController,
     PostController,
     ReviewController as AdminReviewController,
@@ -150,6 +151,16 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/{id}/edit', 'edit')->name('about-faqs.edit');
         Route::put('/{id}', 'update')->name('about-faqs.update');
         Route::delete('/{id}', 'destroy')->name('about-faqs.destroy');
+    });
+
+    // IELTS FAQ Routes
+    Route::controller(IeltsFaqController::class)->prefix('ielts-faqs')->group(function () {
+        Route::get('/', 'index')->name('ielts-faqs.index');
+        Route::get('/create', 'create')->name('ielts-faqs.create');
+        Route::post('/', 'store')->name('ielts-faqs.store');
+        Route::get('/{id}/edit', 'edit')->name('ielts-faqs.edit');
+        Route::put('/{id}', 'update')->name('ielts-faqs.update');
+        Route::delete('/{id}', 'destroy')->name('ielts-faqs.destroy');
     });
 
     // Popup Routes

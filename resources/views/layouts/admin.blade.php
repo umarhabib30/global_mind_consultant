@@ -245,6 +245,26 @@
                                 </div>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-ielts-faqs" aria-controls="submenu-ielts-faqs">
+                                    <i class="fas fa-language"></i> IELTS FAQs
+                                </a>
+                                <div id="submenu-ielts-faqs"
+                                    class="collapse submenu {{ $active == 'ielts-faqs' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('ielts-faqs.index') }}">View
+                                                FAQs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('ielts-faqs.create') }}">Add
+                                                FAQ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
 
 
                             <li class="nav-item">

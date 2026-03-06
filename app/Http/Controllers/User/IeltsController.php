@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\IeltsFaq;
 use Illuminate\Http\Request;
 
 class IeltsController extends Controller
@@ -12,7 +13,12 @@ class IeltsController extends Controller
      */
     public function index()
     {
-        return view(view: 'user.ielts');
+        $faqs = IeltsFaq::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('user.ielts', compact('faqs'));
     }
 
     /**
