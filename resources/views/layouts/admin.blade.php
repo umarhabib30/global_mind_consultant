@@ -400,10 +400,12 @@
                                 <div id="submenu-popup" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('popup.index') }}">View All Popups</a>
+                                            <a class="nav-link" href="{{ route('popup.index') }}"><i
+                                                    class="fas fa-list-ul mr-2"></i>View All Popups</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('popup.create') }}">Add Popup</a>
+                                            <a class="nav-link" href="{{ route('popup.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add Popup</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -418,11 +420,13 @@
                                 <div id="submenu-hero-slider" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('hero-slider.index') }}">View All
+                                            <a class="nav-link" href="{{ route('hero-slider.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View All
                                                 Slides</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('hero-slider.create') }}">Add
+                                            <a class="nav-link" href="{{ route('hero-slider.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 Slide</a>
                                         </li>
                                     </ul>
@@ -439,11 +443,13 @@
                                 <div id="submenu-university" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('university.index') }}">View
+                                            <a class="nav-link" href="{{ route('university.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 Universities</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('university.create') }}">Add
+                                            <a class="nav-link" href="{{ route('university.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 University</a>
                                         </li>
                                     </ul>
@@ -484,12 +490,14 @@
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                                href="{{ route('admin.success-stories.index') }}">View Success
+                                                href="{{ route('admin.success-stories.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View Success
                                                 Stories</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                                href="{{ route('admin.success-stories.create') }}">Add Success
+                                                href="{{ route('admin.success-stories.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add Success
                                                 Story</a>
                                         </li>
                                     </ul>
@@ -505,7 +513,8 @@
                                 <div id="submenu-reviews" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.reviews.index') }}">View
+                                            <a class="nav-link" href="{{ route('admin.reviews.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 Reviews</a>
                                         </li>
                                     </ul>
@@ -523,10 +532,12 @@
                                 <div id="submenu-team" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('team.index') }}">View Team</a>
+                                            <a class="nav-link" href="{{ route('team.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View Team</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('team.create') }}">Add Team Member</a>
+                                            <a class="nav-link" href="{{ route('team.create') }}"><i
+                                                    class="fas fa-user-plus mr-2"></i>Add Team Member</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -541,10 +552,12 @@
                                 <div id="submenu-event" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('event.index') }}">View Events</a>
+                                            <a class="nav-link" href="{{ route('event.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View Events</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('event.create') }}">Add Event</a>
+                                            <a class="nav-link" href="{{ route('event.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add Event</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -562,11 +575,13 @@
                                     class="collapse submenu {{ $active == 'destination' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('destination.index') }}">View
+                                            <a class="nav-link" href="{{ route('destination.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 Destinations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('destination.create') }}">Add
+                                            <a class="nav-link" href="{{ route('destination.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 Destination</a>
                                         </li>
                                     </ul>
@@ -609,11 +624,13 @@
                                 <div id="submenu-destination-faqs" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('destination-faqs.index') }}">View
+                                            <a class="nav-link" href="{{ route('destination-faqs.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 FAQs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('destination-faqs.create') }}">Add
+                                            <a class="nav-link" href="{{ route('destination-faqs.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 FAQ</a>
                                         </li>
                                     </ul>
@@ -629,11 +646,13 @@
                                     class="collapse submenu {{ $active == 'about-faqs' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('about-faqs.index') }}">View
+                                            <a class="nav-link" href="{{ route('about-faqs.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 FAQs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('about-faqs.create') }}">Add
+                                            <a class="nav-link" href="{{ route('about-faqs.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 FAQ</a>
                                         </li>
                                     </ul>
@@ -643,17 +662,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-ielts-courses" aria-controls="submenu-ielts-courses">
-                                    <i class="fas fa-book-open"></i> IELTS Courses
+                                    <i class="fas fa-book"></i> IELTS Courses
                                 </a>
                                 <div id="submenu-ielts-courses"
                                     class="collapse submenu {{ $active == 'ielts-courses' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('ielts-courses.index') }}">View
+                                            <a class="nav-link" href="{{ route('ielts-courses.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 Courses</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('ielts-courses.create') }}">Add
+                                            <a class="nav-link" href="{{ route('ielts-courses.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 Course</a>
                                         </li>
                                     </ul>
@@ -669,11 +690,13 @@
                                     class="collapse submenu {{ $active == 'ielts-popup' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('ielts-popup.index') }}">View
+                                            <a class="nav-link" href="{{ route('ielts-popup.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 IELTS Popup</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('ielts-popup.create') }}">Add
+                                            <a class="nav-link" href="{{ route('ielts-popup.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 IELTS Popup</a>
                                         </li>
                                     </ul>
@@ -689,11 +712,13 @@
                                     class="collapse submenu {{ $active == 'ielts-faqs' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('ielts-faqs.index') }}">View
+                                            <a class="nav-link" href="{{ route('ielts-faqs.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 FAQs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('ielts-faqs.create') }}">Add
+                                            <a class="nav-link" href="{{ route('ielts-faqs.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 FAQ</a>
                                         </li>
                                     </ul>
@@ -703,7 +728,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('admin.ielts-enrollments.*') ? 'active' : '' }}"
                                     href="{{ route('admin.ielts-enrollments.index') }}">
-                                    <i class="fas fa-user-graduate"></i>
+                                    <i class="fas fa-user-plus"></i>
                                     <span>IELTS Enrollments</span>
                                     @php
                                         $ieltsEnrollmentCount = \App\Models\IeltsCourseEnrollment::count();
@@ -717,17 +742,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-service-faqs" aria-controls="submenu-service-faqs">
-                                    <i class="fas fa-concierge-bell"></i> Service FAQs
+                                    <i class="fas fa-question-circle"></i> Service FAQs
                                 </a>
                                 <div id="submenu-service-faqs"
                                     class="collapse submenu {{ $active == 'service-faqs' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('service-faqs.index') }}">View
+                                            <a class="nav-link" href="{{ route('service-faqs.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 FAQs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('service-faqs.create') }}">Add
+                                            <a class="nav-link" href="{{ route('service-faqs.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 FAQ</a>
                                         </li>
                                     </ul>
@@ -743,11 +770,13 @@
                                     class="collapse submenu {{ $active == 'service-popup' ? 'show' : '' }}">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('service-popup.index') }}">View
+                                            <a class="nav-link" href="{{ route('service-popup.index') }}"><i
+                                                    class="fas fa-eye mr-2"></i>View
                                                 Service Popup</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('service-popup.create') }}">Add
+                                            <a class="nav-link" href="{{ route('service-popup.create') }}"><i
+                                                    class="fas fa-plus-circle mr-2"></i>Add
                                                 Service Popup</a>
                                         </li>
                                     </ul>
