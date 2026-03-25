@@ -1,5 +1,141 @@
 @extends('layouts.user')
 @section('content')
+    @php
+        $videoUrl = $popup->video_url ?? null;
+        $embedVideoUrl = null;
+        $hasPopupMedia = false;
+
+        if ($videoUrl) {
+            if (\Illuminate\Support\Str::contains($videoUrl, ['youtube.com/watch?v=', 'youtu.be/'])) {
+                preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/', $videoUrl, $matches);
+                $embedVideoUrl = isset($matches[1]) ? 'https://www.youtube.com/embed/' . $matches[1] : $videoUrl;
+            } elseif (\Illuminate\Support\Str::contains($videoUrl, 'youtube.com/embed/')) {
+                $embedVideoUrl = $videoUrl;
+            }
+        }
+
+        $hasPopupMedia = filled($embedVideoUrl) || filled($popup->video_url ?? null) || filled($popup->image_url ?? null);
+    @endphp
+
+    @if ($popup)
+        <div id="ieltsOfferPopup"
+            class="fixed inset-0 z-[95] hidden items-center justify-center bg-[#04122c]/75 px-4 py-8 backdrop-blur-sm">
+            <div id="ieltsOfferPopupCard"
+                class="relative w-full max-w-2xl translate-y-6 scale-[0.92] overflow-hidden rounded-[26px] bg-white opacity-0 shadow-[0_24px_65px_rgba(4,18,44,0.24)] transition-all duration-500">
+                <button type="button" id="closeIeltsOfferPopup"
+                    class="absolute right-3 top-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-[#092962] shadow-md transition duration-300 hover:rotate-90 hover:scale-105 hover:bg-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="{{ $hasPopupMedia ? 'grid grid-cols-1 lg:grid-cols-[0.95fr_0.85fr]' : 'block' }}">
+                    <div class="relative overflow-hidden bg-[#092962] px-4 py-5 text-white md:px-5">
+                        <div class="absolute -left-10 top-8 h-28 w-28 rounded-full bg-[#74BF1A]/10 blur-3xl"></div>
+                        <div class="absolute -right-8 bottom-0 h-32 w-32 rounded-full bg-white/10 blur-3xl"></div>
+
+                        <div class="relative">
+                            @if ($popup->subheading)
+                                <span
+                                    class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-white/75">
+                                    {{ $popup->subheading }}
+                                </span>
+                            @endif
+
+                            @if ($popup->heading)
+                                <h2 class="mt-2.5 text-xl font-extrabold leading-tight md:text-[1.7rem]">
+                                    {{ $popup->heading }}
+                                </h2>
+                            @endif
+
+                            @if ($popup->description)
+                                <p class="mt-2.5 max-w-xl text-[13px] leading-5 text-white/80">
+                                    {{ $popup->description }}
+                                </p>
+                            @endif
+
+                            @if (!empty($popup->points))
+                                <div class="mt-4 space-y-2">
+                                    @foreach ($popup->points as $point)
+                                        <div class="flex items-start gap-2.5">
+                                            <span
+                                                class="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#74BF1A] text-[9px] text-white">
+                                                <i class="fa-solid fa-check"></i>
+                                            </span>
+                                            <p class="text-[13px] leading-5 text-white/85">{{ $point }}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endif
+
+                            @if ($popup->button_text && $popup->button_link)
+                                <div class="mt-5">
+                                    <a href="{{ $popup->button_link }}" target="_blank"
+                                        class="inline-flex items-center gap-2 rounded-xl bg-[#74BF1A] px-4 py-2 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#5ea113]">
+                                        {{ $popup->button_text }}
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            @endif
+
+                            @if ($popup->facebook_link || $popup->instagram_link || $popup->youtube_link || $popup->whatsapp_link)
+                                <div class="mt-5 border-t border-white/10 pt-3.5">
+                                    <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-white/55">Follow Us</p>
+                                    <div class="flex flex-wrap gap-2.5">
+                                        @if ($popup->facebook_link)
+                                            <a href="{{ $popup->facebook_link }}" target="_blank"
+                                                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#092962]">
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </a>
+                                        @endif
+                                        @if ($popup->instagram_link)
+                                            <a href="{{ $popup->instagram_link }}" target="_blank"
+                                                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#092962]">
+                                                <i class="fa-brands fa-instagram"></i>
+                                            </a>
+                                        @endif
+                                        @if ($popup->youtube_link)
+                                            <a href="{{ $popup->youtube_link }}" target="_blank"
+                                                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#092962]">
+                                                <i class="fa-brands fa-youtube"></i>
+                                            </a>
+                                        @endif
+                                        @if ($popup->whatsapp_link)
+                                            <a href="{{ $popup->whatsapp_link }}" target="_blank"
+                                                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#092962]">
+                                                <i class="fa-brands fa-whatsapp"></i>
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    @if ($hasPopupMedia)
+                        <div class="bg-[linear-gradient(180deg,#f8fbff_0%,#eef5ff_100%)] p-3.5 md:p-4">
+                            @if ($embedVideoUrl)
+                                <div class="overflow-hidden rounded-[20px] bg-white shadow-[0_18px_40px_rgba(9,41,98,0.14)]">
+                                    <iframe class="aspect-video w-full" src="{{ $embedVideoUrl }}"
+                                        title="IELTS Offer Video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                            @elseif ($popup->video_url)
+                                <div class="overflow-hidden rounded-[20px] bg-white shadow-[0_18px_40px_rgba(9,41,98,0.14)]">
+                                    <video controls class="aspect-video w-full bg-black">
+                                        <source src="{{ $popup->video_url }}">
+                                    </video>
+                                </div>
+                            @elseif ($popup->image_url)
+                                <div class="flex min-h-[250px] items-center justify-center overflow-hidden rounded-[20px] bg-white p-2.5 shadow-[0_18px_40px_rgba(9,41,98,0.14)]">
+                                    <img src="{{ $popup->image_url }}" alt="{{ $popup->heading ?: 'IELTS Offer' }}"
+                                        class="max-h-[340px] w-full rounded-[16px] object-contain object-center">
+                                </div>
+                            @endif
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-----------------------------------HERO SECTION----------------------------------------------->
     <section
         class="relative bg-[url('/images/ieltsHero.jpg')] bg-cover bg-top bg-no-repeat h-screen flex items-center justify-center px-4">
@@ -668,6 +804,52 @@
     </section>
     <!-- Accordion Script -->
     <script>
+        const ieltsOfferPopup = document.getElementById('ieltsOfferPopup');
+        const ieltsOfferPopupCard = document.getElementById('ieltsOfferPopupCard');
+        const closeIeltsOfferPopup = document.getElementById('closeIeltsOfferPopup');
+
+        const openIeltsOfferPopup = () => {
+            if (!ieltsOfferPopup || !ieltsOfferPopupCard) return;
+
+            ieltsOfferPopup.classList.remove('hidden');
+            ieltsOfferPopup.classList.add('flex');
+
+            requestAnimationFrame(() => {
+                ieltsOfferPopupCard.classList.remove('opacity-0', 'scale-[0.92]', 'translate-y-6');
+                ieltsOfferPopupCard.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+            });
+        };
+
+        const hideIeltsOfferPopup = () => {
+            if (!ieltsOfferPopup || !ieltsOfferPopupCard) return;
+
+            ieltsOfferPopupCard.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+            ieltsOfferPopupCard.classList.add('opacity-0', 'scale-[0.92]', 'translate-y-6');
+
+            setTimeout(() => {
+                ieltsOfferPopup.classList.add('hidden');
+                ieltsOfferPopup.classList.remove('flex');
+            }, 260);
+        };
+
+        @if ($popup)
+            setTimeout(() => {
+                openIeltsOfferPopup();
+            }, {{ max(1000, (($popup->delay_seconds ?? 2) * 1000)) }});
+        @endif
+
+        if (closeIeltsOfferPopup) {
+            closeIeltsOfferPopup.addEventListener('click', hideIeltsOfferPopup);
+        }
+
+        if (ieltsOfferPopup) {
+            ieltsOfferPopup.addEventListener('click', (event) => {
+                if (event.target === ieltsOfferPopup) {
+                    hideIeltsOfferPopup();
+                }
+            });
+        }
+
         const ieltsEnrollModal = document.getElementById('ieltsEnrollModal');
         const ieltsEnrollModalCard = document.getElementById('ieltsEnrollModalCard');
         const closeIeltsEnrollModal = document.getElementById('closeIeltsEnrollModal');
@@ -724,6 +906,9 @@
             if (event.key === 'Escape' && ieltsEnrollModal && !ieltsEnrollModal.classList.contains('hidden')) {
                 closeEnrollModal();
             }
+            if (event.key === 'Escape' && ieltsOfferPopup && !ieltsOfferPopup.classList.contains('hidden')) {
+                hideIeltsOfferPopup();
+            }
         });
 
         @if ($errors->any() && $selectedCourse)
@@ -759,3 +944,5 @@
         });
     </script>
 @endsection
+
+

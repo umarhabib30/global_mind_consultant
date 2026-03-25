@@ -16,10 +16,12 @@ use App\Http\Controllers\Admin\{
     IeltsCourseController,
     IeltsEnrollmentController,
     IeltsFaqController,
+    IeltsPopupController,
     PopupController,
     PostController,
     ReviewController as AdminReviewController,
     ServiceFaqController,
+    ServicePopupController,
     SuccessStoryController as AdminSuccessStoryController,
     TeamController,
     TopFieldController as AdminTopFieldController,
@@ -166,6 +168,15 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::delete('/{id}', 'destroy')->name('ielts-faqs.destroy');
     });
 
+    Route::controller(IeltsPopupController::class)->prefix('ielts-popup')->group(function () {
+        Route::get('/', 'index')->name('ielts-popup.index');
+        Route::get('/create', 'create')->name('ielts-popup.create');
+        Route::post('/store', 'store')->name('ielts-popup.store');
+        Route::get('/edit/{id}', 'edit')->name('ielts-popup.edit');
+        Route::put('/update', 'update')->name('ielts-popup.update');
+        Route::delete('/{id}', 'destroy')->name('ielts-popup.destroy');
+    });
+
     Route::controller(IeltsCourseController::class)->prefix('ielts-courses')->group(function () {
         Route::get('/', 'index')->name('ielts-courses.index');
         Route::get('/create', 'create')->name('ielts-courses.create');
@@ -189,6 +200,15 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/{id}/edit', 'edit')->name('service-faqs.edit');
         Route::put('/{id}', 'update')->name('service-faqs.update');
         Route::delete('/{id}', 'destroy')->name('service-faqs.destroy');
+    });
+
+    Route::controller(ServicePopupController::class)->prefix('service-popup')->group(function () {
+        Route::get('/', 'index')->name('service-popup.index');
+        Route::get('/create', 'create')->name('service-popup.create');
+        Route::post('/store', 'store')->name('service-popup.store');
+        Route::get('/edit/{id}', 'edit')->name('service-popup.edit');
+        Route::put('/update', 'update')->name('service-popup.update');
+        Route::delete('/{id}', 'destroy')->name('service-popup.destroy');
     });
 
     // Popup Routes

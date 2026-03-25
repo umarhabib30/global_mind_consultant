@@ -662,6 +662,26 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-ielts-popup" aria-controls="submenu-ielts-popup">
+                                    <i class="fas fa-bullhorn"></i> IELTS Popup
+                                </a>
+                                <div id="submenu-ielts-popup"
+                                    class="collapse submenu {{ $active == 'ielts-popup' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('ielts-popup.index') }}">View
+                                                IELTS Popup</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('ielts-popup.create') }}">Add
+                                                IELTS Popup</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-ielts-faqs" aria-controls="submenu-ielts-faqs">
                                     <i class="fas fa-language"></i> IELTS FAQs
                                 </a>
@@ -709,6 +729,26 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('service-faqs.create') }}">Add
                                                 FAQ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-service-popup" aria-controls="submenu-service-popup">
+                                    <i class="fas fa-star"></i> Service Popup
+                                </a>
+                                <div id="submenu-service-popup"
+                                    class="collapse submenu {{ $active == 'service-popup' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('service-popup.index') }}">View
+                                                Service Popup</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('service-popup.create') }}">Add
+                                                Service Popup</a>
                                         </li>
                                     </ul>
                                 </div>

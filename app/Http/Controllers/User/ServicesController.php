@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\ServiceFaq;
+use App\Models\ServicePopup;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -18,7 +19,9 @@ class ServicesController extends Controller
             ->orderByDesc('id')
             ->get();
 
-        return view('user.services', compact('faqs'));
+        $popup = ServicePopup::where('is_active', true)->latest()->first();
+
+        return view('user.services', compact('faqs', 'popup'));
     }
 
     /**

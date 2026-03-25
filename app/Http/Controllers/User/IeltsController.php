@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\IeltsCourse;
 use App\Models\IeltsCourseEnrollment;
 use App\Models\IeltsFaq;
+use App\Models\IeltsPopup;
 use Illuminate\Http\Request;
 
 class IeltsController extends Controller
@@ -19,13 +20,14 @@ class IeltsController extends Controller
             ->orderBy('sort_order')
             ->orderByDesc('id')
             ->get();
+        $popup = IeltsPopup::where('is_active', true)->latest()->first();
 
         $faqs = IeltsFaq::where('is_active', true)
             ->orderBy('sort_order')
             ->orderByDesc('id')
             ->get();
 
-        return view('user.ielts', compact('faqs', 'courses'));
+        return view('user.ielts', compact('faqs', 'courses', 'popup'));
     }
 
     /**

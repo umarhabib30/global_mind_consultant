@@ -1,5 +1,141 @@
 @extends('layouts.user')
 @section('content')
+    @php
+        $videoUrl = $popup->video_url ?? null;
+        $embedVideoUrl = null;
+        $hasPopupMedia = false;
+
+        if ($videoUrl) {
+            if (\Illuminate\Support\Str::contains($videoUrl, ['youtube.com/watch?v=', 'youtu.be/'])) {
+                preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/', $videoUrl, $matches);
+                $embedVideoUrl = isset($matches[1]) ? 'https://www.youtube.com/embed/' . $matches[1] : $videoUrl;
+            } elseif (\Illuminate\Support\Str::contains($videoUrl, 'youtube.com/embed/')) {
+                $embedVideoUrl = $videoUrl;
+            }
+        }
+
+        $hasPopupMedia = filled($embedVideoUrl) || filled($popup->video_url ?? null) || filled($popup->image_url ?? null);
+    @endphp
+
+    @if ($popup)
+        <div id="serviceOfferPopup"
+            class="fixed inset-0 z-[95] hidden items-center justify-center bg-[#05162f]/70 px-4 py-8 backdrop-blur-[6px]">
+            <div id="serviceOfferPopupCard"
+                class="relative w-full max-w-3xl translate-y-8 scale-[0.94] overflow-hidden rounded-[30px] border border-white/40 bg-[linear-gradient(135deg,#ffffff_0%,#f5fbff_55%,#eef8ed_100%)] opacity-0 shadow-[0_30px_90px_rgba(5,22,47,0.28)] transition-all duration-500">
+                <div class="absolute inset-0 pointer-events-none">
+                    <div class="absolute -top-16 right-10 h-36 w-36 rounded-full bg-[#74BF1A]/15 blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-[#092962]/10 blur-3xl"></div>
+                </div>
+
+                <button type="button" id="closeServiceOfferPopup"
+                    class="absolute right-4 top-4 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/90 text-[#092962] shadow-md transition duration-300 hover:rotate-90 hover:scale-105 hover:bg-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="relative {{ $hasPopupMedia ? 'grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]' : 'block' }}">
+                    <div class="px-5 py-6 md:px-7 md:py-7">
+                        @if ($popup->subheading)
+                            <span
+                                class="inline-flex items-center rounded-full bg-[#092962]/6 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.24em] text-[#092962]/70">
+                                {{ $popup->subheading }}
+                            </span>
+                        @endif
+
+                        @if ($popup->heading)
+                            <h2 class="mt-3 text-2xl font-extrabold leading-tight text-[#092962] md:text-[2rem]">
+                                {{ $popup->heading }}
+                            </h2>
+                        @endif
+
+                        @if ($popup->description)
+                            <p class="mt-3 max-w-xl text-sm leading-6 text-[#4d5f80]">
+                                {{ $popup->description }}
+                            </p>
+                        @endif
+
+                        @if (!empty($popup->points))
+                            <div class="mt-5 grid gap-2.5">
+                                @foreach ($popup->points as $point)
+                                    <div class="flex items-start gap-3 rounded-2xl bg-white/80 px-3.5 py-3 shadow-[0_12px_24px_rgba(9,41,98,0.07)]">
+                                        <span
+                                            class="mt-0.5 inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#74BF1A] text-[10px] text-white">
+                                            <i class="fa-solid fa-check"></i>
+                                        </span>
+                                        <p class="text-sm leading-5 text-[#223556]">{{ $point }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+
+                        @if ($popup->button_text && $popup->button_link)
+                            <div class="mt-6">
+                                <a href="{{ $popup->button_link }}" target="_blank"
+                                    class="inline-flex items-center gap-2 rounded-full bg-[#092962] px-5 py-3 text-sm font-bold text-white shadow-[0_15px_30px_rgba(9,41,98,0.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#74BF1A]">
+                                    {{ $popup->button_text }}
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        @endif
+
+                        @if ($popup->facebook_link || $popup->instagram_link || $popup->youtube_link || $popup->whatsapp_link)
+                            <div class="mt-6 border-t border-[#d8e3f1] pt-4">
+                                <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.24em] text-[#6d7f9f]">Connect With Us</p>
+                                <div class="flex flex-wrap gap-3">
+                                    @if ($popup->facebook_link)
+                                        <a href="{{ $popup->facebook_link }}" target="_blank"
+                                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#092962] shadow-[0_10px_22px_rgba(9,41,98,0.12)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#092962] hover:text-white">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    @endif
+                                    @if ($popup->instagram_link)
+                                        <a href="{{ $popup->instagram_link }}" target="_blank"
+                                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#092962] shadow-[0_10px_22px_rgba(9,41,98,0.12)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#092962] hover:text-white">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                    @endif
+                                    @if ($popup->youtube_link)
+                                        <a href="{{ $popup->youtube_link }}" target="_blank"
+                                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#092962] shadow-[0_10px_22px_rgba(9,41,98,0.12)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#092962] hover:text-white">
+                                            <i class="fa-brands fa-youtube"></i>
+                                        </a>
+                                    @endif
+                                    @if ($popup->whatsapp_link)
+                                        <a href="{{ $popup->whatsapp_link }}" target="_blank"
+                                            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#092962] shadow-[0_10px_22px_rgba(9,41,98,0.12)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#092962] hover:text-white">
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+
+                    @if ($hasPopupMedia)
+                        <div class="bg-[linear-gradient(180deg,rgba(9,41,98,0.06)_0%,rgba(116,191,26,0.08)_100%)] p-4 md:p-5">
+                            @if ($embedVideoUrl)
+                                <div class="overflow-hidden rounded-[24px] bg-white shadow-[0_20px_45px_rgba(9,41,98,0.14)]">
+                                    <iframe class="aspect-video w-full" src="{{ $embedVideoUrl }}"
+                                        title="Service Offer Video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                            @elseif ($popup->video_url)
+                                <div class="overflow-hidden rounded-[24px] bg-white shadow-[0_20px_45px_rgba(9,41,98,0.14)]">
+                                    <video controls class="aspect-video w-full bg-black">
+                                        <source src="{{ $popup->video_url }}">
+                                    </video>
+                                </div>
+                            @elseif ($popup->image_url)
+                                <div class="flex min-h-[290px] items-center justify-center overflow-hidden rounded-[24px] bg-white p-3 shadow-[0_20px_45px_rgba(9,41,98,0.14)]">
+                                    <img src="{{ $popup->image_url }}" alt="{{ $popup->heading ?: 'Service Offer' }}"
+                                        class="max-h-[420px] w-full rounded-[18px] object-contain object-center">
+                                </div>
+                            @endif
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-----------------------------------HERO SECTION----------------------------------------------->
     <section
         class="relative bg-[url('/images/hero-bg-services.jpg')] bg-cover bg-top w-full h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden background-zoom">
@@ -835,6 +971,58 @@
 
     <!-- Accordion Script -->
     <script>
+        const serviceOfferPopup = document.getElementById('serviceOfferPopup');
+        const serviceOfferPopupCard = document.getElementById('serviceOfferPopupCard');
+        const closeServiceOfferPopup = document.getElementById('closeServiceOfferPopup');
+
+        const openServiceOfferPopup = () => {
+            if (!serviceOfferPopup || !serviceOfferPopupCard) return;
+
+            serviceOfferPopup.classList.remove('hidden');
+            serviceOfferPopup.classList.add('flex');
+
+            requestAnimationFrame(() => {
+                serviceOfferPopupCard.classList.remove('opacity-0', 'scale-[0.94]', 'translate-y-8');
+                serviceOfferPopupCard.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+            });
+        };
+
+        const hideServiceOfferPopup = () => {
+            if (!serviceOfferPopup || !serviceOfferPopupCard) return;
+
+            serviceOfferPopupCard.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+            serviceOfferPopupCard.classList.add('opacity-0', 'scale-[0.94]', 'translate-y-8');
+
+            setTimeout(() => {
+                serviceOfferPopup.classList.add('hidden');
+                serviceOfferPopup.classList.remove('flex');
+            }, 280);
+        };
+
+        @if ($popup)
+            setTimeout(() => {
+                openServiceOfferPopup();
+            }, {{ max(1000, (($popup->delay_seconds ?? 2) * 1000)) }});
+        @endif
+
+        if (closeServiceOfferPopup) {
+            closeServiceOfferPopup.addEventListener('click', hideServiceOfferPopup);
+        }
+
+        if (serviceOfferPopup) {
+            serviceOfferPopup.addEventListener('click', (event) => {
+                if (event.target === serviceOfferPopup) {
+                    hideServiceOfferPopup();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && serviceOfferPopup && !serviceOfferPopup.classList.contains('hidden')) {
+                hideServiceOfferPopup();
+            }
+        });
+
         document.querySelectorAll(".faq-toggle").forEach((btn) => {
             btn.addEventListener("click", () => {
                 const item = btn.closest(".faq-item");
