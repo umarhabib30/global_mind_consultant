@@ -642,6 +642,26 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-ielts-courses" aria-controls="submenu-ielts-courses">
+                                    <i class="fas fa-book-open"></i> IELTS Courses
+                                </a>
+                                <div id="submenu-ielts-courses"
+                                    class="collapse submenu {{ $active == 'ielts-courses' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('ielts-courses.index') }}">View
+                                                Courses</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('ielts-courses.create') }}">Add
+                                                Course</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-ielts-faqs" aria-controls="submenu-ielts-faqs">
                                     <i class="fas fa-language"></i> IELTS FAQs
                                 </a>
@@ -658,6 +678,20 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.ielts-enrollments.*') ? 'active' : '' }}"
+                                    href="{{ route('admin.ielts-enrollments.index') }}">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <span>IELTS Enrollments</span>
+                                    @php
+                                        $ieltsEnrollmentCount = \App\Models\IeltsCourseEnrollment::count();
+                                    @endphp
+                                    @if ($ieltsEnrollmentCount > 0)
+                                        <span class="badge badge-warning ml-2">{{ $ieltsEnrollmentCount }}</span>
+                                    @endif
+                                </a>
                             </li>
 
                             <li class="nav-item">

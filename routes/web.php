@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\{
     EventController,
     EventReservationController,
     HeroSlideController,
+    IeltsCourseController,
+    IeltsEnrollmentController,
     IeltsFaqController,
     PopupController,
     PostController,
@@ -164,6 +166,21 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::delete('/{id}', 'destroy')->name('ielts-faqs.destroy');
     });
 
+    Route::controller(IeltsCourseController::class)->prefix('ielts-courses')->group(function () {
+        Route::get('/', 'index')->name('ielts-courses.index');
+        Route::get('/create', 'create')->name('ielts-courses.create');
+        Route::post('/', 'store')->name('ielts-courses.store');
+        Route::get('/{id}/edit', 'edit')->name('ielts-courses.edit');
+        Route::put('/{id}', 'update')->name('ielts-courses.update');
+        Route::delete('/{id}', 'destroy')->name('ielts-courses.destroy');
+    });
+
+    Route::controller(IeltsEnrollmentController::class)->prefix('ielts-enrollments')->group(function () {
+        Route::get('/', 'index')->name('admin.ielts-enrollments.index');
+        Route::get('/{id}', 'show')->name('admin.ielts-enrollments.show');
+        Route::delete('/{id}', 'destroy')->name('admin.ielts-enrollments.destroy');
+    });
+
     // Service FAQ Routes
     Route::controller(ServiceFaqController::class)->prefix('service-faqs')->group(function () {
         Route::get('/', 'index')->name('service-faqs.index');
@@ -245,6 +262,7 @@ Route::post('/single-event/{id}/reserve', [SingleEventController::class, 'reserv
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/single-blog', [SingleBlogController::class, 'index'])->name('single-blog');
 Route::get('/ielts', [IeltsController::class, 'index'])->name('ielts');
+Route::post('/ielts/enroll', [IeltsController::class, 'store'])->name('ielts.enroll');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/course-filter', [CourseFilterController::class, 'index'])->name('course-filter');
 Route::get('/universities', [UniversitiesController::class, 'index'])->name('universities');

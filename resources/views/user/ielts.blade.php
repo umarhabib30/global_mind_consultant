@@ -492,142 +492,150 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
-
-                <div
-                    class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">IELTS Preparation</h3>
-                        <p class="text-white/90 text-sm mb-6 leading-relaxed">Master Academic and General Training modules
-                            with certified experts.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Speaking Simulation</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Writing Evaluations</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Band 8.0+ Strategies</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Full Mock Exams</li>
-                        </ul>
+                @forelse ($courses as $course)
+                    <div
+                        class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-4">{{ $course->title }}</h3>
+                            <p class="text-white/90 text-sm mb-6 leading-relaxed">{{ $course->short_description }}</p>
+                            <ul class="space-y-3 mb-8">
+                                @foreach ($course->features ?? [] as $feature)
+                                    <li class="flex items-center gap-3 text-white font-medium text-sm">
+                                        <i class="fa-solid fa-check-circle"></i> {{ $feature }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <button type="button"
+                            class="open-enroll-modal bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full"
+                            data-course-id="{{ $course->id }}" data-course-title="{{ $course->title }}">
+                            {{ $course->button_text ?: 'Enroll Now' }}
+                        </button>
                     </div>
-                    <a href="#"
-                        class="bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full">Enroll
-                        Now</a>
-                </div>
-
-                <div
-                    class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">TOEFL iBT</h3>
-                        <p class="text-white/90 text-sm mb-6 leading-relaxed">Specialized training for the computer-based
-                            test environment.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Integrated Writing</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Note-taking Skills</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Audio Lab Access</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Score Analysis</li>
-                        </ul>
-                    </div>
-                    <a href="#"
-                        class="bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full">Enroll
-                        Now</a>
-                </div>
-
-                <div
-                    class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">PTE Academic</h3>
-                        <p class="text-white/90 text-sm mb-6 leading-relaxed">Fast-track your visa with AI-scoring based
-                            Pearson training.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> AI Mock Tests</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Repeat Sentence Lab</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Rapid Result Prep</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Exam Lab Drills</li>
-                        </ul>
-                    </div>
-                    <a href="#"
-                        class="bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full">Enroll
-                        Now</a>
-                </div>
-
-                <div
-                    class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">GRE Training</h3>
-                        <p class="text-white/90 text-sm mb-6 leading-relaxed">Quantitative and Verbal reasoning for Grad
-                            school admissions.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Math Concept Drills</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Analytical Writing</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Vocab Flashcards</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Full Mock Series</li>
-                        </ul>
-                    </div>
-                    <a href="#"
-                        class="bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full">Enroll
-                        Now</a>
-                </div>
-
-                <div
-                    class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">GMAT Prep</h3>
-                        <p class="text-white/90 text-sm mb-6 leading-relaxed">Target top-tier Business Schools with expert
-                            GMAT coaching.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Data Insights</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Critical Reasoning</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Problem Solving</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Score Improvement</li>
-                        </ul>
-                    </div>
-                    <a href="#"
-                        class="bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full">Enroll
-                        Now</a>
-                </div>
-
-                <div
-                    class="bg-[#74BF1A] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 reveal-up flex flex-col justify-between group hover:-translate-y-2">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Spoken English</h3>
-                        <p class="text-white/90 text-sm mb-6 leading-relaxed">Improve your fluency and confidence for
-                            global communication.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Public Speaking</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Accent Neutralization</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Group Discussions</li>
-                            <li class="flex items-center gap-3 text-white font-medium text-sm"><i
-                                    class="fa-solid fa-check-circle"></i> Real-life Scenarios</li>
-                        </ul>
-                    </div>
-                    <a href="#"
-                        class="bg-[#092962] text-white text-center py-3 rounded-xl font-bold hover:bg-white hover:text-[#092962] transition-all w-full">Enroll
-                        Now</a>
-                </div>
-
+                @empty
+                    <div class="col-span-full text-center text-gray-500">No language courses available right now.</div>
+                @endforelse
             </div>
         </div>
     </section>
+
+    @php
+        $selectedCourseId = old('ielts_course_id');
+        $selectedCourse = $selectedCourseId ? $courses->firstWhere('id', (int) $selectedCourseId) : null;
+    @endphp
+
+    @if (session('enrollment_success'))
+        <div id="ieltsToast"
+            class="fixed top-6 right-6 z-[90] max-w-sm rounded-2xl bg-[#092962] px-5 py-4 text-white shadow-2xl transition-all duration-500">
+            <div class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#74BF1A] text-sm">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+                <div>
+                    <p class="font-bold">Request Received</p>
+                    <p class="mt-1 text-sm text-white/80">{{ session('enrollment_success') }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div id="ieltsToast"
+            class="fixed top-6 right-6 z-[90] max-w-sm rounded-2xl bg-[#7f1d1d] px-5 py-4 text-white shadow-2xl transition-all duration-500">
+            <div class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-sm">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </span>
+                <div>
+                    <p class="font-bold">Please check the form</p>
+                    <p class="mt-1 text-sm text-white/80">{{ $errors->first() }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <div id="ieltsEnrollModal"
+        class="fixed inset-0 z-[80] hidden items-center justify-center bg-[#04122c]/70 px-4 py-8 backdrop-blur-sm">
+        <div id="ieltsEnrollModalCard"
+            class="w-full max-w-xl scale-95 overflow-hidden rounded-[24px] bg-white opacity-0 shadow-[0_24px_70px_rgba(4,18,44,0.28)] transition-all duration-300">
+            <div class="relative overflow-hidden bg-[#092962] px-5 py-4 text-white md:px-6">
+                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#74BF1A]/25 to-transparent"></div>
+                <div class="relative flex items-start justify-between gap-3">
+                    <div>
+                        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">Enroll Today</p>
+                        <h3 class="mt-1 text-lg font-bold md:text-xl" id="enrollCourseTitle">
+                            {{ $selectedCourse->title ?? 'IELTS Course' }}
+                        </h3>
+                        <p class="mt-1 max-w-md text-xs leading-4 text-white/75">
+                            Share your details and our IELTS team will contact you with timings, fee plan, and next steps.
+                        </p>
+                    </div>
+                    <button type="button" id="closeIeltsEnrollModal"
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm text-white transition hover:bg-white/20">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-[#f8fbff] px-5 py-4 md:px-6">
+                <form action="{{ route('ielts.enroll') }}" method="POST" class="space-y-3">
+                    @csrf
+                    <input type="hidden" name="ielts_course_id" id="enrollCourseId" value="{{ old('ielts_course_id') }}">
+
+                    <div class="grid grid-cols-1 gap-2.5 md:grid-cols-2">
+                        <div>
+                            <label class="mb-1 block text-sm font-semibold text-[#092962]">Full Name</label>
+                            <input type="text" name="full_name" value="{{ old('full_name') }}"
+                                class="w-full rounded-xl border border-[#d7e2f1] bg-white px-3.5 py-2 text-sm outline-none transition focus:border-[#74BF1A] focus:ring-2 focus:ring-[#74BF1A]/20"
+                                placeholder="Enter your full name" required>
+                        </div>
+                        <div>
+                            <label class="mb-1 block text-sm font-semibold text-[#092962]">Email Address</label>
+                            <input type="email" name="email" value="{{ old('email') }}"
+                                class="w-full rounded-xl border border-[#d7e2f1] bg-white px-3.5 py-2 text-sm outline-none transition focus:border-[#74BF1A] focus:ring-2 focus:ring-[#74BF1A]/20"
+                                placeholder="Enter your email" required>
+                        </div>
+                        <div>
+                            <label class="mb-1 block text-sm font-semibold text-[#092962]">Phone Number</label>
+                            <input type="text" name="phone" value="{{ old('phone') }}"
+                                class="w-full rounded-xl border border-[#d7e2f1] bg-white px-3.5 py-2 text-sm outline-none transition focus:border-[#74BF1A] focus:ring-2 focus:ring-[#74BF1A]/20"
+                                placeholder="Enter your phone number" required>
+                        </div>
+                        <div>
+                            <label class="mb-1 block text-sm font-semibold text-[#092962]">Preferred Time</label>
+                            <input type="text" name="preferred_time" value="{{ old('preferred_time') }}"
+                                class="w-full rounded-xl border border-[#d7e2f1] bg-white px-3.5 py-2 text-sm outline-none transition focus:border-[#74BF1A] focus:ring-2 focus:ring-[#74BF1A]/20"
+                                placeholder="Morning / Evening / Weekend">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="mb-1 block text-sm font-semibold text-[#092962]">Study Goal</label>
+                        <input type="text" name="study_goal" value="{{ old('study_goal') }}"
+                            class="w-full rounded-xl border border-[#d7e2f1] bg-white px-3.5 py-2 text-sm outline-none transition focus:border-[#74BF1A] focus:ring-2 focus:ring-[#74BF1A]/20"
+                            placeholder="Band target or preferred exam">
+                    </div>
+
+                    <div>
+                        <label class="mb-1 block text-sm font-semibold text-[#092962]">Message</label>
+                        <textarea name="message" rows="2"
+                            class="w-full rounded-xl border border-[#d7e2f1] bg-white px-3.5 py-2 text-sm outline-none transition focus:border-[#74BF1A] focus:ring-2 focus:ring-[#74BF1A]/20"
+                            placeholder="Tell us about your current level or what support you need">{{ old('message') }}</textarea>
+                    </div>
+
+                    <div class="flex flex-col gap-2.5 border-t border-[#dce6f4] pt-3 sm:flex-row sm:items-center sm:justify-between">
+                        <p class="text-xs text-[#51617f] md:text-sm">
+                            We usually respond within one working day.
+                        </p>
+                        <button type="submit"
+                            class="inline-flex items-center justify-center rounded-xl bg-[#74BF1A] px-6 py-2 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#5ea113]">
+                            Submit Enrollment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!----------------------------------- FAQS SECTION ----------------------------------------------->
     <section class="py-16 bg-white">
@@ -660,6 +668,75 @@
     </section>
     <!-- Accordion Script -->
     <script>
+        const ieltsEnrollModal = document.getElementById('ieltsEnrollModal');
+        const ieltsEnrollModalCard = document.getElementById('ieltsEnrollModalCard');
+        const closeIeltsEnrollModal = document.getElementById('closeIeltsEnrollModal');
+        const enrollCourseIdInput = document.getElementById('enrollCourseId');
+        const enrollCourseTitle = document.getElementById('enrollCourseTitle');
+        const enrollButtons = document.querySelectorAll('.open-enroll-modal');
+        const ieltsToast = document.getElementById('ieltsToast');
+
+        const openEnrollModal = (courseId, courseTitle) => {
+            if (enrollCourseIdInput) enrollCourseIdInput.value = courseId || '';
+            if (enrollCourseTitle) enrollCourseTitle.textContent = courseTitle || 'IELTS Course';
+            if (!ieltsEnrollModal || !ieltsEnrollModalCard) return;
+
+            ieltsEnrollModal.classList.remove('hidden');
+            ieltsEnrollModal.classList.add('flex');
+
+            requestAnimationFrame(() => {
+                ieltsEnrollModalCard.classList.remove('opacity-0', 'scale-95');
+                ieltsEnrollModalCard.classList.add('opacity-100', 'scale-100');
+            });
+        };
+
+        const closeEnrollModal = () => {
+            if (!ieltsEnrollModal || !ieltsEnrollModalCard) return;
+
+            ieltsEnrollModalCard.classList.remove('opacity-100', 'scale-100');
+            ieltsEnrollModalCard.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                ieltsEnrollModal.classList.add('hidden');
+                ieltsEnrollModal.classList.remove('flex');
+            }, 220);
+        };
+
+        enrollButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                openEnrollModal(button.dataset.courseId, button.dataset.courseTitle);
+            });
+        });
+
+        if (closeIeltsEnrollModal) {
+            closeIeltsEnrollModal.addEventListener('click', closeEnrollModal);
+        }
+
+        if (ieltsEnrollModal) {
+            ieltsEnrollModal.addEventListener('click', (event) => {
+                if (event.target === ieltsEnrollModal) {
+                    closeEnrollModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && ieltsEnrollModal && !ieltsEnrollModal.classList.contains('hidden')) {
+                closeEnrollModal();
+            }
+        });
+
+        @if ($errors->any() && $selectedCourse)
+            openEnrollModal('{{ $selectedCourse->id }}', @json($selectedCourse->title));
+        @endif
+
+        if (ieltsToast) {
+            setTimeout(() => {
+                ieltsToast.classList.add('translate-x-6', 'opacity-0');
+                setTimeout(() => ieltsToast.remove(), 500);
+            }, 4000);
+        }
+
         document.querySelectorAll(".faq-toggle").forEach((btn) => {
             btn.addEventListener("click", () => {
                 const item = btn.closest(".faq-item");

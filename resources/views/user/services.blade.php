@@ -712,162 +712,7 @@
         </div>
     </section>
 
-    <!-- ---------------Testimonials Section--------------------------------------------- -->
-    <section class="py-16 bg-[#F6F6F6] overflow-hidden">
-        <div class="px-6 md:px-12">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <p class="text-4xl font-semibold text-[#092962] fade-up" data-delay="0.2" data-duration="0.8">
-                    Testimonials
-                </p>
-                <h1 class="text-3xl md:text-4xl font-semibold text-[#322F35] mt-2 fade-up" data-delay="0.4"
-                    data-duration="0.8">
-                    Study Abroad Experiences
-                </h1>
-                <h2 class="text-xl md:text-2xl font-semibold text-[#322F35] mt-1 fade-up" data-delay="0.6"
-                    data-duration="0.8">
-                    Hear from Our Students
-                </h2>
-                <p class="text-xl md:text-lg text-[#79767D] mt-2 fade-up" data-delay="0.8" data-duration="0.8">
-                    Discover how our students have transformed their dreams into reality by studying in top universities
-                    across the world.
-                </p>
-            </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-6">
-                <div class="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col justify-between shadow-lg fade-up"
-                    data-delay="1.2" data-duration="1.0">
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-semibold text-[#000000]">Canada</h3>
-                        <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Arts &amp; Humanities</p>
-
-                        <div class="text-5xl text-[#092962] mt-6 mb-4 leading-none font-sans"> <i
-                                class="fa-solid fa-quote-right"></i>
-                        </div>
-
-                        <p class="text-sm md:text-base text-[#000000] leading-relaxed">
-                            Studying in Canada has been a life-changing journey. The academic standards, cultural diversity,
-                            and opportunities for growth exceeded my expectations. I gained confidence, independence, and
-                            skills that prepared me for a global career.
-                        </p>
-                    </div>
-
-                    <div class="flex items-center gap-4 mt-6">
-                        <img src="images/man.png" alt="Reviewer"
-                            class="w-12 h-12 rounded-full object-cover border border-gray-300" />
-                        <div>
-                            <p class="text-sm md:text-base font-semibold text-[#322F35]">Ali Raza</p>
-                            <p class="text-xs md:text-sm text-[#322F35]">University of Toronto</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-6 flex flex-col">
-
-                    <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg fade-up" data-delay="1.4"
-                        data-duration="1.0">
-                        <h3 class="text-2xl md:text-3xl font-semibold text-[#000000]">Australia</h3>
-                        <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Engineering &amp; Technology</p>
-
-                        <div class="text-5xl text-[#092962] mt-6 mb-4 leading-none font-sans"> <i
-                                class="fa-solid fa-quote-right"></i>
-                        </div>
-
-                        <p class="text-sm md:text-base text-[#000000] leading-relaxed">
-                            My study abroad experience in Australia opened new horizons. The practical learning environment
-                            and supportive faculty helped me develop real-world engineering skills. I also met students from
-                            all over the world who became lifelong friends.
-                        </p>
-
-                        <div class="flex items-center gap-4 mt-6">
-                            <img src="images/man.png" alt="Reviewer"
-                                class="w-12 h-12 rounded-full object-cover border border-gray-300" />
-                            <div>
-                                <p class="text-sm md:text-base font-semibold text-[#322F35]">Sara Khan</p>
-                                <p class="text-xs md:text-sm text-[#322F35]">University of Melbourne</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 fade-up" data-delay="1.6"
-                        data-duration="1.0">
-                        <div
-                            class="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col justify-between shadow-lg">
-                            <div>
-                                <h4 class="text-2xl md:text-3xl font-semibold text-[#000000]">United Kingdom</h4>
-                                <p class="text-lg md:text-xl text-[#000000] mt-1 font-semibold">Business &amp; Management
-                                </p>
-
-                                <div class="text-4xl text-[#092962] mt-4 mb-3 leading-none font-sans"> <i
-                                        class="fa-solid fa-quote-right"></i>
-                                </div>
-
-                                <p class="text-sm md:text-base text-[#000000] leading-relaxed">
-                                    Studying in the UK helped me gain a deeper understanding of international business
-                                    practices. The multicultural exposure and internship opportunities boosted my confidence
-                                    and global mindset.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center gap-3 mt-4">
-                                <img src="images/man.png" alt="Reviewer"
-                                    class="w-9 h-9 rounded-full object-cover border border-gray-300" />
-                                <div>
-                                    <p class="text-sm md:text-base font-semibold text-[#322F35]">Hassan Ahmed</p>
-                                    <p class="text-xs md:text-sm text-[#322F35]">University of London</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#041C47] rounded-2xl p-6 flex flex-col justify-between text-white shadow-lg">
-                            <div>
-                                <h4 class="text-lg md:text-xl font-semibold">Germany</h4>
-                                <p class="text-sm md:text-base mt-1 opacity-90">Science &amp; Research</p>
-
-                                <div class="text-4xl text-green-400 mt-4 mb-3 leading-none font-sans"> <i
-                                        class="fa-solid fa-quote-right"></i>
-                                </div>
-
-                                <p class="text-sm md:text-base text-white/90 leading-relaxed">
-                                    My time in Germany was remarkable — a perfect blend of innovation, discipline, and
-                                    academic excellence. I learned not only from professors but also from the rich culture
-                                    and advanced research opportunities.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center gap-3 mt-4">
-                                <img src="images/man.png" alt="Reviewer"
-                                    class="w-9 h-9 rounded-full object-cover border border-white/30" />
-                                <div>
-                                    <p class="text-sm md:text-base font-semibold">Fatima Noor</p>
-                                    <p class="text-xs md:text-sm opacity-80">Technical University of Munich</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto mt-10 text-center sm:text-left fade-up"
-                data-delay="1.8" data-duration="1.0">
-                <div class="flex flex-col sm:flex-row items-center sm:space-x-4 text-gray-600">
-                    <p class="text-sm md:text-base">1500+ Satisfied Students</p>
-                    <div class="flex items-center text-yellow-500 mt-2 sm:mt-0">
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star text-xs md:text-sm"></i>
-                        <i class="fas fa-star-half-alt text-xs md:text-sm"></i>
-                        <span class="text-sm md:text-base text-gray-800 ml-2">4.9</span>
-                    </div>
-                    <p class="text-xs md:text-sm text-gray-500 mt-2 sm:mt-0">Based on 1.5K+ reviews</p>
-                </div>
-                <a href="#"
-                    class="text-sm md:text-base font-semibold text-[#092962] mt-4 sm:mt-0 hover:text-[#74BF1A] transition-all">
-                    View all reviews <i class="fa-solid fa-arrow-right ml-1"></i>
-                </a>
-            </div>
-        </div>
-    </section>
 
 
     <!----------------------------------- FAQS SECTION ----------------------------------------------->
@@ -898,91 +743,91 @@
                 @endforelse
 
                 @if (false)
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">1</span>
-                            <span>What is the process to study abroad?</span>
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">1</span>
+                                <span>What is the process to study abroad?</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            The process involves selecting your preferred country, researching
+                            universities, preparing academic and financial documents, submitting
+                            applications, receiving an admission letter, and finally applying for
+                            a student visa.
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        The process involves selecting your preferred country, researching
-                        universities, preparing academic and financial documents, submitting
-                        applications, receiving an admission letter, and finally applying for
-                        a student visa.
                     </div>
-                </div>
 
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">2</span>
-                            <span>What are the requirements for admission?</span>
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">2</span>
+                                <span>What are the requirements for admission?</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            Admission requirements usually include academic transcripts, English
+                            proficiency test scores (IELTS, TOEFL, or equivalent), a statement of
+                            purpose, recommendation letters, and a valid passport.
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Admission requirements usually include academic transcripts, English
-                        proficiency test scores (IELTS, TOEFL, or equivalent), a statement of
-                        purpose, recommendation letters, and a valid passport.
                     </div>
-                </div>
 
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">3</span>
-                            <span>Do I need IELTS to study abroad?</span>
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">3</span>
+                                <span>Do I need IELTS to study abroad?</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            Many universities require IELTS or TOEFL. However, some institutions
+                            accept alternatives like Duolingo English Test or exempt students who
+                            have studied in English-medium institutions.
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Many universities require IELTS or TOEFL. However, some institutions
-                        accept alternatives like Duolingo English Test or exempt students who
-                        have studied in English-medium institutions.
                     </div>
-                </div>
 
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">4</span>
-                            <span>What is the estimated cost of studying abroad?</span>
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">4</span>
+                                <span>What is the estimated cost of studying abroad?</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            The cost depends on the country, program, and lifestyle. On average,
+                            tuition fees range from $8,000 to $25,000 per year, while living
+                            expenses may cost between $600 and $1,500 per month.
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        The cost depends on the country, program, and lifestyle. On average,
-                        tuition fees range from $8,000 to $25,000 per year, while living
-                        expenses may cost between $600 and $1,500 per month.
                     </div>
-                </div>
 
-                <div
-                    class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
-                    <button
-                        class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[#74BF1A] font-bold text-lg">5</span>
-                            <span>Can I work while studying abroad?</span>
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">5</span>
+                                <span>Can I work while studying abroad?</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            Most countries allow international students to work part-time (10–20
+                            hours per week) during semesters and full-time during breaks, helping
+                            to cover living expenses.
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-12 pb-4 text-gray-600">
-                        Most countries allow international students to work part-time (10–20
-                        hours per week) during semesters and full-time during breaks, helping
-                        to cover living expenses.
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -1011,113 +856,4 @@
             });
         });
     </script>
-
-
-
-    <!-----------------------------------FORM SECTION----------------------------------------------->
-    <section class="py-16 bg-[#F6F6F6] overflow-hidden">
-        <div class="px-6 md:px-12">
-
-
-            <div class="flex flex-col lg:flex-row items-stretch gap-10">
-
-                <div class="w-full lg:w-1/2 flex items-center slide-right" data-delay="0.9" data-duration="1.2">
-                    <div class="overflow-hidden rounded-2xl shadow-lg w-full h-[800px] my-auto">
-                        <img src="images/call-form.png" alt="Students"
-                            class="w-full h-full object-cover rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl" />
-                    </div>
-                </div>
-
-                <div class="w-full lg:w-1/2 flex flex-col justify-between slide-left" data-delay="0.7"
-                    data-duration="1.2">
-                    <div class="border rounded-2xl shadow-lg p-6 md:p-8 bg-white flex flex-col justify-between w-full h-full"
-                        id="consultation-form-section">
-                        <div>
-                            <h1 class="text-3xl font-bold mb-6 text-[#092962]">
-                                Share Your Details Our Experts Will Contact You
-                            </h1>
-
-                            <form action="" class="space-y-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="First Name" />
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="Last Name" />
-                                </div>
-
-                                <input
-                                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                    placeholder="E-mail" />
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="Phone Number" />
-                                    <input
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none"
-                                        placeholder="LinkedIn Profile" />
-                                </div>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>
-                                            Preferred Study Destination
-                                        </option>
-                                        <option value="uk">UK</option>
-                                        <option value="usa">USA</option>
-                                        <option value="canada">Canada</option>
-                                    </select>
-
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>Nearest Branch Time</option>
-                                        <option value="morning">Morning</option>
-                                        <option value="afternoon">Afternoon</option>
-                                        <option value="evening">Evening</option>
-                                    </select>
-                                </div>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>
-                                            Preferred Mode of Counseling
-                                        </option>
-                                        <option value="online">Online</option>
-                                        <option value="in-person">In-Person</option>
-                                        <option value="phone">Phone Call</option>
-                                    </select>
-
-                                    <select
-                                        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none text-gray-500">
-                                        <option selected disabled>Preferred Study Level</option>
-                                        <option value="undergraduate">Undergraduate</option>
-                                        <option value="postgraduate">Postgraduate</option>
-                                        <option value="phd">PhD / Research</option>
-                                        <option value="diploma">Diploma / Certificate</option>
-                                    </select>
-                                </div>
-
-                                <textarea rows="5"
-                                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#74BF1A] outline-none resize-none"
-                                    placeholder="Message"></textarea>
-                            </form>
-                        </div>
-
-                        <div class="mt-8 flex items-center justify-center">
-                            <a href="#"
-                                class="bg-[#74BF1A] text-white px-6 md:px-32 font-bold py-3 rounded-lg hover:bg-green-600 transition w-full text-center">
-                                Submit
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
 @endsection
