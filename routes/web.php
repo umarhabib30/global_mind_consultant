@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\{
     PopupController,
     PostController,
     ReviewController as AdminReviewController,
+    ServiceFaqController,
     SuccessStoryController as AdminSuccessStoryController,
     TeamController,
     TopFieldController as AdminTopFieldController,
@@ -161,6 +162,16 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
         Route::get('/{id}/edit', 'edit')->name('ielts-faqs.edit');
         Route::put('/{id}', 'update')->name('ielts-faqs.update');
         Route::delete('/{id}', 'destroy')->name('ielts-faqs.destroy');
+    });
+
+    // Service FAQ Routes
+    Route::controller(ServiceFaqController::class)->prefix('service-faqs')->group(function () {
+        Route::get('/', 'index')->name('service-faqs.index');
+        Route::get('/create', 'create')->name('service-faqs.create');
+        Route::post('/', 'store')->name('service-faqs.store');
+        Route::get('/{id}/edit', 'edit')->name('service-faqs.edit');
+        Route::put('/{id}', 'update')->name('service-faqs.update');
+        Route::delete('/{id}', 'destroy')->name('service-faqs.destroy');
     });
 
     // Popup Routes

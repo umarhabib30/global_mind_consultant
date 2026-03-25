@@ -878,6 +878,26 @@
             </h2>
 
             <div class="space-y-6 slide-up" data-delay="0.6" data-duration="1.2">
+                @forelse ($faqs as $index => $faq)
+                    <div
+                        class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
+                        <button
+                            class="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800 focus:outline-none faq-toggle">
+                            <div class="flex items-center gap-4">
+                                <span class="text-[#74BF1A] font-bold text-lg">{{ $index + 1 }}</span>
+                                <span>{{ $faq->question }}</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-[#74BF1A] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-12 pb-4 text-gray-600">
+                            {{ $faq->answer }}
+                        </div>
+                    </div>
+                @empty
+                    <div class="text-center text-gray-500">No FAQs available right now.</div>
+                @endforelse
+
+                @if (false)
                 <div
                     class="faq-item border rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300">
                     <button
@@ -963,6 +983,7 @@
                         to cover living expenses.
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </section>

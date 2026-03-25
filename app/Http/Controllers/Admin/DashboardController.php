@@ -13,6 +13,7 @@ use App\Models\EventReservation;
 use App\Models\IeltsFaq;
 use App\Models\Post;
 use App\Models\Review;
+use App\Models\ServiceFaq;
 use App\Models\SuccessStory;
 use App\Models\Team;
 use App\Models\University;
@@ -44,7 +45,7 @@ class DashboardController extends Controller
             ->limit(6)
             ->get();
 
-        $faqsCount = AboutFaq::count() + DestinationFaqs::count() + IeltsFaq::count();
+        $faqsCount = AboutFaq::count() + DestinationFaqs::count() + IeltsFaq::count() + ServiceFaq::count();
         $reviewsApproved = Review::where('status', 'approved')->count();
         $reviewsPending = Review::where('status', 'pending')->count();
         $reviewsRejected = Review::where('status', 'rejected')->count();

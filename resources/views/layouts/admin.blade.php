@@ -660,6 +660,26 @@
                                 </div>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-service-faqs" aria-controls="submenu-service-faqs">
+                                    <i class="fas fa-concierge-bell"></i> Service FAQs
+                                </a>
+                                <div id="submenu-service-faqs"
+                                    class="collapse submenu {{ $active == 'service-faqs' ? 'show' : '' }}">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('service-faqs.index') }}">View
+                                                FAQs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('service-faqs.create') }}">Add
+                                                FAQ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
 
 
 

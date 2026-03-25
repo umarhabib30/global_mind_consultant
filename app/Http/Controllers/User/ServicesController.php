@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\ServiceFaq;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -12,7 +13,12 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        return view('user.services');
+        $faqs = ServiceFaq::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('user.services', compact('faqs'));
     }
 
     /**
