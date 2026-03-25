@@ -205,6 +205,95 @@
             box-shadow: 0 12px 28px rgba(20, 42, 96, 0.16);
         }
 
+        .dashboard-wrapper .admin-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 0;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: .2px;
+            padding: 12px 24px;
+            transition: all .22s ease;
+            box-shadow: 0 12px 24px rgba(15, 39, 94, 0.14);
+        }
+
+        .dashboard-wrapper .admin-btn:hover,
+        .dashboard-wrapper .admin-btn:focus {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 28px rgba(15, 39, 94, 0.18);
+        }
+
+        .dashboard-wrapper .admin-btn-primary {
+            background: linear-gradient(135deg, #8bcf2c 0%, #74bf1a 100%);
+            color: #fff !important;
+        }
+
+        .dashboard-wrapper .admin-btn-primary:hover,
+        .dashboard-wrapper .admin-btn-primary:focus {
+            background: linear-gradient(135deg, #7dc21f 0%, #65ab14 100%);
+            color: #fff !important;
+        }
+
+        .dashboard-wrapper .admin-btn-secondary {
+            background: linear-gradient(135deg, #12357d 0%, #0a245d 100%);
+            color: #fff !important;
+        }
+
+        .dashboard-wrapper .admin-btn-secondary:hover,
+        .dashboard-wrapper .admin-btn-secondary:focus {
+            background: linear-gradient(135deg, #0f306f 0%, #081c49 100%);
+            color: #fff !important;
+        }
+
+        .dashboard-wrapper .admin-btn-wide {
+            min-width: 220px;
+            padding-inline: 42px;
+        }
+
+        .dashboard-wrapper .admin-btn-sm {
+            padding: 9px 18px;
+            font-size: 13px;
+            box-shadow: 0 10px 20px rgba(15, 39, 94, 0.12);
+        }
+
+        .dashboard-wrapper .btn:not(.admin-btn):not(.btn-link):not(.btn-close):not(.btn-outline-danger):not(.btn-outline-primary) {
+            border-radius: 999px;
+            font-weight: 700;
+            transition: all .22s ease;
+            box-shadow: 0 10px 22px rgba(15, 39, 94, 0.12);
+        }
+
+        .dashboard-wrapper .btn:not(.admin-btn):not(.btn-link):not(.btn-close):not(.btn-outline-danger):not(.btn-outline-primary):hover,
+        .dashboard-wrapper .btn:not(.admin-btn):not(.btn-link):not(.btn-close):not(.btn-outline-danger):not(.btn-outline-primary):focus {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 26px rgba(15, 39, 94, 0.16);
+        }
+
+        .dashboard-wrapper .btn-success:not(.admin-btn) {
+            background: linear-gradient(135deg, #8bcf2c 0%, #74bf1a 100%);
+            border-color: transparent;
+        }
+
+        .dashboard-wrapper .btn-primary:not(.admin-btn),
+        .dashboard-wrapper .btn-info:not(.admin-btn) {
+            background: linear-gradient(135deg, #12357d 0%, #0a245d 100%);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .dashboard-wrapper .btn-danger:not(.admin-btn) {
+            background: linear-gradient(135deg, #ec5b63 0%, #d63341 100%);
+            border-color: transparent;
+        }
+
+        .dashboard-wrapper .btn-warning:not(.admin-btn) {
+            background: linear-gradient(135deg, #ffc857 0%, #f2ad00 100%);
+            border-color: transparent;
+            color: #1f2a44;
+        }
+
         @media (max-width: 991px) {
             .admin-topbar {
                 height: auto;

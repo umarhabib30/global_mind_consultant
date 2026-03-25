@@ -6,7 +6,7 @@
             <div class="card-header text-white d-flex justify-content-between align-items-center"
                 style="background-color: #0A245D;">
                 <h5 class="mb-0 text-white">Edit Top Field</h5>
-                <a href="{{ route('top-field.index') }}" class="btn btn-success btn-sm">Back to Top Fields</a>
+                <a href="{{ route('top-field.index') }}" class="btn admin-btn admin-btn-secondary admin-btn-sm">Back to Top Fields</a>
             </div>
 
             <div class="card-body p-4">
@@ -93,8 +93,7 @@
                     </div>
 
                     <div class="mt-4 text-center">
-                        <button type="submit" class="btn btn-lg shadow-sm"
-                            style="background-color: #74BF1A; color: white; padding: 12px 60px; font-weight: 600; border-radius: 30px;">
+                        <button type="submit" class="btn admin-btn admin-btn-primary admin-btn-wide">
                             Update Top Field
                         </button>
                     </div>

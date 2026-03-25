@@ -191,8 +191,7 @@
     </div>
 
     <div class="mt-4 text-center">
-        <button type="submit" class="btn btn-lg shadow-sm"
-            style="background-color: #74BF1A; color: white; padding: 12px 60px; font-weight: 600; border-radius: 30px;">
+        <button type="submit" class="btn admin-btn admin-btn-primary admin-btn-wide">
             {{ $isEdit ? 'Update Story' : 'Create Story' }}
         </button>
     </div>

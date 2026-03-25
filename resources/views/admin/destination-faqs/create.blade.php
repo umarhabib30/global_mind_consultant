@@ -5,8 +5,7 @@
             <div class="card shadow-lg rounded-lg border-0">
                 <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #0A245D;">
                     <h5 class="text-white mb-0">Add Destination FAQ</h5>
-                    <a href="{{ route('destination-faqs.index') }}"
-                        class="btn" style="background-color: #74BF1A; color: white; font-weight: 600;">
+                    <a href="{{ route('destination-faqs.index') }}" class="btn admin-btn admin-btn-secondary admin-btn-sm">
                         Back to FAQs
                     </a>
                 </div>
@@ -56,8 +55,7 @@
                         </div>
 
                         <div class="mt-4 text-center">
-                            <button type="submit" class="btn btn-lg shadow"
-                                style="background-color: #74BF1A; color: white; font-weight: 600; padding: 12px 50px;">
+                            <button type="submit" class="btn admin-btn admin-btn-primary admin-btn-wide">
                                 Save FAQ
                             </button>
                         </div>

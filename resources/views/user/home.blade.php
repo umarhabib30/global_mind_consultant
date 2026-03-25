@@ -974,15 +974,6 @@
                     </div>
                 </div>
             @else
-                <div
-                    class="max-w-2xl mx-auto text-center rounded-2xl border border-dashed border-[#74BF1A]/40 bg-white p-10 shadow-sm">
-                    <h3 class="text-2xl font-bold text-[#0A2D5A] mb-2">Universities will appear here</h3>
-                    <p class="text-gray-600 mb-6">Add universities from admin panel to show them in this section.</p>
-                    <a href="{{ route('contact') }}"
-                        class="inline-flex items-center gap-2 rounded-lg bg-[#74BF1A] text-white px-6 py-3 font-semibold hover:bg-green-600 transition">
-                        Contact Us <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
             @endif
 
         </div>
@@ -1225,14 +1216,15 @@
             </div>
         </div>
     </section>
-        <!-- ---------------Success Stories Preview--------------------------------------------- -->
+    <!-- ---------------Success Stories Preview--------------------------------------------- -->
     <section class="py-16 bg-white">
         <div class="px-6 md:px-12 max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
                 <div>
                     <p class="text-sm uppercase tracking-[0.2em] text-[#74BF1A] font-bold">Case Portfolio</p>
                     <h2 class="text-3xl md:text-4xl font-bold text-[#0A245D] mt-2">Recent Success Stories</h2>
-                    <p class="text-slate-600 mt-2">Verified immigration and education outcomes handled by our consultants.</p>
+                    <p class="text-slate-600 mt-2">Verified immigration and education outcomes handled by our consultants.
+                    </p>
                 </div>
                 <a href="{{ route('success-stories.index') }}"
                     class="inline-flex items-center gap-2 text-[#0A245D] font-semibold hover:text-[#74BF1A] transition">
@@ -1242,12 +1234,14 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @forelse ($featuredSuccessStories as $story)
-                    <article class="rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                    <article
+                        class="rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                         <img src="{{ $story->cover_image ? asset($story->cover_image) : asset('images/home-01.png') }}"
                             alt="{{ $story->cover_image_alt ?: $story->title }}"
                             class="w-full h-48 object-cover {{ $story->cover_image_blur ? 'blur-sm' : '' }}">
                         <div class="p-5">
-                            <div class="text-xs text-slate-500">{{ $story->country ?: 'N/A' }} | {{ $story->visa_type ?: 'N/A' }}</div>
+                            <div class="text-xs text-slate-500">{{ $story->country ?: 'N/A' }} |
+                                {{ $story->visa_type ?: 'N/A' }}</div>
                             <h3 class="text-lg font-bold text-[#0A245D] mt-2">{{ $story->title ?: 'Untitled Story' }}</h3>
                             <p class="text-sm text-slate-600 mt-2 leading-7">
                                 {{ \Illuminate\Support\Str::limit($story->case_summary ?: strip_tags($story->full_story), 110) }}
@@ -1259,7 +1253,8 @@
                         </div>
                     </article>
                 @empty
-                    <div class="lg:col-span-3 rounded-xl border border-dashed border-slate-200 p-8 text-center text-slate-500">
+                    <div
+                        class="lg:col-span-3 rounded-xl border border-dashed border-slate-200 p-8 text-center text-slate-500">
                         No published success stories yet.
                     </div>
                 @endforelse
@@ -1288,7 +1283,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @forelse ($reviewsPreview as $review)
-                    <article class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl fade-up"
+                    <article
+                        class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl fade-up"
                         data-delay="1.0" data-duration="0.8">
                         <div class="flex items-center justify-between">
                             <div class="text-yellow-500">
@@ -1296,7 +1292,8 @@
                                     <i class="fa{{ $i <= $review->rating ? 's' : 'r' }} fa-star"></i>
                                 @endfor
                             </div>
-                            <span class="text-xs text-slate-400">{{ optional($review->created_at)->format('d M Y') }}</span>
+                            <span
+                                class="text-xs text-slate-400">{{ optional($review->created_at)->format('d M Y') }}</span>
                         </div>
                         <h3 class="mt-3 text-lg font-semibold text-[#0A245D]">
                             {{ $review->title ?: 'Student Review' }}
@@ -1309,7 +1306,8 @@
                                 <img src="{{ asset($review->image_url) }}" alt="{{ $review->name }}"
                                     class="w-10 h-10 rounded-full object-cover border border-gray-200" />
                             @else
-                                <div class="w-10 h-10 rounded-full bg-[#0A245D] text-white flex items-center justify-center font-semibold">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#0A245D] text-white flex items-center justify-center font-semibold">
                                     {{ \Illuminate\Support\Str::upper(\Illuminate\Support\Str::substr($review->name, 0, 1)) }}
                                 </div>
                             @endif
@@ -1322,7 +1320,8 @@
                         </div>
                     </article>
                 @empty
-                    <div class="lg:col-span-3 rounded-2xl border border-dashed border-slate-200 bg-white p-10 text-center text-slate-500">
+                    <div
+                        class="lg:col-span-3 rounded-2xl border border-dashed border-slate-200 bg-white p-10 text-center text-slate-500">
                         No approved reviews yet. Be the first to share your feedback.
                     </div>
                 @endforelse
@@ -1399,5 +1398,3 @@
         });
     </script>
 @endsection
-
-

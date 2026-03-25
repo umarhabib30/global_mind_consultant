@@ -61,7 +61,7 @@
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-header bg-white border-bottom d-flex justify-content-between align-items-center py-3">
                         <h5 class="fw-bold mb-0" style="color: #0A245D;">Event Details</h5>
-                        <a href="{{ route('event.index') }}" class="btn btn-sm px-3" style="background-color: #74BF1A; color: white;">
+                        <a href="{{ route('event.index') }}" class="btn admin-btn admin-btn-secondary admin-btn-sm">
                             Back to List
                         </a>
                     </div>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="mb-3">
-            <a href="{{ route('posts.index') }}" class="btn btn-sm shadow-sm text-white" style="background-color: #0A245D;">
+            <a href="{{ route('posts.index') }}" class="btn admin-btn admin-btn-secondary admin-btn-sm">
                 <i class="fa fa-arrow-left me-1"></i> Back to List
             </a>
         </div>
@@ -75,9 +75,8 @@
                                 <div class="card-body bg-white">
                                     <p class="small text-muted mb-4">By clicking publish, this post will be immediately
                                         visible on the website.</p>
-                                    <button type="submit" class="btn btn-lg w-100 fw-bold border-0 shadow-sm text-white"
-                                        style="background-color: #79BD21;">
-                                        <i class="fa fa-check-circle me-2"></i>PUBLISH NOW
+                                    <button type="submit" class="btn admin-btn admin-btn-primary w-100">
+                                        <i class="fa fa-check-circle me-2"></i>Publish Now
                                     </button>
                                 </div>
                             </div>

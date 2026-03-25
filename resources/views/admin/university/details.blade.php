@@ -5,7 +5,7 @@
         <!-- Card Header -->
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #0A245D;">
             <h5 class="text-white mb-0">Edit Team Member</h5>
-            <a href="{{ url('admin/team/index') }}" class="btn" style="background-color: #74BF1A; color: white; font-weight: 600;">Back to Team</a>
+            <a href="{{ url('admin/team/index') }}" class="btn admin-btn admin-btn-secondary admin-btn-sm">Back to Team</a>
         </div>
 
         <!-- Card Body -->
@@ -93,8 +93,7 @@
                 </div>
 
                 <div class="mt-5 text-center">
-                    <button type="submit" class="btn btn-lg shadow" style="background-color: #74BF1A; color: white; font-weight: 600; padding: 12px 50px; transition: 0.3s;"
-                        onmouseover="this.style.backgroundColor='#5DA114'" onmouseout="this.style.backgroundColor='#74BF1A'">
+                    <button type="submit" class="btn admin-btn admin-btn-primary admin-btn-wide">
                         Update Team Member
                     </button>
                 </div>

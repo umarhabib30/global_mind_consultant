@@ -180,12 +180,13 @@
     <script src="{{ asset('assets/js/menu.js') }}"></script>
     <script src="{{ asset('assets/js/animations.js') }}"></script>
     <!------------------------ Footer ----------------------------------  -->
-    <footer class="mt-16 bg-[#0A245D] text-white">
+    <footer class="mt-16 text-white border-t border-[#123778]"
+        style="background: radial-gradient(circle at 8% 10%, #1d4f9f 0%, #0a245d 42%, #071a46 100%);">
         <div class="max-w-7xl mx-auto px-6 md:px-12 py-12">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div>
-                    <a href="{{ route('home') }}" class="inline-flex items-center">
-                        <img src="{{ asset('images/logo.png') }}" class="h-20 w-auto" alt="Global Minds Consultants" />
+                    <a href="{{ route('home') }}" class="inline-flex items-center bg-white rounded-2xl px-4 py-3 shadow-xl">
+                        <img src="{{ asset('images/logo.png') }}" class="h-28 md:h-32 w-auto" alt="Global Minds Consultants" />
                     </a>
                     <p class="mt-4 text-sm leading-7 text-blue-100">
                         Global Minds Consultants helps students choose the right destination, apply confidently, and
@@ -263,7 +264,7 @@
 
         <div class="border-t border-white/15">
             <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 text-sm text-blue-100 text-center">
-                Global Minds Consultants {{ date('Y') }} | All Rights Reserved
+                Global Minds Consultants {{ date('Y') }} | Private LTD. All rights reserved.
             </div>
         </div>
     </footer>
